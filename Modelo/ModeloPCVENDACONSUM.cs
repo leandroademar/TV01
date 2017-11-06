@@ -10,8 +10,8 @@ namespace Modelo
     {
         public ModeloPCVENDACONSUM()
         {
-            this.cliente = "CONSUMIRDOR FINAL";
-            this.cgcent = "11111111111";
+            this.cliente = "";
+            this.cgcent = "";
         }
         
         private long? _numped;

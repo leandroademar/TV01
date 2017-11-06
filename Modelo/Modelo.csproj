@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModeloPCCARREG.cs" />
+    <Compile Include="ModeloPCEST.cs" />
     <Compile Include="ModeloPCORIGEMPRECO.cs" />
     <Compile Include="ModeloPCPEDC.cs" />
     <Compile Include="ModeloPCPEDI.cs" />

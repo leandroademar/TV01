@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class DALVAR
+    public class DALVAR
     {
+        private DALConexao conexao;
+
+        public DALVAR(DALConexao cx)
+        {
+            this.conexao = cx;
+        }
+
+
     }
 }

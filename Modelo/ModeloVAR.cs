@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class ModeloVAR
+    public class ModeloVAR
     {
+        private long _newnumped;
+
+        public long newnumped
+        {
+            get
+            {
+                return this._newnumped;
+            }
+            set
+            {
+                this._newnumped = value;
+            }
+        }
+
     }
 }

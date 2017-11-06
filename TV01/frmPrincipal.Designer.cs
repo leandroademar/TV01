@@ -36,7 +36,6 @@
             this.lblVTotal = new System.Windows.Forms.Label();
             this.txtQtdItens = new System.Windows.Forms.TextBox();
             this.txtVlrTotal = new System.Windows.Forms.TextBox();
-            this.ckbAlterar = new System.Windows.Forms.CheckBox();
             this.lblcpf = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtCpf = new System.Windows.Forms.TextBox();
@@ -59,7 +58,7 @@
             // 
             this.btnBuscar.AutoSize = true;
             this.btnBuscar.Location = new System.Drawing.Point(121, 42);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(26, 23);
             this.btnBuscar.TabIndex = 0;
@@ -71,10 +70,11 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(8, 44);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(110, 20);
             this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // pnlCabec
@@ -84,13 +84,12 @@
             this.pnlCabec.Controls.Add(this.lblVTotal);
             this.pnlCabec.Controls.Add(this.txtQtdItens);
             this.pnlCabec.Controls.Add(this.txtVlrTotal);
-            this.pnlCabec.Controls.Add(this.ckbAlterar);
             this.pnlCabec.Controls.Add(this.lblcpf);
             this.pnlCabec.Controls.Add(this.lblNome);
             this.pnlCabec.Controls.Add(this.txtCpf);
             this.pnlCabec.Controls.Add(this.txtNome);
             this.pnlCabec.Location = new System.Drawing.Point(8, 86);
-            this.pnlCabec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCabec.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCabec.Name = "pnlCabec";
             this.pnlCabec.Size = new System.Drawing.Size(432, 91);
             this.pnlCabec.TabIndex = 3;
@@ -118,7 +117,7 @@
             // txtQtdItens
             // 
             this.txtQtdItens.Location = new System.Drawing.Point(225, 61);
-            this.txtQtdItens.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtQtdItens.Margin = new System.Windows.Forms.Padding(2);
             this.txtQtdItens.Name = "txtQtdItens";
             this.txtQtdItens.Size = new System.Drawing.Size(79, 20);
             this.txtQtdItens.TabIndex = 15;
@@ -126,21 +125,10 @@
             // txtVlrTotal
             // 
             this.txtVlrTotal.Location = new System.Drawing.Point(71, 61);
-            this.txtVlrTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVlrTotal.Margin = new System.Windows.Forms.Padding(2);
             this.txtVlrTotal.Name = "txtVlrTotal";
             this.txtVlrTotal.Size = new System.Drawing.Size(79, 20);
             this.txtVlrTotal.TabIndex = 14;
-            // 
-            // ckbAlterar
-            // 
-            this.ckbAlterar.AutoSize = true;
-            this.ckbAlterar.Location = new System.Drawing.Point(305, 36);
-            this.ckbAlterar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.ckbAlterar.Name = "ckbAlterar";
-            this.ckbAlterar.Size = new System.Drawing.Size(72, 21);
-            this.ckbAlterar.TabIndex = 13;
-            this.ckbAlterar.Text = "Alterar ?";
-            this.ckbAlterar.UseVisualStyleBackColor = true;
             // 
             // lblcpf
             // 
@@ -165,7 +153,7 @@
             // txtCpf
             // 
             this.txtCpf.Location = new System.Drawing.Point(71, 34);
-            this.txtCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(151, 20);
             this.txtCpf.TabIndex = 1;
@@ -173,7 +161,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(71, 8);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(299, 20);
             this.txtNome.TabIndex = 0;
@@ -181,7 +169,7 @@
             // rtbPedGerados
             // 
             this.rtbPedGerados.Location = new System.Drawing.Point(8, 235);
-            this.rtbPedGerados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtbPedGerados.Margin = new System.Windows.Forms.Padding(2);
             this.rtbPedGerados.Name = "rtbPedGerados";
             this.rtbPedGerados.Size = new System.Drawing.Size(304, 175);
             this.rtbPedGerados.TabIndex = 4;
@@ -250,7 +238,7 @@
             // btnGerar
             // 
             this.btnGerar.Location = new System.Drawing.Point(319, 386);
-            this.btnGerar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGerar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGerar.Name = "btnGerar";
             this.btnGerar.Size = new System.Drawing.Size(58, 23);
             this.btnGerar.TabIndex = 9;
@@ -261,7 +249,7 @@
             // btnSair
             // 
             this.btnSair.Location = new System.Drawing.Point(381, 386);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(2);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(58, 23);
             this.btnSair.TabIndex = 10;
@@ -286,7 +274,7 @@
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.btnBuscar);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPrincipal";
@@ -316,7 +304,6 @@
         private System.Windows.Forms.Label lblPedidos;
         private System.Windows.Forms.Button btnGerar;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.CheckBox ckbAlterar;
         private System.Windows.Forms.Label lblcpf;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtCpf;

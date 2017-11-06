@@ -44,7 +44,7 @@ namespace TV01
             txtVlrTotal.ReadOnly = true;
             txtQtdItens.ReadOnly = true;
             txtCpf.ReadOnly = true;
-            ckbAlterar.Checked = false;
+            txtCodigo.Focus();
         }
 
         private void frmPrincipal_KeyDown(object sender, KeyEventArgs e)
@@ -128,6 +128,17 @@ namespace TV01
             
 
 
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+
+            {
+
+                e.Handled = true;
+
+            }
         }
     }
 }
