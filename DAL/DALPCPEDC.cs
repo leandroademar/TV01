@@ -878,7 +878,7 @@ namespace DAL
 
         public ModeloPCPEDC CarregaModeloPCPEDC (long codigo)
         {
-           String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F'";
+           String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND CONDVENDA = 7 ";
 
             ModeloPCPEDC modelo = new ModeloPCPEDC();
             OracleCommand cmd = new OracleCommand();

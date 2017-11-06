@@ -45,6 +45,7 @@
     <Compile Include="ModeloPCPEDC.cs" />
     <Compile Include="ModeloPCPEDI.cs" />
     <Compile Include="ModeloPCVENDACONSUM.cs" />
+    <Compile Include="ModeloVAR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

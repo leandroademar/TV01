@@ -48,6 +48,7 @@
     <Compile Include="DALPCPEDC.cs" />
     <Compile Include="DALPCPEDI.cs" />
     <Compile Include="DALPCVENDACONSUM.cs" />
+    <Compile Include="DALVAR.cs" />
     <Compile Include="DBNullClasse.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
