@@ -44,7 +44,7 @@ namespace Modelo
             this.obs1 = "";
             this.obs2 = "";
             this.condvenda = 0;
-            this.dtentrega = DateTime.Now; 
+            this.dtentrega = null; 
             this.numpedrca = 0;
             this.fretedespacho = "";
             this.freteredespacho = "";

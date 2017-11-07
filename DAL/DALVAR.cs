@@ -18,7 +18,7 @@ namespace DAL
         }
         public ModeloVAR CarreganewNUMPED(int CODUSUR)
         {
-            String comando1 = "SELECT NVL(PROXNUMPED,1) PROXNUMPED FROM PCUSUARI WHERE CODUSUR = :CODUSUR FOR UPDATE";
+            String comando1 = "SELECT NVL(PROXNUMPED,1) PROXNUMPED FROM PCUSUARI WHERE CODUSUR = :CODUSUR ";
 
             ModeloVAR modelo = new ModeloVAR();
             OracleCommand cmd = new OracleCommand();

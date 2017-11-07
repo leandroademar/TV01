@@ -128,6 +128,7 @@ namespace TV01
             modelopcpc.condvenda = 1;
             
             bllpcpc.Incluir(modelopcpc);
+            bllvar.AlterarNW(modelopcpc);
            
             
 
