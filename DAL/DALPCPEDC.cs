@@ -67,8 +67,10 @@ namespace DAL
             comando1 = comando1 + "       CODFORNECFRETE, " + "\n";
             comando1 = comando1 + "       CODFORNECREDESPACHO, " + "\n";
             comando1 = comando1 + "       TIPOCARGA, " + "\n";
-            comando1 = comando1 + "       PRAZO1, " + "\n";
-            comando1 = comando1 + "       PRAZO2, " + "\n";
+            if (modelo.prazo1 != null)
+            { comando1 = comando1 + "       PRAZO1, " + "\n"; }
+            if (modelo.prazo2 != null)
+            { comando1 = comando1 + "       PRAZO2, " + "\n"; }
             comando1 = comando1 + "       PRAZO3, " + "\n";
             comando1 = comando1 + "       PRAZO4, " + "\n";
             comando1 = comando1 + "       PRAZO5, " + "\n";
@@ -234,8 +236,10 @@ namespace DAL
             comando1 = comando1 + "       :CODFORNECFRETE, " + "\n";
             comando1 = comando1 + "       :CODFORNECREDESPACHO, " + "\n";
             comando1 = comando1 + "       :TIPOCARGA, " + "\n";
-            comando1 = comando1 + "       :PRAZO1, " + "\n";
-            comando1 = comando1 + "       :PRAZO2, " + "\n";
+            if (modelo.prazo1 != null)
+            { comando1 = comando1 + "       :PRAZO1, " + "\n"; }
+            if (modelo.prazo2 != null)
+            { comando1 = comando1 + "       :PRAZO2, " + "\n"; }
             comando1 = comando1 + "       :PRAZO3, " + "\n";
             comando1 = comando1 + "       :PRAZO4, " + "\n";
             comando1 = comando1 + "       :PRAZO5, " + "\n";
@@ -401,8 +405,8 @@ namespace DAL
             cmd.Parameters.AddWithValue(":CODFORNECFRETE", modelo.codfornecfrete);
             cmd.Parameters.AddWithValue(":CODFORNECREDESPACHO", modelo.codfornecredespacho);
             cmd.Parameters.AddWithValue(":TIPOCARGA", modelo.tipocarga);
-            cmd.Parameters.AddWithValue(":PRAZO1", modelo.prazo1);
-            cmd.Parameters.AddWithValue(":PRAZO2", modelo.prazo2);
+            if (modelo.prazo1 != null) { cmd.Parameters.AddWithValue(":PRAZO1", modelo.prazo1); }
+            if (modelo.prazo2 != null) { cmd.Parameters.AddWithValue(":PRAZO2", modelo.prazo2); }
             cmd.Parameters.AddWithValue(":PRAZO3", modelo.prazo3);
             cmd.Parameters.AddWithValue(":PRAZO4", modelo.prazo4);
             cmd.Parameters.AddWithValue(":PRAZO5", modelo.prazo5);

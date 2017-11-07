@@ -51,8 +51,8 @@ namespace Modelo
             this.codfornecfrete = 0;
             this.codfornecredespacho = 0;
             this.tipocarga = "";
-            this.prazo1 = 0;
-            this.prazo2 = 0;
+            //this.prazo1 = 0;
+            //this.prazo2 = 0;
             this.prazo3 = 0;
             this.prazo4 = 0;
             this.prazo5 = 0;

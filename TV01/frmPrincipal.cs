@@ -123,12 +123,12 @@ namespace TV01
 
             BLLVAR bllvar = new BLLVAR(cx);
             ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
+            bllvar.AlterarNW(modelovar);
 
             modelopcpc.numped = modelovar.newnumped;
             modelopcpc.condvenda = 1;
             
             bllpcpc.Incluir(modelopcpc);
-            bllvar.AlterarNW(modelovar);
            
             
 
