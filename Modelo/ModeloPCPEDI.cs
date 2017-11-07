@@ -10,7 +10,7 @@ namespace Modelo
     {
         public ModeloPCPEDI()
         {
-            
+            this.devolucaocarcaca = "";
         }
 
         private int _codprod;

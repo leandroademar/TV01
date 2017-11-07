@@ -126,9 +126,11 @@ namespace TV01
             bllvar.AlterarNW(modelovar);
 
             modelopcpc.numped = modelovar.newnumped;
+            modelopcpi.numped = modelovar.newnumped;
             modelopcpc.condvenda = 1;
             
             bllpcpc.Incluir(modelopcpc);
+            bllpcpi.Incluir(modelopcpi);
            
             
 
