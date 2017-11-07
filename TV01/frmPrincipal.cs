@@ -123,12 +123,17 @@ namespace TV01
             modelopcpc.condvenda = 1;
             
             bllpcpc.Incluir(modelopcpc);
-            for (int i = 0; i < modelopcpi.qt; i++)
+            decimal numqt = modelopcpi.qt;
+            for (decimal i = 0; i < numqt; i++)
             {
                 modelopcpi.numseq = i + 1;
                 modelopcpi.qt = 1;
-                modelopcpi.qtcx = 1;
+                modelopcpi.volumedesejado = modelopcpi.qtunitcx;
+                modelopcpi.qtunitcx = 1;
+                modelopcpi.qtunitemb = 1;
                 bllpcpi.Incluir(modelopcpi);
+
+                numqt = numqt - 1;
             }
            
             
