@@ -8,6 +8,11 @@ namespace Modelo
 {
     public class ModeloPCPEDI
     {
+        public ModeloPCPEDI()
+        {
+            
+        }
+
         private int _codprod;
         private decimal _qt;
         private decimal _pvenda;

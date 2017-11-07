@@ -32,140 +32,140 @@ namespace DAL
             comando1 = comando1 + "       PVENDA, " + "\n";
             comando1 = comando1 + "       NUMPED, " + "\n";
             comando1 = comando1 + "       DATA, " + "\n";
-            comando1 = comando1 + "       CODCLI, " + "\n";
-            comando1 = comando1 + "       CODUSUR, " + "\n";
-            comando1 = comando1 + "       NUMCAR, " + "\n";
-            comando1 = comando1 + "       POSICAO, " + "\n";
-            comando1 = comando1 + "       ST, " + "\n";
-            comando1 = comando1 + "       VLCUSTOREAL, " + "\n";
-            comando1 = comando1 + "       VLCUSTOFIN, " + "\n";
-            comando1 = comando1 + "       PTABELA, " + "\n";
-            comando1 = comando1 + "       PERCOM, " + "\n";
-            comando1 = comando1 + "       PERDESC, " + "\n";
-            comando1 = comando1 + "       QTFALTA, " + "\n";
-            comando1 = comando1 + "       NUMSEQ, " + "\n";
-            comando1 = comando1 + "       VLDESCCUSTOCMV, " + "\n";
-            comando1 = comando1 + "       VLCUSTOCONT, " + "\n";
-            comando1 = comando1 + "       VLCUSTOREP, " + "\n";
-            comando1 = comando1 + "       VLDESCSUFRAMA, " + "\n";
-            comando1 = comando1 + "       CODST, " + "\n";
-            comando1 = comando1 + "       VLDESCFIN, " + "\n";
-            comando1 = comando1 + "       PVENDABASE, " + "\n";
-            comando1 = comando1 + "       VLIPI, " + "\n";
-            comando1 = comando1 + "       PERCIPI, " + "\n";
-            comando1 = comando1 + "       PORIGINAL, " + "\n";
-            comando1 = comando1 + "       IVA, " + "\n";
-            comando1 = comando1 + "       PAUTA, " + "\n";
-            comando1 = comando1 + "       ALIQICMS1, " + "\n";
-            comando1 = comando1 + "       ALIQICMS2, " + "\n";
-            comando1 = comando1 + "       STCLIENTEGNRE, " + "\n";
-            comando1 = comando1 + "       PERCBASERED, " + "\n";
-            comando1 = comando1 + "       PERCBASEREDST, " + "\n";
-            comando1 = comando1 + "       PERCBASEREDSTFONTE, " + "\n";
-            comando1 = comando1 + "       PERFRETECMV, " + "\n";
-            comando1 = comando1 + "       CUSTOFINEST, " + "\n";
-            comando1 = comando1 + "       PERCISS, " + "\n";
-            comando1 = comando1 + "       VLISS, " + "\n";
-            comando1 = comando1 + "       COMPLEMENTO, " + "\n";
-            comando1 = comando1 + "       PBASERCA, " + "\n";
-            comando1 = comando1 + "       VLVERBACMV, " + "\n";
-            comando1 = comando1 + "       NUMVERBAREBCMV, " + "\n";
-            comando1 = comando1 + "       BRINDE, " + "\n";
-            comando1 = comando1 + "       BASEICST, " + "\n";
-            comando1 = comando1 + "       QTCX, " + "\n";
-            comando1 = comando1 + "       QTPECAS, " + "\n";
-            comando1 = comando1 + "       LETRACOMISS, " + "\n";
-            comando1 = comando1 + "       CODAUXILIAR, " + "\n";
-            comando1 = comando1 + "       TXVENDA, " + "\n";
-            comando1 = comando1 + "       CODICMTAB, " + "\n";
-            comando1 = comando1 + "       PERDESCCUSTO, " + "\n";
-            comando1 = comando1 + "       CODFILIALRETIRA, " + "\n";
-            comando1 = comando1 + "       EANCODPROD, " + "\n";
-            comando1 = comando1 + "       VLDESCICMISENCAO, " + "\n";
-            comando1 = comando1 + "       PERDESCISENTOICMS, " + "\n";
-            comando1 = comando1 + "       VLVERBACMVCLI, " + "\n";
-            comando1 = comando1 + "       PVENDA1, " + "\n";
-            comando1 = comando1 + "       TIPOENTREGA, " + "\n";
-            comando1 = comando1 + "       GERAGNRE_CNPJCLIENTE, " + "\n";
-            comando1 = comando1 + "       PERCDIFALIQUOTAS, " + "\n";
-            comando1 = comando1 + "       BASEDIFALIQUOTAS, " + "\n";
-            comando1 = comando1 + "       VLDIFALIQUOTAS, " + "\n";
-            comando1 = comando1 + "       PERDESCPOLITICA, " + "\n";
-            comando1 = comando1 + "       PVENDAANTERIOR, " + "\n";
-            comando1 = comando1 + "       PRODDESCRICAOCONTRATO, " + "\n";
-            comando1 = comando1 + "       POLITICAPRIORITARIA, " + "\n";
-            comando1 = comando1 + "       TRUNCARITEM, " + "\n";
-            comando1 = comando1 + "       QTUNITEMB, " + "\n";
-            comando1 = comando1 + "       ROTINALANC, " + "\n";
-            comando1 = comando1 + "       QTUNITCX, " + "\n";
-            comando1 = comando1 + "       PERCDESCPIS, " + "\n";
-            comando1 = comando1 + "       VLDESCREDUCAOPIS, " + "\n";
-            comando1 = comando1 + "       PERCDESCCOFINS, " + "\n";
-            comando1 = comando1 + "       VLDESCREDUCAOCOFINS, " + "\n";
-            comando1 = comando1 + "       PERCOM2, " + "\n";
-            comando1 = comando1 + "       PERCOM3, " + "\n";
-            comando1 = comando1 + "       PERCOM4, " + "\n";
-            comando1 = comando1 + "       CODDESCONTO, " + "\n";
-            comando1 = comando1 + "       VLDESCPISSUFRAMA, " + "\n";
-            comando1 = comando1 + "       VLREDPVENDASIMPLESNA, " + "\n";
-            comando1 = comando1 + "       VLREDCMVSIMPLESNAC, " + "\n";
-            comando1 = comando1 + "       CODCONTRATO, " + "\n";
-            comando1 = comando1 + "       VLREPASSE, " + "\n";
-            comando1 = comando1 + "       PERBONIFIC, " + "\n";
-            comando1 = comando1 + "       VLBONIFIC, " + "\n";
-            comando1 = comando1 + "       PERDESCCOM, " + "\n";
-            comando1 = comando1 + "       VLDESCCOM, " + "\n";
-            comando1 = comando1 + "       VLOUTROS, " + "\n";
-            comando1 = comando1 + "       DESCPRECOFAB, " + "\n";
-            comando1 = comando1 + "       PRECOMAXCONSUM, " + "\n";
-            comando1 = comando1 + "       QTLITRAGEM, " + "\n";
-            comando1 = comando1 + "       ROTINALANCBRINDE, " + "\n";
-            comando1 = comando1 + "       PERCDESCABATIMENTO, " + "\n";
-            comando1 = comando1 + "       VLDESCABATIMENTO, " + "\n";
-            comando1 = comando1 + "       PBONIFIC, " + "\n";
-            comando1 = comando1 + "       BONIFIC, " + "\n";
-            comando1 = comando1 + "       NUMITEMPED, " + "\n";
-            comando1 = comando1 + "       PERDESCPAUTA, " + "\n";
-            comando1 = comando1 + "       ORIGEMST, " + "\n";
-            comando1 = comando1 + "       CODFORMULA, " + "\n";
-            comando1 = comando1 + "       CODBASE, " + "\n";
-            comando1 = comando1 + "       SIGLAQUALIDADE, " + "\n";
-            comando1 = comando1 + "       ALTERNATIVO, " + "\n";
-            comando1 = comando1 + "       VOLUMEDESEJADO, " + "\n";
-            comando1 = comando1 + "       QTDIASENTREGAITEM, " + "\n";
-            comando1 = comando1 + "       NUMERORECOPI, " + "\n";
-            comando1 = comando1 + "       USAUNIDADEMASTER, " + "\n";
-            comando1 = comando1 + "       CODCOMBO, " + "\n";
-            comando1 = comando1 + "       NUMSEQITEMCONTRATO, " + "\n";
-            comando1 = comando1 + "       PERCREDALIQIPI, " + "\n";
-            comando1 = comando1 + "       NUMSEQCESTABASICA, " + "\n";
-            comando1 = comando1 + "       CODPRODCESTA, " + "\n";
-            comando1 = comando1 + "       CODDESCONTOBASERCA, " + "\n";
-            comando1 = comando1 + "       ALIQFCP, " + "\n";
-            comando1 = comando1 + "       ALIQINTERNADEST, " + "\n";
-            comando1 = comando1 + "       VLFCPPART, " + "\n";
-            comando1 = comando1 + "       VLICMSPARTDEST, " + "\n";
-            comando1 = comando1 + "       VLICMSPART, " + "\n";
-            comando1 = comando1 + "       PERCPROVPART, " + "\n";
-            comando1 = comando1 + "       VLICMSDIFALIQPART, " + "\n";
-            comando1 = comando1 + "       PERCBASEREDPART, " + "\n";
-            comando1 = comando1 + "       VLICMSPARTREM, " + "\n";
-            comando1 = comando1 + "       ALIQINTERORIGPART, " + "\n";
-            comando1 = comando1 + "       VLBASEPARTDEST, " + "\n";
-            comando1 = comando1 + "       VLIPIPTABELA, " + "\n";
-            comando1 = comando1 + "       VLIPIPBASERCA, " + "\n";
-            comando1 = comando1 + "       STPTABELA, " + "\n";
-            comando1 = comando1 + "       STPBASERCA, " + "\n";
-            comando1 = comando1 + "       VLICMSPARTPTABELA, " + "\n";
-            comando1 = comando1 + "       VLICMSPARTPBASERCA, " + "\n";
-            comando1 = comando1 + "       UNIDADE, " + "\n";
-            comando1 = comando1 + "       CODDESCONTOSIMULADOR, " + "\n";
-            comando1 = comando1 + "       CODFIGVENDATRIANGULAR, " + "\n";
-            comando1 = comando1 + "       CODFISCAL, " + "\n";
-            comando1 = comando1 + "       SITTRIBUT, " + "\n";
-            comando1 = comando1 + "       PTABELAFABRICAZFM, " + "\n";
-            comando1 = comando1 + "       ORIGMERCTRIB, " + "\n";
-            comando1 = comando1 + "       VLDESCCARCACA, " + "\n";
+            if (modelo.codcli != null) { comando1 = comando1 + "	CODCLI, " + "\n"; }
+            if (modelo.codusur != null) { comando1 = comando1 + "	CODUSUR, " + "\n"; }
+            if (modelo.numcar != null) { comando1 = comando1 + "	NUMCAR, " + "\n"; }
+            if (modelo.posicao != null) { comando1 = comando1 + "	POSICAO, " + "\n"; }
+            if (modelo.st != null) { comando1 = comando1 + "	ST, " + "\n"; }
+            if (modelo.vlcustoreal != null) { comando1 = comando1 + "	VLCUSTOREAL, " + "\n"; }
+            if (modelo.vlcustofin != null) { comando1 = comando1 + "	VLCUSTOFIN, " + "\n"; }
+            if (modelo.ptabela != null) { comando1 = comando1 + "	PTABELA, " + "\n"; }
+            if (modelo.percom != null) { comando1 = comando1 + "	PERCOM, " + "\n"; }
+            if (modelo.perdesc != null) { comando1 = comando1 + "	PERDESC, " + "\n"; }
+            if (modelo.qtfalta != null) { comando1 = comando1 + "	QTFALTA, " + "\n"; }
+            if (modelo.numseq != null) { comando1 = comando1 + "	NUMSEQ, " + "\n"; }
+            if (modelo.vldesccustocmv != null) { comando1 = comando1 + "	VLDESCCUSTOCMV, " + "\n"; }
+            if (modelo.vlcustocont != null) { comando1 = comando1 + "	VLCUSTOCONT, " + "\n"; }
+            if (modelo.vlcustorep != null) { comando1 = comando1 + "	VLCUSTOREP, " + "\n"; }
+            if (modelo.vldescsuframa != null) { comando1 = comando1 + "	VLDESCSUFRAMA, " + "\n"; }
+            if (modelo.codst != null) { comando1 = comando1 + "	CODST, " + "\n"; }
+            if (modelo.vldescfin != null) { comando1 = comando1 + "	VLDESCFIN, " + "\n"; }
+            if (modelo.pvendabase != null) { comando1 = comando1 + "	PVENDABASE, " + "\n"; }
+            if (modelo.vlipi != null) { comando1 = comando1 + "	VLIPI, " + "\n"; }
+            if (modelo.percipi != null) { comando1 = comando1 + "	PERCIPI, " + "\n"; }
+            if (modelo.poriginal != null) { comando1 = comando1 + "	PORIGINAL, " + "\n"; }
+            if (modelo.iva != null) { comando1 = comando1 + "	IVA, " + "\n"; }
+            if (modelo.pauta != null) { comando1 = comando1 + "	PAUTA, " + "\n"; }
+            if (modelo.aliqicms1 != null) { comando1 = comando1 + "	ALIQICMS1, " + "\n"; }
+            if (modelo.aliqicms2 != null) { comando1 = comando1 + "	ALIQICMS2, " + "\n"; }
+            if (modelo.stclientegnre != null) { comando1 = comando1 + "	STCLIENTEGNRE, " + "\n"; }
+            if (modelo.percbasered != null) { comando1 = comando1 + "	PERCBASERED, " + "\n"; }
+            if (modelo.percbaseredst != null) { comando1 = comando1 + "	PERCBASEREDST, " + "\n"; }
+            if (modelo.percbaseredstfonte != null) { comando1 = comando1 + "	PERCBASEREDSTFONTE, " + "\n"; }
+            if (modelo.perfretecmv != null) { comando1 = comando1 + "	PERFRETECMV, " + "\n"; }
+            if (modelo.custofinest != null) { comando1 = comando1 + "	CUSTOFINEST, " + "\n"; }
+            if (modelo.perciss != null) { comando1 = comando1 + "	PERCISS, " + "\n"; }
+            if (modelo.vliss != null) { comando1 = comando1 + "	VLISS, " + "\n"; }
+            if (modelo.complemento != null) { comando1 = comando1 + "	COMPLEMENTO, " + "\n"; }
+            if (modelo.pbaserca != null) { comando1 = comando1 + "	PBASERCA, " + "\n"; }
+            if (modelo.vlverbacmv != null) { comando1 = comando1 + "	VLVERBACMV, " + "\n"; }
+            if (modelo.numverbarebcmv != null) { comando1 = comando1 + "	NUMVERBAREBCMV, " + "\n"; }
+            if (modelo.brinde != null) { comando1 = comando1 + "	BRINDE, " + "\n"; }
+            if (modelo.baseicst != null) { comando1 = comando1 + "	BASEICST, " + "\n"; }
+            if (modelo.qtcx != null) { comando1 = comando1 + "	QTCX, " + "\n"; }
+            if (modelo.qtpecas != null) { comando1 = comando1 + "	QTPECAS, " + "\n"; }
+            if (modelo.letracomiss != null) { comando1 = comando1 + "	LETRACOMISS, " + "\n"; }
+            if (modelo.codauxiliar != null) { comando1 = comando1 + "	CODAUXILIAR, " + "\n"; }
+            if (modelo.txvenda != null) { comando1 = comando1 + "	TXVENDA, " + "\n"; }
+            if (modelo.codicmtab != null) { comando1 = comando1 + "	CODICMTAB, " + "\n"; }
+            if (modelo.perdesccusto != null) { comando1 = comando1 + "	PERDESCCUSTO, " + "\n"; }
+            if (modelo.codfilialretira != null) { comando1 = comando1 + "	CODFILIALRETIRA, " + "\n"; }
+            if (modelo.eancodprod != null) { comando1 = comando1 + "	EANCODPROD, " + "\n"; }
+            if (modelo.vldescicmisencao != null) { comando1 = comando1 + "	VLDESCICMISENCAO, " + "\n"; }
+            if (modelo.perdescisentoicms != null) { comando1 = comando1 + "	PERDESCISENTOICMS, " + "\n"; }
+            if (modelo.vlverbacmvcli != null) { comando1 = comando1 + "	VLVERBACMVCLI, " + "\n"; }
+            if (modelo.pvenda1 != null) { comando1 = comando1 + "	PVENDA1, " + "\n"; }
+            if (modelo.tipoentrega != null) { comando1 = comando1 + "	TIPOENTREGA, " + "\n"; }
+            if (modelo.geragnreCnpjcliente != null) { comando1 = comando1 + "	GERAGNRE_CNPJCLIENTE, " + "\n"; }
+            if (modelo.percdifaliquotas != null) { comando1 = comando1 + "	PERCDIFALIQUOTAS, " + "\n"; }
+            if (modelo.basedifaliquotas != null) { comando1 = comando1 + "	BASEDIFALIQUOTAS, " + "\n"; }
+            if (modelo.vldifaliquotas != null) { comando1 = comando1 + "	VLDIFALIQUOTAS, " + "\n"; }
+            if (modelo.perdescpolitica != null) { comando1 = comando1 + "	PERDESCPOLITICA, " + "\n"; }
+            if (modelo.pvendaanterior != null) { comando1 = comando1 + "	PVENDAANTERIOR, " + "\n"; }
+            if (modelo.proddescricaocontrato != null) { comando1 = comando1 + "	PRODDESCRICAOCONTRATO, " + "\n"; }
+            if (modelo.politicaprioritaria != null) { comando1 = comando1 + "	POLITICAPRIORITARIA, " + "\n"; }
+            if (modelo.truncaritem != null) { comando1 = comando1 + "	TRUNCARITEM, " + "\n"; }
+            if (modelo.qtunitemb != null) { comando1 = comando1 + "	QTUNITEMB, " + "\n"; }
+            if (modelo.rotinalanc != null) { comando1 = comando1 + "	ROTINALANC, " + "\n"; }
+            if (modelo.qtunitcx != null) { comando1 = comando1 + "	QTUNITCX, " + "\n"; }
+            if (modelo.percdescpis != null) { comando1 = comando1 + "	PERCDESCPIS, " + "\n"; }
+            if (modelo.vldescreducaopis != null) { comando1 = comando1 + "	VLDESCREDUCAOPIS, " + "\n"; }
+            if (modelo.percdesccofins != null) { comando1 = comando1 + "	PERCDESCCOFINS, " + "\n"; }
+            if (modelo.vldescreducaocofins != null) { comando1 = comando1 + "	VLDESCREDUCAOCOFINS, " + "\n"; }
+            if (modelo.percom2 != null) { comando1 = comando1 + "	PERCOM2, " + "\n"; }
+            if (modelo.percom3 != null) { comando1 = comando1 + "	PERCOM3, " + "\n"; }
+            if (modelo.percom4 != null) { comando1 = comando1 + "	PERCOM4, " + "\n"; }
+            if (modelo.coddesconto != null) { comando1 = comando1 + "	CODDESCONTO, " + "\n"; }
+            if (modelo.vldescpissuframa != null) { comando1 = comando1 + "	VLDESCPISSUFRAMA, " + "\n"; }
+            if (modelo.vlredpvendasimplesna != null) { comando1 = comando1 + "	VLREDPVENDASIMPLESNA, " + "\n"; }
+            if (modelo.vlredcmvsimplesnac != null) { comando1 = comando1 + "	VLREDCMVSIMPLESNAC, " + "\n"; }
+            if (modelo.codcontrato != null) { comando1 = comando1 + "	CODCONTRATO, " + "\n"; }
+            if (modelo.vlrepasse != null) { comando1 = comando1 + "	VLREPASSE, " + "\n"; }
+            if (modelo.perbonific != null) { comando1 = comando1 + "	PERBONIFIC, " + "\n"; }
+            if (modelo.vlbonific != null) { comando1 = comando1 + "	VLBONIFIC, " + "\n"; }
+            if (modelo.perdesccom != null) { comando1 = comando1 + "	PERDESCCOM, " + "\n"; }
+            if (modelo.vldesccom != null) { comando1 = comando1 + "	VLDESCCOM, " + "\n"; }
+            if (modelo.vloutros != null) { comando1 = comando1 + "	VLOUTROS, " + "\n"; }
+            if (modelo.descprecofab != null) { comando1 = comando1 + "	DESCPRECOFAB, " + "\n"; }
+            if (modelo.precomaxconsum != null) { comando1 = comando1 + "	PRECOMAXCONSUM, " + "\n"; }
+            if (modelo.qtlitragem != null) { comando1 = comando1 + "	QTLITRAGEM, " + "\n"; }
+            if (modelo.rotinalancbrinde != null) { comando1 = comando1 + "	ROTINALANCBRINDE, " + "\n"; }
+            if (modelo.percdescabatimento != null) { comando1 = comando1 + "	PERCDESCABATIMENTO, " + "\n"; }
+            if (modelo.vldescabatimento != null) { comando1 = comando1 + "	VLDESCABATIMENTO, " + "\n"; }
+            if (modelo.pbonific != null) { comando1 = comando1 + "	PBONIFIC, " + "\n"; }
+            if (modelo.bonific != null) { comando1 = comando1 + "	BONIFIC, " + "\n"; }
+            if (modelo.numitemped != null) { comando1 = comando1 + "	NUMITEMPED, " + "\n"; }
+            if (modelo.perdescpauta != null) { comando1 = comando1 + "	PERDESCPAUTA, " + "\n"; }
+            if (modelo.origemst != null) { comando1 = comando1 + "	ORIGEMST, " + "\n"; }
+            if (modelo.codformula != null) { comando1 = comando1 + "	CODFORMULA, " + "\n"; }
+            if (modelo.codbase != null) { comando1 = comando1 + "	CODBASE, " + "\n"; }
+            if (modelo.siglaqualidade != null) { comando1 = comando1 + "	SIGLAQUALIDADE, " + "\n"; }
+            if (modelo.alternativo != null) { comando1 = comando1 + "	ALTERNATIVO, " + "\n"; }
+            if (modelo.volumedesejado != null) { comando1 = comando1 + "	VOLUMEDESEJADO, " + "\n"; }
+            if (modelo.qtdiasentregaitem != null) { comando1 = comando1 + "	QTDIASENTREGAITEM, " + "\n"; }
+            if (modelo.numerorecopi != null) { comando1 = comando1 + "	NUMERORECOPI, " + "\n"; }
+            if (modelo.usaunidademaster != null) { comando1 = comando1 + "	USAUNIDADEMASTER, " + "\n"; }
+            if (modelo.codcombo != null) { comando1 = comando1 + "	CODCOMBO, " + "\n"; }
+            if (modelo.numseqitemcontrato != null) { comando1 = comando1 + "	NUMSEQITEMCONTRATO, " + "\n"; }
+            if (modelo.percredaliqipi != null) { comando1 = comando1 + "	PERCREDALIQIPI, " + "\n"; }
+            if (modelo.numseqcestabasica != null) { comando1 = comando1 + "	NUMSEQCESTABASICA, " + "\n"; }
+            if (modelo.codprodcesta != null) { comando1 = comando1 + "	CODPRODCESTA, " + "\n"; }
+            if (modelo.coddescontobaserca != null) { comando1 = comando1 + "	CODDESCONTOBASERCA, " + "\n"; }
+            if (modelo.aliqfcp != null) { comando1 = comando1 + "	ALIQFCP, " + "\n"; }
+            if (modelo.aliqinternadest != null) { comando1 = comando1 + "	ALIQINTERNADEST, " + "\n"; }
+            if (modelo.vlfcppart != null) { comando1 = comando1 + "	VLFCPPART, " + "\n"; }
+            if (modelo.vlicmspartdest != null) { comando1 = comando1 + "	VLICMSPARTDEST, " + "\n"; }
+            if (modelo.vlicmspart != null) { comando1 = comando1 + "	VLICMSPART, " + "\n"; }
+            if (modelo.percprovpart != null) { comando1 = comando1 + "	PERCPROVPART, " + "\n"; }
+            if (modelo.vlicmsdifaliqpart != null) { comando1 = comando1 + "	VLICMSDIFALIQPART, " + "\n"; }
+            if (modelo.percbaseredpart != null) { comando1 = comando1 + "	PERCBASEREDPART, " + "\n"; }
+            if (modelo.vlicmspartrem != null) { comando1 = comando1 + "	VLICMSPARTREM, " + "\n"; }
+            if (modelo.aliqinterorigpart != null) { comando1 = comando1 + "	ALIQINTERORIGPART, " + "\n"; }
+            if (modelo.vlbasepartdest != null) { comando1 = comando1 + "	VLBASEPARTDEST, " + "\n"; }
+            if (modelo.vlipiptabela != null) { comando1 = comando1 + "	VLIPIPTABELA, " + "\n"; }
+            if (modelo.vlipipbaserca != null) { comando1 = comando1 + "	VLIPIPBASERCA, " + "\n"; }
+            if (modelo.stptabela != null) { comando1 = comando1 + "	STPTABELA, " + "\n"; }
+            if (modelo.stpbaserca != null) { comando1 = comando1 + "	STPBASERCA, " + "\n"; }
+            if (modelo.vlicmspartptabela != null) { comando1 = comando1 + "	VLICMSPARTPTABELA, " + "\n"; }
+            if (modelo.vlicmspartpbaserca != null) { comando1 = comando1 + "	VLICMSPARTPBASERCA, " + "\n"; }
+            if (modelo.unidade != null) { comando1 = comando1 + "	UNIDADE, " + "\n"; }
+            if (modelo.coddescontosimulador != null) { comando1 = comando1 + "	CODDESCONTOSIMULADOR, " + "\n"; }
+            if (modelo.codfigvendatriangular != null) { comando1 = comando1 + "	CODFIGVENDATRIANGULAR, " + "\n"; }
+            if (modelo.codfiscal != null) { comando1 = comando1 + "	CODFISCAL, " + "\n"; }
+            if (modelo.sittribut != null) { comando1 = comando1 + "	SITTRIBUT, " + "\n"; }
+            if (modelo.ptabelafabricazfm != null) { comando1 = comando1 + "	PTABELAFABRICAZFM, " + "\n"; }
+            if (modelo.origmerctrib != null) { comando1 = comando1 + "	ORIGMERCTRIB, " + "\n"; }
+            if (modelo.vldesccarcaca != null) { comando1 = comando1 + "	VLDESCCARCACA, " + "\n"; }
             comando1 = comando1 + "       DEVOLUCAOCARCACA " + "\n";
             comando1 = comando1 + "    ) " + "\n";
             comando1 = comando1 + "    VALUES " + "\n";
@@ -174,140 +174,140 @@ namespace DAL
             comando1 = comando1 + "       :PVENDA, " + "\n";
             comando1 = comando1 + "       :NUMPED, " + "\n";
             comando1 = comando1 + "       :DATA, " + "\n";
-            comando1 = comando1 + "       :CODCLI, " + "\n";
-            comando1 = comando1 + "       :CODUSUR, " + "\n";
-            comando1 = comando1 + "       :NUMCAR, " + "\n";
-            comando1 = comando1 + "       :POSICAO, " + "\n";
-            comando1 = comando1 + "       :ST, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOREAL, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOFIN, " + "\n";
-            comando1 = comando1 + "       :PTABELA, " + "\n";
-            comando1 = comando1 + "       :PERCOM, " + "\n";
-            comando1 = comando1 + "       :PERDESC, " + "\n";
-            comando1 = comando1 + "       :QTFALTA, " + "\n";
-            comando1 = comando1 + "       :NUMSEQ, " + "\n";
-            comando1 = comando1 + "       :VLDESCCUSTOCMV, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOCONT, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOREP, " + "\n";
-            comando1 = comando1 + "       :VLDESCSUFRAMA, " + "\n";
-            comando1 = comando1 + "       :CODST, " + "\n";
-            comando1 = comando1 + "       :VLDESCFIN, " + "\n";
-            comando1 = comando1 + "       :PVENDABASE, " + "\n";
-            comando1 = comando1 + "       :VLIPI, " + "\n";
-            comando1 = comando1 + "       :PERCIPI, " + "\n";
-            comando1 = comando1 + "       :PORIGINAL, " + "\n";
-            comando1 = comando1 + "       :IVA, " + "\n";
-            comando1 = comando1 + "       :PAUTA, " + "\n";
-            comando1 = comando1 + "       :ALIQICMS1, " + "\n";
-            comando1 = comando1 + "       :ALIQICMS2, " + "\n";
-            comando1 = comando1 + "       :STCLIENTEGNRE, " + "\n";
-            comando1 = comando1 + "       :PERCBASERED, " + "\n";
-            comando1 = comando1 + "       :PERCBASEREDST, " + "\n";
-            comando1 = comando1 + "       :PERCBASEREDSTFONTE, " + "\n";
-            comando1 = comando1 + "       :PERFRETECMV, " + "\n";
-            comando1 = comando1 + "       :CUSTOFINEST, " + "\n";
-            comando1 = comando1 + "       :PERCISS, " + "\n";
-            comando1 = comando1 + "       :VLISS, " + "\n";
-            comando1 = comando1 + "       :COMPLEMENTO, " + "\n";
-            comando1 = comando1 + "       :PBASERCA, " + "\n";
-            comando1 = comando1 + "       :VLVERBACMV, " + "\n";
-            comando1 = comando1 + "       :NUMVERBAREBCMV, " + "\n";
-            comando1 = comando1 + "       :BRINDE, " + "\n";
-            comando1 = comando1 + "       :BASEICST, " + "\n";
-            comando1 = comando1 + "       :QTCX, " + "\n";
-            comando1 = comando1 + "       :QTPECAS, " + "\n";
-            comando1 = comando1 + "       :LETRACOMISS, " + "\n";
-            comando1 = comando1 + "       :CODAUXILIAR, " + "\n";
-            comando1 = comando1 + "       :TXVENDA, " + "\n";
-            comando1 = comando1 + "       :CODICMTAB, " + "\n";
-            comando1 = comando1 + "       :PERDESCCUSTO, " + "\n";
-            comando1 = comando1 + "       :CODFILIALRETIRA, " + "\n";
-            comando1 = comando1 + "       :EANCODPROD, " + "\n";
-            comando1 = comando1 + "       :VLDESCICMISENCAO, " + "\n";
-            comando1 = comando1 + "       :PERDESCISENTOICMS, " + "\n";
-            comando1 = comando1 + "       :VLVERBACMVCLI, " + "\n";
-            comando1 = comando1 + "       :PVENDA1, " + "\n";
-            comando1 = comando1 + "       :TIPOENTREGA, " + "\n";
-            comando1 = comando1 + "       :GERAGNRECNPJCLIENTE, " + "\n";
-            comando1 = comando1 + "       :PERCDIFALIQUOTAS, " + "\n";
-            comando1 = comando1 + "       :BASEDIFALIQUOTAS, " + "\n";
-            comando1 = comando1 + "       :VLDIFALIQUOTAS, " + "\n";
-            comando1 = comando1 + "       :PERDESCPOLITICA, " + "\n";
-            comando1 = comando1 + "       :PVENDAANTERIOR, " + "\n";
-            comando1 = comando1 + "       :PRODDESCRICAOCONTRATO, " + "\n";
-            comando1 = comando1 + "       :POLITICAPRIORITARIA, " + "\n";
-            comando1 = comando1 + "       :TRUNCARITEM, " + "\n";
-            comando1 = comando1 + "       :QTUNITEMB, " + "\n";
-            comando1 = comando1 + "       316, " + "\n";
-            comando1 = comando1 + "       :QTUNITCX, " + "\n";
-            comando1 = comando1 + "       :PERCDESCPIS, " + "\n";
-            comando1 = comando1 + "       :VLDESCREDUCAOPIS, " + "\n";
-            comando1 = comando1 + "       :PERCDESCCOFINS, " + "\n";
-            comando1 = comando1 + "       :VLDESCREDUCAOCOFINS, " + "\n";
-            comando1 = comando1 + "       :PERCOM2, " + "\n";
-            comando1 = comando1 + "       :PERCOM3, " + "\n";
-            comando1 = comando1 + "       :PERCOM4, " + "\n";
-            comando1 = comando1 + "       :CODDESCONTO, " + "\n";
-            comando1 = comando1 + "       :VLDESCPISSUFRAMA, " + "\n";
-            comando1 = comando1 + "       :VLREDPVENDASIMPLESNA, " + "\n";
-            comando1 = comando1 + "       :VLREDCMVSIMPLESNAC, " + "\n";
-            comando1 = comando1 + "       :CODCONTRATO, " + "\n";
-            comando1 = comando1 + "       :VLREPASSE, " + "\n";
-            comando1 = comando1 + "       :PERBONIFIC, " + "\n";
-            comando1 = comando1 + "       :VLBONIFIC, " + "\n";
-            comando1 = comando1 + "       :PERDESCCOM, " + "\n";
-            comando1 = comando1 + "       :VLDESCCOM, " + "\n";
-            comando1 = comando1 + "       :VLOUTROS, " + "\n";
-            comando1 = comando1 + "       :DESCPRECOFAB, " + "\n";
-            comando1 = comando1 + "       :PRECOMAXCONSUM, " + "\n";
-            comando1 = comando1 + "       :QTLITRAGEM, " + "\n";
-            comando1 = comando1 + "       :ROTINALANCBRINDE, " + "\n";
-            comando1 = comando1 + "       :PERCDESCABATIMENTO, " + "\n";
-            comando1 = comando1 + "       :VLDESCABATIMENTO, " + "\n";
-            comando1 = comando1 + "       :PBONIFIC, " + "\n";
-            comando1 = comando1 + "       :BONIFIC, " + "\n";
-            comando1 = comando1 + "       :NUMITEMPED, " + "\n";
-            comando1 = comando1 + "       :PERDESCPAUTA, " + "\n";
-            comando1 = comando1 + "       :ORIGEMST, " + "\n";
-            comando1 = comando1 + "       :CODFORMULA, " + "\n";
-            comando1 = comando1 + "       :CODBASE, " + "\n";
-            comando1 = comando1 + "       :SIGLAQUALIDADE, " + "\n";
-            comando1 = comando1 + "       :ALTERNATIVO, " + "\n";
-            comando1 = comando1 + "       :VOLUMEDESEJADO, " + "\n";
-            comando1 = comando1 + "       :QTDIASENTREGAITEM, " + "\n";
-            comando1 = comando1 + "       :NUMERORECOPI, " + "\n";
-            comando1 = comando1 + "       :USAUNIDADEMASTER, " + "\n";
-            comando1 = comando1 + "       :CODCOMBO, " + "\n";
-            comando1 = comando1 + "       :NUMSEQITEMCONTRATO, " + "\n";
-            comando1 = comando1 + "       :PERCREDALIQIPI, " + "\n";
-            comando1 = comando1 + "       :NUMSEQCESTABASICA, " + "\n";
-            comando1 = comando1 + "       :CODPRODCESTA, " + "\n";
-            comando1 = comando1 + "       :CODDESCONTOBASERCA, " + "\n";
-            comando1 = comando1 + "       :ALIQFCP, " + "\n";
-            comando1 = comando1 + "       :ALIQINTERNADEST, " + "\n";
-            comando1 = comando1 + "       :VLFCPPART, " + "\n";
-            comando1 = comando1 + "       :VLICMSPARTDEST, " + "\n";
-            comando1 = comando1 + "       :VLICMSPART, " + "\n";
-            comando1 = comando1 + "       :PERCPROVPART, " + "\n";
-            comando1 = comando1 + "       :VLICMSDIFALIQPART, " + "\n";
-            comando1 = comando1 + "       :PERCBASEREDPART, " + "\n";
-            comando1 = comando1 + "       :VLICMSPARTREM, " + "\n";
-            comando1 = comando1 + "       :ALIQINTERORIGPART, " + "\n";
-            comando1 = comando1 + "       :VLBASEPARTDEST, " + "\n";
-            comando1 = comando1 + "       :VLIPIPTABELA, " + "\n";
-            comando1 = comando1 + "       :VLIPIPBASERCA, " + "\n";
-            comando1 = comando1 + "       :STPTABELA, " + "\n";
-            comando1 = comando1 + "       :STPBASERCA, " + "\n";
-            comando1 = comando1 + "       :VLICMSPARTPTABELA, " + "\n";
-            comando1 = comando1 + "       :VLICMSPARTPBASERCA, " + "\n";
-            comando1 = comando1 + "       :UNIDADE, " + "\n";
-            comando1 = comando1 + "       :CODDESCONTOSIMULADOR, " + "\n";
-            comando1 = comando1 + "       :CODFIGVENDATRIANGULAR, " + "\n";
-            comando1 = comando1 + "       :CODFISCAL, " + "\n";
-            comando1 = comando1 + "       :SITTRIBUT, " + "\n";
-            comando1 = comando1 + "       :PTABELAFABRICAZFM, " + "\n";
-            comando1 = comando1 + "       :ORIGMERCTRIB, " + "\n";
-            comando1 = comando1 + "       :VLDESCCARCACA, " + "\n";
+            if (modelo.codcli != null) { comando1 = comando1 + ":CODCLI," + "\n"; }
+            if (modelo.codusur != null) { comando1 = comando1 + ":CODUSUR," + "\n"; }
+            if (modelo.numcar != null) { comando1 = comando1 + ":NUMCAR," + "\n"; }
+            if (modelo.posicao != null) { comando1 = comando1 + ":POSICAO," + "\n"; }
+            if (modelo.st != null) { comando1 = comando1 + ":ST," + "\n"; }
+            if (modelo.vlcustoreal != null) { comando1 = comando1 + ":VLCUSTOREAL," + "\n"; }
+            if (modelo.vlcustofin != null) { comando1 = comando1 + ":VLCUSTOFIN," + "\n"; }
+            if (modelo.ptabela != null) { comando1 = comando1 + ":PTABELA," + "\n"; }
+            if (modelo.percom != null) { comando1 = comando1 + ":PERCOM," + "\n"; }
+            if (modelo.perdesc != null) { comando1 = comando1 + ":PERDESC," + "\n"; }
+            if (modelo.qtfalta != null) { comando1 = comando1 + ":QTFALTA," + "\n"; }
+            if (modelo.numseq != null) { comando1 = comando1 + ":NUMSEQ," + "\n"; }
+            if (modelo.vldesccustocmv != null) { comando1 = comando1 + ":VLDESCCUSTOCMV," + "\n"; }
+            if (modelo.vlcustocont != null) { comando1 = comando1 + ":VLCUSTOCONT," + "\n"; }
+            if (modelo.vlcustorep != null) { comando1 = comando1 + ":VLCUSTOREP," + "\n"; }
+            if (modelo.vldescsuframa != null) { comando1 = comando1 + ":VLDESCSUFRAMA," + "\n"; }
+            if (modelo.codst != null) { comando1 = comando1 + ":CODST," + "\n"; }
+            if (modelo.vldescfin != null) { comando1 = comando1 + ":VLDESCFIN," + "\n"; }
+            if (modelo.pvendabase != null) { comando1 = comando1 + ":PVENDABASE," + "\n"; }
+            if (modelo.vlipi != null) { comando1 = comando1 + ":VLIPI," + "\n"; }
+            if (modelo.percipi != null) { comando1 = comando1 + ":PERCIPI," + "\n"; }
+            if (modelo.poriginal != null) { comando1 = comando1 + ":PORIGINAL," + "\n"; }
+            if (modelo.iva != null) { comando1 = comando1 + ":IVA," + "\n"; }
+            if (modelo.pauta != null) { comando1 = comando1 + ":PAUTA," + "\n"; }
+            if (modelo.aliqicms1 != null) { comando1 = comando1 + ":ALIQICMS1," + "\n"; }
+            if (modelo.aliqicms2 != null) { comando1 = comando1 + ":ALIQICMS2," + "\n"; }
+            if (modelo.stclientegnre != null) { comando1 = comando1 + ":STCLIENTEGNRE," + "\n"; }
+            if (modelo.percbasered != null) { comando1 = comando1 + ":PERCBASERED," + "\n"; }
+            if (modelo.percbaseredst != null) { comando1 = comando1 + ":PERCBASEREDST," + "\n"; }
+            if (modelo.percbaseredstfonte != null) { comando1 = comando1 + ":PERCBASEREDSTFONTE," + "\n"; }
+            if (modelo.perfretecmv != null) { comando1 = comando1 + ":PERFRETECMV," + "\n"; }
+            if (modelo.custofinest != null) { comando1 = comando1 + ":CUSTOFINEST," + "\n"; }
+            if (modelo.perciss != null) { comando1 = comando1 + ":PERCISS," + "\n"; }
+            if (modelo.vliss != null) { comando1 = comando1 + ":VLISS," + "\n"; }
+            if (modelo.complemento != null) { comando1 = comando1 + ":COMPLEMENTO," + "\n"; }
+            if (modelo.pbaserca != null) { comando1 = comando1 + ":PBASERCA," + "\n"; }
+            if (modelo.vlverbacmv != null) { comando1 = comando1 + ":VLVERBACMV," + "\n"; }
+            if (modelo.numverbarebcmv != null) { comando1 = comando1 + ":NUMVERBAREBCMV," + "\n"; }
+            if (modelo.brinde != null) { comando1 = comando1 + ":BRINDE," + "\n"; }
+            if (modelo.baseicst != null) { comando1 = comando1 + ":BASEICST," + "\n"; }
+            if (modelo.qtcx != null) { comando1 = comando1 + ":QTCX," + "\n"; }
+            if (modelo.qtpecas != null) { comando1 = comando1 + ":QTPECAS," + "\n"; }
+            if (modelo.letracomiss != null) { comando1 = comando1 + ":LETRACOMISS," + "\n"; }
+            if (modelo.codauxiliar != null) { comando1 = comando1 + ":CODAUXILIAR," + "\n"; }
+            if (modelo.txvenda != null) { comando1 = comando1 + ":TXVENDA," + "\n"; }
+            if (modelo.codicmtab != null) { comando1 = comando1 + ":CODICMTAB," + "\n"; }
+            if (modelo.perdesccusto != null) { comando1 = comando1 + ":PERDESCCUSTO," + "\n"; }
+            if (modelo.codfilialretira != null) { comando1 = comando1 + ":CODFILIALRETIRA," + "\n"; }
+            if (modelo.eancodprod != null) { comando1 = comando1 + ":EANCODPROD," + "\n"; }
+            if (modelo.vldescicmisencao != null) { comando1 = comando1 + ":VLDESCICMISENCAO," + "\n"; }
+            if (modelo.perdescisentoicms != null) { comando1 = comando1 + ":PERDESCISENTOICMS," + "\n"; }
+            if (modelo.vlverbacmvcli != null) { comando1 = comando1 + ":VLVERBACMVCLI," + "\n"; }
+            if (modelo.pvenda1 != null) { comando1 = comando1 + ":PVENDA1," + "\n"; }
+            if (modelo.tipoentrega != null) { comando1 = comando1 + ":TIPOENTREGA," + "\n"; }
+            if (modelo.geragnreCnpjcliente != null) { comando1 = comando1 + ":GERAGNRECNPJCLIENTE," + "\n"; }
+            if (modelo.percdifaliquotas != null) { comando1 = comando1 + ":PERCDIFALIQUOTAS," + "\n"; }
+            if (modelo.basedifaliquotas != null) { comando1 = comando1 + ":BASEDIFALIQUOTAS," + "\n"; }
+            if (modelo.vldifaliquotas != null) { comando1 = comando1 + ":VLDIFALIQUOTAS," + "\n"; }
+            if (modelo.perdescpolitica != null) { comando1 = comando1 + ":PERDESCPOLITICA," + "\n"; }
+            if (modelo.pvendaanterior != null) { comando1 = comando1 + ":PVENDAANTERIOR," + "\n"; }
+            if (modelo.proddescricaocontrato != null) { comando1 = comando1 + ":PRODDESCRICAOCONTRATO," + "\n"; }
+            if (modelo.politicaprioritaria != null) { comando1 = comando1 + ":POLITICAPRIORITARIA," + "\n"; }
+            if (modelo.truncaritem != null) { comando1 = comando1 + ":TRUNCARITEM," + "\n"; }
+            if (modelo.qtunitemb != null) { comando1 = comando1 + ":QTUNITEMB," + "\n"; }
+                comando1 = comando1 + "316, " + "\n";
+            if (modelo.qtunitcx != null) { comando1 = comando1 + ":QTUNITCX," + "\n"; }
+            if (modelo.percdescpis != null) { comando1 = comando1 + ":PERCDESCPIS," + "\n"; }
+            if (modelo.vldescreducaopis != null) { comando1 = comando1 + ":VLDESCREDUCAOPIS," + "\n"; }
+            if (modelo.percdesccofins != null) { comando1 = comando1 + ":PERCDESCCOFINS," + "\n"; }
+            if (modelo.vldescreducaocofins != null) { comando1 = comando1 + ":VLDESCREDUCAOCOFINS," + "\n"; }
+            if (modelo.percom2 != null) { comando1 = comando1 + ":PERCOM2," + "\n"; }
+            if (modelo.percom3 != null) { comando1 = comando1 + ":PERCOM3," + "\n"; }
+            if (modelo.percom4 != null) { comando1 = comando1 + ":PERCOM4," + "\n"; }
+            if (modelo.coddesconto != null) { comando1 = comando1 + ":CODDESCONTO," + "\n"; }
+            if (modelo.vldescpissuframa != null) { comando1 = comando1 + ":VLDESCPISSUFRAMA," + "\n"; }
+            if (modelo.vlredpvendasimplesna != null) { comando1 = comando1 + ":VLREDPVENDASIMPLESNA," + "\n"; }
+            if (modelo.vlredcmvsimplesnac != null) { comando1 = comando1 + ":VLREDCMVSIMPLESNAC," + "\n"; }
+            if (modelo.codcontrato != null) { comando1 = comando1 + ":CODCONTRATO," + "\n"; }
+            if (modelo.vlrepasse != null) { comando1 = comando1 + ":VLREPASSE," + "\n"; }
+            if (modelo.perbonific != null) { comando1 = comando1 + ":PERBONIFIC," + "\n"; }
+            if (modelo.vlbonific != null) { comando1 = comando1 + ":VLBONIFIC," + "\n"; }
+            if (modelo.perdesccom != null) { comando1 = comando1 + ":PERDESCCOM," + "\n"; }
+            if (modelo.vldesccom != null) { comando1 = comando1 + ":VLDESCCOM," + "\n"; }
+            if (modelo.vloutros != null) { comando1 = comando1 + ":VLOUTROS," + "\n"; }
+            if (modelo.descprecofab != null) { comando1 = comando1 + ":DESCPRECOFAB," + "\n"; }
+            if (modelo.precomaxconsum != null) { comando1 = comando1 + ":PRECOMAXCONSUM," + "\n"; }
+            if (modelo.qtlitragem != null) { comando1 = comando1 + ":QTLITRAGEM," + "\n"; }
+            if (modelo.rotinalancbrinde != null) { comando1 = comando1 + ":ROTINALANCBRINDE," + "\n"; }
+            if (modelo.percdescabatimento != null) { comando1 = comando1 + ":PERCDESCABATIMENTO," + "\n"; }
+            if (modelo.vldescabatimento != null) { comando1 = comando1 + ":VLDESCABATIMENTO," + "\n"; }
+            if (modelo.pbonific != null) { comando1 = comando1 + ":PBONIFIC," + "\n"; }
+            if (modelo.bonific != null) { comando1 = comando1 + ":BONIFIC," + "\n"; }
+            if (modelo.numitemped != null) { comando1 = comando1 + ":NUMITEMPED," + "\n"; }
+            if (modelo.perdescpauta != null) { comando1 = comando1 + ":PERDESCPAUTA," + "\n"; }
+            if (modelo.origemst != null) { comando1 = comando1 + ":ORIGEMST," + "\n"; }
+            if (modelo.codformula != null) { comando1 = comando1 + ":CODFORMULA," + "\n"; }
+            if (modelo.codbase != null) { comando1 = comando1 + ":CODBASE," + "\n"; }
+            if (modelo.siglaqualidade != null) { comando1 = comando1 + ":SIGLAQUALIDADE," + "\n"; }
+            if (modelo.alternativo != null) { comando1 = comando1 + ":ALTERNATIVO," + "\n"; }
+            if (modelo.volumedesejado != null) { comando1 = comando1 + ":VOLUMEDESEJADO," + "\n"; }
+            if (modelo.qtdiasentregaitem != null) { comando1 = comando1 + ":QTDIASENTREGAITEM," + "\n"; }
+            if (modelo.numerorecopi != null) { comando1 = comando1 + ":NUMERORECOPI," + "\n"; }
+            if (modelo.usaunidademaster != null) { comando1 = comando1 + ":USAUNIDADEMASTER," + "\n"; }
+            if (modelo.codcombo != null) { comando1 = comando1 + ":CODCOMBO," + "\n"; }
+            if (modelo.numseqitemcontrato != null) { comando1 = comando1 + ":NUMSEQITEMCONTRATO," + "\n"; }
+            if (modelo.percredaliqipi != null) { comando1 = comando1 + ":PERCREDALIQIPI," + "\n"; }
+            if (modelo.numseqcestabasica != null) { comando1 = comando1 + ":NUMSEQCESTABASICA," + "\n"; }
+            if (modelo.codprodcesta != null) { comando1 = comando1 + ":CODPRODCESTA," + "\n"; }
+            if (modelo.coddescontobaserca != null) { comando1 = comando1 + ":CODDESCONTOBASERCA," + "\n"; }
+            if (modelo.aliqfcp != null) { comando1 = comando1 + ":ALIQFCP," + "\n"; }
+            if (modelo.aliqinternadest != null) { comando1 = comando1 + ":ALIQINTERNADEST," + "\n"; }
+            if (modelo.vlfcppart != null) { comando1 = comando1 + ":VLFCPPART," + "\n"; }
+            if (modelo.vlicmspartdest != null) { comando1 = comando1 + ":VLICMSPARTDEST," + "\n"; }
+            if (modelo.vlicmspart != null) { comando1 = comando1 + ":VLICMSPART," + "\n"; }
+            if (modelo.percprovpart != null) { comando1 = comando1 + ":PERCPROVPART," + "\n"; }
+            if (modelo.vlicmsdifaliqpart != null) { comando1 = comando1 + ":VLICMSDIFALIQPART," + "\n"; }
+            if (modelo.percbaseredpart != null) { comando1 = comando1 + ":PERCBASEREDPART," + "\n"; }
+            if (modelo.vlicmspartrem != null) { comando1 = comando1 + ":VLICMSPARTREM," + "\n"; }
+            if (modelo.aliqinterorigpart != null) { comando1 = comando1 + ":ALIQINTERORIGPART," + "\n"; }
+            if (modelo.vlbasepartdest != null) { comando1 = comando1 + ":VLBASEPARTDEST," + "\n"; }
+            if (modelo.vlipiptabela != null) { comando1 = comando1 + ":VLIPIPTABELA," + "\n"; }
+            if (modelo.vlipipbaserca != null) { comando1 = comando1 + ":VLIPIPBASERCA," + "\n"; }
+            if (modelo.stptabela != null) { comando1 = comando1 + ":STPTABELA," + "\n"; }
+            if (modelo.stpbaserca != null) { comando1 = comando1 + ":STPBASERCA," + "\n"; }
+            if (modelo.vlicmspartptabela != null) { comando1 = comando1 + ":VLICMSPARTPTABELA," + "\n"; }
+            if (modelo.vlicmspartpbaserca != null) { comando1 = comando1 + ":VLICMSPARTPBASERCA," + "\n"; }
+            if (modelo.unidade != null) { comando1 = comando1 + ":UNIDADE," + "\n"; }
+            if (modelo.coddescontosimulador != null) { comando1 = comando1 + ":CODDESCONTOSIMULADOR," + "\n"; }
+            if (modelo.codfigvendatriangular != null) { comando1 = comando1 + ":CODFIGVENDATRIANGULAR," + "\n"; }
+            if (modelo.codfiscal != null) { comando1 = comando1 + ":CODFISCAL," + "\n"; }
+            if (modelo.sittribut != null) { comando1 = comando1 + ":SITTRIBUT," + "\n"; }
+            if (modelo.ptabelafabricazfm != null) { comando1 = comando1 + ":PTABELAFABRICAZFM," + "\n"; }
+            if (modelo.origmerctrib != null) { comando1 = comando1 + ":ORIGMERCTRIB," + "\n"; }
+            if (modelo.vldesccarcaca != null) { comando1 = comando1 + ":VLDESCCARCACA," + "\n"; }
             comando1 = comando1 + "       :DEVOLUCAOCARCACA " + "\n";
             comando1 = comando1 + "       )";
             cmd.CommandText = comando1;
