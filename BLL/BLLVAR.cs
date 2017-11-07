@@ -1,10 +1,5 @@
-﻿using System;
-using DAL;
+﻿using DAL;
 using Modelo;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {

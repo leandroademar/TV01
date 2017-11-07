@@ -2,13 +2,6 @@
 using DAL;
 using Modelo;
 using BLL;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OracleClient;
 
@@ -130,7 +123,11 @@ namespace TV01
             modelopcpc.condvenda = 1;
             
             bllpcpc.Incluir(modelopcpc);
-            bllpcpi.Incluir(modelopcpi);
+            for (int i = 0; i < modelopcpc.numitens; i++)
+            {
+
+                bllpcpi.Incluir(modelopcpi);
+            }
            
             
 

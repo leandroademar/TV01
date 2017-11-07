@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Modelo;
 using System.Data.OracleClient;
 
@@ -456,7 +452,7 @@ namespace DAL
         }
         public ModeloPCPEDI CarregaModeloPCPEDI(long codigo )
         {
-            String comando3 = "SELECT * FROM PCPEDI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
+            String comando3 = "SELECT * FROM PCPEDI WHERE NUMPED = :NUMPED AND QT > 0 ";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
