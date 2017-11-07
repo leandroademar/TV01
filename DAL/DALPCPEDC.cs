@@ -859,7 +859,38 @@ namespace DAL
             conexao.Desconectar();
 
         }
+        public void AlterarPC(ModeloPCPEDC modelo)
+        {
+            String comando4 = "";
 
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            comando4 = comando4 + "UPDATE PCPEDC " + "\n";
+            comando4 = comando4 + "       SET VLTOTAL                      = :VLTOTAL, " + "\n";
+            comando4 = comando4 + "           VLTABELA                     = :VLTABELA, " + "\n";
+            comando4 = comando4 + "           VLCUSTOREAL                  = :VLCUSTOREAL " + "\n";
+            comando4 = comando4 + "           VLCUSTOFIN                  = :VLCUSTOFIN " + "\n";
+            comando4 = comando4 + "           VLATEND                  = :VLATEND " + "\n";
+            comando4 = comando4 + "           VLCUSTOREP                  = :VLCUSTOREP " + "\n";
+            comando4 = comando4 + "           VLCUSTOCONT                  = :VLCUSTOCONT " + "\n";
+            comando4 = comando4 + "            " + "\n";
+            comando4 = comando4 + "     WHERE NUMPED = :OLD_NUMPED";
+            cmd.CommandText = comando4;
+            cmd.CommandType = System.Data.CommandType.Text;
+
+            cmd.Parameters.AddWithValue(":OLD_NUMPED", modelo.numped);
+            cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotal);
+            cmd.Parameters.AddWithValue(":VLTABELA", modelo.vltotal);
+            cmd.Parameters.AddWithValue(":VLCUSTOREAL", modelo.vlcustoreal);
+            cmd.Parameters.AddWithValue(":VLCUSTOFIN", modelo.vlcustofin);
+            cmd.Parameters.AddWithValue(":VLATEND", modelo.vlatend);
+            cmd.Parameters.AddWithValue(":VLCUSTOREP", modelo.vlcustorep);
+            cmd.Parameters.AddWithValue(":VLCUSTOCONT", modelo.vlcustocont);
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
 
 
         public ModeloPCPEDC CarregaModeloPCPEDC(long codigo)
