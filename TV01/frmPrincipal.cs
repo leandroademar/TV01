@@ -114,6 +114,8 @@ namespace TV01
             BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
             ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
 
+            // for - loop de cabeçalho 
+
             BLLVAR bllvar = new BLLVAR(cx);
             ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
             bllvar.AlterarNW(modelovar);
@@ -126,19 +128,41 @@ namespace TV01
 
             decimal numqt = modelopcpi.qt;
             int it = 0;
-            for (decimal i = 0; i < numqt; i++)
+            decimal vltotal = 0;
+            decimal vltabela = 0;
+            decimal vlcustoreal = 0;
+            decimal vlcustofin = 0;
+            decimal vlatend = 0;
+            decimal ? vlcustorep = 0;
+            decimal ? vlcustocont = 0;
+            modelopcpi.qtrest = numqt;
+
+            for (decimal i = 0; i < numqt && vltotal < 10 ; i++)
             {
                 
                 modelopcpi.numseq = it + 1;
                 modelopcpi.qt = 1;
+                modelopcpi.volumedesejado = modelopcpi.qtunitcx;
                 modelopcpi.qtunitcx = 1;
                 modelopcpi.qtunitemb = 1;
                 bllpcpi.Incluir(modelopcpi);
+
+                modelopcpi.qtrest = modelopcpi.qtrest - 1;
+                bllpcpi.AlterarQT(modelopcpi);
+
                 it = it + 1;
-                
+                vltotal = vltotal + modelopcpi.pvenda;
+                vltabela = vltabela + modelopcpi.ptabela;
+                vlcustoreal = vlcustoreal + modelopcpi.vlcustoreal;
+                vlcustofin = vlcustofin + modelopcpi.vlcustofin;
+                vlatend = vlatend + modelopcpi.pvenda;
+                vlcustorep = vlcustorep + modelopcpi.vlcustorep;
+                vlcustocont = vlcustocont + modelopcpi.vlcustocont;
             }
-            rtbPedGerados.Text = "Pedido Cód: "+ modelopcpc.numped.ToString();           
+            bllpcpc.AlterarPC(modelopcpc);
+            rtbPedGerados.Text = "Pedido Cód: "+ modelopcpc.numped.ToString() + " - " + modelopcpc.vltotal.ToString() +";";
             
+            //fim do loop de cabeçalho
 
 
         }

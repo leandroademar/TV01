@@ -11,6 +11,7 @@ namespace Modelo
 
         private int _codprod;
         private decimal _qt;
+        private decimal _qtrest;
         private decimal _pvenda;
         private long _numped;
         private DateTime _data;
@@ -169,6 +170,17 @@ namespace Modelo
             set
             {
                 this._qt = value;
+            }
+        }
+        public decimal qtrest
+        {
+            get
+            {
+                return this._qtrest;
+            }
+            set
+            {
+                this._qtrest = value;
             }
         }
         public decimal pvenda

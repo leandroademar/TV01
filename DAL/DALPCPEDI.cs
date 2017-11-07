@@ -450,7 +450,24 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
-        public ModeloPCPEDI CarregaModeloPCPEDI(long codigo )
+        public void AlterarQT(ModeloPCPEDI modelo)
+        {
+            String comando2 = " UPDATE PCPEDI SET QT = :QT WHERE NUMPED = :NUMPED AND CODPROD = :CODPROD AND NUMSEQ = :NUMSEQ";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando2;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":QT", modelo.qt);
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
+            cmd.Parameters.AddWithValue(":NUMSEQ", modelo.numseq);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+
+        }
+            public ModeloPCPEDI CarregaModeloPCPEDI(long codigo )
         {
             String comando3 = "SELECT * FROM PCPEDI WHERE NUMPED = :NUMPED AND QT > 0 ";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
