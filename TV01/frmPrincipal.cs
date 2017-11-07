@@ -131,12 +131,11 @@ namespace TV01
                 
                 modelopcpi.numseq = it + 1;
                 modelopcpi.qt = 1;
-                modelopcpi.volumedesejado = modelopcpi.qtunitcx;
                 modelopcpi.qtunitcx = 1;
                 modelopcpi.qtunitemb = 1;
                 bllpcpi.Incluir(modelopcpi);
                 it = it + 1;
-                //numqt = numqt - 1;
+                
             }
             rtbPedGerados.Text = "Pedido Cód: "+ modelopcpc.numped.ToString();           
             
