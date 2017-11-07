@@ -8,6 +8,8 @@ namespace Modelo
 {
     public class ModeloPCPEDC
     {
+      /*  Contrutor de Modelo em Desuso
+       *  
         public ModeloPCPEDC()
         {
             this.numped = 0;
@@ -177,6 +179,7 @@ namespace Modelo
             this.numvolume = 0;
 
         }
+        */
 
         private long _numped;
         private DateTime _data;

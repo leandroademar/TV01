@@ -8,7 +8,7 @@ using Modelo;
 
 namespace DAL
 {
-   
+
     public class DALPCPEDC
     {
         private DALConexao conexao;
@@ -28,496 +28,496 @@ namespace DAL
             comando1 = comando1 + "INSERT INTO PCPEDC " + "\n";
             comando1 = comando1 + "      (NUMPED, " + "\n";
             comando1 = comando1 + "       DATA, " + "\n";
-            comando1 = comando1 + "       CODUSUR, " + "\n";
-            comando1 = comando1 + "       CODCLI, " + "\n";
-            comando1 = comando1 + "       NUMITENS, " + "\n";
-            comando1 = comando1 + "       VLATEND, " + "\n";
-            comando1 = comando1 + "       CODPRACA, " + "\n";
-            comando1 = comando1 + "       POSICAO, " + "\n";
-            comando1 = comando1 + "       NUMCAR, " + "\n";
-            comando1 = comando1 + "       CODSUPERVISOR, " + "\n";
-            comando1 = comando1 + "       CODFILIAL, " + "\n";
-            comando1 = comando1 + "       VLTOTAL, " + "\n";
-            comando1 = comando1 + "       VLTABELA, " + "\n";
-            comando1 = comando1 + "       VLCUSTOREAL, " + "\n";
-            comando1 = comando1 + "       VLCUSTOFIN, " + "\n";
-            comando1 = comando1 + "       TOTPESO, " + "\n";
-            comando1 = comando1 + "       TOTVOLUME, " + "\n";
-            comando1 = comando1 + "       CODEMITENTE, " + "\n";
-            comando1 = comando1 + "       OPERACAO, " + "\n";
-            comando1 = comando1 + "       TIPOVENDA, " + "\n";
-            comando1 = comando1 + "       OBS, " + "\n";
-            comando1 = comando1 + "       CODCOB, " + "\n";
-            comando1 = comando1 + "       HORA, " + "\n";
-            comando1 = comando1 + "       MINUTO, " + "\n";
-            comando1 = comando1 + "       CODPLPAG, " + "\n";
-            comando1 = comando1 + "       NUMPEDCLI, " + "\n";
-            comando1 = comando1 + "       PERCVENDA, " + "\n";
-            comando1 = comando1 + "       PERDESC, " + "\n";
-            comando1 = comando1 + "       VLDESCONTO, " + "\n";
-            comando1 = comando1 + "       VLFRETE, " + "\n";
-            comando1 = comando1 + "       VLOUTRASDESP, " + "\n";
-            comando1 = comando1 + "       OBS1, " + "\n";
-            comando1 = comando1 + "       OBS2, " + "\n";
-            comando1 = comando1 + "       CONDVENDA, " + "\n";
-            comando1 = comando1 + "       DTENTREGA, " + "\n";
-            comando1 = comando1 + "       NUMPEDRCA, " + "\n";
-            comando1 = comando1 + "       FRETEDESPACHO, " + "\n";
-            comando1 = comando1 + "       FRETEREDESPACHO, " + "\n";
-            comando1 = comando1 + "       CODFORNECFRETE, " + "\n";
-            comando1 = comando1 + "       CODFORNECREDESPACHO, " + "\n";
-            comando1 = comando1 + "       TIPOCARGA, " + "\n";
-            comando1 = comando1 + "       PRAZO1, " + "\n"; 
-            comando1 = comando1 + "       PRAZO2, " + "\n"; 
-            comando1 = comando1 + "       PRAZO3, " + "\n";
-            comando1 = comando1 + "       PRAZO4, " + "\n";
-            comando1 = comando1 + "       PRAZO5, " + "\n";
-            comando1 = comando1 + "       PRAZO6, " + "\n";
-            comando1 = comando1 + "       PRAZO7, " + "\n";
-            comando1 = comando1 + "       PRAZO8, " + "\n";
-            comando1 = comando1 + "       PRAZO9, " + "\n";
-            comando1 = comando1 + "       PRAZO10, " + "\n";
-            comando1 = comando1 + "       PRAZO11, " + "\n";
-            comando1 = comando1 + "       PRAZO12, " + "\n";
-            comando1 = comando1 + "       PRAZOMEDIO, " + "\n";
-            comando1 = comando1 + "       OBSENTREGA1, " + "\n";
-            comando1 = comando1 + "       OBSENTREGA2, " + "\n";
-            comando1 = comando1 + "       OBSENTREGA3, " + "\n";
-            comando1 = comando1 + "       TIPOEMBALAGEM, " + "\n";
-            comando1 = comando1 + "       CODEPTO, " + "\n";
-            comando1 = comando1 + "       CAMPANHA, " + "\n";
-            comando1 = comando1 + "       CODDISTRIB, " + "\n";
-            comando1 = comando1 + "       VLCUSTOCONT, " + "\n";
-            comando1 = comando1 + "       VLCUSTOREP, " + "\n";
-            comando1 = comando1 + "       NUMNOTAMANIF, " + "\n";
-            comando1 = comando1 + "       SERIEMANIF, " + "\n";
-            comando1 = comando1 + "       ORIGEMPED, " + "\n";
-            comando1 = comando1 + "       ESPECIEMANIF, " + "\n";
-            comando1 = comando1 + "       NUMPEDENTFUT, " + "\n";
-            comando1 = comando1 + "       CODFILIALNF, " + "\n";
-            comando1 = comando1 + "       NUMCARMANIF, " + "\n";
-            comando1 = comando1 + "       NUMORCA, " + "\n";
-            comando1 = comando1 + "       CODCONTRATO, " + "\n";
-            comando1 = comando1 + "       DATAPEDCLI, " + "\n";
-            comando1 = comando1 + "       NUMPEDBNF, " + "\n";
-            comando1 = comando1 + "       BROKER, " + "\n";
-            comando1 = comando1 + "       CODESTABELECIMENTO, " + "\n";
-            comando1 = comando1 + "       NUMTABELA, " + "\n";
-            comando1 = comando1 + "       MOTIVOPOSICAO, " + "\n";
-            comando1 = comando1 + "       DTAGENDAENTREGA, " + "\n";
-            comando1 = comando1 + "       TIPOOPER, " + "\n";
-            comando1 = comando1 + "       CODMOTBLOQUEIO, " + "\n";
-            comando1 = comando1 + "       SERIEECF, " + "\n";
-            comando1 = comando1 + "       NUMCUPOM, " + "\n";
-            comando1 = comando1 + "       CODCLIRECEBEDOR, " + "\n";
-            comando1 = comando1 + "       CONCILIAIMPORTACAO, " + "\n";
-            comando1 = comando1 + "       NUMREGIAO, " + "\n";
-            comando1 = comando1 + "       NUMNOTA, " + "\n";
-            comando1 = comando1 + "       PERDESCFIN, " + "\n";
-            comando1 = comando1 + "       RESTRICAOTRANSP, " + "\n";
-            comando1 = comando1 + "       GERACP, " + "\n";
-            comando1 = comando1 + "       USAINTEGRACAOWMS, " + "\n";
-            comando1 = comando1 + "       VENDAASSISTIDA, " + "\n";
-            comando1 = comando1 + "       CODMOTIVO, " + "\n";
-            comando1 = comando1 + "       LOG, " + "\n";
-            comando1 = comando1 + "       DTCALCFRETE, " + "\n";
-            comando1 = comando1 + "       CODFUNCCALCFRETE, " + "\n";
-            comando1 = comando1 + "       EANCOBRANCA, " + "\n";
-            comando1 = comando1 + "       EANENTREGA, " + "\n";
-            comando1 = comando1 + "       USACFOPVENDANATV10, " + "\n";
-            comando1 = comando1 + "       TIPOPRIORIDADEENTREGA, " + "\n";
-            comando1 = comando1 + "       CODUSUR2, " + "\n";
-            comando1 = comando1 + "       CODUSUR3, " + "\n";
-            comando1 = comando1 + "       CODUSUR4, " + "\n";
-            comando1 = comando1 + "       CODCLINF, " + "\n";
-            comando1 = comando1 + "       NUMPEDTV1, " + "\n";
-            comando1 = comando1 + "       USADEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       BRINDE, " + "\n";
-            comando1 = comando1 + "       BONIFICALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       TROCAALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       BROKERALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       CRMALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       TIPOMOVCCRCA, " + "\n";
-            comando1 = comando1 + "       USACREDRCA, " + "\n";
-            comando1 = comando1 + "       GERARDADOSNFPAULISTA, " + "\n";
-            comando1 = comando1 + "       USASALDOCONTACORRENTEDESCFIN, " + "\n";
-            comando1 = comando1 + "       VALORDESCFIN, " + "\n";
-            comando1 = comando1 + "       CODVISITA, " + "\n";
-            comando1 = comando1 + "       CODATENDIMENTO, " + "\n";
-            comando1 = comando1 + "       VENDATRIANGULAR, " + "\n";
-            comando1 = comando1 + "       VLENTRADA, " + "\n";
-            comando1 = comando1 + "       UFDESEMBARACO, " + "\n";
-            comando1 = comando1 + "       LOCALDESEMBARACO, " + "\n";
-            comando1 = comando1 + "       CUSTOBONIFICACAO, " + "\n";
-            comando1 = comando1 + "       CODFORNECBONIFIC, " + "\n";
-            comando1 = comando1 + "       CODBNF, " + "\n";
-            comando1 = comando1 + "       TIPODOCUMENTO, " + "\n";
-            comando1 = comando1 + "       CFOPBNFDEGUSTA, " + "\n";
-            comando1 = comando1 + "       CONTAORDEM, " + "\n";
-            comando1 = comando1 + "       DATAEMPENHO, " + "\n";
-            comando1 = comando1 + "       NUMEMPENHO, " + "\n";
-            comando1 = comando1 + "       CODUNIDADEEXECUTORA, " + "\n";
-            comando1 = comando1 + "       PLACAVEICULO, " + "\n";
-            comando1 = comando1 + "       DTLIMITEFAT, " + "\n";
-            comando1 = comando1 + "       RESERVAESTOQUETV7, " + "\n";
-            comando1 = comando1 + "       FORNECENTREGA, " + "\n";
-            comando1 = comando1 + "       CODCLITV8, " + "\n";
-            comando1 = comando1 + "       UFVEICULO, " + "\n";
-            comando1 = comando1 + "       MOTORISTAVEICULO, " + "\n";
-            comando1 = comando1 + "       DTINICIODIGITACAOPEDIDO, " + "\n";
-            comando1 = comando1 + "       DTFIMDIGITACAOPEDIDO, " + "\n";
-            comando1 = comando1 + "       VLDESCABATIMENTO, " + "\n";
-            comando1 = comando1 + "       AGRUPAMENTO, " + "\n";
-            comando1 = comando1 + "       VENDAEXPORTACAO, " + "\n";
-            comando1 = comando1 + "       TURNOENTREGA, " + "\n";
-            comando1 = comando1 + "       NUMTRANSVENDATV13, " + "\n";
-            comando1 = comando1 + "       CODENDENTCLI, " + "\n";
-            comando1 = comando1 + "       UTILIZAVENDAPOREMBALAGEM, " + "\n";
-            comando1 = comando1 + "       CODCONTATO, " + "\n";
-            comando1 = comando1 + "       NUMREGEXP, " + "\n";
-            comando1 = comando1 + "       NUMCHAVEEXP, " + "\n";
-            comando1 = comando1 + "       NUMDRAWBACK, " + "\n";
-            comando1 = comando1 + "       DTNFTRANSF, " + "\n";
-            comando1 = comando1 + "       ROTINALANC, " + "\n";
-            comando1 = comando1 + "       NUMPEDORIGEM, " + "\n";
-            comando1 = comando1 + "       PEDDUPLICADO, " + "\n";
-            comando1 = comando1 + "       VLBONIFIC, " + "\n";
-            comando1 = comando1 + "       VENDALOCESTRANG, " + "\n";
-            comando1 = comando1 + "       COPIAIDENTICAPEDDUP, " + "\n";
-            comando1 = comando1 + "       ASSINATURA, " + "\n";
-            comando1 = comando1 + "       CONDFINANC, " + "\n";
-            comando1 = comando1 + "       PLANOSUPPLI, " + "\n";
-            comando1 = comando1 + "       PAGCHEQUEMORADIA, " + "\n";
+            if (modelo.codusur != null) { comando1 = comando1 + "CODUSUR," + "\n"; }
+            if (modelo.codcli != null) { comando1 = comando1 + "CODCLI," + "\n"; }
+            if (modelo.numitens != null) { comando1 = comando1 + "NUMITENS," + "\n"; }
+            if (modelo.vlatend != null) { comando1 = comando1 + "VLATEND," + "\n"; }
+            if (modelo.codpraca != null) { comando1 = comando1 + "CODPRACA," + "\n"; }
+            if (modelo.posicao != null) { comando1 = comando1 + "POSICAO," + "\n"; }
+            if (modelo.numcar != null) { comando1 = comando1 + "NUMCAR," + "\n"; }
+            if (modelo.codsupervisor != null) { comando1 = comando1 + "CODSUPERVISOR," + "\n"; }
+            if (modelo.codfilial != null) { comando1 = comando1 + "CODFILIAL," + "\n"; }
+            if (modelo.vltotal != null) { comando1 = comando1 + "VLTOTAL," + "\n"; }
+            if (modelo.vltabela != null) { comando1 = comando1 + "VLTABELA," + "\n"; }
+            if (modelo.vlcustoreal != null) { comando1 = comando1 + "VLCUSTOREAL," + "\n"; }
+            if (modelo.vlcustofin != null) { comando1 = comando1 + "VLCUSTOFIN," + "\n"; }
+            if (modelo.totpeso != null) { comando1 = comando1 + "TOTPESO," + "\n"; }
+            if (modelo.totvolume != null) { comando1 = comando1 + "TOTVOLUME," + "\n"; }
+            if (modelo.codemitente != null) { comando1 = comando1 + "CODEMITENTE," + "\n"; }
+            if (modelo.operacao != null) { comando1 = comando1 + "OPERACAO," + "\n"; }
+            if (modelo.tipovenda != null) { comando1 = comando1 + "TIPOVENDA," + "\n"; }
+            if (modelo.obs != null) { comando1 = comando1 + "OBS," + "\n"; }
+            if (modelo.codcob != null) { comando1 = comando1 + "CODCOB," + "\n"; }
+            if (modelo.hora != null) { comando1 = comando1 + "HORA," + "\n"; }
+            if (modelo.minuto != null) { comando1 = comando1 + "MINUTO," + "\n"; }
+            if (modelo.codplpag != null) { comando1 = comando1 + "CODPLPAG," + "\n"; }
+            if (modelo.numpedcli != null) { comando1 = comando1 + "NUMPEDCLI," + "\n"; }
+            if (modelo.percvenda != null) { comando1 = comando1 + "PERCVENDA," + "\n"; }
+            if (modelo.perdesc != null) { comando1 = comando1 + "PERDESC," + "\n"; }
+            if (modelo.vldesconto != null) { comando1 = comando1 + "VLDESCONTO," + "\n"; }
+            if (modelo.vlfrete != null) { comando1 = comando1 + "VLFRETE," + "\n"; }
+            if (modelo.vloutrasdesp != null) { comando1 = comando1 + "VLOUTRASDESP," + "\n"; }
+            if (modelo.obs1 != null) { comando1 = comando1 + "OBS1," + "\n"; }
+            if (modelo.obs2 != null) { comando1 = comando1 + "OBS2," + "\n"; }
+            if (modelo.condvenda != null) { comando1 = comando1 + "CONDVENDA," + "\n"; }
+            if (modelo.dtentrega != null) { comando1 = comando1 + "DTENTREGA," + "\n"; }
+            if (modelo.numpedrca != null) { comando1 = comando1 + "NUMPEDRCA," + "\n"; }
+            if (modelo.fretedespacho != null) { comando1 = comando1 + "FRETEDESPACHO," + "\n"; }
+            if (modelo.freteredespacho != null) { comando1 = comando1 + "FRETEREDESPACHO," + "\n"; }
+            if (modelo.codfornecfrete != null) { comando1 = comando1 + "CODFORNECFRETE," + "\n"; }
+            if (modelo.codfornecredespacho != null) { comando1 = comando1 + "CODFORNECREDESPACHO," + "\n"; }
+            if (modelo.tipocarga != null) { comando1 = comando1 + "TIPOCARGA," + "\n"; }
+            if (modelo.prazo1 != null) { comando1 = comando1 + "PRAZO1," + "\n"; }
+            if (modelo.prazo2 != null) { comando1 = comando1 + "PRAZO2," + "\n"; }
+            if (modelo.prazo3 != null) { comando1 = comando1 + "PRAZO3," + "\n"; }
+            if (modelo.prazo4 != null) { comando1 = comando1 + "PRAZO4," + "\n"; }
+            if (modelo.prazo5 != null) { comando1 = comando1 + "PRAZO5," + "\n"; }
+            if (modelo.prazo6 != null) { comando1 = comando1 + "PRAZO6," + "\n"; }
+            if (modelo.prazo7 != null) { comando1 = comando1 + "PRAZO7," + "\n"; }
+            if (modelo.prazo8 != null) { comando1 = comando1 + "PRAZO8," + "\n"; }
+            if (modelo.prazo9 != null) { comando1 = comando1 + "PRAZO9," + "\n"; }
+            if (modelo.prazo10 != null) { comando1 = comando1 + "PRAZO10," + "\n"; }
+            if (modelo.prazo11 != null) { comando1 = comando1 + "PRAZO11," + "\n"; }
+            if (modelo.prazo12 != null) { comando1 = comando1 + "PRAZO12," + "\n"; }
+            if (modelo.prazomedio != null) { comando1 = comando1 + "PRAZOMEDIO," + "\n"; }
+            if (modelo.obsentrega1 != null) { comando1 = comando1 + "OBSENTREGA1," + "\n"; }
+            if (modelo.obsentrega2 != null) { comando1 = comando1 + "OBSENTREGA2," + "\n"; }
+            if (modelo.obsentrega3 != null) { comando1 = comando1 + "OBSENTREGA3," + "\n"; }
+            if (modelo.tipoembalagem != null) { comando1 = comando1 + "TIPOEMBALAGEM," + "\n"; }
+            if (modelo.codepto != null) { comando1 = comando1 + "CODEPTO," + "\n"; }
+            if (modelo.campanha != null) { comando1 = comando1 + "CAMPANHA," + "\n"; }
+            if (modelo.coddistrib != null) { comando1 = comando1 + "CODDISTRIB," + "\n"; }
+            if (modelo.vlcustocont != null) { comando1 = comando1 + "VLCUSTOCONT," + "\n"; }
+            if (modelo.vlcustorep != null) { comando1 = comando1 + "VLCUSTOREP," + "\n"; }
+            if (modelo.numnotamanif != null) { comando1 = comando1 + "NUMNOTAMANIF," + "\n"; }
+            if (modelo.seriemanif != null) { comando1 = comando1 + "SERIEMANIF," + "\n"; }
+            if (modelo.origemped != null) { comando1 = comando1 + "ORIGEMPED," + "\n"; }
+            if (modelo.especiemanif != null) { comando1 = comando1 + "ESPECIEMANIF," + "\n"; }
+            if (modelo.numpedentfut != null) { comando1 = comando1 + "NUMPEDENTFUT," + "\n"; }
+            if (modelo.codfilialnf != null) { comando1 = comando1 + "CODFILIALNF," + "\n"; }
+            if (modelo.numcarmanif != null) { comando1 = comando1 + "NUMCARMANIF," + "\n"; }
+            if (modelo.numorca != null) { comando1 = comando1 + "NUMORCA," + "\n"; }
+            if (modelo.codcontrato != null) { comando1 = comando1 + "CODCONTRATO," + "\n"; }
+            if (modelo.datapedcli != null) { comando1 = comando1 + "DATAPEDCLI," + "\n"; }
+            if (modelo.numpedbnf != null) { comando1 = comando1 + "NUMPEDBNF," + "\n"; }
+            if (modelo.broker != null) { comando1 = comando1 + "BROKER," + "\n"; }
+            if (modelo.codestabelecimento != null) { comando1 = comando1 + "CODESTABELECIMENTO," + "\n"; }
+            if (modelo.numtabela != null) { comando1 = comando1 + "NUMTABELA," + "\n"; }
+            if (modelo.motivoposicao != null) { comando1 = comando1 + "MOTIVOPOSICAO," + "\n"; }
+            if (modelo.dtagendaentrega != null) { comando1 = comando1 + "DTAGENDAENTREGA," + "\n"; }
+            if (modelo.tipooper != null) { comando1 = comando1 + "TIPOOPER," + "\n"; }
+            if (modelo.codmotbloqueio != null) { comando1 = comando1 + "CODMOTBLOQUEIO," + "\n"; }
+            if (modelo.serieecf != null) { comando1 = comando1 + "SERIEECF," + "\n"; }
+            if (modelo.numcupom != null) { comando1 = comando1 + "NUMCUPOM," + "\n"; }
+            if (modelo.codclirecebedor != null) { comando1 = comando1 + "CODCLIRECEBEDOR," + "\n"; }
+            if (modelo.conciliaimportacao != null) { comando1 = comando1 + "CONCILIAIMPORTACAO," + "\n"; }
+            if (modelo.numregiao != null) { comando1 = comando1 + "NUMREGIAO," + "\n"; }
+            if (modelo.numnota != null) { comando1 = comando1 + "NUMNOTA," + "\n"; }
+            if (modelo.perdescfin != null) { comando1 = comando1 + "PERDESCFIN," + "\n"; }
+            if (modelo.restricaotransp != null) { comando1 = comando1 + "RESTRICAOTRANSP," + "\n"; }
+            if (modelo.geracp != null) { comando1 = comando1 + "GERACP," + "\n"; }
+            if (modelo.usaintegracaowms != null) { comando1 = comando1 + "USAINTEGRACAOWMS," + "\n"; }
+            if (modelo.vendaassistida != null) { comando1 = comando1 + "VENDAASSISTIDA," + "\n"; }
+            if (modelo.codmotivo != null) { comando1 = comando1 + "CODMOTIVO," + "\n"; }
+            if (modelo.log != null) { comando1 = comando1 + "LOG," + "\n"; }
+            if (modelo.dtcalcfrete != null) { comando1 = comando1 + "DTCALCFRETE," + "\n"; }
+            if (modelo.codfunccalcfrete != null) { comando1 = comando1 + "CODFUNCCALCFRETE," + "\n"; }
+            if (modelo.eancobranca != null) { comando1 = comando1 + "EANCOBRANCA," + "\n"; }
+            if (modelo.eanentrega != null) { comando1 = comando1 + "EANENTREGA," + "\n"; }
+            if (modelo.usacfopvendanatv10 != null) { comando1 = comando1 + "USACFOPVENDANATV10," + "\n"; }
+            if (modelo.tipoprioridadeentrega != null) { comando1 = comando1 + "TIPOPRIORIDADEENTREGA," + "\n"; }
+            if (modelo.codusur2 != null) { comando1 = comando1 + "CODUSUR2," + "\n"; }
+            if (modelo.codusur3 != null) { comando1 = comando1 + "CODUSUR3," + "\n"; }
+            if (modelo.codusur4 != null) { comando1 = comando1 + "CODUSUR4," + "\n"; }
+            if (modelo.codclinf != null) { comando1 = comando1 + "CODCLINF," + "\n"; }
+            if (modelo.numpedtv1 != null) { comando1 = comando1 + "NUMPEDTV1," + "\n"; }
+            if (modelo.usadebcredrca != null) { comando1 = comando1 + "USADEBCREDRCA," + "\n"; }
+            if (modelo.brinde != null) { comando1 = comando1 + "BRINDE," + "\n"; }
+            if (modelo.bonificaltdebcredrca != null) { comando1 = comando1 + "BONIFICALTDEBCREDRCA," + "\n"; }
+            if (modelo.trocaaltdebcredrca != null) { comando1 = comando1 + "TROCAALTDEBCREDRCA," + "\n"; }
+            if (modelo.brokeraltdebcredrca != null) { comando1 = comando1 + "BROKERALTDEBCREDRCA," + "\n"; }
+            if (modelo.crmaltdebcredrca != null) { comando1 = comando1 + "CRMALTDEBCREDRCA," + "\n"; }
+            if (modelo.tipomovccrca != null) { comando1 = comando1 + "TIPOMOVCCRCA," + "\n"; }
+            if (modelo.usacredrca != null) { comando1 = comando1 + "USACREDRCA," + "\n"; }
+            if (modelo.gerardadosnfpaulista != null) { comando1 = comando1 + "GERARDADOSNFPAULISTA," + "\n"; }
+            if (modelo.usasaldocontacorrentedescfin != null) { comando1 = comando1 + "USASALDOCONTACORRENTEDESCFIN," + "\n"; }
+            if (modelo.valordescfin != null) { comando1 = comando1 + "VALORDESCFIN," + "\n"; }
+            if (modelo.codvisita != null) { comando1 = comando1 + "CODVISITA," + "\n"; }
+            if (modelo.codatendimento != null) { comando1 = comando1 + "CODATENDIMENTO," + "\n"; }
+            if (modelo.vendatriangular != null) { comando1 = comando1 + "VENDATRIANGULAR," + "\n"; }
+            if (modelo.vlentrada != null) { comando1 = comando1 + "VLENTRADA," + "\n"; }
+            if (modelo.ufdesembaraco != null) { comando1 = comando1 + "UFDESEMBARACO," + "\n"; }
+            if (modelo.localdesembaraco != null) { comando1 = comando1 + "LOCALDESEMBARACO," + "\n"; }
+            if (modelo.custobonificacao != null) { comando1 = comando1 + "CUSTOBONIFICACAO," + "\n"; }
+            if (modelo.codfornecbonific != null) { comando1 = comando1 + "CODFORNECBONIFIC," + "\n"; }
+            if (modelo.codbnf != null) { comando1 = comando1 + "CODBNF," + "\n"; }
+            if (modelo.tipodocumento != null) { comando1 = comando1 + "TIPODOCUMENTO," + "\n"; }
+            if (modelo.cfopbnfdegusta != null) { comando1 = comando1 + "CFOPBNFDEGUSTA," + "\n"; }
+            if (modelo.contaordem != null) { comando1 = comando1 + "CONTAORDEM," + "\n"; }
+            if (modelo.dataempenho != null) { comando1 = comando1 + "DATAEMPENHO," + "\n"; }
+            if (modelo.numempenho != null) { comando1 = comando1 + "NUMEMPENHO," + "\n"; }
+            if (modelo.codunidadeexecutora != null) { comando1 = comando1 + "CODUNIDADEEXECUTORA," + "\n"; }
+            if (modelo.placaveiculo != null) { comando1 = comando1 + "PLACAVEICULO," + "\n"; }
+            if (modelo.dtlimitefat != null) { comando1 = comando1 + "DTLIMITEFAT," + "\n"; }
+            if (modelo.reservaestoquetv7 != null) { comando1 = comando1 + "RESERVAESTOQUETV7," + "\n"; }
+            if (modelo.fornecentrega != null) { comando1 = comando1 + "FORNECENTREGA," + "\n"; }
+            if (modelo.codclitv8 != null) { comando1 = comando1 + "CODCLITV8," + "\n"; }
+            if (modelo.ufveiculo != null) { comando1 = comando1 + "UFVEICULO," + "\n"; }
+            if (modelo.motoristaveiculo != null) { comando1 = comando1 + "MOTORISTAVEICULO," + "\n"; }
+            if (modelo.dtiniciodigitacaopedido != null) { comando1 = comando1 + "DTINICIODIGITACAOPEDIDO," + "\n"; }
+            if (modelo.dtfimdigitacaopedido != null) { comando1 = comando1 + "DTFIMDIGITACAOPEDIDO," + "\n"; }
+            if (modelo.vldescabatimento != null) { comando1 = comando1 + "VLDESCABATIMENTO," + "\n"; }
+            if (modelo.agrupamento != null) { comando1 = comando1 + "AGRUPAMENTO," + "\n"; }
+            if (modelo.vendaexportacao != null) { comando1 = comando1 + "VENDAEXPORTACAO," + "\n"; }
+            if (modelo.turnoentrega != null) { comando1 = comando1 + "TURNOENTREGA," + "\n"; }
+            if (modelo.numtransvendatv13 != null) { comando1 = comando1 + "NUMTRANSVENDATV13," + "\n"; }
+            if (modelo.codendentcli != null) { comando1 = comando1 + "CODENDENTCLI," + "\n"; }
+            if (modelo.utilizavendaporembalagem != null) { comando1 = comando1 + "UTILIZAVENDAPOREMBALAGEM," + "\n"; }
+            if (modelo.codcontato != null) { comando1 = comando1 + "CODCONTATO," + "\n"; }
+            if (modelo.numregexp != null) { comando1 = comando1 + "NUMREGEXP," + "\n"; }
+            if (modelo.numchaveexp != null) { comando1 = comando1 + "NUMCHAVEEXP," + "\n"; }
+            if (modelo.numdrawback != null) { comando1 = comando1 + "NUMDRAWBACK," + "\n"; }
+            if (modelo.dtnftransf != null) { comando1 = comando1 + "DTNFTRANSF," + "\n"; }
+            if (modelo.rotinalanc != null) { comando1 = comando1 + "ROTINALANC," + "\n"; }
+            if (modelo.numpedorigem != null) { comando1 = comando1 + "NUMPEDORIGEM," + "\n"; }
+            if (modelo.pedduplicado != null) { comando1 = comando1 + "PEDDUPLICADO," + "\n"; }
+            if (modelo.vlbonific != null) { comando1 = comando1 + "VLBONIFIC," + "\n"; }
+            if (modelo.vendalocestrang != null) { comando1 = comando1 + "VENDALOCESTRANG," + "\n"; }
+            if (modelo.copiaidenticapeddup != null) { comando1 = comando1 + "COPIAIDENTICAPEDDUP," + "\n"; }
+            if (modelo.assinatura != null) { comando1 = comando1 + "ASSINATURA," + "\n"; }
+            if (modelo.condfinanc != null) { comando1 = comando1 + "CONDFINANC," + "\n"; }
+            if (modelo.planosuppli != null) { comando1 = comando1 + "PLANOSUPPLI," + "\n"; }
+            if (modelo.pagchequemoradia != null) { comando1 = comando1 + "PAGCHEQUEMORADIA," + "\n"; }
             comando1 = comando1 + "       NUMVOLUME " + "\n";
             comando1 = comando1 + "       ) " + "\n";
             comando1 = comando1 + "    VALUES " + "\n";
             comando1 = comando1 + "      (:NUMPED, " + "\n";
             comando1 = comando1 + "       :DATA, " + "\n";
-            comando1 = comando1 + "       :CODUSUR, " + "\n";
-            comando1 = comando1 + "       :CODCLI, " + "\n";
-            comando1 = comando1 + "       :NUMITENS, " + "\n";
-            comando1 = comando1 + "       :VLATEND, " + "\n";
-            comando1 = comando1 + "       :CODPRACA, " + "\n";
-            comando1 = comando1 + "       :POSICAO, " + "\n";
-            comando1 = comando1 + "       :NUMCAR, " + "\n";
-            comando1 = comando1 + "       :CODSUPERVISOR, " + "\n";
-            comando1 = comando1 + "       :CODFILIAL, " + "\n";
-            comando1 = comando1 + "       :VLTOTAL, " + "\n";
-            comando1 = comando1 + "       :VLTABELA, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOREAL, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOFIN, " + "\n";
-            comando1 = comando1 + "       :TOTPESO, " + "\n";
-            comando1 = comando1 + "       :TOTVOLUME, " + "\n";
-            comando1 = comando1 + "       :CODEMITENTE, " + "\n";
-            comando1 = comando1 + "       :OPERACAO, " + "\n";
-            comando1 = comando1 + "       :TIPOVENDA, " + "\n";
-            comando1 = comando1 + "       :OBS, " + "\n";
-            comando1 = comando1 + "       :CODCOB, " + "\n";
-            comando1 = comando1 + "       :HORA, " + "\n";
-            comando1 = comando1 + "       :MINUTO, " + "\n";
-            comando1 = comando1 + "       :CODPLPAG, " + "\n";
-            comando1 = comando1 + "       :NUMPEDCLI, " + "\n";
-            comando1 = comando1 + "       :PERCVENDA, " + "\n";
-            comando1 = comando1 + "       :PERDESC, " + "\n";
-            comando1 = comando1 + "       :VLDESCONTO, " + "\n";
-            comando1 = comando1 + "       :VLFRETE, " + "\n";
-            comando1 = comando1 + "       :VLOUTRASDESP, " + "\n";
-            comando1 = comando1 + "       :OBS1, " + "\n";
-            comando1 = comando1 + "       :OBS2, " + "\n";
-            comando1 = comando1 + "       :CONDVENDA, " + "\n";
-            comando1 = comando1 + "       :DTENTREGA, " + "\n";
-            comando1 = comando1 + "       :NUMPEDRCA, " + "\n";
-            comando1 = comando1 + "       :FRETEDESPACHO, " + "\n";
-            comando1 = comando1 + "       :FRETEREDESPACHO, " + "\n";
-            comando1 = comando1 + "       :CODFORNECFRETE, " + "\n";
-            comando1 = comando1 + "       :CODFORNECREDESPACHO, " + "\n";
-            comando1 = comando1 + "       :TIPOCARGA, " + "\n";
-            comando1 = comando1 + "       :PRAZO1, " + "\n"; 
-            comando1 = comando1 + "       :PRAZO2, " + "\n"; 
-            comando1 = comando1 + "       :PRAZO3, " + "\n";
-            comando1 = comando1 + "       :PRAZO4, " + "\n";
-            comando1 = comando1 + "       :PRAZO5, " + "\n";
-            comando1 = comando1 + "       :PRAZO6, " + "\n";
-            comando1 = comando1 + "       :PRAZO7, " + "\n";
-            comando1 = comando1 + "       :PRAZO8, " + "\n";
-            comando1 = comando1 + "       :PRAZO9, " + "\n";
-            comando1 = comando1 + "       :PRAZO10, " + "\n";
-            comando1 = comando1 + "       :PRAZO11, " + "\n";
-            comando1 = comando1 + "       :PRAZO12, " + "\n";
-            comando1 = comando1 + "       :PRAZOMEDIO, " + "\n";
-            comando1 = comando1 + "       :OBSENTREGA1, " + "\n";
-            comando1 = comando1 + "       :OBSENTREGA2, " + "\n";
-            comando1 = comando1 + "       :OBSENTREGA3, " + "\n";
-            comando1 = comando1 + "       :TIPOEMBALAGEM, " + "\n";
-            comando1 = comando1 + "       :CODEPTO, " + "\n";
-            comando1 = comando1 + "       :CAMPANHA, " + "\n";
-            comando1 = comando1 + "       :CODDISTRIB, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOCONT, " + "\n";
-            comando1 = comando1 + "       :VLCUSTOREP, " + "\n";
-            comando1 = comando1 + "       :NUMNOTAMANIF, " + "\n";
-            comando1 = comando1 + "       :SERIEMANIF, " + "\n";
-            comando1 = comando1 + "       :ORIGEMPED, " + "\n";
-            comando1 = comando1 + "       :ESPECIEMANIF, " + "\n";
-            comando1 = comando1 + "       :NUMPEDENTFUT, " + "\n";
-            comando1 = comando1 + "       :CODFILIALNF, " + "\n";
-            comando1 = comando1 + "       :NUMCARMANIF, " + "\n";
-            comando1 = comando1 + "       :NUMORCA, " + "\n";
-            comando1 = comando1 + "       :CODCONTRATO, " + "\n";
-            comando1 = comando1 + "       :DATAPEDCLI, " + "\n";
-            comando1 = comando1 + "       :NUMPEDBNF, " + "\n";
-            comando1 = comando1 + "       :BROKER, " + "\n";
-            comando1 = comando1 + "       :CODESTABELECIMENTO, " + "\n";
-            comando1 = comando1 + "       :NUMTABELA, " + "\n";
-            comando1 = comando1 + "       :MOTIVOPOSICAO, " + "\n";
-            comando1 = comando1 + "       :DTAGENDAENTREGA, " + "\n";
-            comando1 = comando1 + "       :TIPOOPER, " + "\n";
-            comando1 = comando1 + "       :CODMOTBLOQUEIO, " + "\n";
-            comando1 = comando1 + "       :SERIEECF, " + "\n";
-            comando1 = comando1 + "       :NUMCUPOM, " + "\n";
-            comando1 = comando1 + "       :CODCLIRECEBEDOR, " + "\n";
-            comando1 = comando1 + "       :CONCILIAIMPORTACAO, " + "\n";
-            comando1 = comando1 + "       :NUMREGIAO, " + "\n";
-            comando1 = comando1 + "       :NUMNOTA, " + "\n";
-            comando1 = comando1 + "       :PERDESCFIN, " + "\n";
-            comando1 = comando1 + "       :RESTRICAOTRANSP, " + "\n";
-            comando1 = comando1 + "       :GERACP, " + "\n";
-            comando1 = comando1 + "       :USAINTEGRACAOWMS, " + "\n";
-            comando1 = comando1 + "       :VENDAASSISTIDA, " + "\n";
-            comando1 = comando1 + "       :CODMOTIVO, " + "\n";
-            comando1 = comando1 + "       :LOG, " + "\n";
-            comando1 = comando1 + "       :DTCALCFRETE, " + "\n";
-            comando1 = comando1 + "       :CODFUNCCALCFRETE, " + "\n";
-            comando1 = comando1 + "       :EANCOBRANCA, " + "\n";
-            comando1 = comando1 + "       :EANENTREGA, " + "\n";
-            comando1 = comando1 + "       :USACFOPVENDANATV10, " + "\n";
-            comando1 = comando1 + "       :TIPOPRIORIDADEENTREGA, " + "\n";
-            comando1 = comando1 + "       :CODUSUR2, " + "\n";
-            comando1 = comando1 + "       :CODUSUR3, " + "\n";
-            comando1 = comando1 + "       :CODUSUR4, " + "\n";
-            comando1 = comando1 + "       :CODCLINF, " + "\n";
-            comando1 = comando1 + "       :NUMPEDTV1, " + "\n";
-            comando1 = comando1 + "       :USADEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       :BRINDE, " + "\n";
-            comando1 = comando1 + "       :BONIFICALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       :TROCAALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       :BROKERALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       :CRMALTDEBCREDRCA, " + "\n";
-            comando1 = comando1 + "       :TIPOMOVCCRCA, " + "\n";
-            comando1 = comando1 + "       :USACREDRCA, " + "\n";
-            comando1 = comando1 + "       :GERARDADOSNFPAULISTA, " + "\n";
-            comando1 = comando1 + "       :USASALDOCONTACORRENTEDESCFIN, " + "\n";
-            comando1 = comando1 + "       :VALORDESCFIN, " + "\n";
-            comando1 = comando1 + "       :CODVISITA, " + "\n";
-            comando1 = comando1 + "       :CODATENDIMENTO, " + "\n";
-            comando1 = comando1 + "       :VENDATRIANGULAR, " + "\n";
-            comando1 = comando1 + "       :VLENTRADA, " + "\n";
-            comando1 = comando1 + "       :UFDESEMBARACO, " + "\n";
-            comando1 = comando1 + "       :LOCALDESEMBARACO, " + "\n";
-            comando1 = comando1 + "       :CUSTOBONIFICACAO, " + "\n";
-            comando1 = comando1 + "       :CODFORNECBONIFIC, " + "\n";
-            comando1 = comando1 + "       :CODBNF, " + "\n";
-            comando1 = comando1 + "       :TIPODOCUMENTO, " + "\n";
-            comando1 = comando1 + "       :CFOPBNFDEGUSTA, " + "\n";
-            comando1 = comando1 + "       :CONTAORDEM, " + "\n";
-            comando1 = comando1 + "       :DATAEMPENHO, " + "\n";
-            comando1 = comando1 + "       :NUMEMPENHO, " + "\n";
-            comando1 = comando1 + "       :CODUNIDADEEXECUTORA, " + "\n";
-            comando1 = comando1 + "       :PLACAVEICULO, " + "\n";
-            comando1 = comando1 + "       :DTLIMITEFAT, " + "\n";
-            comando1 = comando1 + "       :RESERVAESTOQUETV7, " + "\n";
-            comando1 = comando1 + "       :FORNECENTREGA, " + "\n";
-            comando1 = comando1 + "       :CODCLITV8, " + "\n";
-            comando1 = comando1 + "       :UFVEICULO, " + "\n";
-            comando1 = comando1 + "       :MOTORISTAVEICULO, " + "\n";
-            comando1 = comando1 + "       :DTINICIODIGITACAOPEDIDO, " + "\n";
-            comando1 = comando1 + "       :DTFIMDIGITACAOPEDIDO, " + "\n";
-            comando1 = comando1 + "       :VLDESCABATIMENTO, " + "\n";
-            comando1 = comando1 + "       :AGRUPAMENTO, " + "\n";
-            comando1 = comando1 + "       :VENDAEXPORTACAO, " + "\n";
-            comando1 = comando1 + "       :TURNOENTREGA, " + "\n";
-            comando1 = comando1 + "       :NUMTRANSVENDATV13, " + "\n";
-            comando1 = comando1 + "       :CODENDENTCLI, " + "\n";
-            comando1 = comando1 + "       :UTILIZAVENDAPOREMBALAGEM, " + "\n";
-            comando1 = comando1 + "       :CODCONTATO, " + "\n";
-            comando1 = comando1 + "       :NUMREGEXP, " + "\n";
-            comando1 = comando1 + "       :NUMCHAVEEXP, " + "\n";
-            comando1 = comando1 + "       :NUMDRAWBACK, " + "\n";
-            comando1 = comando1 + "       :DTNFTRANSF, " + "\n";
-            comando1 = comando1 + "       :ROTINALANC, " + "\n";
-            comando1 = comando1 + "       :NUMPEDORIGEM, " + "\n";
-            comando1 = comando1 + "       :PEDDUPLICADO, " + "\n";
-            comando1 = comando1 + "       :VLBONIFIC, " + "\n";
-            comando1 = comando1 + "       :VENDALOCESTRANG, " + "\n";
-            comando1 = comando1 + "       :COPIAIDENTICAPEDDUP, " + "\n";
-            comando1 = comando1 + "       :ASSINATURA, " + "\n";
-            comando1 = comando1 + "       :CONDFINANC, " + "\n";
-            comando1 = comando1 + "       :PLANOSUPPLI, " + "\n";
-            comando1 = comando1 + "       :PAGCHEQUEMORADIA, " + "\n";
+            if (modelo.codusur != null) { comando1 = comando1 + ":CODUSUR," + "\n"; }
+            if (modelo.codcli != null) { comando1 = comando1 + ":CODCLI," + "\n"; }
+            if (modelo.numitens != null) { comando1 = comando1 + ":NUMITENS," + "\n"; }
+            if (modelo.vlatend != null) { comando1 = comando1 + ":VLATEND," + "\n"; }
+            if (modelo.codpraca != null) { comando1 = comando1 + ":CODPRACA," + "\n"; }
+            if (modelo.posicao != null) { comando1 = comando1 + ":POSICAO," + "\n"; }
+            if (modelo.numcar != null) { comando1 = comando1 + ":NUMCAR," + "\n"; }
+            if (modelo.codsupervisor != null) { comando1 = comando1 + ":CODSUPERVISOR," + "\n"; }
+            if (modelo.codfilial != null) { comando1 = comando1 + ":CODFILIAL," + "\n"; }
+            if (modelo.vltotal != null) { comando1 = comando1 + ":VLTOTAL," + "\n"; }
+            if (modelo.vltabela != null) { comando1 = comando1 + ":VLTABELA," + "\n"; }
+            if (modelo.vlcustoreal != null) { comando1 = comando1 + ":VLCUSTOREAL," + "\n"; }
+            if (modelo.vlcustofin != null) { comando1 = comando1 + ":VLCUSTOFIN," + "\n"; }
+            if (modelo.totpeso != null) { comando1 = comando1 + ":TOTPESO," + "\n"; }
+            if (modelo.totvolume != null) { comando1 = comando1 + ":TOTVOLUME," + "\n"; }
+            if (modelo.codemitente != null) { comando1 = comando1 + ":CODEMITENTE," + "\n"; }
+            if (modelo.operacao != null) { comando1 = comando1 + ":OPERACAO," + "\n"; }
+            if (modelo.tipovenda != null) { comando1 = comando1 + ":TIPOVENDA," + "\n"; }
+            if (modelo.obs != null) { comando1 = comando1 + ":OBS," + "\n"; }
+            if (modelo.codcob != null) { comando1 = comando1 + ":CODCOB," + "\n"; }
+            if (modelo.hora != null) { comando1 = comando1 + ":HORA," + "\n"; }
+            if (modelo.minuto != null) { comando1 = comando1 + ":MINUTO," + "\n"; }
+            if (modelo.codplpag != null) { comando1 = comando1 + ":CODPLPAG," + "\n"; }
+            if (modelo.numpedcli != null) { comando1 = comando1 + ":NUMPEDCLI," + "\n"; }
+            if (modelo.percvenda != null) { comando1 = comando1 + ":PERCVENDA," + "\n"; }
+            if (modelo.perdesc != null) { comando1 = comando1 + ":PERDESC," + "\n"; }
+            if (modelo.vldesconto != null) { comando1 = comando1 + ":VLDESCONTO," + "\n"; }
+            if (modelo.vlfrete != null) { comando1 = comando1 + ":VLFRETE," + "\n"; }
+            if (modelo.vloutrasdesp != null) { comando1 = comando1 + ":VLOUTRASDESP," + "\n"; }
+            if (modelo.obs1 != null) { comando1 = comando1 + ":OBS1," + "\n"; }
+            if (modelo.obs2 != null) { comando1 = comando1 + ":OBS2," + "\n"; }
+            if (modelo.condvenda != null) { comando1 = comando1 + ":CONDVENDA," + "\n"; }
+            if (modelo.dtentrega != null) { comando1 = comando1 + ":DTENTREGA," + "\n"; }
+            if (modelo.numpedrca != null) { comando1 = comando1 + ":NUMPEDRCA," + "\n"; }
+            if (modelo.fretedespacho != null) { comando1 = comando1 + ":FRETEDESPACHO," + "\n"; }
+            if (modelo.freteredespacho != null) { comando1 = comando1 + ":FRETEREDESPACHO," + "\n"; }
+            if (modelo.codfornecfrete != null) { comando1 = comando1 + ":CODFORNECFRETE," + "\n"; }
+            if (modelo.codfornecredespacho != null) { comando1 = comando1 + ":CODFORNECREDESPACHO," + "\n"; }
+            if (modelo.tipocarga != null) { comando1 = comando1 + ":TIPOCARGA," + "\n"; }
+            if (modelo.prazo1 != null) { comando1 = comando1 + ":PRAZO1," + "\n"; }
+            if (modelo.prazo2 != null) { comando1 = comando1 + ":PRAZO2," + "\n"; }
+            if (modelo.prazo3 != null) { comando1 = comando1 + ":PRAZO3," + "\n"; }
+            if (modelo.prazo4 != null) { comando1 = comando1 + ":PRAZO4," + "\n"; }
+            if (modelo.prazo5 != null) { comando1 = comando1 + ":PRAZO5," + "\n"; }
+            if (modelo.prazo6 != null) { comando1 = comando1 + ":PRAZO6," + "\n"; }
+            if (modelo.prazo7 != null) { comando1 = comando1 + ":PRAZO7," + "\n"; }
+            if (modelo.prazo8 != null) { comando1 = comando1 + ":PRAZO8," + "\n"; }
+            if (modelo.prazo9 != null) { comando1 = comando1 + ":PRAZO9," + "\n"; }
+            if (modelo.prazo10 != null) { comando1 = comando1 + ":PRAZO10," + "\n"; }
+            if (modelo.prazo11 != null) { comando1 = comando1 + ":PRAZO11," + "\n"; }
+            if (modelo.prazo12 != null) { comando1 = comando1 + ":PRAZO12," + "\n"; }
+            if (modelo.prazomedio != null) { comando1 = comando1 + ":PRAZOMEDIO," + "\n"; }
+            if (modelo.obsentrega1 != null) { comando1 = comando1 + ":OBSENTREGA1," + "\n"; }
+            if (modelo.obsentrega2 != null) { comando1 = comando1 + ":OBSENTREGA2," + "\n"; }
+            if (modelo.obsentrega3 != null) { comando1 = comando1 + ":OBSENTREGA3," + "\n"; }
+            if (modelo.tipoembalagem != null) { comando1 = comando1 + ":TIPOEMBALAGEM," + "\n"; }
+            if (modelo.codepto != null) { comando1 = comando1 + ":CODEPTO," + "\n"; }
+            if (modelo.campanha != null) { comando1 = comando1 + ":CAMPANHA," + "\n"; }
+            if (modelo.coddistrib != null) { comando1 = comando1 + ":CODDISTRIB," + "\n"; }
+            if (modelo.vlcustocont != null) { comando1 = comando1 + ":VLCUSTOCONT," + "\n"; }
+            if (modelo.vlcustorep != null) { comando1 = comando1 + ":VLCUSTOREP," + "\n"; }
+            if (modelo.numnotamanif != null) { comando1 = comando1 + ":NUMNOTAMANIF," + "\n"; }
+            if (modelo.seriemanif != null) { comando1 = comando1 + ":SERIEMANIF," + "\n"; }
+            if (modelo.origemped != null) { comando1 = comando1 + ":ORIGEMPED," + "\n"; }
+            if (modelo.especiemanif != null) { comando1 = comando1 + ":ESPECIEMANIF," + "\n"; }
+            if (modelo.numpedentfut != null) { comando1 = comando1 + ":NUMPEDENTFUT," + "\n"; }
+            if (modelo.codfilialnf != null) { comando1 = comando1 + ":CODFILIALNF," + "\n"; }
+            if (modelo.numcarmanif != null) { comando1 = comando1 + ":NUMCARMANIF," + "\n"; }
+            if (modelo.numorca != null) { comando1 = comando1 + ":NUMORCA," + "\n"; }
+            if (modelo.codcontrato != null) { comando1 = comando1 + ":CODCONTRATO," + "\n"; }
+            if (modelo.datapedcli != null) { comando1 = comando1 + ":DATAPEDCLI," + "\n"; }
+            if (modelo.numpedbnf != null) { comando1 = comando1 + ":NUMPEDBNF," + "\n"; }
+            if (modelo.broker != null) { comando1 = comando1 + ":BROKER," + "\n"; }
+            if (modelo.codestabelecimento != null) { comando1 = comando1 + ":CODESTABELECIMENTO," + "\n"; }
+            if (modelo.numtabela != null) { comando1 = comando1 + ":NUMTABELA," + "\n"; }
+            if (modelo.motivoposicao != null) { comando1 = comando1 + ":MOTIVOPOSICAO," + "\n"; }
+            if (modelo.dtagendaentrega != null) { comando1 = comando1 + ":DTAGENDAENTREGA," + "\n"; }
+            if (modelo.tipooper != null) { comando1 = comando1 + ":TIPOOPER," + "\n"; }
+            if (modelo.codmotbloqueio != null) { comando1 = comando1 + ":CODMOTBLOQUEIO," + "\n"; }
+            if (modelo.serieecf != null) { comando1 = comando1 + ":SERIEECF," + "\n"; }
+            if (modelo.numcupom != null) { comando1 = comando1 + ":NUMCUPOM," + "\n"; }
+            if (modelo.codclirecebedor != null) { comando1 = comando1 + ":CODCLIRECEBEDOR," + "\n"; }
+            if (modelo.conciliaimportacao != null) { comando1 = comando1 + ":CONCILIAIMPORTACAO," + "\n"; }
+            if (modelo.numregiao != null) { comando1 = comando1 + ":NUMREGIAO," + "\n"; }
+            if (modelo.numnota != null) { comando1 = comando1 + ":NUMNOTA," + "\n"; }
+            if (modelo.perdescfin != null) { comando1 = comando1 + ":PERDESCFIN," + "\n"; }
+            if (modelo.restricaotransp != null) { comando1 = comando1 + ":RESTRICAOTRANSP," + "\n"; }
+            if (modelo.geracp != null) { comando1 = comando1 + ":GERACP," + "\n"; }
+            if (modelo.usaintegracaowms != null) { comando1 = comando1 + ":USAINTEGRACAOWMS," + "\n"; }
+            if (modelo.vendaassistida != null) { comando1 = comando1 + ":VENDAASSISTIDA," + "\n"; }
+            if (modelo.codmotivo != null) { comando1 = comando1 + ":CODMOTIVO," + "\n"; }
+            if (modelo.log != null) { comando1 = comando1 + ":LOG," + "\n"; }
+            if (modelo.dtcalcfrete != null) { comando1 = comando1 + ":DTCALCFRETE," + "\n"; }
+            if (modelo.codfunccalcfrete != null) { comando1 = comando1 + ":CODFUNCCALCFRETE," + "\n"; }
+            if (modelo.eancobranca != null) { comando1 = comando1 + ":EANCOBRANCA," + "\n"; }
+            if (modelo.eanentrega != null) { comando1 = comando1 + ":EANENTREGA," + "\n"; }
+            if (modelo.usacfopvendanatv10 != null) { comando1 = comando1 + ":USACFOPVENDANATV10," + "\n"; }
+            if (modelo.tipoprioridadeentrega != null) { comando1 = comando1 + ":TIPOPRIORIDADEENTREGA," + "\n"; }
+            if (modelo.codusur2 != null) { comando1 = comando1 + ":CODUSUR2," + "\n"; }
+            if (modelo.codusur3 != null) { comando1 = comando1 + ":CODUSUR3," + "\n"; }
+            if (modelo.codusur4 != null) { comando1 = comando1 + ":CODUSUR4," + "\n"; }
+            if (modelo.codclinf != null) { comando1 = comando1 + ":CODCLINF," + "\n"; }
+            if (modelo.numpedtv1 != null) { comando1 = comando1 + ":NUMPEDTV1," + "\n"; }
+            if (modelo.usadebcredrca != null) { comando1 = comando1 + ":USADEBCREDRCA," + "\n"; }
+            if (modelo.brinde != null) { comando1 = comando1 + ":BRINDE," + "\n"; }
+            if (modelo.bonificaltdebcredrca != null) { comando1 = comando1 + ":BONIFICALTDEBCREDRCA," + "\n"; }
+            if (modelo.trocaaltdebcredrca != null) { comando1 = comando1 + ":TROCAALTDEBCREDRCA," + "\n"; }
+            if (modelo.brokeraltdebcredrca != null) { comando1 = comando1 + ":BROKERALTDEBCREDRCA," + "\n"; }
+            if (modelo.crmaltdebcredrca != null) { comando1 = comando1 + ":CRMALTDEBCREDRCA," + "\n"; }
+            if (modelo.tipomovccrca != null) { comando1 = comando1 + ":TIPOMOVCCRCA," + "\n"; }
+            if (modelo.usacredrca != null) { comando1 = comando1 + ":USACREDRCA," + "\n"; }
+            if (modelo.gerardadosnfpaulista != null) { comando1 = comando1 + ":GERARDADOSNFPAULISTA," + "\n"; }
+            if (modelo.usasaldocontacorrentedescfin != null) { comando1 = comando1 + ":USASALDOCONTACORRENTEDESCFIN," + "\n"; }
+            if (modelo.valordescfin != null) { comando1 = comando1 + ":VALORDESCFIN," + "\n"; }
+            if (modelo.codvisita != null) { comando1 = comando1 + ":CODVISITA," + "\n"; }
+            if (modelo.codatendimento != null) { comando1 = comando1 + ":CODATENDIMENTO," + "\n"; }
+            if (modelo.vendatriangular != null) { comando1 = comando1 + ":VENDATRIANGULAR," + "\n"; }
+            if (modelo.vlentrada != null) { comando1 = comando1 + ":VLENTRADA," + "\n"; }
+            if (modelo.ufdesembaraco != null) { comando1 = comando1 + ":UFDESEMBARACO," + "\n"; }
+            if (modelo.localdesembaraco != null) { comando1 = comando1 + ":LOCALDESEMBARACO," + "\n"; }
+            if (modelo.custobonificacao != null) { comando1 = comando1 + ":CUSTOBONIFICACAO," + "\n"; }
+            if (modelo.codfornecbonific != null) { comando1 = comando1 + ":CODFORNECBONIFIC," + "\n"; }
+            if (modelo.codbnf != null) { comando1 = comando1 + ":CODBNF," + "\n"; }
+            if (modelo.tipodocumento != null) { comando1 = comando1 + ":TIPODOCUMENTO," + "\n"; }
+            if (modelo.cfopbnfdegusta != null) { comando1 = comando1 + ":CFOPBNFDEGUSTA," + "\n"; }
+            if (modelo.contaordem != null) { comando1 = comando1 + ":CONTAORDEM," + "\n"; }
+            if (modelo.dataempenho != null) { comando1 = comando1 + ":DATAEMPENHO," + "\n"; }
+            if (modelo.numempenho != null) { comando1 = comando1 + ":NUMEMPENHO," + "\n"; }
+            if (modelo.codunidadeexecutora != null) { comando1 = comando1 + ":CODUNIDADEEXECUTORA," + "\n"; }
+            if (modelo.placaveiculo != null) { comando1 = comando1 + ":PLACAVEICULO," + "\n"; }
+            if (modelo.dtlimitefat != null) { comando1 = comando1 + ":DTLIMITEFAT," + "\n"; }
+            if (modelo.reservaestoquetv7 != null) { comando1 = comando1 + ":RESERVAESTOQUETV7," + "\n"; }
+            if (modelo.fornecentrega != null) { comando1 = comando1 + ":FORNECENTREGA," + "\n"; }
+            if (modelo.codclitv8 != null) { comando1 = comando1 + ":CODCLITV8," + "\n"; }
+            if (modelo.ufveiculo != null) { comando1 = comando1 + ":UFVEICULO," + "\n"; }
+            if (modelo.motoristaveiculo != null) { comando1 = comando1 + ":MOTORISTAVEICULO," + "\n"; }
+            if (modelo.dtiniciodigitacaopedido != null) { comando1 = comando1 + ":DTINICIODIGITACAOPEDIDO," + "\n"; }
+            if (modelo.dtfimdigitacaopedido != null) { comando1 = comando1 + ":DTFIMDIGITACAOPEDIDO," + "\n"; }
+            if (modelo.vldescabatimento != null) { comando1 = comando1 + ":VLDESCABATIMENTO," + "\n"; }
+            if (modelo.agrupamento != null) { comando1 = comando1 + ":AGRUPAMENTO," + "\n"; }
+            if (modelo.vendaexportacao != null) { comando1 = comando1 + ":VENDAEXPORTACAO," + "\n"; }
+            if (modelo.turnoentrega != null) { comando1 = comando1 + ":TURNOENTREGA," + "\n"; }
+            if (modelo.numtransvendatv13 != null) { comando1 = comando1 + ":NUMTRANSVENDATV13," + "\n"; }
+            if (modelo.codendentcli != null) { comando1 = comando1 + ":CODENDENTCLI," + "\n"; }
+            if (modelo.utilizavendaporembalagem != null) { comando1 = comando1 + ":UTILIZAVENDAPOREMBALAGEM," + "\n"; }
+            if (modelo.codcontato != null) { comando1 = comando1 + ":CODCONTATO," + "\n"; }
+            if (modelo.numregexp != null) { comando1 = comando1 + ":NUMREGEXP," + "\n"; }
+            if (modelo.numchaveexp != null) { comando1 = comando1 + ":NUMCHAVEEXP," + "\n"; }
+            if (modelo.numdrawback != null) { comando1 = comando1 + ":NUMDRAWBACK," + "\n"; }
+            if (modelo.dtnftransf != null) { comando1 = comando1 + ":DTNFTRANSF," + "\n"; }
+            if (modelo.rotinalanc != null) { comando1 = comando1 + ":ROTINALANC," + "\n"; }
+            if (modelo.numpedorigem != null) { comando1 = comando1 + ":NUMPEDORIGEM," + "\n"; }
+            if (modelo.pedduplicado != null) { comando1 = comando1 + ":PEDDUPLICADO," + "\n"; }
+            if (modelo.vlbonific != null) { comando1 = comando1 + ":VLBONIFIC," + "\n"; }
+            if (modelo.vendalocestrang != null) { comando1 = comando1 + ":VENDALOCESTRANG," + "\n"; }
+            if (modelo.copiaidenticapeddup != null) { comando1 = comando1 + ":COPIAIDENTICAPEDDUP," + "\n"; }
+            if (modelo.assinatura != null) { comando1 = comando1 + ":ASSINATURA," + "\n"; }
+            if (modelo.condfinanc != null) { comando1 = comando1 + ":CONDFINANC," + "\n"; }
+            if (modelo.planosuppli != null) { comando1 = comando1 + ":PLANOSUPPLI," + "\n"; }
+            if (modelo.pagchequemoradia != null) { comando1 = comando1 + ":PAGCHEQUEMORADIA," + "\n"; }
             comando1 = comando1 + "       :NUMVOLUME " + "\n";
             comando1 = comando1 + "     )";
             cmd.CommandText = comando1;
             cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
             cmd.Parameters.AddWithValue(":DATA", modelo.data);
-            cmd.Parameters.AddWithValue(":CODUSUR", modelo.codusur);
-            cmd.Parameters.AddWithValue(":CODCLI", modelo.codcli);
-            cmd.Parameters.AddWithValue(":NUMITENS", modelo.numitens);
-            cmd.Parameters.AddWithValue(":VLATEND", modelo.vlatend);
-            cmd.Parameters.AddWithValue(":CODPRACA", modelo.codpraca);
-            cmd.Parameters.AddWithValue(":POSICAO", modelo.posicao);
-            cmd.Parameters.AddWithValue(":NUMCAR", modelo.numcar);
-            cmd.Parameters.AddWithValue(":CODSUPERVISOR", modelo.codsupervisor);
-            cmd.Parameters.AddWithValue(":CODFILIAL", modelo.codfilial);
-            cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotal);
-            cmd.Parameters.AddWithValue(":VLTABELA", modelo.vltabela);
-            cmd.Parameters.AddWithValue(":VLCUSTOREAL", modelo.vlcustoreal);
-            cmd.Parameters.AddWithValue(":VLCUSTOFIN", modelo.vlcustofin);
-            cmd.Parameters.AddWithValue(":TOTPESO", modelo.totpeso);
-            cmd.Parameters.AddWithValue(":TOTVOLUME", modelo.totvolume);
-            cmd.Parameters.AddWithValue(":CODEMITENTE", modelo.codemitente);
-            cmd.Parameters.AddWithValue(":OPERACAO", modelo.operacao);
-            cmd.Parameters.AddWithValue(":TIPOVENDA", modelo.tipovenda);
-            cmd.Parameters.AddWithValue(":OBS", modelo.obs);
-            cmd.Parameters.AddWithValue(":CODCOB", modelo.codcob);
-            cmd.Parameters.AddWithValue(":HORA", modelo.hora);
-            cmd.Parameters.AddWithValue(":MINUTO", modelo.minuto);
-            cmd.Parameters.AddWithValue(":CODPLPAG", modelo.codplpag);
-            cmd.Parameters.AddWithValue(":NUMPEDCLI", modelo.numpedcli);
-            cmd.Parameters.AddWithValue(":PERCVENDA", modelo.percvenda);
-            cmd.Parameters.AddWithValue(":PERDESC", modelo.perdesc);
-            cmd.Parameters.AddWithValue(":VLDESCONTO", modelo.vldesconto);
-            cmd.Parameters.AddWithValue(":VLFRETE", modelo.vlfrete);
-            cmd.Parameters.AddWithValue(":VLOUTRASDESP", modelo.vloutrasdesp);
-            cmd.Parameters.AddWithValue(":OBS1", modelo.obs1);
-            cmd.Parameters.AddWithValue(":OBS2", modelo.obs2);
-            cmd.Parameters.AddWithValue(":CONDVENDA", modelo.condvenda);
-            cmd.Parameters.AddWithValue(":DTENTREGA", modelo.dtentrega);
-            cmd.Parameters.AddWithValue(":NUMPEDRCA", modelo.numpedrca);
-            cmd.Parameters.AddWithValue(":FRETEDESPACHO", modelo.fretedespacho);
-            cmd.Parameters.AddWithValue(":FRETEREDESPACHO", modelo.freteredespacho);
-            cmd.Parameters.AddWithValue(":CODFORNECFRETE", modelo.codfornecfrete);
-            cmd.Parameters.AddWithValue(":CODFORNECREDESPACHO", modelo.codfornecredespacho);
-            cmd.Parameters.AddWithValue(":TIPOCARGA", modelo.tipocarga);
-            cmd.Parameters.AddWithValue(":PRAZO1", modelo.prazo1); 
-            cmd.Parameters.AddWithValue(":PRAZO2", modelo.prazo2); 
-            cmd.Parameters.AddWithValue(":PRAZO3", modelo.prazo3);
-            cmd.Parameters.AddWithValue(":PRAZO4", modelo.prazo4);
-            cmd.Parameters.AddWithValue(":PRAZO5", modelo.prazo5);
-            cmd.Parameters.AddWithValue(":PRAZO6", modelo.prazo6);
-            cmd.Parameters.AddWithValue(":PRAZO7", modelo.prazo7);
-            cmd.Parameters.AddWithValue(":PRAZO8", modelo.prazo8);
-            cmd.Parameters.AddWithValue(":PRAZO9", modelo.prazo9);
-            cmd.Parameters.AddWithValue(":PRAZO10", modelo.prazo10);
-            cmd.Parameters.AddWithValue(":PRAZO11", modelo.prazo11);
-            cmd.Parameters.AddWithValue(":PRAZO12", modelo.prazo12);
-            cmd.Parameters.AddWithValue(":PRAZOMEDIO", modelo.prazomedio);
-            cmd.Parameters.AddWithValue(":OBSENTREGA1", modelo.obsentrega1);
-            cmd.Parameters.AddWithValue(":OBSENTREGA2", modelo.obsentrega2);
-            cmd.Parameters.AddWithValue(":OBSENTREGA3", modelo.obsentrega3);
-            cmd.Parameters.AddWithValue(":TIPOEMBALAGEM", modelo.tipoembalagem);
-            cmd.Parameters.AddWithValue(":CODEPTO", modelo.codepto);
-            cmd.Parameters.AddWithValue(":CAMPANHA", modelo.campanha);
-            cmd.Parameters.AddWithValue(":CODDISTRIB", modelo.coddistrib);
-            cmd.Parameters.AddWithValue(":VLCUSTOCONT", modelo.vlcustocont);
-            cmd.Parameters.AddWithValue(":VLCUSTOREP", modelo.vlcustorep);
-            cmd.Parameters.AddWithValue(":NUMNOTAMANIF", modelo.numnotamanif);
-            cmd.Parameters.AddWithValue(":SERIEMANIF", modelo.seriemanif);
-            cmd.Parameters.AddWithValue(":ORIGEMPED", modelo.origemped);
-            cmd.Parameters.AddWithValue(":ESPECIEMANIF", modelo.especiemanif);
-            cmd.Parameters.AddWithValue(":NUMPEDENTFUT", modelo.numpedentfut);
-            cmd.Parameters.AddWithValue(":CODFILIALNF", modelo.codfilialnf);
-            cmd.Parameters.AddWithValue(":NUMCARMANIF", modelo.numcarmanif);
-            cmd.Parameters.AddWithValue(":NUMORCA", modelo.numorca);
-            cmd.Parameters.AddWithValue(":CODCONTRATO", modelo.codcontrato);
-            cmd.Parameters.AddWithValue(":DATAPEDCLI", modelo.datapedcli);
-            cmd.Parameters.AddWithValue(":NUMPEDBNF", modelo.numpedbnf);
-            cmd.Parameters.AddWithValue(":BROKER", modelo.broker);
-            cmd.Parameters.AddWithValue(":CODESTABELECIMENTO", modelo.codestabelecimento);
-            cmd.Parameters.AddWithValue(":NUMTABELA", modelo.numtabela);
-            cmd.Parameters.AddWithValue(":MOTIVOPOSICAO", modelo.motivoposicao);
-            cmd.Parameters.AddWithValue(":DTAGENDAENTREGA", modelo.dtagendaentrega);
-            cmd.Parameters.AddWithValue(":TIPOOPER", modelo.tipooper);
-            cmd.Parameters.AddWithValue(":CODMOTBLOQUEIO", modelo.codmotbloqueio);
-            cmd.Parameters.AddWithValue(":SERIEECF", modelo.serieecf);
-            cmd.Parameters.AddWithValue(":NUMCUPOM", modelo.numcupom);
-            cmd.Parameters.AddWithValue(":CODCLIRECEBEDOR", modelo.codclirecebedor);
-            cmd.Parameters.AddWithValue(":CONCILIAIMPORTACAO", modelo.conciliaimportacao);
-            cmd.Parameters.AddWithValue(":NUMREGIAO", modelo.numregiao);
-            cmd.Parameters.AddWithValue(":NUMNOTA", modelo.numnota);
-            cmd.Parameters.AddWithValue(":PERDESCFIN", modelo.perdescfin);
-            cmd.Parameters.AddWithValue(":RESTRICAOTRANSP", modelo.restricaotransp);
-            cmd.Parameters.AddWithValue(":GERACP", modelo.geracp);
-            cmd.Parameters.AddWithValue(":USAINTEGRACAOWMS", modelo.usaintegracaowms);
-            cmd.Parameters.AddWithValue(":VENDAASSISTIDA", modelo.vendaassistida);
-            cmd.Parameters.AddWithValue(":CODMOTIVO", modelo.codmotivo);
-            cmd.Parameters.AddWithValue(":LOG", modelo.log);
-            cmd.Parameters.AddWithValue(":DTCALCFRETE", modelo.dtcalcfrete);
-            cmd.Parameters.AddWithValue(":CODFUNCCALCFRETE", modelo.codfunccalcfrete);
-            cmd.Parameters.AddWithValue(":EANCOBRANCA", modelo.eancobranca);
-            cmd.Parameters.AddWithValue(":EANENTREGA", modelo.eanentrega);
-            cmd.Parameters.AddWithValue(":USACFOPVENDANATV10", modelo.usacfopvendanatv10);
-            cmd.Parameters.AddWithValue(":TIPOPRIORIDADEENTREGA", modelo.tipoprioridadeentrega);
-            cmd.Parameters.AddWithValue(":CODUSUR2", modelo.codusur2);
-            cmd.Parameters.AddWithValue(":CODUSUR3", modelo.codusur3);
-            cmd.Parameters.AddWithValue(":CODUSUR4", modelo.codusur4);
-            cmd.Parameters.AddWithValue(":CODCLINF", modelo.codclinf);
-            cmd.Parameters.AddWithValue(":NUMPEDTV1", modelo.numpedtv1);
-            cmd.Parameters.AddWithValue(":USADEBCREDRCA", modelo.usadebcredrca);
-            cmd.Parameters.AddWithValue(":BRINDE", modelo.brinde);
-            cmd.Parameters.AddWithValue(":BONIFICALTDEBCREDRCA", modelo.bonificaltdebcredrca);
-            cmd.Parameters.AddWithValue(":TROCAALTDEBCREDRCA", modelo.trocaaltdebcredrca);
-            cmd.Parameters.AddWithValue(":BROKERALTDEBCREDRCA", modelo.brokeraltdebcredrca);
-            cmd.Parameters.AddWithValue(":CRMALTDEBCREDRCA", modelo.crmaltdebcredrca);
-            cmd.Parameters.AddWithValue(":TIPOMOVCCRCA", modelo.tipomovccrca);
-            cmd.Parameters.AddWithValue(":USACREDRCA", modelo.usacredrca);
-            cmd.Parameters.AddWithValue(":GERARDADOSNFPAULISTA", modelo.gerardadosnfpaulista);
-            cmd.Parameters.AddWithValue(":USASALDOCONTACORRENTEDESCFIN", modelo.usasaldocontacorrentedescfin);
-            cmd.Parameters.AddWithValue(":VALORDESCFIN", modelo.valordescfin);
-            cmd.Parameters.AddWithValue(":CODVISITA", modelo.codvisita);
-            cmd.Parameters.AddWithValue(":CODATENDIMENTO", modelo.codatendimento);
-            cmd.Parameters.AddWithValue(":VENDATRIANGULAR", modelo.vendatriangular);
-            cmd.Parameters.AddWithValue(":VLENTRADA", modelo.vlentrada);
-            cmd.Parameters.AddWithValue(":UFDESEMBARACO", modelo.ufdesembaraco);
-            cmd.Parameters.AddWithValue(":LOCALDESEMBARACO", modelo.localdesembaraco);
-            cmd.Parameters.AddWithValue(":CUSTOBONIFICACAO", modelo.custobonificacao);
-            cmd.Parameters.AddWithValue(":CODFORNECBONIFIC", modelo.codfornecbonific);
-            cmd.Parameters.AddWithValue(":CODBNF", modelo.codbnf);
-            cmd.Parameters.AddWithValue(":TIPODOCUMENTO", modelo.tipodocumento);
-            cmd.Parameters.AddWithValue(":CFOPBNFDEGUSTA", modelo.cfopbnfdegusta);
-            cmd.Parameters.AddWithValue(":CONTAORDEM", modelo.contaordem);
-            cmd.Parameters.AddWithValue(":DATAEMPENHO", modelo.dataempenho);
-            cmd.Parameters.AddWithValue(":NUMEMPENHO", modelo.numempenho);
-            cmd.Parameters.AddWithValue(":CODUNIDADEEXECUTORA", modelo.codunidadeexecutora);
-            cmd.Parameters.AddWithValue(":PLACAVEICULO", modelo.placaveiculo);
-            cmd.Parameters.AddWithValue(":DTLIMITEFAT", modelo.dtlimitefat);
-            cmd.Parameters.AddWithValue(":RESERVAESTOQUETV7", modelo.reservaestoquetv7);
-            cmd.Parameters.AddWithValue(":FORNECENTREGA", modelo.fornecentrega);
-            cmd.Parameters.AddWithValue(":CODCLITV8", modelo.codclitv8);
-            cmd.Parameters.AddWithValue(":UFVEICULO", modelo.ufveiculo);
-            cmd.Parameters.AddWithValue(":MOTORISTAVEICULO", modelo.motoristaveiculo);
-            cmd.Parameters.AddWithValue(":DTINICIODIGITACAOPEDIDO", modelo.dtiniciodigitacaopedido);
-            cmd.Parameters.AddWithValue(":DTFIMDIGITACAOPEDIDO", modelo.dtfimdigitacaopedido);
-            cmd.Parameters.AddWithValue(":VLDESCABATIMENTO", modelo.vldescabatimento);
-            cmd.Parameters.AddWithValue(":AGRUPAMENTO", modelo.agrupamento);
-            cmd.Parameters.AddWithValue(":VENDAEXPORTACAO", modelo.vendaexportacao);
-            cmd.Parameters.AddWithValue(":TURNOENTREGA", modelo.turnoentrega);
-            cmd.Parameters.AddWithValue(":NUMTRANSVENDATV13", modelo.numtransvendatv13);
-            cmd.Parameters.AddWithValue(":CODENDENTCLI", modelo.codendentcli);
-            cmd.Parameters.AddWithValue(":UTILIZAVENDAPOREMBALAGEM", modelo.utilizavendaporembalagem);
-            cmd.Parameters.AddWithValue(":CODCONTATO", modelo.codcontato);
-            cmd.Parameters.AddWithValue(":NUMREGEXP", modelo.numregexp);
-            cmd.Parameters.AddWithValue(":NUMCHAVEEXP", modelo.numchaveexp);
-            cmd.Parameters.AddWithValue(":NUMDRAWBACK", modelo.numdrawback);
-            cmd.Parameters.AddWithValue(":DTNFTRANSF", modelo.dtnftransf);
-            cmd.Parameters.AddWithValue(":ROTINALANC", modelo.rotinalanc);
-            cmd.Parameters.AddWithValue(":NUMPEDORIGEM", modelo.numpedorigem);
-            cmd.Parameters.AddWithValue(":PEDDUPLICADO", modelo.pedduplicado);
-            cmd.Parameters.AddWithValue(":VLBONIFIC", modelo.vlbonific);
-            cmd.Parameters.AddWithValue(":VENDALOCESTRANG", modelo.vendalocestrang);
-            cmd.Parameters.AddWithValue(":COPIAIDENTICAPEDDUP", modelo.copiaidenticapeddup);
-            cmd.Parameters.AddWithValue(":ASSINATURA", modelo.assinatura);
-            cmd.Parameters.AddWithValue(":CONDFINANC", modelo.condfinanc);
-            cmd.Parameters.AddWithValue(":PLANOSUPPLI", modelo.planosuppli);
-            cmd.Parameters.AddWithValue(":PAGCHEQUEMORADIA", modelo.pagchequemoradia);
+            if (modelo.codusur != null) { cmd.Parameters.AddWithValue(":CODUSUR", modelo.codusur); }
+            if (modelo.codcli != null) { cmd.Parameters.AddWithValue(":CODCLI", modelo.codcli); }
+            if (modelo.numitens != null) { cmd.Parameters.AddWithValue(":NUMITENS", modelo.numitens); }
+            if (modelo.vlatend != null) { cmd.Parameters.AddWithValue(":VLATEND", modelo.vlatend); }
+            if (modelo.codpraca != null) { cmd.Parameters.AddWithValue(":CODPRACA", modelo.codpraca); }
+            if (modelo.posicao != null) { cmd.Parameters.AddWithValue(":POSICAO", modelo.posicao); }
+            if (modelo.numcar != null) { cmd.Parameters.AddWithValue(":NUMCAR", modelo.numcar); }
+            if (modelo.codsupervisor != null) { cmd.Parameters.AddWithValue(":CODSUPERVISOR", modelo.codsupervisor); }
+            if (modelo.codfilial != null) { cmd.Parameters.AddWithValue(":CODFILIAL", modelo.codfilial); }
+            if (modelo.vltotal != null) { cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotal); }
+            if (modelo.vltabela != null) { cmd.Parameters.AddWithValue(":VLTABELA", modelo.vltabela); }
+            if (modelo.vlcustoreal != null) { cmd.Parameters.AddWithValue(":VLCUSTOREAL", modelo.vlcustoreal); }
+            if (modelo.vlcustofin != null) { cmd.Parameters.AddWithValue(":VLCUSTOFIN", modelo.vlcustofin); }
+            if (modelo.totpeso != null) { cmd.Parameters.AddWithValue(":TOTPESO", modelo.totpeso); }
+            if (modelo.totvolume != null) { cmd.Parameters.AddWithValue(":TOTVOLUME", modelo.totvolume); }
+            if (modelo.codemitente != null) { cmd.Parameters.AddWithValue(":CODEMITENTE", modelo.codemitente); }
+            if (modelo.operacao != null) { cmd.Parameters.AddWithValue(":OPERACAO", modelo.operacao); }
+            if (modelo.tipovenda != null) { cmd.Parameters.AddWithValue(":TIPOVENDA", modelo.tipovenda); }
+            if (modelo.obs != null) { cmd.Parameters.AddWithValue(":OBS", modelo.obs); }
+            if (modelo.codcob != null) { cmd.Parameters.AddWithValue(":CODCOB", modelo.codcob); }
+            if (modelo.hora != null) { cmd.Parameters.AddWithValue(":HORA", modelo.hora); }
+            if (modelo.minuto != null) { cmd.Parameters.AddWithValue(":MINUTO", modelo.minuto); }
+            if (modelo.codplpag != null) { cmd.Parameters.AddWithValue(":CODPLPAG", modelo.codplpag); }
+            if (modelo.numpedcli != null) { cmd.Parameters.AddWithValue(":NUMPEDCLI", modelo.numpedcli); }
+            if (modelo.percvenda != null) { cmd.Parameters.AddWithValue(":PERCVENDA", modelo.percvenda); }
+            if (modelo.perdesc != null) { cmd.Parameters.AddWithValue(":PERDESC", modelo.perdesc); }
+            if (modelo.vldesconto != null) { cmd.Parameters.AddWithValue(":VLDESCONTO", modelo.vldesconto); }
+            if (modelo.vlfrete != null) { cmd.Parameters.AddWithValue(":VLFRETE", modelo.vlfrete); }
+            if (modelo.vloutrasdesp != null) { cmd.Parameters.AddWithValue(":VLOUTRASDESP", modelo.vloutrasdesp); }
+            if (modelo.obs1 != null) { cmd.Parameters.AddWithValue(":OBS1", modelo.obs1); }
+            if (modelo.obs2 != null) { cmd.Parameters.AddWithValue(":OBS2", modelo.obs2); }
+            if (modelo.condvenda != null) { cmd.Parameters.AddWithValue(":CONDVENDA", modelo.condvenda); }
+            if (modelo.dtentrega != null) { cmd.Parameters.AddWithValue(":DTENTREGA", modelo.dtentrega); }
+            if (modelo.numpedrca != null) { cmd.Parameters.AddWithValue(":NUMPEDRCA", modelo.numpedrca); }
+            if (modelo.fretedespacho != null) { cmd.Parameters.AddWithValue(":FRETEDESPACHO", modelo.fretedespacho); }
+            if (modelo.freteredespacho != null) { cmd.Parameters.AddWithValue(":FRETEREDESPACHO", modelo.freteredespacho); }
+            if (modelo.codfornecfrete != null) { cmd.Parameters.AddWithValue(":CODFORNECFRETE", modelo.codfornecfrete); }
+            if (modelo.codfornecredespacho != null) { cmd.Parameters.AddWithValue(":CODFORNECREDESPACHO", modelo.codfornecredespacho); }
+            if (modelo.tipocarga != null) { cmd.Parameters.AddWithValue(":TIPOCARGA", modelo.tipocarga); }
+            if (modelo.prazo1 != null) { cmd.Parameters.AddWithValue(":PRAZO1", modelo.prazo1); }
+            if (modelo.prazo2 != null) { cmd.Parameters.AddWithValue(":PRAZO2", modelo.prazo2); }
+            if (modelo.prazo3 != null) { cmd.Parameters.AddWithValue(":PRAZO3", modelo.prazo3); }
+            if (modelo.prazo4 != null) { cmd.Parameters.AddWithValue(":PRAZO4", modelo.prazo4); }
+            if (modelo.prazo5 != null) { cmd.Parameters.AddWithValue(":PRAZO5", modelo.prazo5); }
+            if (modelo.prazo6 != null) { cmd.Parameters.AddWithValue(":PRAZO6", modelo.prazo6); }
+            if (modelo.prazo7 != null) { cmd.Parameters.AddWithValue(":PRAZO7", modelo.prazo7); }
+            if (modelo.prazo8 != null) { cmd.Parameters.AddWithValue(":PRAZO8", modelo.prazo8); }
+            if (modelo.prazo9 != null) { cmd.Parameters.AddWithValue(":PRAZO9", modelo.prazo9); }
+            if (modelo.prazo10 != null) { cmd.Parameters.AddWithValue(":PRAZO10", modelo.prazo10); }
+            if (modelo.prazo11 != null) { cmd.Parameters.AddWithValue(":PRAZO11", modelo.prazo11); }
+            if (modelo.prazo12 != null) { cmd.Parameters.AddWithValue(":PRAZO12", modelo.prazo12); }
+            if (modelo.prazomedio != null) { cmd.Parameters.AddWithValue(":PRAZOMEDIO", modelo.prazomedio); }
+            if (modelo.obsentrega1 != null) { cmd.Parameters.AddWithValue(":OBSENTREGA1", modelo.obsentrega1); }
+            if (modelo.obsentrega2 != null) { cmd.Parameters.AddWithValue(":OBSENTREGA2", modelo.obsentrega2); }
+            if (modelo.obsentrega3 != null) { cmd.Parameters.AddWithValue(":OBSENTREGA3", modelo.obsentrega3); }
+            if (modelo.tipoembalagem != null) { cmd.Parameters.AddWithValue(":TIPOEMBALAGEM", modelo.tipoembalagem); }
+            if (modelo.codepto != null) { cmd.Parameters.AddWithValue(":CODEPTO", modelo.codepto); }
+            if (modelo.campanha != null) { cmd.Parameters.AddWithValue(":CAMPANHA", modelo.campanha); }
+            if (modelo.coddistrib != null) { cmd.Parameters.AddWithValue(":CODDISTRIB", modelo.coddistrib); }
+            if (modelo.vlcustocont != null) { cmd.Parameters.AddWithValue(":VLCUSTOCONT", modelo.vlcustocont); }
+            if (modelo.vlcustorep != null) { cmd.Parameters.AddWithValue(":VLCUSTOREP", modelo.vlcustorep); }
+            if (modelo.numnotamanif != null) { cmd.Parameters.AddWithValue(":NUMNOTAMANIF", modelo.numnotamanif); }
+            if (modelo.seriemanif != null) { cmd.Parameters.AddWithValue(":SERIEMANIF", modelo.seriemanif); }
+            if (modelo.origemped != null) { cmd.Parameters.AddWithValue(":ORIGEMPED", modelo.origemped); }
+            if (modelo.especiemanif != null) { cmd.Parameters.AddWithValue(":ESPECIEMANIF", modelo.especiemanif); }
+            if (modelo.numpedentfut != null) { cmd.Parameters.AddWithValue(":NUMPEDENTFUT", modelo.numpedentfut); }
+            if (modelo.codfilialnf != null) { cmd.Parameters.AddWithValue(":CODFILIALNF", modelo.codfilialnf); }
+            if (modelo.numcarmanif != null) { cmd.Parameters.AddWithValue(":NUMCARMANIF", modelo.numcarmanif); }
+            if (modelo.numorca != null) { cmd.Parameters.AddWithValue(":NUMORCA", modelo.numorca); }
+            if (modelo.codcontrato != null) { cmd.Parameters.AddWithValue(":CODCONTRATO", modelo.codcontrato); }
+            if (modelo.datapedcli != null) { cmd.Parameters.AddWithValue(":DATAPEDCLI", modelo.datapedcli); }
+            if (modelo.numpedbnf != null) { cmd.Parameters.AddWithValue(":NUMPEDBNF", modelo.numpedbnf); }
+            if (modelo.broker != null) { cmd.Parameters.AddWithValue(":BROKER", modelo.broker); }
+            if (modelo.codestabelecimento != null) { cmd.Parameters.AddWithValue(":CODESTABELECIMENTO", modelo.codestabelecimento); }
+            if (modelo.numtabela != null) { cmd.Parameters.AddWithValue(":NUMTABELA", modelo.numtabela); }
+            if (modelo.motivoposicao != null) { cmd.Parameters.AddWithValue(":MOTIVOPOSICAO", modelo.motivoposicao); }
+            if (modelo.dtagendaentrega != null) { cmd.Parameters.AddWithValue(":DTAGENDAENTREGA", modelo.dtagendaentrega); }
+            if (modelo.tipooper != null) { cmd.Parameters.AddWithValue(":TIPOOPER", modelo.tipooper); }
+            if (modelo.codmotbloqueio != null) { cmd.Parameters.AddWithValue(":CODMOTBLOQUEIO", modelo.codmotbloqueio); }
+            if (modelo.serieecf != null) { cmd.Parameters.AddWithValue(":SERIEECF", modelo.serieecf); }
+            if (modelo.numcupom != null) { cmd.Parameters.AddWithValue(":NUMCUPOM", modelo.numcupom); }
+            if (modelo.codclirecebedor != null) { cmd.Parameters.AddWithValue(":CODCLIRECEBEDOR", modelo.codclirecebedor); }
+            if (modelo.conciliaimportacao != null) { cmd.Parameters.AddWithValue(":CONCILIAIMPORTACAO", modelo.conciliaimportacao); }
+            if (modelo.numregiao != null) { cmd.Parameters.AddWithValue(":NUMREGIAO", modelo.numregiao); }
+            if (modelo.numnota != null) { cmd.Parameters.AddWithValue(":NUMNOTA", modelo.numnota); }
+            if (modelo.perdescfin != null) { cmd.Parameters.AddWithValue(":PERDESCFIN", modelo.perdescfin); }
+            if (modelo.restricaotransp != null) { cmd.Parameters.AddWithValue(":RESTRICAOTRANSP", modelo.restricaotransp); }
+            if (modelo.geracp != null) { cmd.Parameters.AddWithValue(":GERACP", modelo.geracp); }
+            if (modelo.usaintegracaowms != null) { cmd.Parameters.AddWithValue(":USAINTEGRACAOWMS", modelo.usaintegracaowms); }
+            if (modelo.vendaassistida != null) { cmd.Parameters.AddWithValue(":VENDAASSISTIDA", modelo.vendaassistida); }
+            if (modelo.codmotivo != null) { cmd.Parameters.AddWithValue(":CODMOTIVO", modelo.codmotivo); }
+            if (modelo.log != null) { cmd.Parameters.AddWithValue(":LOG", modelo.log); }
+            if (modelo.dtcalcfrete != null) { cmd.Parameters.AddWithValue(":DTCALCFRETE", modelo.dtcalcfrete); }
+            if (modelo.codfunccalcfrete != null) { cmd.Parameters.AddWithValue(":CODFUNCCALCFRETE", modelo.codfunccalcfrete); }
+            if (modelo.eancobranca != null) { cmd.Parameters.AddWithValue(":EANCOBRANCA", modelo.eancobranca); }
+            if (modelo.eanentrega != null) { cmd.Parameters.AddWithValue(":EANENTREGA", modelo.eanentrega); }
+            if (modelo.usacfopvendanatv10 != null) { cmd.Parameters.AddWithValue(":USACFOPVENDANATV10", modelo.usacfopvendanatv10); }
+            if (modelo.tipoprioridadeentrega != null) { cmd.Parameters.AddWithValue(":TIPOPRIORIDADEENTREGA", modelo.tipoprioridadeentrega); }
+            if (modelo.codusur2 != null) { cmd.Parameters.AddWithValue(":CODUSUR2", modelo.codusur2); }
+            if (modelo.codusur3 != null) { cmd.Parameters.AddWithValue(":CODUSUR3", modelo.codusur3); }
+            if (modelo.codusur4 != null) { cmd.Parameters.AddWithValue(":CODUSUR4", modelo.codusur4); }
+            if (modelo.codclinf != null) { cmd.Parameters.AddWithValue(":CODCLINF", modelo.codclinf); }
+            if (modelo.numpedtv1 != null) { cmd.Parameters.AddWithValue(":NUMPEDTV1", modelo.numpedtv1); }
+            if (modelo.usadebcredrca != null) { cmd.Parameters.AddWithValue(":USADEBCREDRCA", modelo.usadebcredrca); }
+            if (modelo.brinde != null) { cmd.Parameters.AddWithValue(":BRINDE", modelo.brinde); }
+            if (modelo.bonificaltdebcredrca != null) { cmd.Parameters.AddWithValue(":BONIFICALTDEBCREDRCA", modelo.bonificaltdebcredrca); }
+            if (modelo.trocaaltdebcredrca != null) { cmd.Parameters.AddWithValue(":TROCAALTDEBCREDRCA", modelo.trocaaltdebcredrca); }
+            if (modelo.brokeraltdebcredrca != null) { cmd.Parameters.AddWithValue(":BROKERALTDEBCREDRCA", modelo.brokeraltdebcredrca); }
+            if (modelo.crmaltdebcredrca != null) { cmd.Parameters.AddWithValue(":CRMALTDEBCREDRCA", modelo.crmaltdebcredrca); }
+            if (modelo.tipomovccrca != null) { cmd.Parameters.AddWithValue(":TIPOMOVCCRCA", modelo.tipomovccrca); }
+            if (modelo.usacredrca != null) { cmd.Parameters.AddWithValue(":USACREDRCA", modelo.usacredrca); }
+            if (modelo.gerardadosnfpaulista != null) { cmd.Parameters.AddWithValue(":GERARDADOSNFPAULISTA", modelo.gerardadosnfpaulista); }
+            if (modelo.usasaldocontacorrentedescfin != null) { cmd.Parameters.AddWithValue(":USASALDOCONTACORRENTEDESCFIN", modelo.usasaldocontacorrentedescfin); }
+            if (modelo.valordescfin != null) { cmd.Parameters.AddWithValue(":VALORDESCFIN", modelo.valordescfin); }
+            if (modelo.codvisita != null) { cmd.Parameters.AddWithValue(":CODVISITA", modelo.codvisita); }
+            if (modelo.codatendimento != null) { cmd.Parameters.AddWithValue(":CODATENDIMENTO", modelo.codatendimento); }
+            if (modelo.vendatriangular != null) { cmd.Parameters.AddWithValue(":VENDATRIANGULAR", modelo.vendatriangular); }
+            if (modelo.vlentrada != null) { cmd.Parameters.AddWithValue(":VLENTRADA", modelo.vlentrada); }
+            if (modelo.ufdesembaraco != null) { cmd.Parameters.AddWithValue(":UFDESEMBARACO", modelo.ufdesembaraco); }
+            if (modelo.localdesembaraco != null) { cmd.Parameters.AddWithValue(":LOCALDESEMBARACO", modelo.localdesembaraco); }
+            if (modelo.custobonificacao != null) { cmd.Parameters.AddWithValue(":CUSTOBONIFICACAO", modelo.custobonificacao); }
+            if (modelo.codfornecbonific != null) { cmd.Parameters.AddWithValue(":CODFORNECBONIFIC", modelo.codfornecbonific); }
+            if (modelo.codbnf != null) { cmd.Parameters.AddWithValue(":CODBNF", modelo.codbnf); }
+            if (modelo.tipodocumento != null) { cmd.Parameters.AddWithValue(":TIPODOCUMENTO", modelo.tipodocumento); }
+            if (modelo.cfopbnfdegusta != null) { cmd.Parameters.AddWithValue(":CFOPBNFDEGUSTA", modelo.cfopbnfdegusta); }
+            if (modelo.contaordem != null) { cmd.Parameters.AddWithValue(":CONTAORDEM", modelo.contaordem); }
+            if (modelo.dataempenho != null) { cmd.Parameters.AddWithValue(":DATAEMPENHO", modelo.dataempenho); }
+            if (modelo.numempenho != null) { cmd.Parameters.AddWithValue(":NUMEMPENHO", modelo.numempenho); }
+            if (modelo.codunidadeexecutora != null) { cmd.Parameters.AddWithValue(":CODUNIDADEEXECUTORA", modelo.codunidadeexecutora); }
+            if (modelo.placaveiculo != null) { cmd.Parameters.AddWithValue(":PLACAVEICULO", modelo.placaveiculo); }
+            if (modelo.dtlimitefat != null) { cmd.Parameters.AddWithValue(":DTLIMITEFAT", modelo.dtlimitefat); }
+            if (modelo.reservaestoquetv7 != null) { cmd.Parameters.AddWithValue(":RESERVAESTOQUETV7", modelo.reservaestoquetv7); }
+            if (modelo.fornecentrega != null) { cmd.Parameters.AddWithValue(":FORNECENTREGA", modelo.fornecentrega); }
+            if (modelo.codclitv8 != null) { cmd.Parameters.AddWithValue(":CODCLITV8", modelo.codclitv8); }
+            if (modelo.ufveiculo != null) { cmd.Parameters.AddWithValue(":UFVEICULO", modelo.ufveiculo); }
+            if (modelo.motoristaveiculo != null) { cmd.Parameters.AddWithValue(":MOTORISTAVEICULO", modelo.motoristaveiculo); }
+            if (modelo.dtiniciodigitacaopedido != null) { cmd.Parameters.AddWithValue(":DTINICIODIGITACAOPEDIDO", modelo.dtiniciodigitacaopedido); }
+            if (modelo.dtfimdigitacaopedido != null) { cmd.Parameters.AddWithValue(":DTFIMDIGITACAOPEDIDO", modelo.dtfimdigitacaopedido); }
+            if (modelo.vldescabatimento != null) { cmd.Parameters.AddWithValue(":VLDESCABATIMENTO", modelo.vldescabatimento); }
+            if (modelo.agrupamento != null) { cmd.Parameters.AddWithValue(":AGRUPAMENTO", modelo.agrupamento); }
+            if (modelo.vendaexportacao != null) { cmd.Parameters.AddWithValue(":VENDAEXPORTACAO", modelo.vendaexportacao); }
+            if (modelo.turnoentrega != null) { cmd.Parameters.AddWithValue(":TURNOENTREGA", modelo.turnoentrega); }
+            if (modelo.numtransvendatv13 != null) { cmd.Parameters.AddWithValue(":NUMTRANSVENDATV13", modelo.numtransvendatv13); }
+            if (modelo.codendentcli != null) { cmd.Parameters.AddWithValue(":CODENDENTCLI", modelo.codendentcli); }
+            if (modelo.utilizavendaporembalagem != null) { cmd.Parameters.AddWithValue(":UTILIZAVENDAPOREMBALAGEM", modelo.utilizavendaporembalagem); }
+            if (modelo.codcontato != null) { cmd.Parameters.AddWithValue(":CODCONTATO", modelo.codcontato); }
+            if (modelo.numregexp != null) { cmd.Parameters.AddWithValue(":NUMREGEXP", modelo.numregexp); }
+            if (modelo.numchaveexp != null) { cmd.Parameters.AddWithValue(":NUMCHAVEEXP", modelo.numchaveexp); }
+            if (modelo.numdrawback != null) { cmd.Parameters.AddWithValue(":NUMDRAWBACK", modelo.numdrawback); }
+            if (modelo.dtnftransf != null) { cmd.Parameters.AddWithValue(":DTNFTRANSF", modelo.dtnftransf); }
+            if (modelo.rotinalanc != null) { cmd.Parameters.AddWithValue(":ROTINALANC", modelo.rotinalanc); }
+            if (modelo.numpedorigem != null) { cmd.Parameters.AddWithValue(":NUMPEDORIGEM", modelo.numpedorigem); }
+            if (modelo.pedduplicado != null) { cmd.Parameters.AddWithValue(":PEDDUPLICADO", modelo.pedduplicado); }
+            if (modelo.vlbonific != null) { cmd.Parameters.AddWithValue(":VLBONIFIC", modelo.vlbonific); }
+            if (modelo.vendalocestrang != null) { cmd.Parameters.AddWithValue(":VENDALOCESTRANG", modelo.vendalocestrang); }
+            if (modelo.copiaidenticapeddup != null) { cmd.Parameters.AddWithValue(":COPIAIDENTICAPEDDUP", modelo.copiaidenticapeddup); }
+            if (modelo.assinatura != null) { cmd.Parameters.AddWithValue(":ASSINATURA", modelo.assinatura); }
+            if (modelo.condfinanc != null) { cmd.Parameters.AddWithValue(":CONDFINANC", modelo.condfinanc); }
+            if (modelo.planosuppli != null) { cmd.Parameters.AddWithValue(":PLANOSUPPLI", modelo.planosuppli); }
+            if (modelo.pagchequemoradia != null) { cmd.Parameters.AddWithValue(":PAGCHEQUEMORADIA", modelo.pagchequemoradia); }
             cmd.Parameters.AddWithValue(":NUMVOLUME", modelo.numvolume);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -864,11 +864,11 @@ namespace DAL
 
         }
 
-     
 
-        public ModeloPCPEDC CarregaModeloPCPEDC (long codigo)
+
+        public ModeloPCPEDC CarregaModeloPCPEDC(long codigo)
         {
-           String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND CONDVENDA = 7 ";
+            String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND CONDVENDA = 7 ";
 
             ModeloPCPEDC modelo = new ModeloPCPEDC();
             OracleCommand cmd = new OracleCommand();
@@ -878,7 +878,7 @@ namespace DAL
             cmd.Parameters.AddWithValue(":codigo", codigo);
             conexao.Conectar();
             OracleDataReader registro = cmd.ExecuteReader();
-            if(registro.HasRows)
+            if (registro.HasRows)
             {
                 registro.Read();
                 if (registro["NUMPED"] != DBNull.Value) { modelo.numped = Convert.ToInt64(registro["NUMPED"]); }
