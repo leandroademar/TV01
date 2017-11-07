@@ -123,9 +123,11 @@ namespace TV01
             modelopcpc.condvenda = 1;
             
             bllpcpc.Incluir(modelopcpc);
-            for (int i = 0; i < modelopcpc.numitens; i++)
+            for (int i = 0; i < modelopcpi.qt; i++)
             {
-
+                modelopcpi.numseq = i + 1;
+                modelopcpi.qt = 1;
+                modelopcpi.qtcx = 1;
                 bllpcpi.Incluir(modelopcpi);
             }
            
