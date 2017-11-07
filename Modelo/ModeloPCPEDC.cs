@@ -8,10 +8,10 @@ namespace Modelo
 {
     public class ModeloPCPEDC
     {
-      /*  Contrutor de Modelo em Desuso
-       *  
+       
         public ModeloPCPEDC()
         {
+            /*
             this.numped = 0;
             this.data = DateTime.Now;
             this.codusur = 0;
@@ -176,10 +176,11 @@ namespace Modelo
             this.condfinanc = "";
             this.planosuppli = 0;
             this.pagchequemoradia = "";
-            this.numvolume = 0;
+            */
+            this.numvolume = 1;
 
         }
-        */
+        
 
         private long _numped;
         private DateTime _data;
