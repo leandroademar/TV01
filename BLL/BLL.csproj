@@ -43,6 +43,7 @@
     <Compile Include="BLLPCPEDC.cs" />
     <Compile Include="BLLPCPEDI.cs" />
     <Compile Include="BLLPCVENDACONSUM.cs" />
+    <Compile Include="BLLVAR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

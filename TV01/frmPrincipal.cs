@@ -114,17 +114,21 @@ namespace TV01
 
             BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
             ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
+
             BLLPCPEDC bllpcpc = new BLLPCPEDC(cx);
             ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
+
             BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
             ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
 
-            modelopcvc.numped = 1;
-            modelopcpc.numped = 1;
+            BLLVAR bllvar = new BLLVAR(cx);
+            ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
+
+            modelopcpc.numped = modelovar.newnumped;
+            modelopcpc.condvenda = 1;
             
             bllpcpc.Incluir(modelopcpc);
-            bllpcpi.Incluir(modelopcpi);
-            bllpcvc.Incluir(modelopcvc);
+           
             
 
 
