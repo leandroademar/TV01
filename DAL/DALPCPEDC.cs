@@ -868,10 +868,10 @@ namespace DAL
             comando4 = comando4 + "UPDATE PCPEDC " + "\n";
             comando4 = comando4 + "       SET VLTOTAL                      = :VLTOTAL, " + "\n";
             comando4 = comando4 + "           VLTABELA                     = :VLTABELA, " + "\n";
-            comando4 = comando4 + "           VLCUSTOREAL                  = :VLCUSTOREAL " + "\n";
-            comando4 = comando4 + "           VLCUSTOFIN                  = :VLCUSTOFIN " + "\n";
-            comando4 = comando4 + "           VLATEND                  = :VLATEND " + "\n";
-            comando4 = comando4 + "           VLCUSTOREP                  = :VLCUSTOREP " + "\n";
+            comando4 = comando4 + "           VLCUSTOREAL                  = :VLCUSTOREAL, " + "\n";
+            comando4 = comando4 + "           VLCUSTOFIN                  = :VLCUSTOFIN, " + "\n";
+            comando4 = comando4 + "           VLATEND                  = :VLATEND, " + "\n";
+            comando4 = comando4 + "           VLCUSTOREP                  = :VLCUSTOREP, " + "\n";
             comando4 = comando4 + "           VLCUSTOCONT                  = :VLCUSTOCONT " + "\n";
             comando4 = comando4 + "            " + "\n";
             comando4 = comando4 + "     WHERE NUMPED = :OLD_NUMPED";

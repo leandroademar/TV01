@@ -458,7 +458,7 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = comando2;
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.AddWithValue(":QT", modelo.qt);
+            cmd.Parameters.AddWithValue(":QT", modelo.qtrest);
             cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
             cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
             cmd.Parameters.AddWithValue(":NUMSEQ", modelo.numseq);

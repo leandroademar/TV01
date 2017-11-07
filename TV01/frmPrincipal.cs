@@ -135,7 +135,7 @@ namespace TV01
             decimal vlatend = 0;
             decimal ? vlcustorep = 0;
             decimal ? vlcustocont = 0;
-            modelopcpi.qtrest = numqt;
+            
 
             for (decimal i = 0; i < numqt && vltotal < 10 ; i++)
             {
@@ -147,7 +147,7 @@ namespace TV01
                 modelopcpi.qtunitemb = 1;
                 bllpcpi.Incluir(modelopcpi);
 
-                modelopcpi.qtrest = modelopcpi.qtrest - 1;
+                modelopcpi.qtrest = numqt - i;
                 bllpcpi.AlterarQT(modelopcpi);
 
                 it = it + 1;
