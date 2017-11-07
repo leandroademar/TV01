@@ -18,7 +18,7 @@ namespace DAL
         }
         public ModeloVAR CarreganewNUMPED(int CODUSUR)
         {
-            String comando1 = "SELECT NVL(PROXNUMPED,1) PROXNUMPED FROM PCUSUARI WHERE CODUSUR = :CODUSUR ";
+            String comando1 = "SELECT NVL(PROXNUMPED,1) PROXNUMPED,CODUSUR FROM PCUSUARI WHERE CODUSUR = :CODUSUR ";
 
             ModeloVAR modelo = new ModeloVAR();
             OracleCommand cmd = new OracleCommand();
@@ -33,13 +33,15 @@ namespace DAL
             {
                 registro.Read();
                 if (registro["PROXNUMPED"] != DBNull.Value) { modelo.newnumped = Convert.ToInt64(registro["PROXNUMPED"]); }
+                if (registro["CODUSUR"] != DBNull.Value) { modelo.codusur = Convert.ToInt32(registro["CODUSUR"]); }
+
 
             }
 
             conexao.Desconectar();
             return modelo;
         }
-        public void Alterar(ModeloPCPEDC modelo)
+        public void Alterar(ModeloVAR modelo)
         {
             String comando2 = " UPDATE PCUSUARI SET PROXNUMPED = NVL(PROXNUMPED,1) + 1 WHERE CODUSUR = :CODUSUR ";
             OracleCommand cmd = new OracleCommand();
@@ -47,6 +49,10 @@ namespace DAL
             cmd.Parameters.AddWithValue(":CODUSUR", modelo.codusur);
             cmd.CommandText = comando2;
             cmd.CommandType = System.Data.CommandType.Text;
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
         }
     }
 }

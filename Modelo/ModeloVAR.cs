@@ -9,6 +9,7 @@ namespace Modelo
     public class ModeloVAR
     {
         private long _newnumped;
+        private int _codusur;
 
         public long newnumped
         {
@@ -19,6 +20,17 @@ namespace Modelo
             set
             {
                 this._newnumped = value;
+            }
+        }
+        public int codusur
+        {
+            get
+            {
+                return this._codusur;
+            }
+            set
+            {
+                this._codusur = value;
             }
         }
 

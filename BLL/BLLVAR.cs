@@ -16,7 +16,7 @@ namespace BLL
         {
             this.conexao = cx;
         }
-        public void AlterarNW(ModeloPCPEDC modelo)
+        public void AlterarNW(ModeloVAR modelo)
         {
             // Função para alterar o Proxnumped do usuário
 
