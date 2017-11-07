@@ -115,6 +115,7 @@ namespace TV01
             ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
 
             // for - loop de cabeçalho 
+            modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
 
             BLLVAR bllvar = new BLLVAR(cx);
             ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
@@ -135,7 +136,8 @@ namespace TV01
             decimal vlatend = 0;
             decimal ? vlcustorep = 0;
             decimal ? vlcustocont = 0;
-            
+            modelopcpi.qtrest = 0;
+            modelopcpi.numseqori = modelopcpi.numseq;
 
             for (decimal i = 0; i < numqt && vltotal < 10 ; i++)
             {
@@ -147,9 +149,6 @@ namespace TV01
                 modelopcpi.qtunitemb = 1;
                 bllpcpi.Incluir(modelopcpi);
 
-                modelopcpi.qtrest = numqt - i;
-                bllpcpi.AlterarQT(modelopcpi);
-
                 it = it + 1;
                 vltotal = vltotal + modelopcpi.pvenda;
                 vltabela = vltabela + modelopcpi.ptabela;
@@ -159,6 +158,16 @@ namespace TV01
                 vlcustorep = vlcustorep + modelopcpi.vlcustorep;
                 vlcustocont = vlcustocont + modelopcpi.vlcustocont;
             }
+            modelopcpi.qtrest = numqt - it;
+            bllpcpi.AlterarQT(modelopcpi);
+
+            modelopcpc.vltotal = vltotal;
+            modelopcpc.vltabela = vltabela;
+            modelopcpc.vlatend = vlatend;
+            modelopcpc.vlcustocont = Convert.ToDouble(vlcustocont);
+            modelopcpc.vlcustorep = Convert.ToDouble(vlcustorep);
+            modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
+            modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
             bllpcpc.AlterarPC(modelopcpc);
             rtbPedGerados.Text = "Pedido Cód: "+ modelopcpc.numped.ToString() + " - " + modelopcpc.vltotal.ToString() +";";
             

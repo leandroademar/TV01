@@ -14,6 +14,7 @@ namespace Modelo
         private decimal _qtrest;
         private decimal _pvenda;
         private long _numped;
+        private long _oldnumped;
         private DateTime _data;
         private int _codcli;
         private short _codusur;
@@ -27,6 +28,7 @@ namespace Modelo
         private decimal _perdesc;
         private decimal? _qtfalta;
         private decimal? _numseq;
+        private decimal? _numseqori;
         private double? _vldesccustocmv;
         private decimal? _vlcustocont;
         private decimal? _vlcustorep;
@@ -205,6 +207,17 @@ namespace Modelo
                 this._numped = value;
             }
         }
+        public long oldnumped
+        {
+            get
+            {
+                return this._oldnumped;
+            }
+            set
+            {
+                this._oldnumped = value;
+            }
+        }
         public DateTime data
         {
             get
@@ -346,6 +359,17 @@ namespace Modelo
             set
             {
                 this._numseq = value;
+            }
+        }
+        public decimal? numseqori
+        {
+            get
+            {
+                return this._numseqori;
+            }
+            set
+            {
+                this._numseqori = value;
             }
         }
         public double? vldesccustocmv
