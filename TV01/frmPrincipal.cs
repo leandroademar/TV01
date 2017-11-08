@@ -157,7 +157,7 @@ namespace TV01
                     modelopcpi.qtrest = 0;
                     modelopcpi.numseqori = modelopcpi.numseq;
                     
-                        for (decimal i = 0; i < numqt; i++)
+                        for (decimal i = 0; vltotal < 10; i++)
                         {
 
                             modelopcpi.numseq = it + 1;
