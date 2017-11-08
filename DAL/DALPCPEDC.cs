@@ -894,13 +894,13 @@ namespace DAL
 
         public void AlterarVT(ModeloPCPEDC modelo)
         {
-            String comando5 = " UPDATE PCPEDC SET VLTOTAL = :VLTOTAL WHERE NUMPED = :NUMPED ";
+            String comando5 = " UPDATE PCPEDC SET VLATEND = :VLATEND WHERE NUMPED = :NUMPED ";
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = comando5;
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotalgeral);
+            cmd.Parameters.AddWithValue(":VLATEND", modelo.vlatend);
             cmd.Parameters.AddWithValue(":NUMPED", modelo.numpedold);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
