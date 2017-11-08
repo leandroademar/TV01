@@ -17,7 +17,7 @@ namespace TV01
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void conexãoBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace TV01
         {
             try
             {
-                if (txtCodigo.Text != null )
+                if (txtCodigo.Text != null)
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
@@ -93,11 +93,11 @@ namespace TV01
             }
             catch (OracleException ex)
             {
-                MessageBox.Show("Erro: " + ex.Message );
+                MessageBox.Show("Erro: " + ex.Message);
             }
             catch (Exception erros)
             {
-                MessageBox.Show(erros.Message );
+                MessageBox.Show(erros.Message);
             }
 
         }
@@ -158,9 +158,8 @@ namespace TV01
                     modelopcpi.qtrest = 0;
                     modelopcpi.numseqori = modelopcpi.numseq;
 
-                    int wt = 0;
-                    // for (decimal i = 0; i < numqt && vltotal < 190; i++)
-                    do
+
+                    for (decimal i = 0; i < numqt && vltotal < 190; i++)
                     {
 
                         modelopcpi.numseq = it + 1;
@@ -179,8 +178,8 @@ namespace TV01
                         vlatend = vlatend + modelopcpi.pvenda;
                         vlcustorep = vlcustorep + modelopcpi.vlcustorep;
                         vlcustocont = vlcustocont + modelopcpi.vlcustocont;
-                        wt++; 
-                    } while (wt <= numqt);
+
+                    }
 
 
                     modelopcpi.qtrest = numqt - it;
