@@ -110,18 +110,17 @@ namespace TV01
                 ModeloPCPEDC modelopcpcold = bllpcpcold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
 
                 decimal? vltotalgeral = modelopcpcold.vltotal;
-                decimal? numpc = (modelopcpcold.vltotal / 20);
-
+                //decimal? numpc = (modelopcpcold.vltotal / 20);
+                decimal? vltotalrest = vltotalgeral;
                 modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
 
 
 
-                numpc = Math.Truncate(Convert.ToDecimal(numpc)) + 1;
-                modelopcpcold.vltotalgeral = vltotalgeral;
-                decimal vltg = 0;
+                //numpc = Math.Truncate(Convert.ToDecimal(numpc)) + 1;
+                //modelopcpcold.vltotalgeral = vltotalgeral;
+                
                 //for (decimal ic = 0; ic < numpc && modelopcpcold.vlatend > 0; ic++)
-                do
-                {
+                //do {
 
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
                     ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
@@ -158,11 +157,11 @@ namespace TV01
                     modelopcpi.qtrest = 0;
                     modelopcpi.numseqori = modelopcpi.numseq;
 
-                    for (decimal i = 0; vltotal < 20; i++)
+                    for (decimal i = 0; i < modelopcpi.numseq && vltotal < 100; i++)
                     {
 
-                        modelopcpi.numseq = it + 1;
-                        modelopcpi.qt = 1;
+                        //modelopcpi.numseq = it + 1;
+                        //modelopcpi.qt = 1;
                         modelopcpi.volumedesejado = modelopcpi.qtunitcx;
                         modelopcpi.qtunitcx = 1;
                         modelopcpi.qtunitemb = 1;
@@ -186,18 +185,19 @@ namespace TV01
                     modelopcpc.vltotal = vltotal;
                     modelopcpc.vltabela = vltabela;
                     modelopcpc.vlatend = vlatend;
-                    modelopcpcold.vlatend = modelopcpcold.vltotalgeral - vlatend;
+                    
                     modelopcpc.vlcustocont = Convert.ToDouble(vlcustocont);
                     modelopcpc.vlcustorep = Convert.ToDouble(vlcustorep);
                     modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
                     modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
                     bllpcpc.AlterarPC(modelopcpc);
-                    bllpcpcold.AlterarVT(modelopcpcold);
-                    vltg = vltg + vltotal;
+                    vltotalrest = vltotalrest - vltotal;
+                    //bllpcpcold.AlterarVT(modelopcpcold);
+                    
                     string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
                     rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
 
-                } while (modelopcpcold.vltotal < vltg);
+               // } while ( vltotalrest > 0);
                 //fim do loop de cabeçalho
             }
             catch (OracleException ex)
