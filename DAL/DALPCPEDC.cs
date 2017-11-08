@@ -874,11 +874,11 @@ namespace DAL
             comando4 = comando4 + "           VLCUSTOREP                  = :VLCUSTOREP, " + "\n";
             comando4 = comando4 + "           VLCUSTOCONT                  = :VLCUSTOCONT " + "\n";
             comando4 = comando4 + "            " + "\n";
-            comando4 = comando4 + "     WHERE NUMPED = :OLD_NUMPED";
+            comando4 = comando4 + "     WHERE NUMPED = :NUMPED";
             cmd.CommandText = comando4;
             cmd.CommandType = System.Data.CommandType.Text;
 
-            cmd.Parameters.AddWithValue(":OLD_NUMPED", modelo.numped);
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
             cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotal);
             cmd.Parameters.AddWithValue(":VLTABELA", modelo.vltotal);
             cmd.Parameters.AddWithValue(":VLCUSTOREAL", modelo.vlcustoreal);
@@ -892,10 +892,26 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        public void AlterarVT(ModeloPCPEDC modelo)
+        {
+            String comando5 = " UPDATE PCPEDC SET VLTOTAL = :VLTOTAL WHERE NUMPED = :NUMPED ";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando5;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotal);
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numpedold);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+
+        }
+
 
         public ModeloPCPEDC CarregaModeloPCPEDC(long codigo)
         {
-            String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND CONDVENDA = 7 ";
+            String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND CONDVENDA = 7 AND VLTOTAL > 0 ";
 
             ModeloPCPEDC modelo = new ModeloPCPEDC();
             OracleCommand cmd = new OracleCommand();

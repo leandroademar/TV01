@@ -14,6 +14,7 @@ namespace Modelo
         
 
         private long _numped;
+        private long _numpedold;
         private DateTime _data;
         private short _codusur;
         private int _codcli;
@@ -187,6 +188,17 @@ namespace Modelo
             set
             {
                 this._numped = value;
+            }
+        }
+        public long numpedold
+        {
+            get
+            {
+                return this._numpedold;
+            }
+            set
+            {
+                this._numpedold = value;
             }
         }
         public DateTime data

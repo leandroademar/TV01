@@ -22,6 +22,12 @@ namespace BLL
             DALObj.AlterarPC(modelo);
 
         }
+        public void AlterarVT(ModeloPCPEDC modelo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            DALObj.AlterarVT(modelo);
+
+        }
         public ModeloPCPEDC CarregaPCPEDC(long codigo)
         {
             DALPCPEDC DALObj = new DALPCPEDC(conexao);
