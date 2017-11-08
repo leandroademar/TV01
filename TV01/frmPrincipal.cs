@@ -157,27 +157,30 @@ namespace TV01
 
                     modelopcpi.qtrest = 0;
                     modelopcpi.numseqori = modelopcpi.numseq;
-
-                    for (decimal i = 0; vltotal < 20; i++)
+                    int aq = 1;
+                    while (aq <= 2)
                     {
+                        for (decimal i = 0; vltotal < 20; i++)
+                        {
 
-                        modelopcpi.numseq = it + 1;
-                        modelopcpi.qt = 1;
-                        modelopcpi.volumedesejado = modelopcpi.qtunitcx;
-                        modelopcpi.qtunitcx = 1;
-                        modelopcpi.qtunitemb = 1;
-                        bllpcpi.Incluir(modelopcpi);
+                            modelopcpi.numseq = it + 1;
+                            modelopcpi.qt = 1;
+                            modelopcpi.volumedesejado = modelopcpi.qtunitcx;
+                            modelopcpi.qtunitcx = 1;
+                            modelopcpi.qtunitemb = 1;
+                            bllpcpi.Incluir(modelopcpi);
 
-                        it = it + 1;
+                            it = it + 1;
 
-                        vltotal = vltotal + modelopcpi.pvenda;
-                        vltabela = vltabela + modelopcpi.ptabela;
-                        vlcustoreal = vlcustoreal + modelopcpi.vlcustoreal;
-                        vlcustofin = vlcustofin + modelopcpi.vlcustofin;
-                        vlatend = vlatend + modelopcpi.pvenda;
-                        vlcustorep = vlcustorep + modelopcpi.vlcustorep;
-                        vlcustocont = vlcustocont + modelopcpi.vlcustocont;
-
+                            vltotal = vltotal + modelopcpi.pvenda;
+                            vltabela = vltabela + modelopcpi.ptabela;
+                            vlcustoreal = vlcustoreal + modelopcpi.vlcustoreal;
+                            vlcustofin = vlcustofin + modelopcpi.vlcustofin;
+                            vlatend = vlatend + modelopcpi.pvenda;
+                            vlcustorep = vlcustorep + modelopcpi.vlcustorep;
+                            vlcustocont = vlcustocont + modelopcpi.vlcustocont;
+                            aq++;
+                        }
                     }
 
                     modelopcpi.qtrest = numqt - it;
