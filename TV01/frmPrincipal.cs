@@ -174,6 +174,8 @@ namespace TV01
                     vlatend = vlatend + modelopcpi.pvenda;
                     vlcustorep = vlcustorep + modelopcpi.vlcustorep;
                     vlcustocont = vlcustocont + modelopcpi.vlcustocont;
+                    if (vltotal < 10)
+                        continue;
                 }
                 modelopcpi.qtrest = numqt - it;
                 bllpcpi.AlterarQT(modelopcpi);
@@ -187,7 +189,7 @@ namespace TV01
                 modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
                 bllpcpc.AlterarPC(modelopcpc);
                 string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
-                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto; 
+                rtbPedGerados.Text = texto + "\n" + texto; 
             }
             //fim do loop de cabeçalho
 
