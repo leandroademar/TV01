@@ -234,7 +234,7 @@ namespace DAL
             if (modelo.politicaprioritaria != null) { comando1 = comando1 + ":POLITICAPRIORITARIA," + "\n"; }
             if (modelo.truncaritem != null) { comando1 = comando1 + ":TRUNCARITEM," + "\n"; }
             if (modelo.qtunitemb != null) { comando1 = comando1 + ":QTUNITEMB," + "\n"; }
-                comando1 = comando1 + "316, " + "\n";
+            comando1 = comando1 + "316, " + "\n";
             if (modelo.qtunitcx != null) { comando1 = comando1 + ":QTUNITCX," + "\n"; }
             if (modelo.percdescpis != null) { comando1 = comando1 + ":PERCDESCPIS," + "\n"; }
             if (modelo.vldescreducaopis != null) { comando1 = comando1 + ":VLDESCREDUCAOPIS," + "\n"; }
@@ -467,7 +467,7 @@ namespace DAL
             conexao.Desconectar();
 
         }
-            public ModeloPCPEDI CarregaModeloPCPEDI(long codigo )
+        public ModeloPCPEDI CarregaModeloPCPEDI(long codigo)
         {
             String comando3 = "SELECT * FROM PCPEDI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
@@ -477,7 +477,7 @@ namespace DAL
             cmd.Parameters.AddWithValue(":NUMPED", codigo);
             conexao.Conectar();
             OracleDataReader registro = cmd.ExecuteReader();
-            if(registro.HasRows)
+            if (registro.HasRows)
             {
                 registro.Read();
                 if (registro["CODPROD"] != DBNull.Value) { modelo.codprod = Convert.ToInt32(registro["CODPROD"]); }
@@ -625,6 +625,7 @@ namespace DAL
             }
             conexao.Desconectar();
             return modelo;
+
         }
 
     }

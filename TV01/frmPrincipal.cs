@@ -147,11 +147,12 @@ namespace TV01
 
                     modelopcpc.numped = modelovar.newnumped;
                     modelopcpi.numped = modelovar.newnumped;
+                    modelopcvc.numped = modelovar.newnumped;
                     modelopcpc.condvenda = 1;
 
                     bllpcpc.Incluir(modelopcpc);
 
-                    decimal numqt = modelopcpi.qt;
+                    int numqt = Convert.ToInt32(modelopcpi.qt);
                     int it = 0;
                     decimal vltotal = 0;
                     decimal vltabela = 0;
@@ -165,7 +166,7 @@ namespace TV01
                     modelopcpi.numseqori = modelopcpi.numseq;
 
 
-                    for (decimal i = 0; i < numqt && vltotal < 190; i++)
+                    for (int i = 0; i < numqt && vltotal < 190; i++)
                     {
 
                         modelopcpi.numseq = it + 1;
@@ -200,12 +201,12 @@ namespace TV01
                     modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
                     bllpcpc.AlterarPC(modelopcpc);
                     vltotalrest = vltotalrest - vltotal;
-
+                    bllpcvc.Incluir(modelopcvc);
                     string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
                     rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
 
                 } while (vltotalrest > 0);
-                //fim do loop de cabeçalho
+
                 clsArquivo LCLS_ArquivoTxt = new clsArquivo();
                 LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
                 spoolrec("PEDIDOS.TXT");
