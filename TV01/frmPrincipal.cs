@@ -110,95 +110,94 @@ namespace TV01
                 ModeloPCPEDC modelopcpcold = bllpcpcold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
 
                 decimal? vltotalgeral = modelopcpcold.vltotal;
-                //decimal? numpc = (modelopcpcold.vltotal / 20);
-                decimal? vltotalrest = vltotalgeral;
+                decimal? numpc = (modelopcpcold.vltotal / 20);
+
                 modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
 
 
 
-                //numpc = Math.Truncate(Convert.ToDecimal(numpc)) + 1;
-                //modelopcpcold.vltotalgeral = vltotalgeral;
-
+                numpc = Math.Truncate(Convert.ToDecimal(numpc)) + 1;
+                modelopcpcold.vltotalgeral = vltotalgeral;
+                decimal vltg = 0;
                 //for (decimal ic = 0; ic < numpc && modelopcpcold.vlatend > 0; ic++)
-                //do {
-
-                BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
-                ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
-
-                BLLPCPEDC bllpcpc = new BLLPCPEDC(cx);
-                ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
-
-                BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
-                ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-
-                modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
-                modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
-
-                BLLVAR bllvar = new BLLVAR(cx);
-                ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
-                bllvar.AlterarNW(modelovar);
-
-                modelopcpc.numped = modelovar.newnumped;
-                modelopcpi.numped = modelovar.newnumped;
-                modelopcpc.condvenda = 1;
-
-                bllpcpc.Incluir(modelopcpc);
-
-                decimal numqt = modelopcpi.qt;
-                int it = 0;
-                decimal vltotal = 0;
-                decimal vltabela = 0;
-                decimal vlcustoreal = 0;
-                decimal vlcustofin = 0;
-                decimal vlatend = 0;
-                decimal? vlcustorep = 0;
-                decimal? vlcustocont = 0;
-
-                modelopcpi.qtrest = 0;
-                modelopcpi.numseqori = modelopcpi.numseq;
-
-                for (decimal i = 0; i < numqt && vltotal < 100; i++)
+                do
                 {
-                    BLLPCPEDI bllpcpit = new BLLPCPEDI(cx);
-                    ModeloPCPEDI modelopcpit = bllpcpit.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-                    modelopcpit.numseq = it + 1;
-                    modelopcpit.qt = 1;
-                    modelopcpit.volumedesejado = modelopcpit.qtunitcx;
-                    modelopcpit.qtunitcx = 1;
-                    modelopcpit.qtunitemb = 1;
-                    bllpcpit.Incluir(modelopcpit);
 
-                    it = it + 1;
+                    BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
+                    ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
 
-                    vltotal = vltotal + modelopcpit.pvenda;
-                    vltabela = vltabela + modelopcpit.ptabela;
-                    vlcustoreal = vlcustoreal + modelopcpit.vlcustoreal;
-                    vlcustofin = vlcustofin + modelopcpit.vlcustofin;
-                    vlatend = vlatend + modelopcpit.pvenda;
-                    vlcustorep = vlcustorep + modelopcpit.vlcustorep;
-                    vlcustocont = vlcustocont + modelopcpit.vlcustocont;
+                    BLLPCPEDC bllpcpc = new BLLPCPEDC(cx);
+                    ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
 
-                }
+                    BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
+                    ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
 
-                modelopcpi.qtrest = numqt - it;
-                bllpcpi.AlterarQT(modelopcpi);
+                    modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
+                    modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
 
-                modelopcpc.vltotal = vltotal;
-                modelopcpc.vltabela = vltabela;
-                modelopcpc.vlatend = vlatend;
+                    BLLVAR bllvar = new BLLVAR(cx);
+                    ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
+                    bllvar.AlterarNW(modelovar);
 
-                modelopcpc.vlcustocont = Convert.ToDouble(vlcustocont);
-                modelopcpc.vlcustorep = Convert.ToDouble(vlcustorep);
-                modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
-                modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
-                bllpcpc.AlterarPC(modelopcpc);
-                vltotalrest = vltotalrest - vltotal;
-                //bllpcpcold.AlterarVT(modelopcpcold);
+                    modelopcpc.numped = modelovar.newnumped;
+                    modelopcpi.numped = modelovar.newnumped;
+                    modelopcpc.condvenda = 1;
 
-                string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
-                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
+                    bllpcpc.Incluir(modelopcpc);
 
-                // } while ( vltotalrest > 0);
+                    decimal numqt = modelopcpi.qt;
+                    int it = 0;
+                    decimal vltotal = 0;
+                    decimal vltabela = 0;
+                    decimal vlcustoreal = 0;
+                    decimal vlcustofin = 0;
+                    decimal vlatend = 0;
+                    decimal? vlcustorep = 0;
+                    decimal? vlcustocont = 0;
+
+                    modelopcpi.qtrest = 0;
+                    modelopcpi.numseqori = modelopcpi.numseq;
+
+                    for (decimal i = 0; vltotal < 20; i++)
+                    {
+
+                        modelopcpi.numseq = it + 1;
+                        modelopcpi.qt = 1;
+                        modelopcpi.volumedesejado = modelopcpi.qtunitcx;
+                        modelopcpi.qtunitcx = 1;
+                        modelopcpi.qtunitemb = 1;
+                        bllpcpi.Incluir(modelopcpi);
+
+                        it = it + 1;
+
+                        vltotal = vltotal + modelopcpi.pvenda;
+                        vltabela = vltabela + modelopcpi.ptabela;
+                        vlcustoreal = vlcustoreal + modelopcpi.vlcustoreal;
+                        vlcustofin = vlcustofin + modelopcpi.vlcustofin;
+                        vlatend = vlatend + modelopcpi.pvenda;
+                        vlcustorep = vlcustorep + modelopcpi.vlcustorep;
+                        vlcustocont = vlcustocont + modelopcpi.vlcustocont;
+
+                    }
+
+                    modelopcpi.qtrest = numqt - it;
+                    bllpcpi.AlterarQT(modelopcpi);
+
+                    modelopcpc.vltotal = vltotal;
+                    modelopcpc.vltabela = vltabela;
+                    modelopcpc.vlatend = vlatend;
+                    modelopcpcold.vlatend = modelopcpcold.vltotalgeral - vlatend;
+                    modelopcpc.vlcustocont = Convert.ToDouble(vlcustocont);
+                    modelopcpc.vlcustorep = Convert.ToDouble(vlcustorep);
+                    modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
+                    modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
+                    bllpcpc.AlterarPC(modelopcpc);
+                    bllpcpcold.AlterarVT(modelopcpcold);
+                    vltg = vltg + vltotal;
+                    string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
+                    rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
+
+                } while (modelopcpcold.vltotal < vltg);
                 //fim do loop de cabeçalho
             }
             catch (OracleException ex)
