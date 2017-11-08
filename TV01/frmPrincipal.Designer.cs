@@ -158,7 +158,7 @@
             // 
             // rtbPedGerados
             // 
-            this.rtbPedGerados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPedGerados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbPedGerados.Location = new System.Drawing.Point(12, 362);
             this.rtbPedGerados.Name = "rtbPedGerados";
             this.rtbPedGerados.Size = new System.Drawing.Size(454, 267);
@@ -182,7 +182,7 @@
             this.reimprimirToolStripMenuItem,
             this.limpaTelaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(243, 94);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(243, 127);
             // 
             // conexãoBancoDeDadosToolStripMenuItem
             // 
@@ -196,6 +196,7 @@
             this.reimprimirToolStripMenuItem.Name = "reimprimirToolStripMenuItem";
             this.reimprimirToolStripMenuItem.Size = new System.Drawing.Size(242, 30);
             this.reimprimirToolStripMenuItem.Text = "Imprimir";
+            this.reimprimirToolStripMenuItem.Click += new System.EventHandler(this.reimprimirToolStripMenuItem_Click);
             // 
             // limpaTelaToolStripMenuItem
             // 

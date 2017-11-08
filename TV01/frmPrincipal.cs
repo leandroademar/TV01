@@ -4,14 +4,20 @@ using Modelo;
 using BLL;
 using System.Windows.Forms;
 using System.Data.OracleClient;
-
+using System.Drawing.Printing;
+using System.IO;
+using System.Drawing;
 
 namespace TV01
 {
     public partial class frmPrincipal : Form
     {
+        public Font printFont;
+        public StreamReader streamToPrint;
+
         public frmPrincipal()
         {
+
             InitializeComponent();
         }
 
@@ -200,6 +206,9 @@ namespace TV01
 
                 } while (vltotalrest > 0);
                 //fim do loop de cabeçalho
+                clsArquivo LCLS_ArquivoTxt = new clsArquivo();
+                LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
+                spoolrec("PEDIDOS.TXT");
             }
             catch (OracleException ex)
             {
@@ -214,6 +223,68 @@ namespace TV01
             {
                 e.Handled = true;
             }
+        }
+        public void spoolrec(string documento)
+        {
+
+            try
+            {
+                streamToPrint = new StreamReader
+                (documento, false);
+                printFont = new Font("Arial", 10);
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += new PrintPageEventHandler
+                (this.pd_PrintPage);
+                //PrintController pc = new PrintControllerWithStatusDialog(pd.PrintController);
+                pd.PrintController = new System.Drawing.Printing.StandardPrintController();
+                pd.Print();
+                streamToPrint.Close();
+                pd.Dispose();
+
+            }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        public void pd_PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            float leftMargin = 2;
+            float topMargin = 1;
+            string line = null;
+
+            // Calculate the number of lines per page.
+            linesPerPage = ev.MarginBounds.Height /
+               printFont.GetHeight(ev.Graphics);
+
+            // Print each line of the file.
+            while (count < linesPerPage &&
+               ((line = streamToPrint.ReadLine()) != null))
+            {
+                yPos = topMargin + (count *
+                   printFont.GetHeight(ev.Graphics));
+                ev.Graphics.DrawString(line, printFont, Brushes.Black,
+                   leftMargin, yPos, new StringFormat());
+                count++;
+            }
+
+            // If more lines exist, print another page.
+            if (line != null)
+                ev.HasMorePages = true;
+            else
+                ev.HasMorePages = false;
+        }
+
+        private void reimprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            spoolrec("PEDIDOS.TXT");
         }
     }
 }

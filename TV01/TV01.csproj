@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsArquivo.cs" />
     <Compile Include="frmConfiguracaoBancoDados.cs">
       <SubType>Form</SubType>
     </Compile>
