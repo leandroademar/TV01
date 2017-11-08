@@ -452,7 +452,7 @@ namespace DAL
         }
         public void AlterarQT(ModeloPCPEDI modelo)
         {
-            String comando2 = " UPDATE PCPEDI SET QT = :QT WHERE NUMPED = :NUMPED AND CODPROD = :CODPROD AND NUMSEQ = :NUMSEQ";
+            String comando2 = " UPDATE PCPEDI SET QT = :QT WHERE NUMPED = :NUMPED AND CODPROD = :CODPROD AND NUMSEQ = :NUMSEQ AND QT > 0";
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;

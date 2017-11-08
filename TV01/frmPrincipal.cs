@@ -112,13 +112,15 @@ namespace TV01
             decimal? numpc = (modelopcpcold.vltotal / 10);
 
             modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
-
             
 
-            numpc = Math.Truncate(Convert.ToDecimal(numpc)) + 1;
 
+            numpc = Math.Truncate(Convert.ToDecimal(numpc)) + 1;
+            modelopcpcold.vltotalgeral = vltotalgeral;
+            
             for (decimal ic = 0; ic < numpc; ic++)
             {
+
                 BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
                 ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
 
@@ -129,6 +131,7 @@ namespace TV01
                 ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
            
                 modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
+                modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
 
                 BLLVAR bllvar = new BLLVAR(cx);
                 ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
@@ -183,11 +186,8 @@ namespace TV01
                 modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
                 modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
                 bllpcpc.AlterarPC(modelopcpc);
-
-                vltotalgeral = vltotalgeral - modelopcpc.vltotal;
-                bllpcpcold.AlterarVT(modelopcpcold);
-
-                rtbPedGerados.Text = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
+                string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
+                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto; 
             }
             //fim do loop de cabeçalho
 

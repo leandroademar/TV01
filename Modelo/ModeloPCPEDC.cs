@@ -26,6 +26,7 @@ namespace Modelo
         private short _codsupervisor;
         private string _codfilial;
         private decimal? _vltotal;
+        private decimal? _vltotalgeral;
         private decimal? _vltabela;
         private double? _vlcustoreal;
         private double? _vlcustofin;
@@ -320,6 +321,17 @@ namespace Modelo
             set
             {
                 this._vltotal = value;
+            }
+        }
+        public decimal? vltotalgeral
+        {
+            get
+            {
+                return this._vltotalgeral;
+            }
+            set
+            {
+                this._vltotalgeral = value;
             }
         }
         public decimal? vltabela

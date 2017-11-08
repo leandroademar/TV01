@@ -900,7 +900,7 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = comando5;
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotal);
+            cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotalgeral);
             cmd.Parameters.AddWithValue(":NUMPED", modelo.numpedold);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
