@@ -17,7 +17,7 @@ namespace TV01
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void conexãoBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,6 +46,12 @@ namespace TV01
             {
                 LimpaTela();
             }
+            if (e.KeyCode == Keys.Enter && (txtCodigo.Text != ""))
+            {
+                btnGerar_Click(sender, e);
+                btnGerar.Focus();
+            }
+
         }
 
         private void limpaTelaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,6 +61,7 @@ namespace TV01
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            txtCodigo.Focus();
             LimpaTela();
         }
 
@@ -62,7 +69,7 @@ namespace TV01
         {
             try
             {
-                if (txtCodigo != null)
+                if (txtCodigo.Text != null )
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
@@ -76,7 +83,7 @@ namespace TV01
                     txtCpf.Text = modelopcvc.cgcent.ToString();
                     txtVlrTotal.Text = modelopcpc.vltotal.ToString();
                     txtQtdItens.Text = modelopcpc.numitens.ToString();
-
+                    btnGerar.Focus();
                 }
             }
 
@@ -86,11 +93,11 @@ namespace TV01
             }
             catch (OracleException ex)
             {
-                MessageBox.Show("Erro: " + ex.Message + " \n " + ex.StackTrace);
+                MessageBox.Show("Erro: " + ex.Message );
             }
             catch (Exception erros)
             {
-                MessageBox.Show(erros.Message + " \n " + erros.StackTrace);
+                MessageBox.Show(erros.Message );
             }
 
         }
@@ -151,8 +158,9 @@ namespace TV01
                     modelopcpi.qtrest = 0;
                     modelopcpi.numseqori = modelopcpi.numseq;
 
-
-                    for (decimal i = 0; i < numqt && vltotal < 190; i++)
+                    int wt = 0;
+                    // for (decimal i = 0; i < numqt && vltotal < 190; i++)
+                    do
                     {
 
                         modelopcpi.numseq = it + 1;
@@ -171,8 +179,8 @@ namespace TV01
                         vlatend = vlatend + modelopcpi.pvenda;
                         vlcustorep = vlcustorep + modelopcpi.vlcustorep;
                         vlcustocont = vlcustocont + modelopcpi.vlcustocont;
-
-                    }
+                        wt++; 
+                    } while (wt <= numqt);
 
 
                     modelopcpi.qtrest = numqt - it;
@@ -203,12 +211,9 @@ namespace TV01
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar))
-
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
             {
-
                 e.Handled = true;
-
             }
         }
     }

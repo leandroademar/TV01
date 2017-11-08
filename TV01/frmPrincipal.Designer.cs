@@ -49,7 +49,7 @@
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblPedidos = new System.Windows.Forms.Label();
             this.btnGerar = new System.Windows.Forms.Button();
-            this.btnSair = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.pnlCabec.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,11 +57,11 @@
             // btnBuscar
             // 
             this.btnBuscar.AutoSize = true;
-            this.btnBuscar.Location = new System.Drawing.Point(121, 42);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscar.Location = new System.Drawing.Point(182, 65);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(26, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(39, 35);
             this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.TabStop = false;
             this.btnBuscar.Text = "...";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -69,11 +69,10 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(8, 44);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCodigo.Location = new System.Drawing.Point(12, 68);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(110, 20);
-            this.txtCodigo.TabIndex = 1;
+            this.txtCodigo.Size = new System.Drawing.Size(163, 26);
+            this.txtCodigo.TabIndex = 0;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
@@ -88,100 +87,90 @@
             this.pnlCabec.Controls.Add(this.lblNome);
             this.pnlCabec.Controls.Add(this.txtCpf);
             this.pnlCabec.Controls.Add(this.txtNome);
-            this.pnlCabec.Location = new System.Drawing.Point(8, 86);
-            this.pnlCabec.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlCabec.Location = new System.Drawing.Point(12, 132);
             this.pnlCabec.Name = "pnlCabec";
-            this.pnlCabec.Size = new System.Drawing.Size(432, 91);
+            this.pnlCabec.Size = new System.Drawing.Size(647, 139);
             this.pnlCabec.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(165, 63);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(248, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 17;
             this.label1.Text = "Qtd. Itens:";
             // 
             // lblVTotal
             // 
             this.lblVTotal.AutoSize = true;
-            this.lblVTotal.Location = new System.Drawing.Point(17, 63);
-            this.lblVTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVTotal.Location = new System.Drawing.Point(26, 97);
             this.lblVTotal.Name = "lblVTotal";
-            this.lblVTotal.Size = new System.Drawing.Size(52, 13);
+            this.lblVTotal.Size = new System.Drawing.Size(75, 20);
             this.lblVTotal.TabIndex = 16;
             this.lblVTotal.Text = "Vlr. Total:";
             // 
             // txtQtdItens
             // 
-            this.txtQtdItens.Location = new System.Drawing.Point(225, 61);
-            this.txtQtdItens.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQtdItens.Location = new System.Drawing.Point(338, 94);
             this.txtQtdItens.Name = "txtQtdItens";
-            this.txtQtdItens.Size = new System.Drawing.Size(79, 20);
+            this.txtQtdItens.Size = new System.Drawing.Size(116, 26);
             this.txtQtdItens.TabIndex = 15;
             // 
             // txtVlrTotal
             // 
-            this.txtVlrTotal.Location = new System.Drawing.Point(71, 61);
-            this.txtVlrTotal.Margin = new System.Windows.Forms.Padding(2);
+            this.txtVlrTotal.Location = new System.Drawing.Point(106, 94);
             this.txtVlrTotal.Name = "txtVlrTotal";
-            this.txtVlrTotal.Size = new System.Drawing.Size(79, 20);
+            this.txtVlrTotal.Size = new System.Drawing.Size(116, 26);
             this.txtVlrTotal.TabIndex = 14;
             // 
             // lblcpf
             // 
             this.lblcpf.AutoSize = true;
-            this.lblcpf.Location = new System.Drawing.Point(38, 38);
-            this.lblcpf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblcpf.Location = new System.Drawing.Point(57, 58);
             this.lblcpf.Name = "lblcpf";
-            this.lblcpf.Size = new System.Drawing.Size(30, 13);
+            this.lblcpf.Size = new System.Drawing.Size(44, 20);
             this.lblcpf.TabIndex = 12;
             this.lblcpf.Text = "CPF:";
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(31, 10);
-            this.lblNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNome.Location = new System.Drawing.Point(46, 15);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.Size = new System.Drawing.Size(55, 20);
             this.lblNome.TabIndex = 11;
             this.lblNome.Text = "Nome:";
             // 
             // txtCpf
             // 
-            this.txtCpf.Location = new System.Drawing.Point(71, 34);
-            this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCpf.Location = new System.Drawing.Point(106, 52);
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(151, 20);
+            this.txtCpf.Size = new System.Drawing.Size(224, 26);
             this.txtCpf.TabIndex = 1;
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(71, 8);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNome.Location = new System.Drawing.Point(106, 12);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(299, 20);
+            this.txtNome.Size = new System.Drawing.Size(446, 26);
             this.txtNome.TabIndex = 0;
             // 
             // rtbPedGerados
             // 
-            this.rtbPedGerados.Location = new System.Drawing.Point(8, 235);
-            this.rtbPedGerados.Margin = new System.Windows.Forms.Padding(2);
+            this.rtbPedGerados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbPedGerados.Location = new System.Drawing.Point(12, 362);
             this.rtbPedGerados.Name = "rtbPedGerados";
-            this.rtbPedGerados.Size = new System.Drawing.Size(304, 175);
+            this.rtbPedGerados.Size = new System.Drawing.Size(454, 267);
             this.rtbPedGerados.TabIndex = 4;
             this.rtbPedGerados.Text = "";
             // 
             // lblCod
             // 
             this.lblCod.AutoSize = true;
-            this.lblCod.Location = new System.Drawing.Point(8, 29);
-            this.lblCod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCod.Location = new System.Drawing.Point(12, 45);
             this.lblCod.Name = "lblCod";
-            this.lblCod.Size = new System.Drawing.Size(79, 13);
+            this.lblCod.Size = new System.Drawing.Size(116, 20);
             this.lblCod.TabIndex = 5;
             this.lblCod.Text = "Código Pedido:";
             // 
@@ -218,53 +207,48 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(8, 71);
-            this.lblCliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCliente.Location = new System.Drawing.Point(12, 109);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(76, 13);
+            this.lblCliente.Size = new System.Drawing.Size(113, 20);
             this.lblCliente.TabIndex = 7;
             this.lblCliente.Text = "Dados Cliente:";
             // 
             // lblPedidos
             // 
             this.lblPedidos.AutoSize = true;
-            this.lblPedidos.Location = new System.Drawing.Point(8, 220);
-            this.lblPedidos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPedidos.Location = new System.Drawing.Point(12, 338);
             this.lblPedidos.Name = "lblPedidos";
-            this.lblPedidos.Size = new System.Drawing.Size(91, 13);
+            this.lblPedidos.Size = new System.Drawing.Size(136, 20);
             this.lblPedidos.TabIndex = 8;
             this.lblPedidos.Text = "Pedidos Gerados:";
             // 
             // btnGerar
             // 
-            this.btnGerar.Location = new System.Drawing.Point(319, 386);
-            this.btnGerar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGerar.Location = new System.Drawing.Point(478, 594);
             this.btnGerar.Name = "btnGerar";
-            this.btnGerar.Size = new System.Drawing.Size(58, 23);
+            this.btnGerar.Size = new System.Drawing.Size(87, 35);
             this.btnGerar.TabIndex = 9;
             this.btnGerar.Text = "Gerar";
             this.btnGerar.UseVisualStyleBackColor = true;
             this.btnGerar.Click += new System.EventHandler(this.btnGerar_Click);
             // 
-            // btnSair
+            // btnImprimir
             // 
-            this.btnSair.Location = new System.Drawing.Point(381, 386);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(58, 23);
-            this.btnSair.TabIndex = 10;
-            this.btnSair.Text = "Fechar";
-            this.btnSair.UseVisualStyleBackColor = true;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            this.btnImprimir.Location = new System.Drawing.Point(572, 594);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(87, 35);
+            this.btnImprimir.TabIndex = 10;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 416);
+            this.ClientSize = new System.Drawing.Size(676, 637);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.ControlBox = false;
-            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnGerar);
             this.Controls.Add(this.lblPedidos);
             this.Controls.Add(this.lblCliente);
@@ -274,7 +258,6 @@
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.btnBuscar);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPrincipal";
@@ -303,7 +286,6 @@
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblPedidos;
         private System.Windows.Forms.Button btnGerar;
-        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Label lblcpf;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtCpf;
@@ -313,5 +295,6 @@
         private System.Windows.Forms.Label lblVTotal;
         private System.Windows.Forms.TextBox txtQtdItens;
         private System.Windows.Forms.TextBox txtVlrTotal;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }
