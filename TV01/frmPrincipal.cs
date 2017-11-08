@@ -118,8 +118,9 @@ namespace TV01
 
                 numpc = Math.Truncate(Convert.ToDecimal(numpc)) + 1;
                 modelopcpcold.vltotalgeral = vltotalgeral;
-
-                for (decimal ic = 0; ic < numpc && modelopcpcold.vlatend > 0; ic++)
+                decimal vltg = 0;
+                //for (decimal ic = 0; ic < numpc && modelopcpcold.vlatend > 0; ic++)
+                do
                 {
 
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
@@ -178,6 +179,7 @@ namespace TV01
                         vlcustocont = vlcustocont + modelopcpi.vlcustocont;
 
                     }
+
                     modelopcpi.qtrest = numqt - it;
                     bllpcpi.AlterarQT(modelopcpi);
 
@@ -191,10 +193,11 @@ namespace TV01
                     modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
                     bllpcpc.AlterarPC(modelopcpc);
                     bllpcpcold.AlterarVT(modelopcpcold);
+                    vltg = vltg + vltotal;
                     string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
                     rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
 
-                }
+                } while (modelopcpcold.vltotal < vltg);
                 //fim do loop de cabeçalho
             }
             catch (OracleException ex)
