@@ -85,7 +85,7 @@ namespace TV01
                     BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
                     dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt32(txtCodigo.Text));
-                    this.AtualizaDGVItens();
+                    // this.AtualizaDGVItens();
                     txtNome.Text = modelopcvc.cliente.ToString();
                     txtCpf.Text = modelopcvc.cgcent.ToString();
                     txtVlrTotal.Text = modelopcpc.vltotal.ToString();
@@ -110,15 +110,13 @@ namespace TV01
         }
         public void AtualizaDGVItens()
         {
-            dgvItens.Columns[0].Visible = false;
-            dgvItens.Columns[1].Visible = false;
-            dgvItens.Columns[2].Visible = false;
-            dgvItens.Columns[3].HeaderText = "Código Produto";
-            dgvItens.Columns[3].DisplayIndex = 0;
-            dgvItens.Columns[4].HeaderText = "Quantidade";
-            dgvItens.Columns[4].DisplayIndex = 1;
-            dgvItens.Columns[5].HeaderText = "Preço Unit.";
-            dgvItens.Columns[5].DisplayIndex = 2;
+            
+            dgvItens.Columns[0].HeaderText = "Código Produto";
+            dgvItens.Columns[0].DisplayIndex = 0;
+            dgvItens.Columns[1].HeaderText = "Quantidade";
+            dgvItens.Columns[1].DisplayIndex = 1;
+            dgvItens.Columns[2].HeaderText = "Preço Unit.";
+            dgvItens.Columns[2].DisplayIndex = 2;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
