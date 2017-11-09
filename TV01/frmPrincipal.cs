@@ -137,6 +137,7 @@ namespace TV01
 
                     BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
+                    dgvItens.DataSource = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
 
                     modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
                     modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);

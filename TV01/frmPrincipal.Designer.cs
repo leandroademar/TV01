@@ -50,14 +50,22 @@
             this.lblPedidos = new System.Windows.Forms.Label();
             this.btnGerar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.tbcPrincipal = new System.Windows.Forms.TabControl();
+            this.tbpPedido = new System.Windows.Forms.TabPage();
+            this.tbpItens = new System.Windows.Forms.TabPage();
+            this.dgvItens = new System.Windows.Forms.DataGridView();
             this.pnlCabec.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.tbcPrincipal.SuspendLayout();
+            this.tbpPedido.SuspendLayout();
+            this.tbpItens.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
             // 
             this.btnBuscar.AutoSize = true;
-            this.btnBuscar.Location = new System.Drawing.Point(182, 65);
+            this.btnBuscar.Location = new System.Drawing.Point(185, 41);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(39, 35);
             this.btnBuscar.TabIndex = 0;
@@ -69,7 +77,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(12, 68);
+            this.txtCodigo.Location = new System.Drawing.Point(16, 42);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(163, 26);
             this.txtCodigo.TabIndex = 0;
@@ -87,7 +95,7 @@
             this.pnlCabec.Controls.Add(this.lblNome);
             this.pnlCabec.Controls.Add(this.txtCpf);
             this.pnlCabec.Controls.Add(this.txtNome);
-            this.pnlCabec.Location = new System.Drawing.Point(12, 132);
+            this.pnlCabec.Location = new System.Drawing.Point(12, 106);
             this.pnlCabec.Name = "pnlCabec";
             this.pnlCabec.Size = new System.Drawing.Size(647, 139);
             this.pnlCabec.TabIndex = 3;
@@ -159,7 +167,7 @@
             // rtbPedGerados
             // 
             this.rtbPedGerados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbPedGerados.Location = new System.Drawing.Point(12, 362);
+            this.rtbPedGerados.Location = new System.Drawing.Point(6, 336);
             this.rtbPedGerados.Name = "rtbPedGerados";
             this.rtbPedGerados.Size = new System.Drawing.Size(454, 267);
             this.rtbPedGerados.TabIndex = 4;
@@ -168,7 +176,7 @@
             // lblCod
             // 
             this.lblCod.AutoSize = true;
-            this.lblCod.Location = new System.Drawing.Point(12, 45);
+            this.lblCod.Location = new System.Drawing.Point(12, 19);
             this.lblCod.Name = "lblCod";
             this.lblCod.Size = new System.Drawing.Size(116, 20);
             this.lblCod.TabIndex = 5;
@@ -182,7 +190,7 @@
             this.reimprimirToolStripMenuItem,
             this.limpaTelaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(243, 127);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(243, 94);
             // 
             // conexãoBancoDeDadosToolStripMenuItem
             // 
@@ -208,7 +216,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(12, 109);
+            this.lblCliente.Location = new System.Drawing.Point(12, 83);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(113, 20);
             this.lblCliente.TabIndex = 7;
@@ -217,7 +225,7 @@
             // lblPedidos
             // 
             this.lblPedidos.AutoSize = true;
-            this.lblPedidos.Location = new System.Drawing.Point(12, 338);
+            this.lblPedidos.Location = new System.Drawing.Point(12, 313);
             this.lblPedidos.Name = "lblPedidos";
             this.lblPedidos.Size = new System.Drawing.Size(136, 20);
             this.lblPedidos.TabIndex = 8;
@@ -225,7 +233,7 @@
             // 
             // btnGerar
             // 
-            this.btnGerar.Location = new System.Drawing.Point(478, 594);
+            this.btnGerar.Location = new System.Drawing.Point(479, 568);
             this.btnGerar.Name = "btnGerar";
             this.btnGerar.Size = new System.Drawing.Size(87, 35);
             this.btnGerar.TabIndex = 9;
@@ -235,7 +243,7 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(572, 594);
+            this.btnImprimir.Location = new System.Drawing.Point(572, 568);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(87, 35);
             this.btnImprimir.TabIndex = 10;
@@ -243,21 +251,72 @@
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // tbcPrincipal
+            // 
+            this.tbcPrincipal.Controls.Add(this.tbpPedido);
+            this.tbcPrincipal.Controls.Add(this.tbpItens);
+            this.tbcPrincipal.Location = new System.Drawing.Point(-4, -3);
+            this.tbcPrincipal.Name = "tbcPrincipal";
+            this.tbcPrincipal.SelectedIndex = 0;
+            this.tbcPrincipal.Size = new System.Drawing.Size(686, 697);
+            this.tbcPrincipal.TabIndex = 11;
+            // 
+            // tbpPedido
+            // 
+            this.tbpPedido.Controls.Add(this.lblCod);
+            this.tbpPedido.Controls.Add(this.lblPedidos);
+            this.tbpPedido.Controls.Add(this.btnImprimir);
+            this.tbpPedido.Controls.Add(this.rtbPedGerados);
+            this.tbpPedido.Controls.Add(this.txtCodigo);
+            this.tbpPedido.Controls.Add(this.btnGerar);
+            this.tbpPedido.Controls.Add(this.btnBuscar);
+            this.tbpPedido.Controls.Add(this.pnlCabec);
+            this.tbpPedido.Controls.Add(this.lblCliente);
+            this.tbpPedido.Location = new System.Drawing.Point(4, 29);
+            this.tbpPedido.Name = "tbpPedido";
+            this.tbpPedido.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpPedido.Size = new System.Drawing.Size(678, 664);
+            this.tbpPedido.TabIndex = 0;
+            this.tbpPedido.Text = "Pedido";
+            this.tbpPedido.UseVisualStyleBackColor = true;
+            // 
+            // tbpItens
+            // 
+            this.tbpItens.Controls.Add(this.dgvItens);
+            this.tbpItens.Location = new System.Drawing.Point(4, 29);
+            this.tbpItens.Name = "tbpItens";
+            this.tbpItens.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpItens.Size = new System.Drawing.Size(678, 664);
+            this.tbpItens.TabIndex = 1;
+            this.tbpItens.Text = "Itens";
+            this.tbpItens.UseVisualStyleBackColor = true;
+            // 
+            // dgvItens
+            // 
+            this.dgvItens.AllowUserToAddRows = false;
+            this.dgvItens.AllowUserToDeleteRows = false;
+            this.dgvItens.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvItens.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvItens.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvItens.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvItens.ColumnHeadersHeight = 30;
+            this.dgvItens.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvItens.EnableHeadersVisualStyles = false;
+            this.dgvItens.Location = new System.Drawing.Point(3, 3);
+            this.dgvItens.Name = "dgvItens";
+            this.dgvItens.ReadOnly = true;
+            this.dgvItens.RowHeadersVisible = false;
+            this.dgvItens.RowTemplate.Height = 28;
+            this.dgvItens.Size = new System.Drawing.Size(672, 658);
+            this.dgvItens.TabIndex = 0;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 637);
+            this.ClientSize = new System.Drawing.Size(679, 694);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.btnImprimir);
-            this.Controls.Add(this.btnGerar);
-            this.Controls.Add(this.lblPedidos);
-            this.Controls.Add(this.lblCliente);
-            this.Controls.Add(this.lblCod);
-            this.Controls.Add(this.rtbPedGerados);
-            this.Controls.Add(this.pnlCabec);
-            this.Controls.Add(this.txtCodigo);
-            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.tbcPrincipal);
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -269,8 +328,12 @@
             this.pnlCabec.ResumeLayout(false);
             this.pnlCabec.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.tbcPrincipal.ResumeLayout(false);
+            this.tbpPedido.ResumeLayout(false);
+            this.tbpPedido.PerformLayout();
+            this.tbpItens.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -297,5 +360,9 @@
         private System.Windows.Forms.TextBox txtQtdItens;
         private System.Windows.Forms.TextBox txtVlrTotal;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.TabControl tbcPrincipal;
+        private System.Windows.Forms.TabPage tbpPedido;
+        private System.Windows.Forms.TabPage tbpItens;
+        private System.Windows.Forms.DataGridView dgvItens;
     }
 }
