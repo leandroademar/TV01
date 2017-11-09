@@ -84,7 +84,7 @@ namespace TV01
                     ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
                     BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-
+                    dgvItens.DataSource = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
                     txtNome.Text = modelopcvc.cliente.ToString();
                     txtCpf.Text = modelopcvc.cgcent.ToString();
                     txtVlrTotal.Text = modelopcpc.vltotal.ToString();
@@ -137,7 +137,7 @@ namespace TV01
 
                     BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-                    dgvItens.DataSource = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
+                    
 
                     modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
                     modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
