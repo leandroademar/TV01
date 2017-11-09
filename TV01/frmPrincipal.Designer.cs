@@ -54,6 +54,9 @@
             this.tbpPedido = new System.Windows.Forms.TabPage();
             this.tbpItens = new System.Windows.Forms.TabPage();
             this.dgvItens = new System.Windows.Forms.DataGridView();
+            this.CodProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VlrUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCabec.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tbcPrincipal.SuspendLayout();
@@ -300,6 +303,10 @@
             this.dgvItens.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvItens.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvItens.ColumnHeadersHeight = 30;
+            this.dgvItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CodProd,
+            this.Quantidade,
+            this.VlrUnit});
             this.dgvItens.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItens.EnableHeadersVisualStyles = false;
             this.dgvItens.Location = new System.Drawing.Point(3, 3);
@@ -309,6 +316,27 @@
             this.dgvItens.RowTemplate.Height = 28;
             this.dgvItens.Size = new System.Drawing.Size(672, 658);
             this.dgvItens.TabIndex = 0;
+            // 
+            // CodProd
+            // 
+            this.CodProd.HeaderText = "Codigo Produto";
+            this.CodProd.Name = "CodProd";
+            this.CodProd.ReadOnly = true;
+            this.CodProd.Width = 155;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            this.Quantidade.Width = 128;
+            // 
+            // VlrUnit
+            // 
+            this.VlrUnit.HeaderText = "Valor Unitario";
+            this.VlrUnit.Name = "VlrUnit";
+            this.VlrUnit.ReadOnly = true;
+            this.VlrUnit.Width = 141;
             // 
             // frmPrincipal
             // 
@@ -364,5 +392,8 @@
         private System.Windows.Forms.TabPage tbpPedido;
         private System.Windows.Forms.TabPage tbpItens;
         private System.Windows.Forms.DataGridView dgvItens;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VlrUnit;
     }
 }
