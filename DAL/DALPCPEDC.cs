@@ -894,14 +894,13 @@ namespace DAL
 
         public void AlterarVT(ModeloPCPEDC modelo)
         {
-            String comando5 = " UPDATE PCPEDC SET VLATEND = :VLATEND WHERE NUMPED = :NUMPED ";
+            String comando5 = " UPDATE PCPEDC SET VLTOTAL = 0 WHERE NUMPED = :NUMPED ";
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = comando5;
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.AddWithValue(":VLATEND", modelo.vlatend);
-            cmd.Parameters.AddWithValue(":NUMPED", modelo.numpedold);
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -911,7 +910,7 @@ namespace DAL
 
         public ModeloPCPEDC CarregaModeloPCPEDC(long codigo)
         {
-            String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND CONDVENDA = 7 AND VLTOTAL > 0 ";
+            String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND VLTOTAL > 0 ";
 
             ModeloPCPEDC modelo = new ModeloPCPEDC();
             OracleCommand cmd = new OracleCommand();

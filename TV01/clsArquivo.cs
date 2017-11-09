@@ -11,7 +11,7 @@ namespace TV01
         {
             File.Delete("PEDIDOS.TXT");
             StreamWriter STW_Arquivo;
-            STW_Arquivo = new StreamWriter("PEDIDO.txt", false);
+            STW_Arquivo = new StreamWriter("PEDIDOS.txt", false);
             STW_Arquivo.WriteLine("     SUPERMERCADO TABAJARA      ");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("R Nossa Senhora da Glória, 695");
@@ -19,10 +19,6 @@ namespace TV01
             STW_Arquivo.WriteLine("");
             //STW_Arquivo.WriteLine("     COMPROVANTE DE PAGAMENTO    ");
             STW_Arquivo.WriteLine("" + txtID.Trim());
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("OBS: A MERCADORIA COMPRADA SERA");
-            STW_Arquivo.WriteLine("ENTREGUE MEDIANTE APRESENTAÇÃO ");
-            STW_Arquivo.WriteLine("DESTE DOCUMENTO.");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("COMPROVANTE SEM VALOR FISCAL");
             STW_Arquivo.Close();
