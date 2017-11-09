@@ -134,8 +134,7 @@ namespace TV01
                 BLLPCPEDC bllpcpcold = new BLLPCPEDC(cx);
                 ModeloPCPEDC modelopcpcold = bllpcpcold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
 
-                decimal? vltotalgeral = modelopcpcold.vltotal;
-                decimal? vltotalrest = vltotalgeral;
+                decimal? vltotalrest = modelopcpcold.vltotal;
                 modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
 
                 do
@@ -170,57 +169,61 @@ namespace TV01
                     decimal vlatend = 0;
                     decimal? vlcustorep = 0;
                     decimal? vlcustocont = 0;
+                   
 
-                    
+                    //vltotalrest = modelopcpc.vltotal;
 
                     bllpcpc.Incluir(modelopcpc);
-                    for (int i = 0; i < dgvItens.RowCount; i++)
+                    //for (int i = 0; vltotal > 0; i++)
+                    do
                     {
                         BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                         ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
+                        dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt32(txtCodigo.Text));
                         modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
                         modelopcpi.numped = modelovar.newnumped;
-                        modelopcpi.qtrest = 0;
                         modelopcpi.numseqori = modelopcpi.numseq;
 
+
+                        decimal QtAnt = 0;
                         decimal VlrProd = 0;
                         decimal QtProd = 0;
 
-                        for (int ii = 0; ii < Convert.ToInt32(dgvItens.Rows[i].Cells[1].Value); ii++ )
+                        QtAnt = modelopcpi.qt;
+
+                        for (int ii = 0; ii < QtAnt; ii++)
                         {
-                            VlrProd = Convert.ToDecimal(dgvItens.Rows[i].Cells[2].Value);
-                            QtProd = ii;
-                            if (VlrProd > 19 && VlrProd < 20)
+                            VlrProd = VlrProd + modelopcpi.pvenda;
+                            QtProd = QtProd + 1;
+                            if (VlrProd > 5 && VlrProd < 6)
                             {
                                 break;
                             }
                         }
-
-                        modelopcpi.numseq = i + 1;
+                        
+                        modelopcpi.numseq = it + 1;
                         modelopcpi.qt = QtProd;
                         bllpcpi.Incluir(modelopcpi);
+                       
 
-                        
-
-                        vltotal = vltotal + modelopcpi.pvenda;
+                        vltotal = vltotal + VlrProd;
                         vltabela = vltabela + modelopcpi.ptabela;
                         vlcustoreal = vlcustoreal + modelopcpi.vlcustoreal;
                         vlcustofin = vlcustofin + modelopcpi.vlcustofin;
-                        vlatend = vlatend + modelopcpi.pvenda;
+                        vlatend = vlatend + VlrProd;
                         vlcustorep = vlcustorep + modelopcpi.vlcustorep;
                         vlcustocont = vlcustocont + modelopcpi.vlcustocont;
 
-                        modelopcpi.qtrest = modelopcpi.qt - QtProd;
+                        modelopcpi.qtrest = QtAnt - QtProd;
                         bllpcpi.AlterarQT(modelopcpi);
-
-                        if (vltotal > 19 && vltotal < 20)
+                        /*
+                        if (vltotal > 5 && vltotal < 6)
                         {
                             break;
                         }
+                        */
 
-                    }
-
-
+                    } while (vltotal < 5);
                     
 
                     modelopcpc.vltotal = vltotal;
@@ -231,12 +234,14 @@ namespace TV01
                     modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
                     modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
                     bllpcpc.AlterarPC(modelopcpc);
+
                     vltotalrest = vltotalrest - vltotal;
-                    bllpcvc.Incluir(modelopcvc);
+                    // bllpcvc.Incluir(modelopcvc);
                     string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
                     rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
 
                 } while (vltotalrest > 0);
+               
                 /*
                 clsArquivo LCLS_ArquivoTxt = new clsArquivo();
                 LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
@@ -245,9 +250,12 @@ namespace TV01
             }
             catch (OracleException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.StackTrace);
             }
-
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.StackTrace);
+            }
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
