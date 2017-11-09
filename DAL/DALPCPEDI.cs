@@ -1,6 +1,7 @@
 ﻿using System;
 using Modelo;
 using System.Data.OracleClient;
+using System.Data;
 
 namespace DAL
 {
@@ -627,6 +628,12 @@ namespace DAL
             return modelo;
 
         }
-
+        public DataTable Localizar(int codigovenda)
+        {
+            DataTable tabela = new DataTable();
+            OracleDataAdapter da = new OracleDataAdapter("Select * from PCPEDI where NUMPED =" + codigovenda.ToString(), conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
     }
 }

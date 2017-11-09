@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Modelo;
+using System.Data;
 
 namespace BLL
 {
@@ -21,6 +22,11 @@ namespace BLL
             DALPCPEDI DALObj = new DALPCPEDI(conexao);
             DALObj.AlterarQT(modelo);
 
+        }
+        public DataTable Localizar(int codigovenda)
+        {
+            DALPCPEDI DALObj = new DALPCPEDI(conexao);
+            return DALObj.Localizar(codigovenda);
         }
         public ModeloPCPEDI CarregaPCPEDI(long codigo)
         {
