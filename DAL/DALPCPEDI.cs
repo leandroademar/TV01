@@ -628,7 +628,7 @@ namespace DAL
             return modelo;
 
         }
-        public DataTable Localizar(int codigovenda)
+        public DataTable Localizar(long codigovenda)
         {
             DataTable tabela = new DataTable();
             OracleDataAdapter da = new OracleDataAdapter("Select codprod,qt,pvenda from PCPEDI where NUMPED =" + codigovenda.ToString() + " AND QT > 0 ", conexao.StringConexao);

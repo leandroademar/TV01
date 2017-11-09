@@ -23,7 +23,7 @@ namespace BLL
             DALObj.AlterarQT(modelo);
 
         }
-        public DataTable Localizar(int codigovenda)
+        public DataTable Localizar(long codigovenda)
         {
             DALPCPEDI DALObj = new DALPCPEDI(conexao);
             return DALObj.Localizar(codigovenda);

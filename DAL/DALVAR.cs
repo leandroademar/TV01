@@ -12,7 +12,7 @@ namespace DAL
         {
             this.conexao = cx;
         }
-        public ModeloVAR CarreganewNUMPED(int CODUSUR)
+        public ModeloVAR CarreganewNUMPED(long CODUSUR)
         {
             String comando1 = "SELECT NVL(PROXNUMPED,1) PROXNUMPED,CODUSUR FROM PCUSUARI WHERE CODUSUR = :CODUSUR ";
 

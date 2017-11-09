@@ -84,7 +84,7 @@ namespace TV01
                     ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
                     BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-                    dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt32(txtCodigo.Text));
+                    dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
                     // this.AtualizaDGVItens();
                     txtNome.Text = modelopcvc.cliente.ToString();
                     txtCpf.Text = modelopcvc.cgcent.ToString();
@@ -150,7 +150,7 @@ namespace TV01
                     modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
 
                     BLLVAR bllvar = new BLLVAR(cx);
-                    ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt32(modelopcpc.codusur));
+                    ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt64(modelopcpc.codusur));
                     bllvar.AlterarNW(modelovar);
 
                     modelopcpc.numped = modelovar.newnumped;
@@ -177,7 +177,7 @@ namespace TV01
                     {
                         BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                         ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-                        dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt32(txtCodigo.Text));
+                        dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
                         modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
                         modelopcpi.numped = modelovar.newnumped;
                         modelopcpi.numseqori = modelopcpi.numseq;
@@ -206,7 +206,7 @@ namespace TV01
                             pvlcustorep = vlcustorep + modelopcpi.vlcustorep;
                             pvlcustocont = vlcustocont + modelopcpi.vlcustocont;
 
-                            if (VlrProd > 185 && VlrProd < 198 | modelopcpi.codprod == 0)
+                            if (VlrProd > 170 && VlrProd < 198 | modelopcpi.codprod == 0)
                             {
                                 break;
                             }
@@ -239,7 +239,7 @@ namespace TV01
                         }
 
 
-                    } while (vltotal < 200 && qtrest > 0);
+                    } while (vltotal < 200 && dgvItens.RowCount > 0);
 
                     vltotalrest = vltotalrest - vltotal;
 

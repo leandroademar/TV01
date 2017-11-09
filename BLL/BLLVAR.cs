@@ -19,7 +19,7 @@ namespace BLL
             DALObj.Alterar(modelo);
 
         }
-        public ModeloVAR CarregaNewNumPed(int codigo)
+        public ModeloVAR CarregaNewNumPed(long codigo)
         {
             DALVAR DALObj = new DALVAR(conexao);
             return DALObj.CarreganewNUMPED(codigo);
