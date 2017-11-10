@@ -1,6 +1,7 @@
 ﻿using Modelo;
 using System.Data.OracleClient;
 using System;
+using System.Data;
 
 namespace DAL
 {
@@ -39,7 +40,7 @@ namespace DAL
             cmd.Parameters.AddWithValue(":DTSAIDA", modelo.dtsaida);
             cmd.Parameters.AddWithValue(":TOTPESO", modelo.totpeso);
             cmd.Parameters.AddWithValue(":TOTVOLUME", modelo.totvolume);
-            cmd.Parameters.AddWithValue(":VLTOTAL",modelo.vltotal);
+            cmd.Parameters.AddWithValue(":VLTOTAL", modelo.vltotal);
             cmd.Parameters.AddWithValue(":DESTINO", modelo.destino);
             cmd.Parameters.AddWithValue(":DATAMON", modelo.datamon);
             cmd.Parameters.AddWithValue(":CODVEICULO", modelo.codveiculo);
@@ -50,5 +51,26 @@ namespace DAL
             conexao.Desconectar();
 
         }
+        public ModeloPCCARREG CarreganewNUMCAR()
+        {
+            String comando1 = "select ferramentas.F_PROX_NUMCAR as NC from dual ";
+
+            ModeloPCCARREG modelo = new ModeloPCCARREG();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando1;
+            cmd.CommandType = System.Data.CommandType.Text;
+            conexao.Conectar();
+            OracleDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                if (registro["NC"] != DBNull.Value) { modelo.numcar = Convert.ToInt32(registro["NC"]); }
+            }
+
+            conexao.Desconectar();
+            return modelo;
+        }
     }
+
 }

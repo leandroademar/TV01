@@ -55,7 +55,7 @@ namespace TV01
             if (e.KeyCode == Keys.Enter && (txtCodigo.Text != ""))
             {
                 btnGerar_Click(sender, e);
-                btnGerar.Focus();
+                txtCodigo.Focus();
             }
 
         }
@@ -75,7 +75,7 @@ namespace TV01
         {
             try
             {
-                if (txtCodigo.Text != null)
+                if (txtCodigo.Text != null && txtVlrTotal.Text != "0")
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
@@ -170,7 +170,7 @@ namespace TV01
                     decimal? vlcustorep = 0;
                     decimal? vlcustocont = 0;
                     decimal? qtrest = 0;
-
+                    decimal VlrTotalVend = 0;
 
 
                     do
@@ -205,8 +205,9 @@ namespace TV01
                             pvlatend = vlatend + modelopcpi.pvenda;
                             pvlcustorep = vlcustorep + modelopcpi.vlcustorep;
                             pvlcustocont = vlcustocont + modelopcpi.vlcustocont;
+                            VlrTotalVend = VlrTotalVend + modelopcpi.pvenda;
 
-                            if (VlrProd > 170 && VlrProd < 198 | modelopcpi.codprod == 0)
+                            if (VlrProd > 170 && VlrProd < 190 | VlrTotalVend > 190) 
                             {
                                 break;
                             }
@@ -254,7 +255,7 @@ namespace TV01
                     if (modelopcpc.vltotal != 0)
                     {
                         bllpcpc.Incluir(modelopcpc);
-
+                        
                         bllpcvc.Incluir(modelopcvc);
                         string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
                         rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
@@ -273,6 +274,8 @@ namespace TV01
                 modelopcpold.vltotal = 0;
                 modelopcpold.numped = Convert.ToInt64(txtCodigo.Text);
                 bllpcpold.AlterarVT(modelopcpold);
+                txtVlrTotal.Text = "0";
+                txtCodigo.Focus();
             }
             catch (OracleException ex)
             {
