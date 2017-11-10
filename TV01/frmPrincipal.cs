@@ -254,6 +254,14 @@ namespace TV01
 
                     if (modelopcpc.vltotal != 0)
                     {
+
+                        BLLCARREG bllpccr = new BLLCARREG(cx);
+                        ModeloPCCARREG modelopccr = bllpccr.CarregaNewNumPed();
+                        modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
+                        modelopccr.datamon = DateTime.Now;
+                        modelopccr.dtsaida = DateTime.Now;
+                        modelopccr.totpeso = Convert.ToDouble(modelopcpc.totpeso);
+                        bllpccr.Incluir(modelopccr);
                         bllpcpc.Incluir(modelopcpc);
                         
                         bllpcvc.Incluir(modelopcvc);

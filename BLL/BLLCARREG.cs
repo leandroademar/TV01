@@ -4,7 +4,7 @@ using Modelo;
 
 namespace BLL
 {
-    class BLLCARREG
+    public class BLLCARREG
     {
         private DALConexao conexao;
         public BLLCARREG(DALConexao cx)

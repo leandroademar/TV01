@@ -14,10 +14,7 @@ namespace TV01
             STW_Arquivo = new StreamWriter("PEDIDOS.txt", false);
             STW_Arquivo.WriteLine("     SUPERMERCADO TABAJARA      ");
             STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("R Nossa Senhora da Glória, 695");
-            STW_Arquivo.WriteLine("Cidade Nova Aracaju/SE");
             STW_Arquivo.WriteLine("");
-            //STW_Arquivo.WriteLine("     COMPROVANTE DE PAGAMENTO    ");
             STW_Arquivo.WriteLine("" + txtID.Trim());
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("COMPROVANTE SEM VALOR FISCAL");
