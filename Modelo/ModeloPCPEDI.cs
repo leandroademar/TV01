@@ -154,6 +154,11 @@ namespace Modelo
         private string _origmerctrib;
         private decimal? _vldesccarcaca;
         private string _devolucaocarcaca;
+        private string _log1;
+        private string _log2;
+        private string _log3;
+
+
         public int codprod
         {
             get
@@ -1749,6 +1754,38 @@ namespace Modelo
                 this._devolucaocarcaca = value;
             }
         }
-
+        public string log1
+        {
+            get
+            {
+                return this._log1;
+            }
+            set
+            {
+                this._log1 = value;
+            }
+        }
+        public string log2
+        {
+            get
+            {
+                return this._log2;
+            }
+            set
+            {
+                this._log2 = value;
+            }
+        }
+        public string log3
+        {
+            get
+            {
+                return this._log3;
+            }
+            set
+            {
+                this._log3 = value;
+            }
+        }
     }
 }

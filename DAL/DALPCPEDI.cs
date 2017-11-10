@@ -163,6 +163,9 @@ namespace DAL
             if (modelo.ptabelafabricazfm != null) { comando1 = comando1 + "	PTABELAFABRICAZFM, " + "\n"; }
             if (modelo.origmerctrib != null) { comando1 = comando1 + "	ORIGMERCTRIB, " + "\n"; }
             if (modelo.vldesccarcaca != null) { comando1 = comando1 + "	VLDESCCARCACA, " + "\n"; }
+            if (modelo.log1 != null) { comando1 = comando1 + "	LOG1, " + "\n"; }
+            if (modelo.log2 != null) { comando1 = comando1 + "	LOG2, " + "\n"; }
+            if (modelo.log3 != null) { comando1 = comando1 + "	LOG3, " + "\n"; }
             comando1 = comando1 + "       DEVOLUCAOCARCACA " + "\n";
             comando1 = comando1 + "    ) " + "\n";
             comando1 = comando1 + "    VALUES " + "\n";
@@ -305,6 +308,9 @@ namespace DAL
             if (modelo.ptabelafabricazfm != null) { comando1 = comando1 + ":PTABELAFABRICAZFM," + "\n"; }
             if (modelo.origmerctrib != null) { comando1 = comando1 + ":ORIGMERCTRIB," + "\n"; }
             if (modelo.vldesccarcaca != null) { comando1 = comando1 + ":VLDESCCARCACA," + "\n"; }
+            if (modelo.log1 != null) { comando1 = comando1 + ":LOG1," + "\n"; }
+            if (modelo.log2 != null) { comando1 = comando1 + ":LOG2," + "\n"; }
+            if (modelo.log3 != null) { comando1 = comando1 + ":LOG3," + "\n"; }
             comando1 = comando1 + "       :DEVOLUCAOCARCACA " + "\n";
             comando1 = comando1 + "       )";
             cmd.CommandText = comando1;
@@ -446,6 +452,9 @@ namespace DAL
             cmd.Parameters.AddWithValue(":PTABELAFABRICAZFM", modelo.ptabelafabricazfm);
             cmd.Parameters.AddWithValue(":ORIGMERCTRIB", modelo.origmerctrib);
             cmd.Parameters.AddWithValue(":VLDESCCARCACA", modelo.vldesccarcaca);
+            cmd.Parameters.AddWithValue(":LOG1", modelo.log1);
+            cmd.Parameters.AddWithValue(":LOG2", modelo.log2);
+            cmd.Parameters.AddWithValue(":LOG3", modelo.log3);
             cmd.Parameters.AddWithValue(":DEVOLUCAOCARCACA", modelo.devolucaocarcaca);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
@@ -470,7 +479,7 @@ namespace DAL
         }
         public ModeloPCPEDI CarregaModeloPCPEDI(long codigo)
         {
-            String comando3 = "SELECT  PI.*, 1 as QTUNITCX2,(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND  ROWNUM = 1) AS CODAUX2  PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
+            String comando3 = "SELECT  PI.*, 1 as QTUNITCX2,(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND  ROWNUM = 1) AS CODAUX2 FROM PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;

@@ -180,7 +180,14 @@ namespace TV01
                         modelopcpi.numped = modelovar.newnumped;
                         modelopcpi.numseqori = modelopcpi.numseq;
                         modelopcpi.numcar = modelopccr.numcar;
+                        modelopcpi.log1 = modelopcpi.qtunitemb.ToString();
+                        modelopcpi.log2 = modelopcpi.codauxiliar.ToString();
+                        modelopcpi.log3 = modelopcpi.unidade;
+                        modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
+                        modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
+                        modelopcpi.qtunitemb = Convert.ToDecimal(modelopcpi.qtunitcxunit);
                         
+
                         decimal QtAnt = 0;
                         decimal VlrProd = 0;
                         decimal QtProd = 0;
@@ -201,9 +208,9 @@ namespace TV01
                             pvltabela = pvltabela + modelopcpi.ptabela;
                             pvlcustoreal = pvlcustoreal + modelopcpi.vlcustoreal;
                             pvlcustofin = pvlcustofin + modelopcpi.vlcustofin;
-                            pvlatend = vlatend + modelopcpi.pvenda;
-                            pvlcustorep = vlcustorep + modelopcpi.vlcustorep;
-                            pvlcustocont = vlcustocont + modelopcpi.vlcustocont;
+                            pvlatend = pvlatend + modelopcpi.pvenda;
+                            pvlcustorep = pvlcustorep + modelopcpi.vlcustorep;
+                            pvlcustocont = pvlcustocont + modelopcpi.vlcustocont;
                             VlrTotalVend = VlrTotalVend + modelopcpi.pvenda;
 
                             if (VlrTotalVend > 185) 
@@ -219,8 +226,7 @@ namespace TV01
 
                         if (modelopcpi.codprod != 0)
                         {
-                            modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
-                            modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
+
                             bllpcpi.Incluir(modelopcpi);
                         }
 
@@ -258,11 +264,8 @@ namespace TV01
 
                     if (modelopcpc.vltotal != 0)
                     {
-
-
                         modelopccr.codfuncmon = modelopcpc.codusur;
                         modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
-
                         bllpccr.Incluir(modelopccr);
                         bllpcpc.Incluir(modelopcpc);
                         
