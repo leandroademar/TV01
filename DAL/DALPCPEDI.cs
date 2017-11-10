@@ -470,7 +470,7 @@ namespace DAL
         }
         public ModeloPCPEDI CarregaModeloPCPEDI(long codigo)
         {
-            String comando3 = "SELECT * FROM PCPEDI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
+            String comando3 = "SELECT  PI.*, 1 as QTUNITCX2,(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND  ROWNUM = 1) AS CODAUX2  PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
@@ -530,6 +530,7 @@ namespace DAL
                 if (registro["QTPECAS"] != DBNull.Value) { modelo.qtpecas = Convert.ToDouble(registro["QTPECAS"]); }
                 if (registro["LETRACOMISS"] != DBNull.Value) { modelo.letracomiss = Convert.ToString(registro["LETRACOMISS"]); }
                 if (registro["CODAUXILIAR"] != DBNull.Value) { modelo.codauxiliar = Convert.ToDecimal(registro["CODAUXILIAR"]); }
+                if (registro["CODAUX2"] != DBNull.Value) { modelo.codauxiliarunit = Convert.ToDecimal(registro["CODAUX2"]); }
                 if (registro["TXVENDA"] != DBNull.Value) { modelo.txvenda = Convert.ToDouble(registro["TXVENDA"]); }
                 if (registro["CODICMTAB"] != DBNull.Value) { modelo.codicmtab = Convert.ToDouble(registro["CODICMTAB"]); }
                 if (registro["PERDESCCUSTO"] != DBNull.Value) { modelo.perdesccusto = Convert.ToDouble(registro["PERDESCCUSTO"]); }
@@ -552,6 +553,7 @@ namespace DAL
                 if (registro["QTUNITEMB"] != DBNull.Value) { modelo.qtunitemb = Convert.ToDecimal(registro["QTUNITEMB"]); }
                 if (registro["ROTINALANC"] != DBNull.Value) { modelo.rotinalanc = Convert.ToInt32(registro["ROTINALANC"]); }
                 if (registro["QTUNITCX"] != DBNull.Value) { modelo.qtunitcx = Convert.ToDouble(registro["QTUNITCX"]); }
+                if (registro["QTUNITCX2"] != DBNull.Value) { modelo.qtunitcxunit = Convert.ToDouble(registro["QTUNITCX2"]); }
                 if (registro["PERCDESCPIS"] != DBNull.Value) { modelo.percdescpis = Convert.ToDouble(registro["PERCDESCPIS"]); }
                 if (registro["VLDESCREDUCAOPIS"] != DBNull.Value) { modelo.vldescreducaopis = Convert.ToDecimal(registro["VLDESCREDUCAOPIS"]); }
                 if (registro["PERCDESCCOFINS"] != DBNull.Value) { modelo.percdesccofins = Convert.ToDouble(registro["PERCDESCCOFINS"]); }

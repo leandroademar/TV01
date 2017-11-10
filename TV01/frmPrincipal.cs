@@ -130,7 +130,6 @@ namespace TV01
             {
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-
                 BLLPCPEDC bllpcpcold = new BLLPCPEDC(cx);
                 ModeloPCPEDC modelopcpcold = bllpcpcold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
 
@@ -146,20 +145,18 @@ namespace TV01
                     BLLPCPEDC bllpcpc = new BLLPCPEDC(cx);
                     ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
 
-
                     modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
 
                     BLLVAR bllvar = new BLLVAR(cx);
                     ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt64(modelopcpc.codusur));
                     bllvar.AlterarNW(modelovar);
+                    BLLCARREG bllpccr = new BLLCARREG(cx);
+                    ModeloPCCARREG modelopccr = bllpccr.CarregaNewNumPed();
 
+                    modelopcpc.numcar = modelopccr.numcar;
                     modelopcpc.numped = modelovar.newnumped;
-
                     modelopcvc.numped = modelovar.newnumped;
                     modelopcpc.condvenda = 1;
-
-
-
 
                     int it = 0;
                     decimal vltotal = 0;
@@ -171,7 +168,8 @@ namespace TV01
                     decimal? vlcustocont = 0;
                     decimal? qtrest = 0;
                     decimal VlrTotalVend = 0;
-
+                    int contped = 0;
+                    int itens = 0;
 
                     do
                     {
@@ -181,8 +179,8 @@ namespace TV01
                         modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
                         modelopcpi.numped = modelovar.newnumped;
                         modelopcpi.numseqori = modelopcpi.numseq;
-
-
+                        modelopcpi.numcar = modelopccr.numcar;
+                        
                         decimal QtAnt = 0;
                         decimal VlrProd = 0;
                         decimal QtProd = 0;
@@ -194,6 +192,7 @@ namespace TV01
                         decimal? pvlcustocont = 0;
 
                         QtAnt = modelopcpi.qt;
+                        modelopcpc.numitens = Convert.ToInt16(itens + 1);
 
                         for (int ii = 0; ii < QtAnt; ii++)
                         {
@@ -207,9 +206,11 @@ namespace TV01
                             pvlcustocont = vlcustocont + modelopcpi.vlcustocont;
                             VlrTotalVend = VlrTotalVend + modelopcpi.pvenda;
 
-                            if (VlrProd > 170 && VlrProd < 190 | VlrTotalVend > 190) 
+                            if (VlrTotalVend > 185) 
                             {
+                                contped = 1;
                                 break;
+                                
                             }
                         }
 
@@ -218,10 +219,13 @@ namespace TV01
 
                         if (modelopcpi.codprod != 0)
                         {
+                            modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
+                            modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
                             bllpcpi.Incluir(modelopcpi);
                         }
 
                         it++;
+                        itens++;
 
                         vltotal = vltotal + VlrProd;
                         vltabela = vltabela + pvltabela;
@@ -240,7 +244,7 @@ namespace TV01
                         }
 
 
-                    } while (vltotal < 200 && dgvItens.RowCount > 0);
+                    } while (vltotal < 200 && dgvItens.RowCount > 0 && contped == 0);
 
                     vltotalrest = vltotalrest - vltotal;
 
@@ -255,12 +259,10 @@ namespace TV01
                     if (modelopcpc.vltotal != 0)
                     {
 
-                        BLLCARREG bllpccr = new BLLCARREG(cx);
-                        ModeloPCCARREG modelopccr = bllpccr.CarregaNewNumPed();
+
+                        modelopccr.codfuncmon = modelopcpc.codusur;
                         modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
-                        modelopccr.datamon = DateTime.Now;
-                        modelopccr.dtsaida = DateTime.Now;
-                        modelopccr.totpeso = Convert.ToDouble(modelopcpc.totpeso);
+
                         bllpccr.Incluir(modelopccr);
                         bllpcpc.Incluir(modelopcpc);
                         

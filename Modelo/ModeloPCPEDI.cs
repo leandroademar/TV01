@@ -61,6 +61,7 @@ namespace Modelo
         private double? _qtpecas;
         private string _letracomiss;
         private decimal? _codauxiliar;
+        private decimal? _codauxiliarunit;
         private double? _txvenda;
         private double? _codicmtab;
         private double? _perdesccusto;
@@ -83,6 +84,7 @@ namespace Modelo
         private decimal? _qtunitemb;
         private int? _rotinalanc;
         private double? _qtunitcx;
+        private double? _qtunitcxunit;
         private double? _percdescpis;
         private decimal? _vldescreducaopis;
         private double? _percdesccofins;
@@ -724,6 +726,17 @@ namespace Modelo
                 this._codauxiliar = value;
             }
         }
+        public decimal? codauxiliarunit
+        {
+            get
+            {
+                return this._codauxiliarunit;
+            }
+            set
+            {
+                this._codauxiliarunit = value;
+            }
+        }
         public double? txvenda
         {
             get
@@ -964,6 +977,17 @@ namespace Modelo
             set
             {
                 this._qtunitcx = value;
+            }
+        }
+        public double? qtunitcxunit
+        {
+            get
+            {
+                return this._qtunitcxunit;
+            }
+            set
+            {
+                this._qtunitcxunit = value;
             }
         }
         public double? percdescpis
