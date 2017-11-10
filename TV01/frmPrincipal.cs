@@ -180,9 +180,7 @@ namespace TV01
                         modelopcpi.numped = modelovar.newnumped;
                         modelopcpi.numseqori = modelopcpi.numseq;
                         modelopcpi.numcar = modelopccr.numcar;
-                        modelopcpi.log1 = modelopcpi.qtunitemb.ToString();
-                        modelopcpi.log2 = modelopcpi.codauxiliar.ToString();
-                        modelopcpi.log3 = modelopcpi.unidade;
+                        modelopcpi.rotinalanc = Convert.ToInt32(modelopcpi.qtunitemb);
                         modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
                         modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
                         modelopcpi.qtunitemb = Convert.ToDecimal(modelopcpi.qtunitcxunit);

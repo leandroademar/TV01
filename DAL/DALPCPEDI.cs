@@ -93,7 +93,7 @@ namespace DAL
             if (modelo.politicaprioritaria != null) { comando1 = comando1 + "	POLITICAPRIORITARIA, " + "\n"; }
             if (modelo.truncaritem != null) { comando1 = comando1 + "	TRUNCARITEM, " + "\n"; }
             if (modelo.qtunitemb != null) { comando1 = comando1 + "	QTUNITEMB, " + "\n"; }
-            if (modelo.rotinalanc != null) { comando1 = comando1 + "	ROTINALANC, " + "\n"; }
+            if (modelo.qtunitemb != null) { comando1 = comando1 + "	ROTINALANC, " + "\n"; }
             if (modelo.qtunitcx != null) { comando1 = comando1 + "	QTUNITCX, " + "\n"; }
             if (modelo.percdescpis != null) { comando1 = comando1 + "	PERCDESCPIS, " + "\n"; }
             if (modelo.vldescreducaopis != null) { comando1 = comando1 + "	VLDESCREDUCAOPIS, " + "\n"; }
@@ -238,7 +238,8 @@ namespace DAL
             if (modelo.politicaprioritaria != null) { comando1 = comando1 + ":POLITICAPRIORITARIA," + "\n"; }
             if (modelo.truncaritem != null) { comando1 = comando1 + ":TRUNCARITEM," + "\n"; }
             if (modelo.qtunitemb != null) { comando1 = comando1 + ":QTUNITEMB," + "\n"; }
-            comando1 = comando1 + "316, " + "\n";
+            //comando1 = comando1 + "316, " + "\n";
+            if (modelo.qtunitemb != null) { comando1 = comando1 + ":ROTINALANC," + "\n"; }
             if (modelo.qtunitcx != null) { comando1 = comando1 + ":QTUNITCX," + "\n"; }
             if (modelo.percdescpis != null) { comando1 = comando1 + ":PERCDESCPIS," + "\n"; }
             if (modelo.vldescreducaopis != null) { comando1 = comando1 + ":VLDESCREDUCAOPIS," + "\n"; }
