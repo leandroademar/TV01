@@ -23,7 +23,7 @@ namespace TV01
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-
+            spoolrec("PEDIDOS.TXT");
         }
 
         private void conexãoBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,12 +180,15 @@ namespace TV01
                         modelopcpi.numped = modelovar.newnumped;
                         modelopcpi.numseqori = modelopcpi.numseq;
                         modelopcpi.numcar = modelopccr.numcar;
-                        modelopcpi.rotinalanc = Convert.ToInt32(modelopcpi.qtunitemb);
+                        if (modelopcpi.codprod != 0)
+                        {
+                            bllpcpi.IncluirQT(modelopcpi);
+                        }
                         modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
                         modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
                         modelopcpi.qtunitemb = Convert.ToDecimal(modelopcpi.qtunitcxunit);
-                        
 
+                        decimal QtRestprod = 0;
                         decimal QtAnt = 0;
                         decimal VlrProd = 0;
                         decimal QtProd = 0;
@@ -199,23 +202,47 @@ namespace TV01
                         QtAnt = modelopcpi.qt;
                         modelopcpc.numitens = Convert.ToInt16(itens + 1);
 
-                        for (int ii = 0; ii < QtAnt; ii++)
+                        for (decimal ii = 0; ii < QtAnt; ii++)
                         {
-                            VlrProd = VlrProd + modelopcpi.pvenda;
-                            QtProd = QtProd + 1;
-                            pvltabela = pvltabela + modelopcpi.ptabela;
-                            pvlcustoreal = pvlcustoreal + modelopcpi.vlcustoreal;
-                            pvlcustofin = pvlcustofin + modelopcpi.vlcustofin;
-                            pvlatend = pvlatend + modelopcpi.pvenda;
-                            pvlcustorep = pvlcustorep + modelopcpi.vlcustorep;
-                            pvlcustocont = pvlcustocont + modelopcpi.vlcustocont;
-                            VlrTotalVend = VlrTotalVend + modelopcpi.pvenda;
-
-                            if (VlrTotalVend > 185) 
+                            if (modelopcpi.codprod != 4247)
                             {
-                                contped = 1;
-                                break;
-                                
+                                VlrProd = VlrProd + modelopcpi.pvenda;
+                                QtProd = QtProd + 1;
+                                QtRestprod = QtAnt - QtProd;
+                                pvltabela = pvltabela + (modelopcpi.ptabela );
+                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal );
+                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin );
+                                pvlatend = pvlatend + (modelopcpi.pvenda );
+                                pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep );
+                                pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont );
+                                VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda );
+
+                                if (VlrTotalVend > 185)
+                                {
+                                    contped = 1;
+                                    break;
+
+                                }
+                            }else
+                            {
+                                VlrProd = VlrProd + (modelopcpi.pvenda/10);
+                                QtProd = QtProd + 0.10m;
+                                QtRestprod = QtAnt - QtProd;
+                                pvltabela = pvltabela + (modelopcpi.ptabela/10);
+                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal/10);
+                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin/10);
+                                pvlatend = pvlatend + (modelopcpi.pvenda/10);
+                                pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep / 10);
+                                pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont / 10);
+                                VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda / 10);
+
+                                if (VlrTotalVend > 190)
+                                {
+                                    contped = 1;
+                                    break;
+
+                                }
+                                ii = ii - 0.90m;
                             }
                         }
 
@@ -246,7 +273,7 @@ namespace TV01
                         {
                             bllpcpi.AlterarQT(modelopcpi);
                         }
-
+                        dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
 
                     } while (vltotal < 200 && dgvItens.RowCount > 0 && contped == 0);
 

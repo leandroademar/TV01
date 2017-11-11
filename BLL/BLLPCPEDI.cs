@@ -17,6 +17,12 @@ namespace BLL
             DALObj.Incluir(modelo);
 
         }
+        public void IncluirQT(ModeloPCPEDI modelo)
+        {
+            DALPCPEDI DALObj = new DALPCPEDI(conexao);
+            DALObj.IncluirQT(modelo);
+
+        }
         public void AlterarQT(ModeloPCPEDI modelo)
         {
             DALPCPEDI DALObj = new DALPCPEDI(conexao);

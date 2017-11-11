@@ -17,11 +17,7 @@ namespace DAL
         {
             String comando1 = "";
 
-#pragma warning disable CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
-#pragma warning disable CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
             OracleCommand cmd = new OracleCommand();
-#pragma warning restore CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
-#pragma warning restore CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
             cmd.Connection = conexao.ObjetoConexao;
             comando1 = comando1 + "INSERT INTO PCCARREG " + "\n";
             comando1 = comando1 + "    (NUMCAR, DTSAIDA, TOTPESO, TOTVOLUME, " + "\n";

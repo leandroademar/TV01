@@ -16,12 +16,7 @@ namespace DAL
         public void Incluir(ModeloPCPEDI modelo)
         {
             String comando1 = "";
-
-#pragma warning disable CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
-#pragma warning disable CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
             OracleCommand cmd = new OracleCommand();
-#pragma warning restore CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
-#pragma warning restore CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
             cmd.Connection = conexao.ObjetoConexao;
             comando1 = comando1 + "INSERT INTO PCPEDI " + "\n";
             comando1 = comando1 + "      (CODPROD, " + "\n";
@@ -238,8 +233,8 @@ namespace DAL
             if (modelo.politicaprioritaria != null) { comando1 = comando1 + ":POLITICAPRIORITARIA," + "\n"; }
             if (modelo.truncaritem != null) { comando1 = comando1 + ":TRUNCARITEM," + "\n"; }
             if (modelo.qtunitemb != null) { comando1 = comando1 + ":QTUNITEMB," + "\n"; }
-            //comando1 = comando1 + "316, " + "\n";
-            if (modelo.qtunitemb != null) { comando1 = comando1 + ":ROTINALANC," + "\n"; }
+            comando1 = comando1 + "316, " + "\n";
+           // if (modelo.qtunitemb != null) { comando1 = comando1 + ":ROTINALANC," + "\n"; }
             if (modelo.qtunitcx != null) { comando1 = comando1 + ":QTUNITCX," + "\n"; }
             if (modelo.percdescpis != null) { comando1 = comando1 + ":PERCDESCPIS," + "\n"; }
             if (modelo.vldescreducaopis != null) { comando1 = comando1 + ":VLDESCREDUCAOPIS," + "\n"; }
@@ -460,6 +455,29 @@ namespace DAL
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
+        }
+        public void IncluirQT (ModeloPCPEDI modelo)
+        {
+            String comando1 = "";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            comando1 = comando1 + "INSERT INTO TABPED " + "\n";
+            comando1 = comando1 + "    (NUMPED, CODPROD " + "\n";
+            comando1 = comando1 + "     ,CODAUXILIAR, QT,QTUNITEMB) " + "\n";
+            comando1 = comando1 + "    VALUES " + "\n";
+            comando1 = comando1 + "    (:NUMPED, :CODPROD,:CODAUXILIAR,:QT " + "\n";
+            comando1 = comando1 + "     ,:QTUNITEMB)";
+            cmd.CommandText = comando1;
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
+            cmd.Parameters.AddWithValue(":CODAUXILIAR", modelo.codauxiliar);
+            cmd.Parameters.AddWithValue(":QT", modelo.qt);
+            cmd.Parameters.AddWithValue(":QTUNITEMB", modelo.qtunitemb);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+
         }
         public void AlterarQT(ModeloPCPEDI modelo)
         {
