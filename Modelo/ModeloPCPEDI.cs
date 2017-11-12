@@ -157,7 +157,7 @@ namespace Modelo
         private string _log1;
         private string _log2;
         private string _log3;
-
+        private string _fracao;
 
         public int codprod
         {
@@ -1785,6 +1785,17 @@ namespace Modelo
             set
             {
                 this._log3 = value;
+            }
+        }
+        public string fracao
+        {
+            get
+            {
+                return this._fracao;
+            }
+            set
+            {
+                this._fracao = value;
             }
         }
     }

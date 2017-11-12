@@ -204,7 +204,7 @@ namespace TV01
 
                         for (decimal ii = 0; ii < QtAnt; ii++)
                         {
-                            if (modelopcpi.codprod != 4247)
+                            if (modelopcpi.fracao == "N")
                             {
                                 VlrProd = VlrProd + modelopcpi.pvenda;
                                 QtProd = QtProd + 1;

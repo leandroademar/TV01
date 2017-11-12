@@ -498,7 +498,10 @@ namespace DAL
         }
         public ModeloPCPEDI CarregaModeloPCPEDI(long codigo)
         {
-            String comando3 = "SELECT  PI.*, 1 as QTUNITCX2,(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND  ROWNUM = 1) AS CODAUX2 FROM PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
+            String comando3 = "";
+            comando3 = comando3 + "SELECT  PI.*, 1 as QTUNITCX2," + "\n";
+            comando3 = comando3 + "(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND  ROWNUM = 1) AS CODAUX2," + "\n";
+            comando3 = comando3 + " NVL((SELECT PP.ACEITAVENDAFRACAO FROM PCPRODUT PP WHERE PP.CODPROD = PI.CODPROD AND ROWNUM = 1),'N') AS FRACAO FROM PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
@@ -651,7 +654,7 @@ namespace DAL
                 if (registro["ORIGMERCTRIB"] != DBNull.Value) { modelo.origmerctrib = Convert.ToString(registro["ORIGMERCTRIB"]); }
                 if (registro["VLDESCCARCACA"] != DBNull.Value) { modelo.vldesccarcaca = Convert.ToDecimal(registro["VLDESCCARCACA"]); }
                 if (registro["DEVOLUCAOCARCACA"] != DBNull.Value) { modelo.devolucaocarcaca = Convert.ToString(registro["DEVOLUCAOCARCACA"]); }
-
+                if (registro["FRACAO"] != DBNull.Value) { modelo.fracao = Convert.ToString(registro["FRACAO"]); }
 
             }
             conexao.Desconectar();
