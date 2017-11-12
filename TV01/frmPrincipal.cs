@@ -394,5 +394,10 @@ namespace TV01
         {
             spoolrec("PEDIDOS.TXT");
         }
+
+        private void tbpPedido_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
