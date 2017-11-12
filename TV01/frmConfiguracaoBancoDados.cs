@@ -22,6 +22,9 @@ namespace TV01
                 arquivo.WriteLine(txtUsuario.Text);
                 arquivo.WriteLine(txtSenha.Text);
                 arquivo.Close();
+                StreamWriter caixa = new StreamWriter("Caixa.txt", false);
+                caixa.WriteLine(txtCaixa.Text);
+                caixa.Close();
                 MessageBox.Show("Arquivo Atualizado com sucesso!!!");
             }
             catch (Exception erro)
@@ -39,6 +42,9 @@ namespace TV01
                 txtUsuario.Text = arquivo.ReadLine();
                 txtSenha.Text = arquivo.ReadLine();
                 arquivo.Close();
+                StreamReader caixa = new StreamReader("Caixa.txt");
+                txtCaixa.Text = caixa.ReadLine();
+                caixa.Close();
             }
             catch (Exception erro)
             {

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.pnlCabec = new System.Windows.Forms.Panel();
@@ -274,19 +275,18 @@
             this.tbpPedido.Controls.Add(this.lblCliente);
             this.tbpPedido.Location = new System.Drawing.Point(4, 29);
             this.tbpPedido.Name = "tbpPedido";
-            this.tbpPedido.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpPedido.Padding = new System.Windows.Forms.Padding(3);
             this.tbpPedido.Size = new System.Drawing.Size(678, 664);
             this.tbpPedido.TabIndex = 0;
             this.tbpPedido.Text = "Pedido";
             this.tbpPedido.UseVisualStyleBackColor = true;
-            this.tbpPedido.Click += new System.EventHandler(this.tbpPedido_Click);
             // 
             // tbpItens
             // 
             this.tbpItens.Controls.Add(this.dgvItens);
             this.tbpItens.Location = new System.Drawing.Point(4, 29);
             this.tbpItens.Name = "tbpItens";
-            this.tbpItens.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbpItens.Padding = new System.Windows.Forms.Padding(3);
             this.tbpItens.Size = new System.Drawing.Size(678, 664);
             this.tbpItens.TabIndex = 1;
             this.tbpItens.Text = "Itens";
@@ -318,6 +318,7 @@
             this.ClientSize = new System.Drawing.Size(680, 694);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.tbcPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

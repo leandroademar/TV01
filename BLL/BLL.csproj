@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLCARREG.cs" />
+    <Compile Include="BLLMAPA.cs" />
     <Compile Include="BLLPCPEDC.cs" />
     <Compile Include="BLLPCPEDI.cs" />
     <Compile Include="BLLPCVENDACONSUM.cs" />

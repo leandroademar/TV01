@@ -36,6 +36,8 @@
             this.lblServidor = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
+            this.lblCaixa = new System.Windows.Forms.Label();
+            this.txtCaixa = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnTestar
@@ -106,11 +108,29 @@
             this.lblSenha.TabIndex = 7;
             this.lblSenha.Text = "Senha:";
             // 
+            // lblCaixa
+            // 
+            this.lblCaixa.AutoSize = true;
+            this.lblCaixa.Location = new System.Drawing.Point(12, 196);
+            this.lblCaixa.Name = "lblCaixa";
+            this.lblCaixa.Size = new System.Drawing.Size(52, 20);
+            this.lblCaixa.TabIndex = 9;
+            this.lblCaixa.Text = "Caixa:";
+            // 
+            // txtCaixa
+            // 
+            this.txtCaixa.Location = new System.Drawing.Point(12, 219);
+            this.txtCaixa.Name = "txtCaixa";
+            this.txtCaixa.Size = new System.Drawing.Size(107, 26);
+            this.txtCaixa.TabIndex = 8;
+            // 
             // frmConfiguracaoBancoDados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 268);
+            this.Controls.Add(this.lblCaixa);
+            this.Controls.Add(this.txtCaixa);
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblServidor);
@@ -140,5 +160,7 @@
         private System.Windows.Forms.Label lblServidor;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblSenha;
+        private System.Windows.Forms.Label lblCaixa;
+        private System.Windows.Forms.TextBox txtCaixa;
     }
 }

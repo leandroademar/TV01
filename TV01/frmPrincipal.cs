@@ -14,7 +14,7 @@ namespace TV01
     {
         public Font printFont;
         public StreamReader streamToPrint;
-
+        public long[] pedidos = new long[2];
         public frmPrincipal()
         {
 
@@ -23,7 +23,10 @@ namespace TV01
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            spoolrec("PEDIDOS.TXT");
+            frmMapa f = new frmMapa();
+            f.pedidoi = pedidos[0];
+            f.pedidof = pedidos[1];
+            f.Show();
         }
 
         private void conexãoBancoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,10 +138,12 @@ namespace TV01
 
                 decimal? vltotalrest = modelopcpcold.vltotal;
                 modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
+                int ped = 0;
+                decimal? totalgeralped = 0; 
 
                 do
                 {
-
+                    ped = ped + 1;
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
                     ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
 
@@ -158,6 +163,12 @@ namespace TV01
                     modelopcvc.numped = modelovar.newnumped;
                     modelopcpc.condvenda = 1;
 
+                    if (ped == 1)
+                    {
+                        pedidos[0] = modelopcpc.numped;
+                    }
+                    pedidos[1] = modelopcpc.numped;
+
                     int it = 0;
                     decimal vltotal = 0;
                     decimal vltabela = 0;
@@ -168,6 +179,7 @@ namespace TV01
                     decimal? vlcustocont = 0;
                     decimal? qtrest = 0;
                     decimal VlrTotalVend = 0;
+
                     int contped = 0;
                     int itens = 0;
 
@@ -180,10 +192,12 @@ namespace TV01
                         modelopcpi.numped = modelovar.newnumped;
                         modelopcpi.numseqori = modelopcpi.numseq;
                         modelopcpi.numcar = modelopccr.numcar;
+
                         if (modelopcpi.codprod != 0)
                         {
                             bllpcpi.IncluirQT(modelopcpi);
                         }
+
                         modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
                         modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
                         modelopcpi.qtunitemb = Convert.ToDecimal(modelopcpi.qtunitcxunit);
@@ -295,11 +309,13 @@ namespace TV01
                         bllpcpc.Incluir(modelopcpc);
                         
                         bllpcvc.Incluir(modelopcvc);
+                        totalgeralped = totalgeralped + modelopcpc.vltotal;
                         string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
                         rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
                     }
                     
                 } while (vltotalrest > 0);
+                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "                         Valor Total R$" + totalgeralped.ToString();
 
                 clsArquivo LCLS_ArquivoTxt = new clsArquivo();
                 LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
@@ -395,9 +411,5 @@ namespace TV01
             spoolrec("PEDIDOS.TXT");
         }
 
-        private void tbpPedido_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
