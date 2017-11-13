@@ -56,10 +56,18 @@ namespace TV01
             {
                 LimpaTela();
             }
+            if (e.KeyCode == Keys.F5)
+            {
+                frmMapa f = new frmMapa();
+                f.pedidoi = pedidos[0];
+                f.pedidof = pedidos[1];
+                f.Show();
+            }
             if (e.KeyCode == Keys.Enter && (txtCodigo.Text != ""))
             {
                 btnBuscar.Focus();
             }
+
 
         }
 

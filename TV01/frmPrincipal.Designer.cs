@@ -67,7 +67,7 @@
             // btnBuscar
             // 
             this.btnBuscar.AutoSize = true;
-            this.btnBuscar.Location = new System.Drawing.Point(123, 27);
+            this.btnBuscar.Location = new System.Drawing.Point(123, 25);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(26, 23);

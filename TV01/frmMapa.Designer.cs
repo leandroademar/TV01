@@ -41,14 +41,14 @@
             this.txtPedFim = new System.Windows.Forms.TextBox();
             this.txtPedIni = new System.Windows.Forms.TextBox();
             this.gbxCupom = new System.Windows.Forms.GroupBox();
+            this.txtCupomFim = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCupom = new System.Windows.Forms.TextBox();
             this.gbxDanfe = new System.Windows.Forms.GroupBox();
-            this.lblDanfe = new System.Windows.Forms.Label();
-            this.txtDanfe = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtCupomFim = new System.Windows.Forms.TextBox();
+            this.lblDanfe = new System.Windows.Forms.Label();
+            this.txtDanfe = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMapa)).BeginInit();
             this.gpxTipo.SuspendLayout();
             this.gbxPedido.SuspendLayout();
@@ -218,6 +218,14 @@
             this.gbxCupom.TabIndex = 8;
             this.gbxCupom.TabStop = false;
             // 
+            // txtCupomFim
+            // 
+            this.txtCupomFim.Location = new System.Drawing.Point(69, 40);
+            this.txtCupomFim.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCupomFim.Name = "txtCupomFim";
+            this.txtCupomFim.Size = new System.Drawing.Size(96, 20);
+            this.txtCupomFim.TabIndex = 6;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -250,24 +258,6 @@
             this.gbxDanfe.TabIndex = 9;
             this.gbxDanfe.TabStop = false;
             // 
-            // lblDanfe
-            // 
-            this.lblDanfe.AutoSize = true;
-            this.lblDanfe.Location = new System.Drawing.Point(30, 18);
-            this.lblDanfe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDanfe.Name = "lblDanfe";
-            this.lblDanfe.Size = new System.Drawing.Size(36, 13);
-            this.lblDanfe.TabIndex = 5;
-            this.lblDanfe.Text = "NF-e :";
-            // 
-            // txtDanfe
-            // 
-            this.txtDanfe.Location = new System.Drawing.Point(69, 16);
-            this.txtDanfe.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDanfe.Name = "txtDanfe";
-            this.txtDanfe.Size = new System.Drawing.Size(96, 20);
-            this.txtDanfe.TabIndex = 5;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -286,13 +276,23 @@
             this.textBox1.Size = new System.Drawing.Size(96, 20);
             this.textBox1.TabIndex = 7;
             // 
-            // txtCupomFim
+            // lblDanfe
             // 
-            this.txtCupomFim.Location = new System.Drawing.Point(69, 40);
-            this.txtCupomFim.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCupomFim.Name = "txtCupomFim";
-            this.txtCupomFim.Size = new System.Drawing.Size(96, 20);
-            this.txtCupomFim.TabIndex = 6;
+            this.lblDanfe.AutoSize = true;
+            this.lblDanfe.Location = new System.Drawing.Point(30, 18);
+            this.lblDanfe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDanfe.Name = "lblDanfe";
+            this.lblDanfe.Size = new System.Drawing.Size(36, 13);
+            this.lblDanfe.TabIndex = 5;
+            this.lblDanfe.Text = "NF-e :";
+            // 
+            // txtDanfe
+            // 
+            this.txtDanfe.Location = new System.Drawing.Point(69, 16);
+            this.txtDanfe.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDanfe.Name = "txtDanfe";
+            this.txtDanfe.Size = new System.Drawing.Size(96, 20);
+            this.txtDanfe.TabIndex = 5;
             // 
             // frmMapa
             // 
@@ -312,6 +312,7 @@
             this.Name = "frmMapa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Impressão de Mapa";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmMapa_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMapa_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMapa)).EndInit();
