@@ -139,7 +139,7 @@ namespace TV01
             decimal totaldgv = 0;
             for (int it = 0; it < dgvMapa.RowCount; it++)
             {
-                totaldgv = totaldgv + Convert.ToDecimal(dgvMapa.Rows[it].Cells["VLTOTAL"].Value);
+                totaldgv = totaldgv + Convert.ToDecimal(dgvMapa.Rows[it].Cells["VALTOTAL"].Value);
             }
 
             StreamWriter STW_Arquivo;
@@ -169,7 +169,7 @@ namespace TV01
                 STW_Arquivo.WriteLine(" Quant.: " + dgvMapa.Rows[i].Cells["QTCOMP"].Value.ToString().Trim() +
                                        "Emb.:" + dgvMapa.Rows[i].Cells["EMBALAGEM"].Value.ToString().Trim() +
                                        " Vlr Unit: R$ " + dgvMapa.Rows[i].Cells["VALCOMP"].Value.ToString().Trim() +
-                                       " Total: R$" + dgvMapa.Rows[i].Cells["VLTOTAL"].Value.ToString().Trim());
+                                       " Total: R$" + dgvMapa.Rows[i].Cells["VALTOTAL"].Value.ToString().Trim());
                 STW_Arquivo.WriteLine("");
             }
             STW_Arquivo.WriteLine("");
@@ -192,7 +192,7 @@ namespace TV01
             }
             catch (Exception ew)
             {
-                MessageBox.Show(ew.Message);
+                MessageBox.Show(ew.StackTrace);
             }
         }
     }
