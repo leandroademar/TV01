@@ -166,8 +166,8 @@ namespace TV01
             for (int i = 0; i < dgvMapa.RowCount; i++)
             {
                 STW_Arquivo.WriteLine(dgvMapa.Rows[i].Cells["DESCRICAO"].Value.ToString().Trim());
-                STW_Arquivo.WriteLine(" Quant.: " + dgvMapa.Rows[i].Cells["QTCOMP"].Value.ToString().Trim() +
-                                       "Emb.:" + dgvMapa.Rows[i].Cells["EMBALAGEM"].Value.ToString().Trim() +
+                STW_Arquivo.WriteLine(" Emb.: " + dgvMapa.Rows[i].Cells["EMBALAGEM"].Value.ToString().Trim() +
+                                       " Quant.:" + dgvMapa.Rows[i].Cells["QTCOMP"].Value.ToString().Trim() +
                                        " Vlr Unit: R$ " + dgvMapa.Rows[i].Cells["VALCOMP"].Value.ToString().Trim() +
                                        " Total: R$" + dgvMapa.Rows[i].Cells["VALTOTAL"].Value.ToString().Trim());
                 STW_Arquivo.WriteLine("");

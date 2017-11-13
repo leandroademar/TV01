@@ -56,10 +56,10 @@
             // dgvMapa
             // 
             this.dgvMapa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMapa.Location = new System.Drawing.Point(422, 12);
+            this.dgvMapa.Location = new System.Drawing.Point(484, 12);
             this.dgvMapa.Name = "dgvMapa";
             this.dgvMapa.RowTemplate.Height = 28;
-            this.dgvMapa.Size = new System.Drawing.Size(72, 49);
+            this.dgvMapa.Size = new System.Drawing.Size(10, 49);
             this.dgvMapa.TabIndex = 0;
             this.dgvMapa.Visible = false;
             // 
@@ -92,7 +92,7 @@
             this.gpxTipo.Controls.Add(this.rbtPedidos);
             this.gpxTipo.Location = new System.Drawing.Point(12, 12);
             this.gpxTipo.Name = "gpxTipo";
-            this.gpxTipo.Size = new System.Drawing.Size(317, 67);
+            this.gpxTipo.Size = new System.Drawing.Size(196, 67);
             this.gpxTipo.TabIndex = 3;
             this.gpxTipo.TabStop = false;
             this.gpxTipo.Text = "Tipo de Mapa";
@@ -107,6 +107,7 @@
             this.rbtDanfe.TabStop = true;
             this.rbtDanfe.Text = "NF-e";
             this.rbtDanfe.UseVisualStyleBackColor = true;
+            this.rbtDanfe.Visible = false;
             this.rbtDanfe.CheckedChanged += new System.EventHandler(this.rbtDanfe_CheckedChanged);
             // 
             // rbtCupom

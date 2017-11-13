@@ -205,7 +205,7 @@
             // 
             this.reimprimirToolStripMenuItem.Name = "reimprimirToolStripMenuItem";
             this.reimprimirToolStripMenuItem.Size = new System.Drawing.Size(242, 30);
-            this.reimprimirToolStripMenuItem.Text = "Imprimir";
+            this.reimprimirToolStripMenuItem.Text = "Imprimir Tela";
             this.reimprimirToolStripMenuItem.Click += new System.EventHandler(this.reimprimirToolStripMenuItem_Click);
             // 
             // limpaTelaToolStripMenuItem
@@ -235,7 +235,7 @@
             // 
             // btnGerar
             // 
-            this.btnGerar.Location = new System.Drawing.Point(478, 568);
+            this.btnGerar.Location = new System.Drawing.Point(447, 621);
             this.btnGerar.Name = "btnGerar";
             this.btnGerar.Size = new System.Drawing.Size(87, 35);
             this.btnGerar.TabIndex = 9;
@@ -245,11 +245,12 @@
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Location = new System.Drawing.Point(572, 568);
+            this.btnImprimir.AutoSize = true;
+            this.btnImprimir.Location = new System.Drawing.Point(540, 621);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(87, 35);
+            this.btnImprimir.Size = new System.Drawing.Size(119, 35);
             this.btnImprimir.TabIndex = 10;
-            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.Text = "Imprimir Mapa";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnSair_Click);
             // 
