@@ -22,7 +22,6 @@ namespace DAL
             /* Tipo de Emissao:
              * -----Cupons Re-Digitados = 1
              * -----Cupons Normais = 2
-             * -----Danfe = 3
              * Numcaixa:
              * -----10 - Série 20
              * -----11 - Série 21
@@ -46,11 +45,10 @@ namespace DAL
                 comando1 = comando1 + "SUM(PPI.PVENDA * 1) VALCOMP, " + "\n";
             }else// if (tipo == 2)
             {
-                comando1 = comando1 + "SUM(PPI.PVENDA * 1) VALCOMP, " + "\n";
+                comando1 = comando1 + "SUM(PPI.PVENDA * PCE.QTUNIT) VALCOMP, " + "\n";
             }
             comando1 = comando1 + "SUM((PPI.PVENDA * PCE.QTUNIT) * (PPI.QT / PCE.QTUNIT)) VALTOTAL " + "\n";
             comando1 = comando1 + " FROM " + "\n";
-
             comando1 = comando1 + " pcvendaconsum PVC, " + "\n";
             if (numcaixa == 10)
             {
@@ -69,10 +67,10 @@ namespace DAL
                 {
                     comando1 = comando1 + " TABPED TPD, " + "\n";
                 }
-                comando1 = comando1 + " PCPEDCECF PCD, " + "\n";
-                comando1 = comando1 + " PCPEDIECF PPI, " + "\n";
-                comando1 = comando1 + " PCPRODUT PPD, " + "\n";
-                comando1 = comando1 + " PCEMBALAGEM PCE " + "\n";
+                comando1 = comando1 + " PCPEDCECF@DBLATAC11 PCD, " + "\n";
+                comando1 = comando1 + " PCPEDIECF@DBLATAC11 PPI, " + "\n";
+                comando1 = comando1 + " PCPRODUT@DBLATAC11 PPD, " + "\n";
+                comando1 = comando1 + " PCEMBALAGEM@DBLATAC11 PCE " + "\n";
             }
             if (numcaixa == 12)
             {
@@ -80,10 +78,10 @@ namespace DAL
                 {
                     comando1 = comando1 + " TABPED TPD, " + "\n";
                 }
-                comando1 = comando1 + " PCPEDCECF PCD, " + "\n";
-                comando1 = comando1 + " PCPEDIECF PPI, " + "\n";
-                comando1 = comando1 + " PCPRODUT PPD, " + "\n";
-                comando1 = comando1 + " PCEMBALAGEM PCE " + "\n";
+                comando1 = comando1 + " PCPEDCECF@DBLATAC12 PCD, " + "\n";
+                comando1 = comando1 + " PCPEDIECF@DBLATAC12 PPI, " + "\n";
+                comando1 = comando1 + " PCPRODUT@DBLATAC12 PPD, " + "\n";
+                comando1 = comando1 + " PCEMBALAGEM@DBLATAC12 PCE " + "\n";
             }
             comando1 = comando1 + "WHERE PPI.NUMPEDECF = PCD.NUMPEDECF " + "\n";
             comando1 = comando1 + " AND PCD.POSICAO <> 'A' " + "\n";
@@ -91,24 +89,17 @@ namespace DAL
             if (tipo == 1)
             {
                 comando1 = comando1 + " AND TPD.NUMPED = PCD.NUMPED " + "\n";
-            }
-            comando1 = comando1 + " AND PCD.NUMCUPOM = PPI.NUMCOO " + "\n";
-            if (tipo == 1)
-            {
                 comando1 = comando1 + " AND TPD.CODAUXILIAR = PCE.CODAUXILIAR " + "\n";
-            }else
+                comando1 = comando1 + " AND PCD.NUMPED BETWEEN " + inivenda + " AND " + fimvenda + "\n";
+            }
+            else
             {
                 comando1 = comando1 + " AND PPI.CODAUXILIAR = PCE.CODAUXILIAR " + "\n";
-            }
-            comando1 = comando1 + " AND PCE.CODPROD = PPD.CODPROD " + "\n";
-            comando1 = comando1 + " AND PPD.CODPROD = PPI.CODPROD " + "\n";
-            if (tipo == 1)
-            {
-                comando1 = comando1 + " AND PCD.NUMPED BETWEEN " + inivenda + " AND " + fimvenda + "\n";
-            }else
-            {
                 comando1 = comando1 + " AND PCD.NUMCUPOM BETWEEN " + inivenda + " AND " + fimvenda + "\n";
             }
+            comando1 = comando1 + " AND PCD.NUMCUPOM = PPI.NUMCOO " + "\n";
+            comando1 = comando1 + " AND PCE.CODPROD = PPD.CODPROD " + "\n";
+            comando1 = comando1 + " AND PPD.CODPROD = PPI.CODPROD " + "\n";
             comando1 = comando1 + "GROUP BY " + "\n";
             comando1 = comando1 + "PPI.CODPROD, " + "\n";
             comando1 = comando1 + "PPD.DESCRICAO, " + "\n";
@@ -146,17 +137,17 @@ namespace DAL
             }
             if (numcaixa == 11)
             {
-                comando2 = comando2 + " PCPEDCECF PCD, " + "\n";
-                comando2 = comando2 + " PCPEDIECF PPI, " + "\n";
-                comando2 = comando2 + " PCPRODUT PPD, " + "\n";
-                comando2 = comando2 + " PCEMBALAGEM PCE " + "\n";
+                comando2 = comando2 + " PCPEDCECF@DBLATAC11 PCD, " + "\n";
+                comando2 = comando2 + " PCPEDIECF@DBLATAC11 PPI, " + "\n";
+                comando2 = comando2 + " PCPRODUT@DBLATAC11 PPD, " + "\n";
+                comando2 = comando2 + " PCEMBALAGEM@DBLATAC11 PCE " + "\n";
             }
             if (numcaixa == 12)
             {
-                comando2 = comando2 + " PCPEDCECF PCD, " + "\n";
-                comando2 = comando2 + " PCPEDIECF PPI, " + "\n";
-                comando2 = comando2 + " PCPRODUT PPD, " + "\n";
-                comando2 = comando2 + " PCEMBALAGEM PCE " + "\n";
+                comando2 = comando2 + " PCPEDCECF@DBLATAC12 PCD, " + "\n";
+                comando2 = comando2 + " PCPEDIECF@DBLATAC12 PPI, " + "\n";
+                comando2 = comando2 + " PCPRODUT@DBLATAC12 PPD, " + "\n";
+                comando2 = comando2 + " PCEMBALAGEM@DBLATAC12 PCE " + "\n";
             }
             comando2 = comando2 + "WHERE PPI.NUMPEDECF = PCD.NUMPEDECF " + "\n";
             comando2 = comando2 + " AND PCD.POSICAO <> 'A' " + "\n";

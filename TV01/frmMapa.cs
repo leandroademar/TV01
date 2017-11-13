@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -43,6 +44,7 @@ namespace TV01
             gbxDanfe.Visible = false;
             gbxPedido.Visible = true;
             tipoimp = 1;
+
         }
 
         private void rbtCupom_CheckedChanged(object sender, EventArgs e)
@@ -184,6 +186,7 @@ namespace TV01
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLMAPA bllmapa = new BLLMAPA(cx);
                 dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtPedIni.Text), Convert.ToInt64(txtPedFim.Text), tipoimp, numcaixa);
+                dgvMapa.Sort(dgvMapa.Columns["DESCRICAO"], ListSortDirection.Ascending);
                 GravaMapa();
                 spoolrec("MAPA.txt");
             }

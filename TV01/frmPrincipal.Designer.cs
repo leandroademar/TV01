@@ -66,14 +66,15 @@
             // btnBuscar
             // 
             this.btnBuscar.AutoSize = true;
-            this.btnBuscar.Location = new System.Drawing.Point(184, 42);
+            this.btnBuscar.Location = new System.Drawing.Point(185, 41);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(46, 46);
+            this.btnBuscar.Size = new System.Drawing.Size(31, 30);
             this.btnBuscar.TabIndex = 0;
             this.btnBuscar.TabStop = false;
             this.btnBuscar.Text = "...";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtCodigo
@@ -264,6 +265,7 @@
             // 
             // tbpPedido
             // 
+            this.tbpPedido.BackColor = System.Drawing.SystemColors.Control;
             this.tbpPedido.Controls.Add(this.lblCod);
             this.tbpPedido.Controls.Add(this.lblPedidos);
             this.tbpPedido.Controls.Add(this.btnImprimir);
@@ -279,7 +281,6 @@
             this.tbpPedido.Size = new System.Drawing.Size(678, 664);
             this.tbpPedido.TabIndex = 0;
             this.tbpPedido.Text = "Pedido";
-            this.tbpPedido.UseVisualStyleBackColor = true;
             // 
             // tbpItens
             // 

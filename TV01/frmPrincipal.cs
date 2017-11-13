@@ -72,6 +72,7 @@ namespace TV01
         {
             txtCodigo.Focus();
             LimpaTela();
+
         }
 
         private void txtCodigo_Leave(object sender, EventArgs e)
