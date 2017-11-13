@@ -149,7 +149,8 @@ namespace TV01
                 decimal? vltotalrest = modelopcpcold.vltotal;
                 modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
                 int ped = 0;
-                decimal? totalgeralped = 0; 
+                decimal? totalgeralped = 0;
+                string qtit = txtQtdItens.Text;
 
                 do
                 {
@@ -331,12 +332,12 @@ namespace TV01
                         
                         bllpcvc.Incluir(modelopcvc);
                         totalgeralped = totalgeralped + modelopcpc.vltotal;
-                        string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";"+"\n";
+                        string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + Math.Round(Convert.ToDecimal(modelopcpc.vltotal),2).ToString() + ";"+"\n";
                         rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
                     }
                     
                 } while (vltotalrest > 0);
-                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + "                           Valor Total R$" + totalgeralped.ToString();
+                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" +" Pedidos/Itens: " + ped.ToString()+"/" + qtit + " Valor Total R$" + Math.Round(Convert.ToDecimal(totalgeralped),2).ToString();
 
                 clsArquivo LCLS_ArquivoTxt = new clsArquivo();
                 LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
@@ -383,7 +384,7 @@ namespace TV01
             {
                 streamToPrint = new StreamReader
                 (documento, false);
-                printFont = new Font("Arial", 10);
+                printFont = new Font("Arial", 9);
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler
                 (this.pd_PrintPage);

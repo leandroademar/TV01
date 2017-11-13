@@ -160,6 +160,7 @@ namespace TV01
             STW_Arquivo.WriteLine("Hora.....: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             STW_Arquivo.WriteLine("Caixa....: " + dgvMapa.Rows[0].Cells["CAIXA"].Value.ToString().Trim());
             STW_Arquivo.WriteLine("Atend....: " + dgvMapa.Rows[0].Cells["RECEPCAO"].Value.ToString().Trim());
+            STW_Arquivo.WriteLine("Itens....: " + dgvMapa.RowCount.ToString().Trim());
             STW_Arquivo.WriteLine("---------------------------------------------------------------------------");
             STW_Arquivo.WriteLine("                  PRODUTOS        ");
             STW_Arquivo.WriteLine("");

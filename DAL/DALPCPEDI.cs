@@ -521,6 +521,22 @@ namespace DAL
             conexao.Desconectar();
 
         }
+        public void AlterarQTORI(ModeloPCPEDI modelo)
+        {
+            String comando2 = " UPDATE PCPEDI SET QT = :QT WHERE NUMPED = :NUMPED AND CODPROD = :CODPROD ";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando2;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":QT", modelo.qt);
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+
+        }
         public ModeloPCPEDI CarregaModeloPCPEDI(long codigo)
         {
             String comando3 = "";
