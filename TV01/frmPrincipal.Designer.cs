@@ -47,6 +47,7 @@
             this.conexãoBancoDeDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reimprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.limpaTelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reverterPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblPedidos = new System.Windows.Forms.Label();
             this.btnGerar = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@
             this.tbpPedido = new System.Windows.Forms.TabPage();
             this.tbpItens = new System.Windows.Forms.TabPage();
             this.dgvItens = new System.Windows.Forms.DataGridView();
-            this.reverterPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlCabec.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tbcPrincipal.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             this.btnBuscar.AutoSize = true;
             this.btnBuscar.Location = new System.Drawing.Point(123, 27);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(26, 23);
             this.btnBuscar.TabIndex = 0;
@@ -81,10 +81,11 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(11, 27);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(110, 20);
             this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
@@ -100,7 +101,7 @@
             this.pnlCabec.Controls.Add(this.txtCpf);
             this.pnlCabec.Controls.Add(this.txtNome);
             this.pnlCabec.Location = new System.Drawing.Point(8, 69);
-            this.pnlCabec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCabec.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCabec.Name = "pnlCabec";
             this.pnlCabec.Size = new System.Drawing.Size(432, 91);
             this.pnlCabec.TabIndex = 3;
@@ -128,7 +129,7 @@
             // txtQtdItens
             // 
             this.txtQtdItens.Location = new System.Drawing.Point(225, 61);
-            this.txtQtdItens.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtQtdItens.Margin = new System.Windows.Forms.Padding(2);
             this.txtQtdItens.Name = "txtQtdItens";
             this.txtQtdItens.Size = new System.Drawing.Size(79, 20);
             this.txtQtdItens.TabIndex = 15;
@@ -136,7 +137,7 @@
             // txtVlrTotal
             // 
             this.txtVlrTotal.Location = new System.Drawing.Point(71, 61);
-            this.txtVlrTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVlrTotal.Margin = new System.Windows.Forms.Padding(2);
             this.txtVlrTotal.Name = "txtVlrTotal";
             this.txtVlrTotal.Size = new System.Drawing.Size(79, 20);
             this.txtVlrTotal.TabIndex = 14;
@@ -164,7 +165,7 @@
             // txtCpf
             // 
             this.txtCpf.Location = new System.Drawing.Point(71, 34);
-            this.txtCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(151, 20);
             this.txtCpf.TabIndex = 1;
@@ -172,7 +173,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(71, 8);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(299, 20);
             this.txtNome.TabIndex = 0;
@@ -181,7 +182,7 @@
             // 
             this.rtbPedGerados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtbPedGerados.Location = new System.Drawing.Point(4, 218);
-            this.rtbPedGerados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtbPedGerados.Margin = new System.Windows.Forms.Padding(2);
             this.rtbPedGerados.Name = "rtbPedGerados";
             this.rtbPedGerados.Size = new System.Drawing.Size(304, 175);
             this.rtbPedGerados.TabIndex = 4;
@@ -229,6 +230,13 @@
             this.limpaTelaToolStripMenuItem.Text = "Limpa Tela";
             this.limpaTelaToolStripMenuItem.Click += new System.EventHandler(this.limpaTelaToolStripMenuItem_Click);
             // 
+            // reverterPedidoToolStripMenuItem
+            // 
+            this.reverterPedidoToolStripMenuItem.Name = "reverterPedidoToolStripMenuItem";
+            this.reverterPedidoToolStripMenuItem.Size = new System.Drawing.Size(242, 30);
+            this.reverterPedidoToolStripMenuItem.Text = "Reverter Pedido";
+            this.reverterPedidoToolStripMenuItem.Click += new System.EventHandler(this.reverterPedidoToolStripMenuItem_Click);
+            // 
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
@@ -252,7 +260,7 @@
             // btnGerar
             // 
             this.btnGerar.Location = new System.Drawing.Point(298, 404);
-            this.btnGerar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGerar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGerar.Name = "btnGerar";
             this.btnGerar.Size = new System.Drawing.Size(58, 23);
             this.btnGerar.TabIndex = 9;
@@ -264,7 +272,7 @@
             // 
             this.btnImprimir.AutoSize = true;
             this.btnImprimir.Location = new System.Drawing.Point(360, 404);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(82, 23);
             this.btnImprimir.TabIndex = 10;
@@ -277,7 +285,7 @@
             this.tbcPrincipal.Controls.Add(this.tbpPedido);
             this.tbcPrincipal.Controls.Add(this.tbpItens);
             this.tbcPrincipal.Location = new System.Drawing.Point(-3, -2);
-            this.tbcPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.tbcPrincipal.Name = "tbcPrincipal";
             this.tbcPrincipal.SelectedIndex = 0;
             this.tbcPrincipal.Size = new System.Drawing.Size(457, 453);
@@ -296,9 +304,9 @@
             this.tbpPedido.Controls.Add(this.pnlCabec);
             this.tbpPedido.Controls.Add(this.lblCliente);
             this.tbpPedido.Location = new System.Drawing.Point(4, 22);
-            this.tbpPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbpPedido.Margin = new System.Windows.Forms.Padding(2);
             this.tbpPedido.Name = "tbpPedido";
-            this.tbpPedido.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbpPedido.Padding = new System.Windows.Forms.Padding(2);
             this.tbpPedido.Size = new System.Drawing.Size(449, 427);
             this.tbpPedido.TabIndex = 0;
             this.tbpPedido.Text = "Pedido";
@@ -307,9 +315,9 @@
             // 
             this.tbpItens.Controls.Add(this.dgvItens);
             this.tbpItens.Location = new System.Drawing.Point(4, 22);
-            this.tbpItens.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbpItens.Margin = new System.Windows.Forms.Padding(2);
             this.tbpItens.Name = "tbpItens";
-            this.tbpItens.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbpItens.Padding = new System.Windows.Forms.Padding(2);
             this.tbpItens.Size = new System.Drawing.Size(449, 427);
             this.tbpItens.TabIndex = 1;
             this.tbpItens.Text = "Itens";
@@ -327,20 +335,13 @@
             this.dgvItens.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvItens.EnableHeadersVisualStyles = false;
             this.dgvItens.Location = new System.Drawing.Point(2, 2);
-            this.dgvItens.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvItens.Margin = new System.Windows.Forms.Padding(2);
             this.dgvItens.Name = "dgvItens";
             this.dgvItens.ReadOnly = true;
             this.dgvItens.RowHeadersVisible = false;
             this.dgvItens.RowTemplate.Height = 28;
             this.dgvItens.Size = new System.Drawing.Size(445, 423);
             this.dgvItens.TabIndex = 0;
-            // 
-            // reverterPedidoToolStripMenuItem
-            // 
-            this.reverterPedidoToolStripMenuItem.Name = "reverterPedidoToolStripMenuItem";
-            this.reverterPedidoToolStripMenuItem.Size = new System.Drawing.Size(242, 30);
-            this.reverterPedidoToolStripMenuItem.Text = "Reverter Pedido";
-            this.reverterPedidoToolStripMenuItem.Click += new System.EventHandler(this.reverterPedidoToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -351,7 +352,7 @@
             this.Controls.Add(this.tbcPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPrincipal";

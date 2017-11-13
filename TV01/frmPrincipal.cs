@@ -58,8 +58,7 @@ namespace TV01
             }
             if (e.KeyCode == Keys.Enter && (txtCodigo.Text != ""))
             {
-                btnGerar_Click(sender, e);
-                txtCodigo.Focus();
+                btnBuscar.Focus();
             }
 
         }
@@ -95,15 +94,31 @@ namespace TV01
                     dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
                     if(dgvItens.RowCount > 0)
                     {
+                        ModeloPCPEDI mitens = new ModeloPCPEDI();
+                        BLLPCPEDI bitens = new BLLPCPEDI(cx);
+
+                        for (int i =0; i < dgvItens.RowCount; i++)
+                        {
+                            mitens.numped = Convert.ToInt64(txtCodigo.Text);
+                            mitens.codprod = Convert.ToInt32(dgvItens.Rows[i].Cells[0].Value);
+                            mitens.codauxiliar = Convert.ToInt64((dgvItens.Rows[i].Cells[1].Value.ToString()));
+                            mitens.qt = Convert.ToDecimal(dgvItens.Rows[i].Cells[2].Value);
+                            mitens.qtunitemb = Convert.ToDecimal(dgvItens.Rows[i].Cells[3].Value);
+                            mitens.pvenda = Convert.ToDecimal(dgvItens.Rows[i].Cells[4].Value);
+                            bitens.IncluirDUP(mitens);
+                        }
 
                     }
-                    // this.AtualizaDGVItens();
+                    
                     txtNome.Text = modelopcvc.cliente.ToString();
                     txtCpf.Text = modelopcvc.cgcent.ToString();
                     txtVlrTotal.Text = modelopcpc.vltotal.ToString();
                     txtQtdItens.Text = modelopcpc.numitens.ToString();
-                    btnGerar.Visible = true;
-                    btnGerar.Focus();
+                    btnBuscar.Focus();
+                }
+                if(txtCodigo == null)
+                {
+
                 }
             }
 
@@ -134,7 +149,13 @@ namespace TV01
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            txtCodigo_Leave(sender, e);
+            //txtCodigo_Leave(sender, e);
+            if (dgvItens.RowCount > 0)
+            {
+                btnGerar.Visible = true;
+                btnGerar.Focus();
+            }
+
         }
 
         private void btnGerar_Click(object sender, EventArgs e)
@@ -177,6 +198,7 @@ namespace TV01
                     if (ped == 1)
                     {
                         pedidos[0] = modelopcpc.numped;
+                     
                     }
                     pedidos[1] = modelopcpc.numped;
 
@@ -207,16 +229,7 @@ namespace TV01
                         if (modelopcpi.codprod != 0)
                         {
                             bllpcpi.IncluirQT(modelopcpi);
-                            if (ped == 1)
-                            {
-                                BLLPCPEDI bdup = new BLLPCPEDI(cx);
-                                ModeloPCPEDI mdup = bdup.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-                                for (int i = 0; i < dgvItens.RowCount; i++)
-                                {
-                                    bdup.IncluirDUP(mdup);
-
-                                }
-                            }
+                            
                         }
 
                         modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
@@ -354,19 +367,15 @@ namespace TV01
                 btnGerar.Visible = false;
                 txtCodigo.Focus();
                 LimpaTela();
-                frmMapa f = new frmMapa();
-                f.pedidoi = pedidos[0];
-                f.pedidof = pedidos[1];
-                f.Show();
 
             }
             catch (OracleException ex)
             {
-                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ee)
             {
-                MessageBox.Show(ee.StackTrace);
+                MessageBox.Show(ee.Message);
             }
         }
 
@@ -441,6 +450,11 @@ namespace TV01
         }
 
         private void reverterPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
         {
 
         }

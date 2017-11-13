@@ -38,7 +38,7 @@ namespace BLL
         public void AlterarQTORI(ModeloPCPEDI modelo)
         {
             DALPCPEDI DALObj = new DALPCPEDI(conexao);
-            DALObj.AlterarQT(modelo);
+            DALObj.AlterarQTORI(modelo);
 
         }
         public DataTable Localizar(long codigovenda)

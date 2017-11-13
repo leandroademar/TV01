@@ -487,18 +487,16 @@ namespace DAL
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
             comando1 = comando1 + "INSERT INTO TABDUP " + "\n";
-            comando1 = comando1 + "    (NUMPED,DATA,CODPROD,CODAUXILIAR,CODUSUR,QT,QTUNITEMB,PVENDA,NUMCAR) " + "\n";
+            comando1 = comando1 + "    (NUMPED,DATA,CODPROD,CODAUXILIAR,QT,QTUNITEMB,PVENDA) " + "\n";
             comando1 = comando1 + "    VALUES " + "\n";
-            comando1 = comando1 + "    (:NUMPED, TO_DATE(SYSDATE, 'DD/MM/YYYY'),:CODPROD,:CODAUXILIAR,:CODUSUR,:QT,:QTUNITEMB,:PVENDA,:NUMCAR) " + "\n";
+            comando1 = comando1 + "    (:NUMPED, TO_DATE(SYSDATE, 'DD/MM/YYYY'),:CODPROD,:CODAUXILIAR,:QT,:QTUNITEMB,:PVENDA) " + "\n";
             cmd.CommandText = comando1;
             cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
             cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
             cmd.Parameters.AddWithValue(":CODAUXILIAR", modelo.codauxiliar);
-            cmd.Parameters.AddWithValue(":CODUSUR", modelo.codusur);
             cmd.Parameters.AddWithValue(":QT", modelo.qt);
             cmd.Parameters.AddWithValue(":QTUNITEMB", modelo.qtunitemb);
             cmd.Parameters.AddWithValue(":PVENDA", modelo.pvenda);
-            cmd.Parameters.AddWithValue(":NUMCAR", modelo.numcar);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -541,7 +539,7 @@ namespace DAL
         {
             String comando3 = "";
             comando3 = comando3 + "SELECT  PI.*, 1 as QTUNITCX2," + "\n";
-            comando3 = comando3 + "(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND NVL(ENVIAFRENTECAIXA,'N') = 'S' AND  ROWNUM = 1) AS CODAUX2," + "\n";
+            comando3 = comando3 + "(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND NVL(ENVIAFRENTECAIXA,'N') = 'S' AND  ROWNUM = 1 AND CODFUNCINATIVO IS NULL) AS CODAUX2," + "\n";
             comando3 = comando3 + " NVL((SELECT PP.ACEITAVENDAFRACAO FROM PCPRODUT PP WHERE PP.CODPROD = PI.CODPROD AND ROWNUM = 1),'N') AS FRACAO FROM PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();
@@ -705,7 +703,7 @@ namespace DAL
         public DataTable Localizar(long codigovenda)
         {
             DataTable tabela = new DataTable();
-            OracleDataAdapter da = new OracleDataAdapter("Select codprod,qt,pvenda from PCPEDI where NUMPED =" + codigovenda.ToString() + " AND QT > 0 ", conexao.StringConexao);
+            OracleDataAdapter da = new OracleDataAdapter("Select codprod,codauxiliar,qt,qtunitemb,pvenda from PCPEDI where NUMPED =" + codigovenda.ToString() + " AND QT > 0 ", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
