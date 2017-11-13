@@ -47,6 +47,7 @@ namespace TV01
             txtQtdItens.ReadOnly = true;
             txtCpf.ReadOnly = true;
             txtCodigo.Focus();
+            btnGerar.Visible = false;
         }
 
         private void frmPrincipal_KeyDown(object sender, KeyEventArgs e)
@@ -81,6 +82,7 @@ namespace TV01
             {
                 if (txtCodigo.Text != null && txtVlrTotal.Text != "0")
                 {
+                    
                     rtbPedGerados.Clear();
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
@@ -100,6 +102,7 @@ namespace TV01
                     txtCpf.Text = modelopcvc.cgcent.ToString();
                     txtVlrTotal.Text = modelopcpc.vltotal.ToString();
                     txtQtdItens.Text = modelopcpc.numitens.ToString();
+                    btnGerar.Visible = true;
                     btnGerar.Focus();
                 }
             }
@@ -347,7 +350,14 @@ namespace TV01
                 modelopcpold.numped = Convert.ToInt64(txtCodigo.Text);
                 bllpcpold.AlterarVT(modelopcpold);
                 txtVlrTotal.Text = "0";
+                btnGerar.Visible = false;
                 txtCodigo.Focus();
+                LimpaTela();
+                frmMapa f = new frmMapa();
+                f.pedidoi = pedidos[0];
+                f.pedidof = pedidos[1];
+                f.Show();
+
             }
             catch (OracleException ex)
             {
@@ -429,5 +439,9 @@ namespace TV01
             spoolrec("PEDIDOS.TXT");
         }
 
+        private void reverterPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

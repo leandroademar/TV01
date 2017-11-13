@@ -463,13 +463,14 @@ namespace DAL
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
             comando1 = comando1 + "INSERT INTO TABPED " + "\n";
-            comando1 = comando1 + "    (NUMPED, CODPROD " + "\n";
+            comando1 = comando1 + "    (NUMPED, NUMPEDORI,CODPROD " + "\n";
             comando1 = comando1 + "     ,CODAUXILIAR, QT,QTUNITEMB) " + "\n";
             comando1 = comando1 + "    VALUES " + "\n";
-            comando1 = comando1 + "    (:NUMPED, :CODPROD,:CODAUXILIAR,:QT " + "\n";
+            comando1 = comando1 + "    (:NUMPED,:NUMPEDORI, :CODPROD,:CODAUXILIAR,:QT " + "\n";
             comando1 = comando1 + "     ,:QTUNITEMB)";
             cmd.CommandText = comando1;
             cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            cmd.Parameters.AddWithValue(":NUMPEDORI", modelo.oldnumped);
             cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
             cmd.Parameters.AddWithValue(":CODAUXILIAR", modelo.codauxiliar);
             cmd.Parameters.AddWithValue(":QT", modelo.qt);
@@ -485,7 +486,7 @@ namespace DAL
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            comando1 = comando1 + "INSERT INTO TABPED " + "\n";
+            comando1 = comando1 + "INSERT INTO TABDUP " + "\n";
             comando1 = comando1 + "    (NUMPED,DATA,CODPROD,CODAUXILIAR,CODUSUR,QT,QTUNITEMB,PVENDA,NUMCAR) " + "\n";
             comando1 = comando1 + "    VALUES " + "\n";
             comando1 = comando1 + "    (:NUMPED, TO_DATE(SYSDATE, 'DD/MM/YYYY'),:CODPROD,:CODAUXILIAR,:CODUSUR,:QT,:QTUNITEMB,:PVENDA,:NUMCAR) " + "\n";
