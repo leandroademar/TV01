@@ -155,11 +155,11 @@ namespace TV01
             {
                 STW_Arquivo.WriteLine("Código...: " + txtCupom.Text.ToString());
             }
-            STW_Arquivo.WriteLine("Cliente..: " + dgvMapa.Rows[1].Cells["CLIENTE"].Value.ToString().Trim());
+            STW_Arquivo.WriteLine("Cliente..: " + dgvMapa.Rows[0].Cells["CLIENTE"].Value.ToString().Trim());
             STW_Arquivo.WriteLine("Total....: R$ " + totaldgv.ToString());
             STW_Arquivo.WriteLine("Hora.....: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
-            STW_Arquivo.WriteLine("Caixa....: " + dgvMapa.Rows[1].Cells["CAIXA"].Value.ToString().Trim());
-            STW_Arquivo.WriteLine("Atend....: " + dgvMapa.Rows[1].Cells["RECEPCAO"].Value.ToString().Trim());
+            STW_Arquivo.WriteLine("Caixa....: " + dgvMapa.Rows[0].Cells["CAIXA"].Value.ToString().Trim());
+            STW_Arquivo.WriteLine("Atend....: " + dgvMapa.Rows[0].Cells["RECEPCAO"].Value.ToString().Trim());
             STW_Arquivo.WriteLine("---------------------------------------------------------------------------");
             STW_Arquivo.WriteLine("                  PRODUTOS        ");
             STW_Arquivo.WriteLine("");
@@ -185,7 +185,13 @@ namespace TV01
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLMAPA bllmapa = new BLLMAPA(cx);
-                dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtPedIni.Text), Convert.ToInt64(txtPedFim.Text), tipoimp, numcaixa);
+                if (tipoimp == 1)
+                {
+                    dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtPedIni.Text), Convert.ToInt64(txtPedFim.Text), tipoimp, numcaixa);
+                }else
+                {
+                    dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtCupom.Text), Convert.ToInt64(txtCupom.Text), tipoimp, numcaixa);
+                }
                 dgvMapa.Sort(dgvMapa.Columns["DESCRICAO"], ListSortDirection.Ascending);
                 GravaMapa();
                 spoolrec("MAPA.txt");

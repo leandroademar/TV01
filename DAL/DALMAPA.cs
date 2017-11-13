@@ -42,7 +42,7 @@ namespace DAL
             comando1 = comando1 + "SUM(PPI.QT / PCE.QTUNIT) QTCOMP, " + "\n";
             if (tipo == 1)
             {
-                comando1 = comando1 + "SUM(PPI.PVENDA * 1) VALCOMP, " + "\n";
+                comando1 = comando1 + "(SUM((PPI.PVENDA * PCE.QTUNIT) * (PPI.QT / PCE.QTUNIT))/SUM(PPI.QT / PCE.QTUNIT)) VALCOMP,  " + "\n";
             }else// if (tipo == 2)
             {
                 comando1 = comando1 + "SUM(PPI.PVENDA * PCE.QTUNIT) VALCOMP, " + "\n";
@@ -56,10 +56,10 @@ namespace DAL
                 {
                     comando1 = comando1 + " TABPED TPD, " + "\n";
                 }
-                comando1 = comando1 + " PCPEDCECF PCD, " + "\n";
-                comando1 = comando1 + " PCPEDIECF PPI, " + "\n";
-                comando1 = comando1 + " PCPRODUT PPD, " + "\n";
-                comando1 = comando1 + " PCEMBALAGEM PCE " + "\n";
+                comando1 = comando1 + " PCPEDCECF@DBLATAC10 PCD, " + "\n";
+                comando1 = comando1 + " PCPEDIECF@DBLATAC10 PPI, " + "\n";
+                comando1 = comando1 + " PCPRODUT@DBLATAC10 PPD, " + "\n";
+                comando1 = comando1 + " PCEMBALAGEM@DBLATAC10 PCE " + "\n";
             }
             if (numcaixa == 11)
             {
