@@ -39,15 +39,15 @@ namespace DAL
             comando1 = comando1 + "PPD.DESCRICAO, " + "\n";
             comando1 = comando1 + "PCE.EMBALAGEM, " + "\n";
             comando1 = comando1 + "PCE.QTUNIT, " + "\n";
-            comando1 = comando1 + "SUM(PPI.QT / PCE.QTUNIT) QTCOMP, " + "\n";
+            comando1 = comando1 + "ROUND(SUM(PPI.QT / PCE.QTUNIT),2) QTCOMP, " + "\n";
             if (tipo == 1)
             {
-                comando1 = comando1 + "(SUM((PPI.PVENDA * PCE.QTUNIT) * (PPI.QT / PCE.QTUNIT))/SUM(PPI.QT / PCE.QTUNIT)) VALCOMP,  " + "\n";
+                comando1 = comando1 + "ROUND((SUM((PPI.PVENDA * PCE.QTUNIT) * (PPI.QT / PCE.QTUNIT))/SUM(PPI.QT / PCE.QTUNIT)),2) VALCOMP,  " + "\n";
             }else// if (tipo == 2)
             {
-                comando1 = comando1 + "SUM(PPI.PVENDA * PCE.QTUNIT) VALCOMP, " + "\n";
+                comando1 = comando1 + "ROUND(SUM(PPI.PVENDA * PCE.QTUNIT),2) VALCOMP, " + "\n";
             }
-            comando1 = comando1 + "SUM((PPI.PVENDA * PCE.QTUNIT) * (PPI.QT / PCE.QTUNIT)) VALTOTAL " + "\n";
+            comando1 = comando1 + "ROUND(SUM((PPI.PVENDA * PCE.QTUNIT) * (PPI.QT / PCE.QTUNIT)),2) VALTOTAL " + "\n";
             comando1 = comando1 + " FROM " + "\n";
             comando1 = comando1 + " pcvendaconsum PVC, " + "\n";
             if (numcaixa == 10)

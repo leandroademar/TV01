@@ -114,7 +114,7 @@ namespace TV01
             {
                 streamToPrint = new StreamReader
                 (documento, false);
-                printFont = new Font("Arial", 10);
+                printFont = new Font("Arial", 9);
                 PrintDocument pd = new PrintDocument();
                 pd.PrintPage += new PrintPageEventHandler
                 (this.pd_PrintPage);
@@ -153,7 +153,7 @@ namespace TV01
             }
             else
             {
-                STW_Arquivo.WriteLine("Código...: " + txtCupom.Text.ToString());
+                STW_Arquivo.WriteLine("Código...: " + txtCupom.Text.ToString() + " a " +  txtCupomFim.Text.ToString());
             }
             STW_Arquivo.WriteLine("Cliente..: " + dgvMapa.Rows[0].Cells["CLIENTE"].Value.ToString().Trim());
             STW_Arquivo.WriteLine("Total....: R$ " + totaldgv.ToString());
@@ -171,7 +171,6 @@ namespace TV01
                                        "  -  " + dgvMapa.Rows[i].Cells["QTCOMP"].Value.ToString().Trim() +
                                        "  X  R$ " + dgvMapa.Rows[i].Cells["VALCOMP"].Value.ToString().Trim() +
                                        "   R$" + dgvMapa.Rows[i].Cells["VALTOTAL"].Value.ToString().Trim());
-                STW_Arquivo.WriteLine("");
             }
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("");
@@ -191,7 +190,7 @@ namespace TV01
                     dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtPedIni.Text), Convert.ToInt64(txtPedFim.Text), tipoimp, numcaixa);
                 }else
                 {
-                    dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtCupom.Text), Convert.ToInt64(txtCupom.Text), tipoimp, numcaixa);
+                    dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtCupom.Text), Convert.ToInt64(txtCupomFim.Text), tipoimp, numcaixa);
                 }
                 dgvMapa.Sort(dgvMapa.Columns["DESCRICAO"], ListSortDirection.Ascending);
                 GravaMapa();

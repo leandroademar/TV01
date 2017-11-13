@@ -479,6 +479,30 @@ namespace DAL
             conexao.Desconectar();
 
         }
+        public void IncluirDUP(ModeloPCPEDI modelo)
+        {
+            String comando1 = "";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            comando1 = comando1 + "INSERT INTO TABPED " + "\n";
+            comando1 = comando1 + "    (NUMPED,DATA,CODPROD,CODAUXILIAR,CODUSUR,QT,QTUNITEMB,PVENDA,NUMCAR) " + "\n";
+            comando1 = comando1 + "    VALUES " + "\n";
+            comando1 = comando1 + "    (:NUMPED, TO_DATE(SYSDATE, 'DD/MM/YYYY'),:CODPROD,:CODAUXILIAR,:CODUSUR,:QT,:QTUNITEMB,:PVENDA,:NUMCAR) " + "\n";
+            cmd.CommandText = comando1;
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
+            cmd.Parameters.AddWithValue(":CODAUXILIAR", modelo.codauxiliar);
+            cmd.Parameters.AddWithValue(":CODUSUR", modelo.codusur);
+            cmd.Parameters.AddWithValue(":QT", modelo.qt);
+            cmd.Parameters.AddWithValue(":QTUNITEMB", modelo.qtunitemb);
+            cmd.Parameters.AddWithValue(":PVENDA", modelo.pvenda);
+            cmd.Parameters.AddWithValue(":NUMCAR", modelo.numcar);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+
+        }
         public void AlterarQT(ModeloPCPEDI modelo)
         {
             String comando2 = " UPDATE PCPEDI SET QT = :QT WHERE NUMPED = :NUMPED AND CODPROD = :CODPROD AND NUMSEQ = :NUMSEQ AND QT > 0";
@@ -500,7 +524,7 @@ namespace DAL
         {
             String comando3 = "";
             comando3 = comando3 + "SELECT  PI.*, 1 as QTUNITCX2," + "\n";
-            comando3 = comando3 + "(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND  ROWNUM = 1) AS CODAUX2," + "\n";
+            comando3 = comando3 + "(SELECT CODAUXILIAR FROM PCEMBALAGEM PE WHERE PE.CODPROD = PI.CODPROD AND PE.QTUNIT = 1  AND NVL(EXCLUIDO,'N') = 'N' AND NVL(ENVIAFRENTECAIXA,'N') = 'S' AND  ROWNUM = 1) AS CODAUX2," + "\n";
             comando3 = comando3 + " NVL((SELECT PP.ACEITAVENDAFRACAO FROM PCPRODUT PP WHERE PP.CODPROD = PI.CODPROD AND ROWNUM = 1),'N') AS FRACAO FROM PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();

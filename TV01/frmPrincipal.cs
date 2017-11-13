@@ -81,6 +81,7 @@ namespace TV01
             {
                 if (txtCodigo.Text != null && txtVlrTotal.Text != "0")
                 {
+                    rtbPedGerados.Clear();
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
                     ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
@@ -88,7 +89,12 @@ namespace TV01
                     ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
                     BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
+                    
                     dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
+                    if(dgvItens.RowCount > 0)
+                    {
+
+                    }
                     // this.AtualizaDGVItens();
                     txtNome.Text = modelopcvc.cliente.ToString();
                     txtCpf.Text = modelopcvc.cgcent.ToString();
@@ -197,6 +203,16 @@ namespace TV01
                         if (modelopcpi.codprod != 0)
                         {
                             bllpcpi.IncluirQT(modelopcpi);
+                            if (ped == 1)
+                            {
+                                BLLPCPEDI bdup = new BLLPCPEDI(cx);
+                                ModeloPCPEDI mdup = bdup.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
+                                for (int i = 0; i < dgvItens.RowCount; i++)
+                                {
+                                    bdup.IncluirDUP(mdup);
+
+                                }
+                            }
                         }
 
                         modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
@@ -268,6 +284,7 @@ namespace TV01
                         {
 
                             bllpcpi.Incluir(modelopcpi);
+
                         }
 
                         it++;
@@ -311,12 +328,12 @@ namespace TV01
                         
                         bllpcvc.Incluir(modelopcvc);
                         totalgeralped = totalgeralped + modelopcpc.vltotal;
-                        string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";";
+                        string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + modelopcpc.vltotal.ToString() + ";"+"\n";
                         rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
                     }
                     
                 } while (vltotalrest > 0);
-                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "                         Valor Total R$" + totalgeralped.ToString();
+                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + "                           Valor Total R$" + totalgeralped.ToString();
 
                 clsArquivo LCLS_ArquivoTxt = new clsArquivo();
                 LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);

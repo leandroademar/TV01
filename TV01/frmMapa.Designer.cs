@@ -46,6 +46,9 @@
             this.gbxDanfe = new System.Windows.Forms.GroupBox();
             this.lblDanfe = new System.Windows.Forms.Label();
             this.txtDanfe = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCupomFim = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMapa)).BeginInit();
             this.gpxTipo.SuspendLayout();
             this.gbxPedido.SuspendLayout();
@@ -63,7 +66,7 @@
             this.dgvMapa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvMapa.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.dgvMapa.Location = new System.Drawing.Point(221, 8);
-            this.dgvMapa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMapa.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMapa.Name = "dgvMapa";
             this.dgvMapa.ReadOnly = true;
             this.dgvMapa.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -78,7 +81,7 @@
             // 
             this.btnImprimir.AutoSize = true;
             this.btnImprimir.Location = new System.Drawing.Point(221, 165);
-            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(73, 23);
             this.btnImprimir.TabIndex = 1;
@@ -90,7 +93,7 @@
             // 
             this.btnSair.AutoSize = true;
             this.btnSair.Location = new System.Drawing.Point(297, 165);
-            this.btnSair.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(2);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(62, 23);
             this.btnSair.TabIndex = 2;
@@ -104,9 +107,9 @@
             this.gpxTipo.Controls.Add(this.rbtCupom);
             this.gpxTipo.Controls.Add(this.rbtPedidos);
             this.gpxTipo.Location = new System.Drawing.Point(8, 8);
-            this.gpxTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpxTipo.Margin = new System.Windows.Forms.Padding(2);
             this.gpxTipo.Name = "gpxTipo";
-            this.gpxTipo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpxTipo.Padding = new System.Windows.Forms.Padding(2);
             this.gpxTipo.Size = new System.Drawing.Size(131, 44);
             this.gpxTipo.TabIndex = 3;
             this.gpxTipo.TabStop = false;
@@ -116,7 +119,7 @@
             // 
             this.rbtDanfe.AutoSize = true;
             this.rbtDanfe.Location = new System.Drawing.Point(137, 16);
-            this.rbtDanfe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtDanfe.Margin = new System.Windows.Forms.Padding(2);
             this.rbtDanfe.Name = "rbtDanfe";
             this.rbtDanfe.Size = new System.Drawing.Size(55, 20);
             this.rbtDanfe.TabIndex = 6;
@@ -130,7 +133,7 @@
             // 
             this.rbtCupom.AutoSize = true;
             this.rbtCupom.Location = new System.Drawing.Point(69, 16);
-            this.rbtCupom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtCupom.Margin = new System.Windows.Forms.Padding(2);
             this.rbtCupom.Name = "rbtCupom";
             this.rbtCupom.Size = new System.Drawing.Size(65, 20);
             this.rbtCupom.TabIndex = 5;
@@ -143,7 +146,7 @@
             // 
             this.rbtPedidos.AutoSize = true;
             this.rbtPedidos.Location = new System.Drawing.Point(4, 16);
-            this.rbtPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtPedidos.Margin = new System.Windows.Forms.Padding(2);
             this.rbtPedidos.Name = "rbtPedidos";
             this.rbtPedidos.Size = new System.Drawing.Size(70, 20);
             this.rbtPedidos.TabIndex = 4;
@@ -159,9 +162,9 @@
             this.gbxPedido.Controls.Add(this.txtPedFim);
             this.gbxPedido.Controls.Add(this.txtPedIni);
             this.gbxPedido.Location = new System.Drawing.Point(8, 55);
-            this.gbxPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxPedido.Margin = new System.Windows.Forms.Padding(2);
             this.gbxPedido.Name = "gbxPedido";
-            this.gbxPedido.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxPedido.Padding = new System.Windows.Forms.Padding(2);
             this.gbxPedido.Size = new System.Drawing.Size(183, 65);
             this.gbxPedido.TabIndex = 4;
             this.gbxPedido.TabStop = false;
@@ -189,7 +192,7 @@
             // txtPedFim
             // 
             this.txtPedFim.Location = new System.Drawing.Point(69, 37);
-            this.txtPedFim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPedFim.Margin = new System.Windows.Forms.Padding(2);
             this.txtPedFim.Name = "txtPedFim";
             this.txtPedFim.Size = new System.Drawing.Size(96, 20);
             this.txtPedFim.TabIndex = 6;
@@ -197,19 +200,20 @@
             // txtPedIni
             // 
             this.txtPedIni.Location = new System.Drawing.Point(69, 16);
-            this.txtPedIni.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPedIni.Margin = new System.Windows.Forms.Padding(2);
             this.txtPedIni.Name = "txtPedIni";
             this.txtPedIni.Size = new System.Drawing.Size(96, 20);
             this.txtPedIni.TabIndex = 5;
             // 
             // gbxCupom
             // 
+            this.gbxCupom.Controls.Add(this.txtCupomFim);
             this.gbxCupom.Controls.Add(this.label2);
             this.gbxCupom.Controls.Add(this.txtCupom);
             this.gbxCupom.Location = new System.Drawing.Point(8, 55);
-            this.gbxCupom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxCupom.Margin = new System.Windows.Forms.Padding(2);
             this.gbxCupom.Name = "gbxCupom";
-            this.gbxCupom.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxCupom.Padding = new System.Windows.Forms.Padding(2);
             this.gbxCupom.Size = new System.Drawing.Size(187, 65);
             this.gbxCupom.TabIndex = 8;
             this.gbxCupom.TabStop = false;
@@ -227,20 +231,22 @@
             // txtCupom
             // 
             this.txtCupom.Location = new System.Drawing.Point(69, 16);
-            this.txtCupom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCupom.Margin = new System.Windows.Forms.Padding(2);
             this.txtCupom.Name = "txtCupom";
             this.txtCupom.Size = new System.Drawing.Size(96, 20);
             this.txtCupom.TabIndex = 5;
             // 
             // gbxDanfe
             // 
+            this.gbxDanfe.Controls.Add(this.label1);
+            this.gbxDanfe.Controls.Add(this.textBox1);
             this.gbxDanfe.Controls.Add(this.lblDanfe);
             this.gbxDanfe.Controls.Add(this.txtDanfe);
-            this.gbxDanfe.Location = new System.Drawing.Point(8, 55);
-            this.gbxDanfe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbxDanfe.Location = new System.Drawing.Point(341, 55);
+            this.gbxDanfe.Margin = new System.Windows.Forms.Padding(2);
             this.gbxDanfe.Name = "gbxDanfe";
-            this.gbxDanfe.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbxDanfe.Size = new System.Drawing.Size(187, 65);
+            this.gbxDanfe.Padding = new System.Windows.Forms.Padding(2);
+            this.gbxDanfe.Size = new System.Drawing.Size(187, 83);
             this.gbxDanfe.TabIndex = 9;
             this.gbxDanfe.TabStop = false;
             // 
@@ -257,10 +263,36 @@
             // txtDanfe
             // 
             this.txtDanfe.Location = new System.Drawing.Point(69, 16);
-            this.txtDanfe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDanfe.Margin = new System.Windows.Forms.Padding(2);
             this.txtDanfe.Name = "txtDanfe";
             this.txtDanfe.Size = new System.Drawing.Size(96, 20);
             this.txtDanfe.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 43);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "NF-e :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(69, 41);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(96, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // txtCupomFim
+            // 
+            this.txtCupomFim.Location = new System.Drawing.Point(69, 40);
+            this.txtCupomFim.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCupomFim.Name = "txtCupomFim";
+            this.txtCupomFim.Size = new System.Drawing.Size(96, 20);
+            this.txtCupomFim.TabIndex = 6;
             // 
             // frmMapa
             // 
@@ -276,7 +308,7 @@
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.dgvMapa);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMapa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Impressão de Mapa";
@@ -316,5 +348,8 @@
         private System.Windows.Forms.TextBox txtDanfe;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCupom;
+        private System.Windows.Forms.TextBox txtCupomFim;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
