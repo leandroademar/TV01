@@ -31,19 +31,19 @@ namespace BLL
         public void Revert2(ModeloPCPEDC modelo)
         {
             DALPCPEDC DALObj = new DALPCPEDC(conexao);
-            DALObj.Revert1(modelo);
+            DALObj.Revert2(modelo);
 
         }
         public void Revert3(ModeloPCPEDC modelo)
         {
             DALPCPEDC DALObj = new DALPCPEDC(conexao);
-            DALObj.Revert1(modelo);
+            DALObj.Revert3(modelo);
 
         }
         public void Revert4(ModeloPCPEDC modelo)
         {
             DALPCPEDC DALObj = new DALPCPEDC(conexao);
-            DALObj.Revert1(modelo);
+            DALObj.Revert4(modelo);
 
         }
         public void AlterarVT(ModeloPCPEDC modelo)
