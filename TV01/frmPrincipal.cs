@@ -15,6 +15,8 @@ namespace TV01
         public Font printFont;
         public StreamReader streamToPrint;
         public long[] pedidos = new long[2];
+
+
         public frmPrincipal()
         {
 
@@ -48,6 +50,7 @@ namespace TV01
             txtCpf.ReadOnly = true;
             txtCodigo.Focus();
             btnGerar.Visible = false;
+            reverterPedidoToolStripMenuItem.Enabled = false;
         }
 
         private void frmPrincipal_KeyDown(object sender, KeyEventArgs e)
@@ -89,7 +92,7 @@ namespace TV01
             {
                 if (txtCodigo.Text != null && txtVlrTotal.Text != "0")
                 {
-                    
+
                     rtbPedGerados.Clear();
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
@@ -98,14 +101,14 @@ namespace TV01
                     ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
                     BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-                    
+
                     dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
-                    if(dgvItens.RowCount > 0)
+                    if (dgvItens.RowCount > 0)
                     {
                         ModeloPCPEDI mitens = new ModeloPCPEDI();
                         BLLPCPEDI bitens = new BLLPCPEDI(cx);
 
-                        for (int i =0; i < dgvItens.RowCount; i++)
+                        for (int i = 0; i < dgvItens.RowCount; i++)
                         {
                             mitens.numped = Convert.ToInt64(txtCodigo.Text);
                             mitens.codprod = Convert.ToInt32(dgvItens.Rows[i].Cells[0].Value);
@@ -117,14 +120,15 @@ namespace TV01
                         }
 
                     }
-                    
+
                     txtNome.Text = modelopcvc.cliente.ToString();
                     txtCpf.Text = modelopcvc.cgcent.ToString();
                     txtVlrTotal.Text = modelopcpc.vltotal.ToString();
                     txtQtdItens.Text = modelopcpc.numitens.ToString();
+                    reverterPedidoToolStripMenuItem.Enabled = true;
                     btnBuscar.Focus();
                 }
-                if(txtCodigo == null)
+                if (txtCodigo == null)
                 {
 
                 }
@@ -206,7 +210,7 @@ namespace TV01
                     if (ped == 1)
                     {
                         pedidos[0] = modelopcpc.numped;
-                     
+
                     }
                     pedidos[1] = modelopcpc.numped;
 
@@ -237,7 +241,7 @@ namespace TV01
                         if (modelopcpi.codprod != 0)
                         {
                             bllpcpi.IncluirQT(modelopcpi);
-                            
+
                         }
 
                         modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
@@ -265,13 +269,13 @@ namespace TV01
                                 VlrProd = VlrProd + modelopcpi.pvenda;
                                 QtProd = QtProd + 1;
                                 QtRestprod = QtAnt - QtProd;
-                                pvltabela = pvltabela + (modelopcpi.ptabela );
-                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal );
-                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin );
-                                pvlatend = pvlatend + (modelopcpi.pvenda );
-                                pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep );
-                                pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont );
-                                VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda );
+                                pvltabela = pvltabela + (modelopcpi.ptabela);
+                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal);
+                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin);
+                                pvlatend = pvlatend + (modelopcpi.pvenda);
+                                pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep);
+                                pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont);
+                                VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda);
 
                                 if (VlrTotalVend > 185)
                                 {
@@ -279,15 +283,15 @@ namespace TV01
                                     break;
 
                                 }
-                            }else
+                            } else
                             {
-                                VlrProd = VlrProd + (modelopcpi.pvenda/10);
+                                VlrProd = VlrProd + (modelopcpi.pvenda / 10);
                                 QtProd = QtProd + 0.10m;
                                 QtRestprod = QtAnt - QtProd;
-                                pvltabela = pvltabela + (modelopcpi.ptabela/10);
-                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal/10);
-                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin/10);
-                                pvlatend = pvlatend + (modelopcpi.pvenda/10);
+                                pvltabela = pvltabela + (modelopcpi.ptabela / 10);
+                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal / 10);
+                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin / 10);
+                                pvlatend = pvlatend + (modelopcpi.pvenda / 10);
                                 pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep / 10);
                                 pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont / 10);
                                 VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda / 10);
@@ -350,15 +354,15 @@ namespace TV01
                         modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
                         bllpccr.Incluir(modelopccr);
                         bllpcpc.Incluir(modelopcpc);
-                        
+
                         bllpcvc.Incluir(modelopcvc);
                         totalgeralped = totalgeralped + modelopcpc.vltotal;
-                        string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + Math.Round(Convert.ToDecimal(modelopcpc.vltotal),2).ToString() + ";"+"\n";
+                        string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + Math.Round(Convert.ToDecimal(modelopcpc.vltotal), 2).ToString() + ";" + "\n";
                         rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
                     }
-                    
+
                 } while (vltotalrest > 0);
-                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" +" Pedidos/Itens: " + ped.ToString()+"/" + qtit + " Valor Total R$" + Math.Round(Convert.ToDecimal(totalgeralped),2).ToString();
+                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + " Pedidos/Itens: " + ped.ToString() + "/" + qtit + " Valor Total R$" + Math.Round(Convert.ToDecimal(totalgeralped), 2).ToString();
 
                 clsArquivo LCLS_ArquivoTxt = new clsArquivo();
                 LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
@@ -457,9 +461,24 @@ namespace TV01
             spoolrec("PEDIDOS.TXT");
         }
 
+        public DALConexao cx;
         private void reverterPedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            String comando1 = " UPDATE PCPEDC SET VLTOTAL = VLATEND WHERE NUMPED = :NUMPED;";
+            String comando2 = " UPDATE PCPEDI A SET QT = (SELECT QT FROM TABDUP B WHERE B.CODPROD = A.CODPROD AND B.NUMPED = A.NUMPED) WHERE A.NUMPED = :NUMPED;";
+            String comando3 = " DELETE FROM PCPEDC WHERE NUMPED IN (SELECT DISTINCT NUMPED FROM TABPED WHERE NUMPEDORI =:NUMPED);";
+            String comando4 = " DELETE FROM PCPEDI WHERE NUMPED IN (SELECT DISTINCT NUMPED FROM TABPED WHERE NUMPEDORI =:NUMPED);";
+
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = cx.ObjetoConexao;
+            cmd.CommandText = comando1 +"\n" + comando2 + "\n" + comando3 + "\n" + comando4;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":NUMPED", Convert.ToInt64(txtCodigo.Text.ToString()));
+            cx.Conectar();
+            cmd.ExecuteNonQuery();
+            cx.Desconectar();
         }
 
     }
