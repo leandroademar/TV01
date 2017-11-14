@@ -22,10 +22,28 @@ namespace BLL
             DALObj.AlterarPC(modelo);
 
         }
-        public void Revert(ModeloPCPEDC modelo)
+        public void Revert1(ModeloPCPEDC modelo)
         {
             DALPCPEDC DALObj = new DALPCPEDC(conexao);
-            DALObj.Revert(modelo);
+            DALObj.Revert1(modelo);
+
+        }
+        public void Revert2(ModeloPCPEDC modelo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            DALObj.Revert1(modelo);
+
+        }
+        public void Revert3(ModeloPCPEDC modelo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            DALObj.Revert1(modelo);
+
+        }
+        public void Revert4(ModeloPCPEDC modelo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            DALObj.Revert1(modelo);
 
         }
         public void AlterarVT(ModeloPCPEDC modelo)

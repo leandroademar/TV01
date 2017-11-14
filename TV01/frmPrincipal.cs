@@ -90,7 +90,7 @@ namespace TV01
         {
             try
             {
-                if (txtCodigo.Text != null && txtVlrTotal.Text != "0")
+                if (txtCodigo.Text != null )
                 {
 
                     rtbPedGerados.Clear();
@@ -174,218 +174,225 @@ namespace TV01
         {
             try
             {
-
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLPCPEDC bllpcpcold = new BLLPCPEDC(cx);
-                ModeloPCPEDC modelopcpcold = bllpcpcold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
-
-                decimal? vltotalrest = modelopcpcold.vltotal;
-                modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
-                int ped = 0;
-                int paraped = 0;
-                decimal? totalgeralped = 0;
-                string qtit = txtQtdItens.Text;
-
-                do
+                if (txtNome.Text != null)
                 {
-                    ped = ped + 1;
-                    BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
-                    ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLPCPEDC bllpcpcold = new BLLPCPEDC(cx);
+                    ModeloPCPEDC modelopcpcold = bllpcpcold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
 
-                    BLLPCPEDC bllpcpc = new BLLPCPEDC(cx);
-                    ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
-
-                    modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
-
-                    BLLVAR bllvar = new BLLVAR(cx);
-                    ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt64(modelopcpc.codusur));
-                    bllvar.AlterarNW(modelovar);
-                    BLLCARREG bllpccr = new BLLCARREG(cx);
-                    ModeloPCCARREG modelopccr = bllpccr.CarregaNewNumPed();
-
-                    modelopcpc.numcar = modelopccr.numcar;
-                    modelopcpc.numped = modelovar.newnumped;
-                    modelopcvc.numped = modelovar.newnumped;
-                    modelopcpc.condvenda = 1;
-
-                    if (ped == 1)
-                    {
-                        pedidos[0] = modelopcpc.numped;
-
-                    }
-                    pedidos[1] = modelopcpc.numped;
-
-                    int it = 0;
-                    decimal vltotal = 0;
-                    decimal vltabela = 0;
-                    decimal vlcustoreal = 0;
-                    decimal vlcustofin = 0;
-                    decimal vlatend = 0;
-                    decimal? vlcustorep = 0;
-                    decimal? vlcustocont = 0;
-                    decimal? qtrest = 0;
-                    decimal VlrTotalVend = 0;
-
-                    int contped = 0;
-                    int itens = 0;
+                    decimal? vltotalrest = modelopcpcold.vltotal;
+                    modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
+                    int ped = 0;
+                    int paraped = 0;
+                    decimal? totalgeralped = 0;
+                    string qtit = txtQtdItens.Text;
 
                     do
                     {
-                        BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
-                        ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
-                        dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
-                        modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
-                        modelopcpi.numped = modelovar.newnumped;
-                        modelopcpi.numseqori = modelopcpi.numseq;
-                        modelopcpi.numcar = modelopccr.numcar;
+                        ped = ped + 1;
+                        BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
+                        ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
 
-                        if (modelopcpi.codprod != 0)
+                        BLLPCPEDC bllpcpc = new BLLPCPEDC(cx);
+                        ModeloPCPEDC modelopcpc = bllpcpc.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
+
+                        modelopcpc.numpedold = Convert.ToInt64(txtCodigo.Text);
+
+                        BLLVAR bllvar = new BLLVAR(cx);
+                        ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt64(modelopcpc.codusur));
+                        bllvar.AlterarNW(modelovar);
+                        BLLCARREG bllpccr = new BLLCARREG(cx);
+                        ModeloPCCARREG modelopccr = bllpccr.CarregaNewNumPed();
+
+                        modelopcpc.numcar = modelopccr.numcar;
+                        modelopcpc.numped = modelovar.newnumped;
+                        modelopcvc.numped = modelovar.newnumped;
+                        modelopcpc.condvenda = 1;
+
+                        if (ped == 1)
                         {
-                            bllpcpi.IncluirQT(modelopcpi);
+                            pedidos[0] = modelopcpc.numped;
 
                         }
+                        pedidos[1] = modelopcpc.numped;
 
-                        modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
-                        modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
-                        modelopcpi.qtunitemb = Convert.ToDecimal(modelopcpi.qtunitcxunit);
+                        int it = 0;
+                        decimal vltotal = 0;
+                        decimal vltabela = 0;
+                        decimal vlcustoreal = 0;
+                        decimal vlcustofin = 0;
+                        decimal vlatend = 0;
+                        decimal? vlcustorep = 0;
+                        decimal? vlcustocont = 0;
+                        decimal? qtrest = 0;
+                        decimal VlrTotalVend = 0;
 
-                        decimal QtRestprod = 0;
-                        decimal QtAnt = 0;
-                        decimal VlrProd = 0;
-                        decimal QtProd = 0;
-                        decimal pvltabela = 0;
-                        decimal pvlcustoreal = 0;
-                        decimal pvlcustofin = 0;
-                        decimal pvlatend = 0;
-                        decimal? pvlcustorep = 0;
-                        decimal? pvlcustocont = 0;
+                        int contped = 0;
+                        int itens = 0;
 
-                        QtAnt = modelopcpi.qt;
-                        modelopcpc.numitens = Convert.ToInt16(itens + 1);
-
-                        for (decimal ii = 0; ii < QtAnt; ii++)
+                        do
                         {
-                            if (modelopcpi.fracao == "N")
+                            BLLPCPEDI bllpcpi = new BLLPCPEDI(cx);
+                            ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
+                            dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
+                            modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
+                            modelopcpi.numped = modelovar.newnumped;
+                            modelopcpi.numseqori = modelopcpi.numseq;
+                            modelopcpi.numcar = modelopccr.numcar;
+
+                            if (modelopcpi.codprod != 0)
                             {
-                                VlrProd = VlrProd + modelopcpi.pvenda;
-                                QtProd = QtProd + 1;
-                                QtRestprod = QtAnt - QtProd;
-                                pvltabela = pvltabela + (modelopcpi.ptabela);
-                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal);
-                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin);
-                                pvlatend = pvlatend + (modelopcpi.pvenda);
-                                pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep);
-                                pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont);
-                                VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda);
+                                bllpcpi.IncluirQT(modelopcpi);
 
-                                if (VlrTotalVend > 185)
-                                {
-                                    contped = 1;
-                                    break;
-
-                                }
-                            } else
-                            {
-                                VlrProd = VlrProd + (modelopcpi.pvenda / 10);
-                                QtProd = QtProd + 0.10m;
-                                QtRestprod = QtAnt - QtProd;
-                                pvltabela = pvltabela + (modelopcpi.ptabela / 10);
-                                pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal / 10);
-                                pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin / 10);
-                                pvlatend = pvlatend + (modelopcpi.pvenda / 10);
-                                pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep / 10);
-                                pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont / 10);
-                                VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda / 10);
-
-                                if (VlrTotalVend > 190)
-                                {
-                                    contped = 1;
-                                    break;
-
-                                }
-                                ii = ii - 0.90m;
                             }
-                        }
 
-                        modelopcpi.numseq = it + 1;
-                        modelopcpi.qt = QtProd;
+                            modelopcpi.codauxiliar = modelopcpi.codauxiliarunit;
+                            modelopcpi.qtunitcx = modelopcpi.qtunitcxunit;
+                            modelopcpi.qtunitemb = Convert.ToDecimal(modelopcpi.qtunitcxunit);
 
-                        if (modelopcpi.codprod != 0)
+                            decimal QtRestprod = 0;
+                            decimal QtAnt = 0;
+                            decimal VlrProd = 0;
+                            decimal QtProd = 0;
+                            decimal pvltabela = 0;
+                            decimal pvlcustoreal = 0;
+                            decimal pvlcustofin = 0;
+                            decimal pvlatend = 0;
+                            decimal? pvlcustorep = 0;
+                            decimal? pvlcustocont = 0;
+
+                            QtAnt = modelopcpi.qt;
+                            modelopcpc.numitens = Convert.ToInt16(itens + 1);
+
+                            for (decimal ii = 0; ii < QtAnt; ii++)
+                            {
+                                if (modelopcpi.fracao == "N")
+                                {
+                                    VlrProd = VlrProd + modelopcpi.pvenda;
+                                    QtProd = QtProd + 1;
+                                    QtRestprod = QtAnt - QtProd;
+                                    pvltabela = pvltabela + (modelopcpi.ptabela);
+                                    pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal);
+                                    pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin);
+                                    pvlatend = pvlatend + (modelopcpi.pvenda);
+                                    pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep);
+                                    pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont);
+                                    VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda);
+
+                                    if (VlrTotalVend > 185)
+                                    {
+                                        contped = 1;
+                                        break;
+
+                                    }
+                                }
+                                else
+                                {
+                                    VlrProd = VlrProd + (modelopcpi.pvenda / 10);
+                                    QtProd = QtProd + 0.10m;
+                                    QtRestprod = QtAnt - QtProd;
+                                    pvltabela = pvltabela + (modelopcpi.ptabela / 10);
+                                    pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal / 10);
+                                    pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin / 10);
+                                    pvlatend = pvlatend + (modelopcpi.pvenda / 10);
+                                    pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep / 10);
+                                    pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont / 10);
+                                    VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda / 10);
+
+                                    if (VlrTotalVend > 190)
+                                    {
+                                        contped = 1;
+                                        break;
+
+                                    }
+                                    ii = ii - 0.90m;
+                                }
+                            }
+
+                            modelopcpi.numseq = it + 1;
+                            modelopcpi.qt = QtProd;
+
+                            if (modelopcpi.codprod != 0)
+                            {
+
+                                bllpcpi.Incluir(modelopcpi);
+
+                            }
+
+                            it++;
+                            itens++;
+
+                            vltotal = vltotal + VlrProd;
+                            vltabela = vltabela + pvltabela;
+                            vlcustoreal = vlcustoreal + pvlcustoreal;
+                            vlcustofin = vlcustofin + pvlcustofin;
+                            vlatend = vlatend + pvlatend;
+                            vlcustorep = vlcustorep + pvlcustorep;
+                            vlcustocont = vlcustocont + pvlcustocont;
+
+                            modelopcpi.qtrest = QtAnt - QtProd;
+                            qtrest = modelopcpi.qtrest;
+
+                            if (modelopcpi.codprod != 0)
+                            {
+                                bllpcpi.AlterarQT(modelopcpi);
+                            }
+                            dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
+                            if (dgvItens.RowCount == 0)
+                            {
+                                contped = 1;
+                                paraped = 1;
+                            }
+
+                        } while (vltotal < 200 && dgvItens.RowCount > 0 && contped == 0);
+
+                        vltotalrest = vltotalrest - vltotal;
+
+                        modelopcpc.vltotal = vltotal;
+                        modelopcpc.vltabela = vltabela;
+                        modelopcpc.vlatend = vlatend;
+                        modelopcpc.vlcustocont = Convert.ToDouble(vlcustocont);
+                        modelopcpc.vlcustorep = Convert.ToDouble(vlcustorep);
+                        modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
+                        modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
+
+                        if (modelopcpc.vltotal != 0)
                         {
+                            modelopccr.codfuncmon = modelopcpc.codusur;
+                            modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
+                            bllpccr.Incluir(modelopccr);
+                            bllpcpc.Incluir(modelopcpc);
 
-                            bllpcpi.Incluir(modelopcpi);
-
+                            bllpcvc.Incluir(modelopcvc);
+                            totalgeralped = totalgeralped + modelopcpc.vltotal;
+                            string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + Math.Round(Convert.ToDecimal(modelopcpc.vltotal), 2).ToString() + ";" + "\n";
+                            rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
                         }
 
-                        it++;
-                        itens++;
+                    } while (vltotalrest > 1 && paraped == 0);
+                    rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + " Pedidos/Itens: " + ped.ToString() + "/" + qtit + " Valor Total R$" + Math.Round(Convert.ToDecimal(totalgeralped), 2).ToString();
 
-                        vltotal = vltotal + VlrProd;
-                        vltabela = vltabela + pvltabela;
-                        vlcustoreal = vlcustoreal + pvlcustoreal;
-                        vlcustofin = vlcustofin + pvlcustofin;
-                        vlatend = vlatend + pvlatend;
-                        vlcustorep = vlcustorep + pvlcustorep;
-                        vlcustocont = vlcustocont + pvlcustocont;
-
-                        modelopcpi.qtrest = QtAnt - QtProd;
-                        qtrest = modelopcpi.qtrest;
-
-                        if (modelopcpi.codprod != 0)
-                        {
-                            bllpcpi.AlterarQT(modelopcpi);
-                        }
-                        dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
-                        if(dgvItens.RowCount == 0)
-                        {
-                            contped = 1;
-                            paraped = 1;
-                        }
-
-                    } while (vltotal < 200 && dgvItens.RowCount > 0 && contped == 0);
-
-                    vltotalrest = vltotalrest - vltotal;
-
-                    modelopcpc.vltotal = vltotal;
-                    modelopcpc.vltabela = vltabela;
-                    modelopcpc.vlatend = vlatend;
-                    modelopcpc.vlcustocont = Convert.ToDouble(vlcustocont);
-                    modelopcpc.vlcustorep = Convert.ToDouble(vlcustorep);
-                    modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
-                    modelopcpc.vlcustoreal = Convert.ToDouble(vlcustoreal);
-
-                    if (modelopcpc.vltotal != 0)
+                    clsArquivo LCLS_ArquivoTxt = new clsArquivo();
+                    LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
+                    if (rtbPedGerados.Text != null)
                     {
-                        modelopccr.codfuncmon = modelopcpc.codusur;
-                        modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
-                        bllpccr.Incluir(modelopccr);
-                        bllpcpc.Incluir(modelopcpc);
-
-                        bllpcvc.Incluir(modelopcvc);
-                        totalgeralped = totalgeralped + modelopcpc.vltotal;
-                        string texto = "Pedido Cód: " + modelopcpc.numped.ToString() + " - Valor R$: " + Math.Round(Convert.ToDecimal(modelopcpc.vltotal), 2).ToString() + ";" + "\n";
-                        rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
+                        spoolrec("PEDIDOS.TXT");
                     }
+                    BLLPCPEDC bllpcpold = new BLLPCPEDC(cx);
+                    ModeloPCPEDC modelopcpold = bllpcpold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
+                    modelopcpold.vltotal = 0;
+                    modelopcpold.numped = Convert.ToInt64(txtCodigo.Text);
+                    bllpcpold.AlterarVT(modelopcpold);
+                    txtVlrTotal.Text = "0";
+                    btnGerar.Visible = false;
+                    txtCodigo.Focus();
+                    LimpaTela();
 
-                } while (vltotalrest > 1 && paraped == 0);
-                rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + " Pedidos/Itens: " + ped.ToString() + "/" + qtit + " Valor Total R$" + Math.Round(Convert.ToDecimal(totalgeralped), 2).ToString();
-
-                clsArquivo LCLS_ArquivoTxt = new clsArquivo();
-                LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
-                if (rtbPedGerados.Text != null)
-                {
-                    spoolrec("PEDIDOS.TXT");
                 }
-                BLLPCPEDC bllpcpold = new BLLPCPEDC(cx);
-                ModeloPCPEDC modelopcpold = bllpcpold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
-                modelopcpold.vltotal = 0;
-                modelopcpold.numped = Convert.ToInt64(txtCodigo.Text);
-                bllpcpold.AlterarVT(modelopcpold);
-                txtVlrTotal.Text = "0";
-                btnGerar.Visible = false;
-                txtCodigo.Focus();
-                LimpaTela();
-
+                if(txtNome.Text == null)
+                {
+                    MessageBox.Show("Pedido não pode ser dividio.","Atenção!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
             }
             catch (OracleException ex)
             {
@@ -474,7 +481,10 @@ namespace TV01
             BLLPCPEDC blrevert = new BLLPCPEDC(cx);
             ModeloPCPEDC modrevert = new ModeloPCPEDC();
             modrevert.numped = Convert.ToInt64(txtCodigo.Text.ToString());
-            blrevert.Revert(modrevert);
+            blrevert.Revert1(modrevert);
+            blrevert.Revert2(modrevert);
+            blrevert.Revert3(modrevert);
+            blrevert.Revert4(modrevert);
 
 
         }
