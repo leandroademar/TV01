@@ -36,6 +36,7 @@ namespace TV01
             gbxPedido.Visible = false;
             txtPedIni.Text = pedidoi.ToString();
             txtPedFim.Text = pedidof.ToString();
+            
         }
 
         private void rbtPedidos_CheckedChanged(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace TV01
             gbxPedido.Visible = true;
             tipoimp = 1;
 
+
         }
 
         private void rbtCupom_CheckedChanged(object sender, EventArgs e)
@@ -53,6 +55,7 @@ namespace TV01
             gbxDanfe.Visible = false;
             gbxPedido.Visible = false;
             tipoimp = 2;
+            txtCupom.Focus();
         }
 
         private void rbtDanfe_CheckedChanged(object sender, EventArgs e)
@@ -74,6 +77,18 @@ namespace TV01
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
+            }
+            if (e.KeyCode == Keys.F6)
+            {
+                btnImprimir_Click(sender,e);
+            }
+            if (e.KeyCode == Keys.F1)
+            {
+                rbtPedidos.Checked = true;
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                rbtCupom.Checked = true;
             }
         }
         public void pd_PrintPage(object sender, PrintPageEventArgs ev)
@@ -184,22 +199,67 @@ namespace TV01
         {
             try
             {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLMAPA bllmapa = new BLLMAPA(cx);
-                if (tipoimp == 1)
+                if (txtCupom.Text != null && txtCupomFim.Text != null | Convert.ToInt32(txtPedIni.Text.ToString()) != 0 && Convert.ToInt32(txtCupomFim.Text.ToString()) != 0 )
                 {
-                    dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtPedIni.Text), Convert.ToInt64(txtPedFim.Text), tipoimp, numcaixa);
-                }else
-                {
-                    dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtCupom.Text), Convert.ToInt64(txtCupomFim.Text), tipoimp, numcaixa);
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLMAPA bllmapa = new BLLMAPA(cx);
+                    if (tipoimp == 1)
+                    {
+                        dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtPedIni.Text), Convert.ToInt64(txtPedFim.Text), tipoimp, numcaixa);
+                    } else
+                    {
+                        dgvMapa.DataSource = bllmapa.Localizar(Convert.ToInt64(txtCupom.Text), Convert.ToInt64(txtCupomFim.Text), tipoimp, numcaixa);
+                    }
+                    dgvMapa.Sort(dgvMapa.Columns["DESCRICAO"], ListSortDirection.Ascending);
+                    GravaMapa();
+                    spoolrec("MAPA.txt");
                 }
-                dgvMapa.Sort(dgvMapa.Columns["DESCRICAO"], ListSortDirection.Ascending);
-                GravaMapa();
-                spoolrec("MAPA.txt");
+
+                MessageBox.Show("Informe os dados necessários para imprimir o mapa de separação!");
             }
             catch (Exception ew)
             {
                 MessageBox.Show(ew.StackTrace);
+            }
+        }
+
+        private void txtCupom_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                txtCupomFim.Focus();
+            }
+
+            
+        }
+
+
+        private void txtCupom_KeyUp(object sender, KeyEventArgs e)
+        {
+            txtCupomFim.Text = txtCupom.Text;
+        }
+
+        private void txtCupom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCupomFim_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnImprimir.Focus();
+            }
+        }
+
+        private void txtCupomFim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
             }
         }
     }

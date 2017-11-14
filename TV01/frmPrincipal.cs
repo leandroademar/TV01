@@ -462,9 +462,5 @@ namespace TV01
 
         }
 
-        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
     }
 }
