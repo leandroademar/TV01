@@ -199,8 +199,7 @@ namespace TV01
         {
             try
             {
-                if (txtCupom.Text != null && txtCupomFim.Text != null | Convert.ToInt32(txtPedIni.Text.ToString()) != 0 && Convert.ToInt32(txtCupomFim.Text.ToString()) != 0 )
-                {
+                
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLMAPA bllmapa = new BLLMAPA(cx);
                     if (tipoimp == 1)
@@ -213,9 +212,9 @@ namespace TV01
                     dgvMapa.Sort(dgvMapa.Columns["DESCRICAO"], ListSortDirection.Ascending);
                     GravaMapa();
                     spoolrec("MAPA.txt");
-                }
+                
 
-                MessageBox.Show("Informe os dados necessários para imprimir o mapa de separação!");
+               // MessageBox.Show("Informe os dados necessários para imprimir o mapa de separação!");
             }
             catch (Exception ew)
             {

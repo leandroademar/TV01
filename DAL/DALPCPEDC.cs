@@ -517,6 +517,7 @@ namespace DAL
             cmd.Parameters.AddWithValue(":NUMVOLUME", modelo.numvolume);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
             conexao.Desconectar();
 
         }
@@ -889,6 +890,7 @@ namespace DAL
 
             conexao.Conectar();
             cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
             conexao.Desconectar();
         }
 
@@ -903,8 +905,50 @@ namespace DAL
             cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
             conexao.Desconectar();
 
+        }
+        public void Revert(ModeloPCPEDC modelo)
+        {
+            try
+            {
+                String comando1 = " UPDATE PCPEDC SET VLTOTAL = VLATEND WHERE NUMPED = :NUMPED;";
+                String comando2 = " UPDATE PCPEDI A SET QT = (SELECT QT FROM TABDUP B WHERE B.CODPROD = A.CODPROD AND B.NUMPED = A.NUMPED AND ROWNUM = 1) WHERE A.NUMPED = :NUMPED;";
+                String comando3 = " DELETE FROM PCPEDC WHERE NUMPED IN (SELECT DISTINCT NUMPED FROM TABPED WHERE NUMPEDORI =:NUMPED);";
+                String comando4 = " DELETE FROM PCPEDI WHERE NUMPED IN (SELECT DISTINCT NUMPED FROM TABPED WHERE NUMPEDORI =:NUMPED);";
+
+
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.Parameters.AddWithValue(":NUMPED", Convert.ToInt64(modelo.numped));
+                cmd.CommandText = comando1;
+                cmd.CommandType = System.Data.CommandType.Text;
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+                cmd.CommandText = comando2;
+                cmd.CommandType = System.Data.CommandType.Text;
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+                cmd.CommandText = comando3;
+                cmd.CommandType = System.Data.CommandType.Text;
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+                cmd.CommandText = comando4;
+                cmd.CommandType = System.Data.CommandType.Text;
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                conexao.Desconectar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+          
         }
 
 

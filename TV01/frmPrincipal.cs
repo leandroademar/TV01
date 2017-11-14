@@ -182,6 +182,7 @@ namespace TV01
                 decimal? vltotalrest = modelopcpcold.vltotal;
                 modelopcpcold.numpedold = Convert.ToInt64(txtCodigo.Text);
                 int ped = 0;
+                int paraped = 0;
                 decimal? totalgeralped = 0;
                 string qtit = txtQtdItens.Text;
 
@@ -335,6 +336,11 @@ namespace TV01
                             bllpcpi.AlterarQT(modelopcpi);
                         }
                         dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
+                        if(dgvItens.RowCount == 0)
+                        {
+                            contped = 1;
+                            paraped = 1;
+                        }
 
                     } while (vltotal < 200 && dgvItens.RowCount > 0 && contped == 0);
 
@@ -361,7 +367,7 @@ namespace TV01
                         rtbPedGerados.Text = rtbPedGerados.Text + "\n" + texto;
                     }
 
-                } while (vltotalrest > 0);
+                } while (vltotalrest > 1 && paraped == 0);
                 rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + " Pedidos/Itens: " + ped.ToString() + "/" + qtit + " Valor Total R$" + Math.Round(Convert.ToDecimal(totalgeralped), 2).ToString();
 
                 clsArquivo LCLS_ArquivoTxt = new clsArquivo();
@@ -383,11 +389,11 @@ namespace TV01
             }
             catch (OracleException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.StackTrace);
             }
             catch (Exception ee)
             {
-                MessageBox.Show(ee.Message);
+                MessageBox.Show(ee.StackTrace);
             }
         }
 
@@ -461,24 +467,16 @@ namespace TV01
             spoolrec("PEDIDOS.TXT");
         }
 
-        public DALConexao cx;
+        
         private void reverterPedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLPCPEDC blrevert = new BLLPCPEDC(cx);
+            ModeloPCPEDC modrevert = new ModeloPCPEDC();
+            modrevert.numped = Convert.ToInt64(txtCodigo.Text.ToString());
+            blrevert.Revert(modrevert);
 
-            String comando1 = " UPDATE PCPEDC SET VLTOTAL = VLATEND WHERE NUMPED = :NUMPED;";
-            String comando2 = " UPDATE PCPEDI A SET QT = (SELECT QT FROM TABDUP B WHERE B.CODPROD = A.CODPROD AND B.NUMPED = A.NUMPED) WHERE A.NUMPED = :NUMPED;";
-            String comando3 = " DELETE FROM PCPEDC WHERE NUMPED IN (SELECT DISTINCT NUMPED FROM TABPED WHERE NUMPEDORI =:NUMPED);";
-            String comando4 = " DELETE FROM PCPEDI WHERE NUMPED IN (SELECT DISTINCT NUMPED FROM TABPED WHERE NUMPEDORI =:NUMPED);";
 
-
-            OracleCommand cmd = new OracleCommand();
-            cmd.Connection = cx.ObjetoConexao;
-            cmd.CommandText = comando1 +"\n" + comando2 + "\n" + comando3 + "\n" + comando4;
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.AddWithValue(":NUMPED", Convert.ToInt64(txtCodigo.Text.ToString()));
-            cx.Conectar();
-            cmd.ExecuteNonQuery();
-            cx.Desconectar();
         }
 
     }

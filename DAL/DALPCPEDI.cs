@@ -454,6 +454,7 @@ namespace DAL
             cmd.Parameters.AddWithValue(":DEVOLUCAOCARCACA", modelo.devolucaocarcaca);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
             conexao.Desconectar();
         }
         public void IncluirQT (ModeloPCPEDI modelo)
@@ -477,6 +478,7 @@ namespace DAL
             cmd.Parameters.AddWithValue(":QTUNITEMB", modelo.qtunitemb);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
             conexao.Desconectar();
 
         }
@@ -499,6 +501,7 @@ namespace DAL
             cmd.Parameters.AddWithValue(":PVENDA", modelo.pvenda);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
             conexao.Desconectar();
 
         }
@@ -532,14 +535,16 @@ namespace DAL
             cmd.Parameters.AddWithValue(":CODPROD", modelo.codprod);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
+          //  conexao.TerminarTransacao();
             conexao.Desconectar();
 
         }
+       
         public ModeloPCPEDI CarregaModeloPCPEDI(long codigo)
         {
             String comando3 = "";
             comando3 = comando3 + "SELECT  PI.*, 1 as QTUNITCX2," + "\n";
-            comando3 = comando3 + "(SELECT CODAUXILIAR FROM (SELECT * FROM PCEMBALAGEM ORDER BY PVENDA,QTUNIT) PE WHERE PE.CODPROD = PI.CODPROD AND NVL(PE.EXCLUIDO,'N') = 'N' AND NVL(PE.ENVIAFRENTECAIXA,'N') = 'S' AND PE.CODFUNCINATIVO IS NULL AND ROWNUM = 1) AS CODAUX2," + "\n";
+            comando3 = comando3 + "(SELECT CODAUXILIAR FROM (SELECT * FROM PCEMBALAGEM ORDER BY PVENDA,QTUNIT) PE WHERE PE.PVENDA > 0 AND PE.CODPROD = PI.CODPROD AND NVL(PE.EXCLUIDO,'N') = 'N' AND NVL(PE.ENVIAFRENTECAIXA,'N') = 'S' AND PE.CODFUNCINATIVO IS NULL AND ROWNUM = 1) AS CODAUX2," + "\n";
             comando3 = comando3 + " NVL((SELECT PP.ACEITAVENDAFRACAO FROM PCPRODUT PP WHERE PP.CODPROD = PI.CODPROD AND ROWNUM = 1),'N') AS FRACAO FROM PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();
