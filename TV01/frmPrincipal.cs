@@ -279,12 +279,30 @@ namespace TV01
                                     pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont);
                                     VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda);
 
+                                    if (VlrTotalVend > 200)
+                                    {
+                                        contped = 1;
+                                        VlrProd = VlrProd - modelopcpi.pvenda;
+                                        QtProd = QtProd - 1;
+                                        QtRestprod = QtRestprod + 1;
+                                        pvltabela = pvltabela - (modelopcpi.ptabela);
+                                        pvlcustoreal = pvlcustoreal - (modelopcpi.vlcustoreal);
+                                        pvlcustofin = pvlcustofin - (modelopcpi.vlcustofin);
+                                        pvlatend = pvlatend - (modelopcpi.pvenda);
+                                        pvlcustorep = pvlcustorep - (modelopcpi.vlcustorep);
+                                        pvlcustocont = pvlcustocont - (modelopcpi.vlcustocont);
+                                        VlrTotalVend = VlrTotalVend - (modelopcpi.pvenda);
+                                        break;
+                                    }
+
+
                                     if (VlrTotalVend > 185)
                                     {
                                         contped = 1;
                                         break;
 
                                     }
+                                    
                                 }
                                 else
                                 {
