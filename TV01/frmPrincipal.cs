@@ -103,23 +103,7 @@ namespace TV01
                     ModeloPCPEDI modelopcpi = bllpcpi.CarregaPCPEDI(Convert.ToInt64(txtCodigo.Text));
 
                     dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
-                    if (dgvItens.RowCount > 0)
-                    {
-                        ModeloPCPEDI mitens = new ModeloPCPEDI();
-                        BLLPCPEDI bitens = new BLLPCPEDI(cx);
-
-                        for (int i = 0; i < dgvItens.RowCount; i++)
-                        {
-                            mitens.numped = Convert.ToInt64(txtCodigo.Text);
-                            mitens.codprod = Convert.ToInt32(dgvItens.Rows[i].Cells[0].Value);
-                            mitens.codauxiliar = Convert.ToInt64((dgvItens.Rows[i].Cells[1].Value.ToString()));
-                            mitens.qt = Convert.ToDecimal(dgvItens.Rows[i].Cells[2].Value);
-                            mitens.qtunitemb = Convert.ToDecimal(dgvItens.Rows[i].Cells[3].Value);
-                            mitens.pvenda = Convert.ToDecimal(dgvItens.Rows[i].Cells[4].Value);
-                            bitens.IncluirDUP(mitens);
-                        }
-
-                    }
+                    
 
                     txtNome.Text = modelopcvc.cliente.ToString();
                     txtCpf.Text = modelopcvc.cgcent.ToString();
@@ -173,9 +157,12 @@ namespace TV01
         private void btnGerar_Click(object sender, EventArgs e)
         {
             try
+
             {
+                
                 if (txtNome.Text != null)
                 {
+
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCPEDC bllpcpcold = new BLLPCPEDC(cx);
                     ModeloPCPEDC modelopcpcold = bllpcpcold.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
@@ -186,6 +173,25 @@ namespace TV01
                     int paraped = 0;
                     decimal? totalgeralped = 0;
                     string qtit = txtQtdItens.Text;
+
+
+                    if (dgvItens.RowCount > 0)
+                    {
+                        ModeloPCPEDI mitens = new ModeloPCPEDI();
+                        BLLPCPEDI bitens = new BLLPCPEDI(cx);
+
+                        for (int i = 0; i < dgvItens.RowCount; i++)
+                        {
+                            mitens.numped = Convert.ToInt64(txtCodigo.Text);
+                            mitens.codprod = Convert.ToInt32(dgvItens.Rows[i].Cells[0].Value);
+                            mitens.codauxiliar = Convert.ToInt64((dgvItens.Rows[i].Cells[1].Value.ToString()));
+                            mitens.qt = Convert.ToDecimal(dgvItens.Rows[i].Cells[2].Value);
+                            mitens.qtunitemb = Convert.ToDecimal(dgvItens.Rows[i].Cells[3].Value);
+                            mitens.pvenda = Convert.ToDecimal(dgvItens.Rows[i].Cells[4].Value);
+                            bitens.IncluirDUP(mitens);
+                        }
+
+                    }
 
                     do
                     {
@@ -279,9 +285,9 @@ namespace TV01
                                     pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont);
                                     VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda);
 
-                                    if (VlrTotalVend > 200)
+                                    if (VlrTotalVend > 199)
                                     {
-                                        contped = 1;
+                                        
                                         VlrProd = VlrProd - modelopcpi.pvenda;
                                         QtProd = QtProd - 1;
                                         QtRestprod = QtRestprod + 1;
@@ -292,6 +298,7 @@ namespace TV01
                                         pvlcustorep = pvlcustorep - (modelopcpi.vlcustorep);
                                         pvlcustocont = pvlcustocont - (modelopcpi.vlcustocont);
                                         VlrTotalVend = VlrTotalVend - (modelopcpi.pvenda);
+                                        contped = 1;
                                         break;
                                     }
 
