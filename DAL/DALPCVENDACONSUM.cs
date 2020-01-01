@@ -17,12 +17,7 @@ namespace DAL
         public void Incluir(ModeloPCVENDACONSUM modelo)
         {
             String comando1 = "";
-
-#pragma warning disable CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
-#pragma warning disable CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
             OracleCommand cmd = new OracleCommand();
-#pragma warning restore CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
-#pragma warning restore CS0618 // "OracleCommand" é obsoleto: "OracleCommand has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260"
             cmd.Connection = conexao.ObjetoConexao;
 
             comando1 = comando1 + "INSERT INTO pcvendaconsum " + "\n";
@@ -83,7 +78,7 @@ namespace DAL
         }
         public ModeloPCVENDACONSUM CarregaPCVENDACONSUM (long codigo)
         {
-            String comando2 = "SELECT * FROM PCVENDACONSUM WHERE NUMPED = :codigo ";
+            String comando2 = "SELECT * FROM VWVENDACONSUM WHERE NUMPED = :codigo ";
 
             ModeloPCVENDACONSUM modelo = new ModeloPCVENDACONSUM();
             OracleCommand cmd = new OracleCommand();
@@ -117,7 +112,43 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
-        
-        
+        public ModeloPCVENDACONSUM CarregaPCVENDACONSUMMG(long codigo)
+        {
+            String comando2 = "SELECT * FROM PCVENDACONSUM WHERE NUMPED = :codigo ";
+
+            ModeloPCVENDACONSUM modelo = new ModeloPCVENDACONSUM();
+            OracleCommand cmd = new OracleCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando2;
+            cmd.Parameters.AddWithValue(":codigo", codigo);
+            conexao.Conectar();
+            OracleDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                modelo.numped = Convert.ToInt64(registro["NUMPED"]);
+                modelo.cliente = Convert.ToString(registro["CLIENTE"]);
+                modelo.cgcent = Convert.ToString(registro["CGCENT"]);
+                modelo.enderent = Convert.ToString(registro["ENDERENT"]);
+                modelo.bairroent = Convert.ToString(registro["BAIRROENT"]);
+                modelo.telent = Convert.ToString(registro["TELENT"]);
+                modelo.municent = Convert.ToString(registro["MUNICENT"]);
+                modelo.estent = Convert.ToString(registro["ESTENT"]);
+                modelo.cepent = Convert.ToString(registro["CEPENT"]);
+                modelo.ieent = Convert.ToString(registro["IEENT"]);
+                modelo.nomecontato = Convert.ToString(registro["NOMECONTATO"]);
+                modelo.telefonecontato = Convert.ToString(registro["TELEFONECONTATO"]);
+                modelo.obscontato = Convert.ToString(registro["OBSCONTATO"]);
+                modelo.email = Convert.ToString(registro["EMAIL"]);
+                modelo.codcidade = Convert.ToInt32(registro["CODCIDADE"]);
+                modelo.numeroent = Convert.ToString(registro["NUMEROENT"]);
+
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
+
     }
 }

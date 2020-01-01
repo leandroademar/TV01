@@ -17,6 +17,7 @@ namespace TV01
         public long[] pedidos = new long[2];
 
 
+
         public frmPrincipal()
         {
 
@@ -81,8 +82,22 @@ namespace TV01
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            txtCodigo.Focus();
-            LimpaTela();
+            try
+            {
+                StreamReader arquivo = new StreamReader("ConfiguracaoBanco.txt");
+                DadosDaConexao.servidor = arquivo.ReadLine();
+                DadosDaConexao.usuario = arquivo.ReadLine();
+                DadosDaConexao.senha = arquivo.ReadLine();
+                arquivo.Close();
+
+                txtCodigo.Focus();
+                LimpaTela();
+            }
+            catch
+            {
+
+            }
+
 
         }
 
@@ -94,6 +109,7 @@ namespace TV01
                 {
 
                     rtbPedGerados.Clear();
+                    //PedidoMegga();
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                     BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
                     ModeloPCVENDACONSUM modelopcvc = bllpcvc.CarregaPCVENDACONSUM(Convert.ToInt64(txtCodigo.Text));
@@ -143,13 +159,39 @@ namespace TV01
             dgvItens.Columns[2].DisplayIndex = 2;
         }
 
+        public void PedidoMegga()
+        {
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLPCPEDC blldup = new BLLPCPEDC(cx);
+            ModeloPCPEDC modelodup = blldup.CarregaPCPEDC(Convert.ToInt64(txtCodigo.Text));
+            //modelodup.numped = Convert.ToInt64(txtCodigo.Text);
+            blldup.DuplicaC(modelodup);
+            blldup.DuplicaI(modelodup);
+            //BLLPCVENDACONSUM bllpcvc = new BLLPCVENDACONSUM(cx);
+            //ModeloPCVENDACONSUM modelopcvc = new ModeloPCVENDACONSUM();
+            //modelopcvc.cgcent = "00000000191";
+            //bllpcvc.Incluir(modelopcvc);
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             //txtCodigo_Leave(sender, e);
             if (dgvItens.RowCount > 0)
             {
-                btnGerar.Visible = true;
-                btnGerar.Focus();
+                try
+                {
+
+                    PedidoMegga();
+                    btnGerar.Visible = true;
+                    btnGerar.Focus();
+                }
+                catch (Exception)
+                {
+
+                    //throw;
+                }
+               
+
+
             }
 
         }
@@ -207,13 +249,15 @@ namespace TV01
                         BLLVAR bllvar = new BLLVAR(cx);
                         ModeloVAR modelovar = bllvar.CarregaNewNumPed(Convert.ToInt64(modelopcpc.codusur));
                         bllvar.AlterarNW(modelovar);
-                        BLLCARREG bllpccr = new BLLCARREG(cx);
-                        ModeloPCCARREG modelopccr = bllpccr.CarregaNewNumPed();
+                        //BLLCARREG bllpccr = new BLLCARREG(cx);
+                        //ModeloPCCARREG modelopccr = bllpccr.CarregaNewNumPed(modelopcpc.numpedold);
 
-                        modelopcpc.numcar = modelopccr.numcar;
+                        //modelopcpc.numcar = modelopccr.numcar;
                         modelopcpc.numped = modelovar.newnumped;
                         modelopcvc.numped = modelovar.newnumped;
                         modelopcpc.condvenda = 1;
+                        modelopcpc.codcli = 1;
+                        modelopcpc.origemped = "T";
 
                         if (ped == 1)
                         {
@@ -243,8 +287,10 @@ namespace TV01
                             dgvItens.DataSource = bllpcpi.Localizar(Convert.ToInt64(txtCodigo.Text));
                             modelopcpi.oldnumped = Convert.ToInt64(txtCodigo.Text);
                             modelopcpi.numped = modelovar.newnumped;
+                            modelopcpi.codcli = 1;
+                            modelopcpi.qtunitemb = 1;
                             modelopcpi.numseqori = modelopcpi.numseq;
-                            modelopcpi.numcar = modelopccr.numcar;
+                            //modelopcpi.numcar = modelopccr.numcar;
 
                             if (modelopcpi.codprod != 0)
                             {
@@ -281,7 +327,7 @@ namespace TV01
                                     pvlcustoreal = pvlcustoreal + (modelopcpi.vlcustoreal);
                                     pvlcustofin = pvlcustofin + (modelopcpi.vlcustofin);
                                     pvlatend = pvlatend + (modelopcpi.pvenda);
-                                    pvlcustorep = pvlcustorep + (modelopcpi.vlcustorep);
+                                    pvlcustorep = (pvlcustorep + (modelopcpi.vlcustorep));
                                     pvlcustocont = pvlcustocont + (modelopcpi.vlcustocont);
                                     VlrTotalVend = VlrTotalVend + (modelopcpi.pvenda);
 
@@ -302,14 +348,7 @@ namespace TV01
                                         break;
                                     }
 
-
-                                    if (VlrTotalVend > 185)
-                                    {
-                                        contped = 1;
-                                        break;
-
-                                    }
-                                    
+                                                                     
                                 }
                                 else
                                 {
@@ -373,9 +412,9 @@ namespace TV01
 
                         vltotalrest = vltotalrest - vltotal;
 
-                        modelopcpc.vltotal = vltotal;
-                        modelopcpc.vltabela = vltabela;
-                        modelopcpc.vlatend = vlatend;
+                        modelopcpc.vltotal = Math.Round(vltotal,2);
+                        modelopcpc.vltabela = Math.Round(vltabela,2);
+                        modelopcpc.vlatend = Math.Round(vlatend,2);
                         modelopcpc.vlcustocont = Convert.ToDouble(vlcustocont);
                         modelopcpc.vlcustorep = Convert.ToDouble(vlcustorep);
                         modelopcpc.vlcustofin = Convert.ToDouble(vlcustofin);
@@ -383,9 +422,9 @@ namespace TV01
 
                         if (modelopcpc.vltotal != 0)
                         {
-                            modelopccr.codfuncmon = modelopcpc.codusur;
-                            modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
-                            bllpccr.Incluir(modelopccr);
+                            //modelopccr.codfuncmon = modelopcpc.codusur;
+                            //modelopccr.vltotal = Convert.ToDouble(modelopcpc.vltotal);
+                            //bllpccr.Incluir(modelopccr);
                             bllpcpc.Incluir(modelopcpc);
 
                             bllpcvc.Incluir(modelopcvc);
@@ -395,7 +434,7 @@ namespace TV01
                         }
 
                     } while (vltotalrest > 1 && paraped == 0);
-                    rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + " Pedidos/Itens: " + ped.ToString() + "/" + qtit + " Valor Total R$" + Math.Round(Convert.ToDecimal(totalgeralped), 2).ToString();
+                    rtbPedGerados.Text = rtbPedGerados.Text + "\n" + "\n" + " Num. Carregamento:" + modelopcpcold.numcar + "\n" + " Pedidos/Itens: " + ped.ToString() + "/" + qtit + " Valor Total R$ " + Math.Round(Convert.ToDecimal(totalgeralped), 2).ToString();
 
                     clsArquivo LCLS_ArquivoTxt = new clsArquivo();
                     LCLS_ArquivoTxt.FU_Gravar(rtbPedGerados.Text);
@@ -408,6 +447,7 @@ namespace TV01
                     modelopcpold.vltotal = 0;
                     modelopcpold.numped = Convert.ToInt64(txtCodigo.Text);
                     bllpcpold.AlterarVT(modelopcpold);
+                    bllpcpold.AlterarVTI(modelopcpold);
                     txtVlrTotal.Text = "0";
                     btnGerar.Visible = false;
                     txtCodigo.Focus();
@@ -502,16 +542,24 @@ namespace TV01
         
         private void reverterPedidoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
+       
+
+
+        }
+        public void ReverterPed(long codigo)
+        {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLPCPEDC blrevert = new BLLPCPEDC(cx);
             ModeloPCPEDC modrevert = new ModeloPCPEDC();
-            modrevert.numped = Convert.ToInt64(txtCodigo.Text.ToString());
-            blrevert.Revert1(modrevert);
-            blrevert.Revert2(modrevert);
-            blrevert.Revert3(modrevert);
-            blrevert.Revert4(modrevert);
-
-
+            modrevert.numped = Convert.ToInt64(codigo);
+            if (modrevert.posicao == "M")
+            {
+                blrevert.Revert1(modrevert);
+                blrevert.Revert2(modrevert);
+                blrevert.Revert3(modrevert);
+                blrevert.Revert4(modrevert);
+            }
         }
 
     }

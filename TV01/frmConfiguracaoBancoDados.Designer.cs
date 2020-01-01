@@ -42,9 +42,10 @@
             // 
             // btnTestar
             // 
-            this.btnTestar.Location = new System.Drawing.Point(181, 218);
+            this.btnTestar.Location = new System.Drawing.Point(161, 174);
+            this.btnTestar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTestar.Name = "btnTestar";
-            this.btnTestar.Size = new System.Drawing.Size(87, 38);
+            this.btnTestar.Size = new System.Drawing.Size(77, 30);
             this.btnTestar.TabIndex = 0;
             this.btnTestar.Text = "Testar";
             this.btnTestar.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(274, 218);
+            this.btnGravar.Location = new System.Drawing.Point(244, 174);
+            this.btnGravar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(87, 38);
+            this.btnGravar.Size = new System.Drawing.Size(77, 30);
             this.btnGravar.TabIndex = 1;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
@@ -62,73 +64,78 @@
             // 
             // txtServidor
             // 
-            this.txtServidor.Location = new System.Drawing.Point(12, 42);
+            this.txtServidor.Location = new System.Drawing.Point(11, 34);
+            this.txtServidor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtServidor.Name = "txtServidor";
-            this.txtServidor.Size = new System.Drawing.Size(349, 26);
+            this.txtServidor.Size = new System.Drawing.Size(311, 22);
             this.txtServidor.TabIndex = 2;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(12, 100);
+            this.txtUsuario.Location = new System.Drawing.Point(11, 80);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(349, 26);
+            this.txtUsuario.Size = new System.Drawing.Size(311, 22);
             this.txtUsuario.TabIndex = 3;
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(12, 159);
+            this.txtSenha.Location = new System.Drawing.Point(11, 127);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(349, 26);
+            this.txtSenha.Size = new System.Drawing.Size(311, 22);
             this.txtSenha.TabIndex = 4;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // lblServidor
             // 
             this.lblServidor.AutoSize = true;
-            this.lblServidor.Location = new System.Drawing.Point(12, 19);
+            this.lblServidor.Location = new System.Drawing.Point(11, 15);
             this.lblServidor.Name = "lblServidor";
-            this.lblServidor.Size = new System.Drawing.Size(71, 20);
+            this.lblServidor.Size = new System.Drawing.Size(65, 17);
             this.lblServidor.TabIndex = 5;
             this.lblServidor.Text = "Servidor:";
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(12, 77);
+            this.lblUser.Location = new System.Drawing.Point(11, 62);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(68, 20);
+            this.lblUser.Size = new System.Drawing.Size(61, 17);
             this.lblUser.TabIndex = 6;
             this.lblUser.Text = "Usuário:";
             // 
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(12, 136);
+            this.lblSenha.Location = new System.Drawing.Point(11, 109);
             this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(60, 20);
+            this.lblSenha.Size = new System.Drawing.Size(53, 17);
             this.lblSenha.TabIndex = 7;
             this.lblSenha.Text = "Senha:";
             // 
             // lblCaixa
             // 
             this.lblCaixa.AutoSize = true;
-            this.lblCaixa.Location = new System.Drawing.Point(12, 196);
+            this.lblCaixa.Location = new System.Drawing.Point(11, 157);
             this.lblCaixa.Name = "lblCaixa";
-            this.lblCaixa.Size = new System.Drawing.Size(52, 20);
+            this.lblCaixa.Size = new System.Drawing.Size(46, 17);
             this.lblCaixa.TabIndex = 9;
             this.lblCaixa.Text = "Caixa:";
             // 
             // txtCaixa
             // 
-            this.txtCaixa.Location = new System.Drawing.Point(12, 219);
+            this.txtCaixa.Location = new System.Drawing.Point(11, 175);
+            this.txtCaixa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCaixa.Name = "txtCaixa";
-            this.txtCaixa.Size = new System.Drawing.Size(107, 26);
+            this.txtCaixa.Size = new System.Drawing.Size(96, 22);
             this.txtCaixa.TabIndex = 8;
             // 
             // frmConfiguracaoBancoDados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 268);
+            this.ClientSize = new System.Drawing.Size(335, 214);
             this.Controls.Add(this.lblCaixa);
             this.Controls.Add(this.txtCaixa);
             this.Controls.Add(this.lblSenha);
@@ -139,6 +146,7 @@
             this.Controls.Add(this.txtServidor);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.btnTestar);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConfiguracaoBancoDados";

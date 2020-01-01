@@ -12,7 +12,7 @@ namespace TV01
             File.Delete("PEDIDOS.TXT");
             StreamWriter STW_Arquivo;
             STW_Arquivo = new StreamWriter("PEDIDOS.txt", false);
-            STW_Arquivo.WriteLine("     SUPERMERCADO TABAJARA      ");
+            STW_Arquivo.WriteLine("       RELAÇÃO DE PEDIDOS      ");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("" + txtID.Trim());

@@ -40,15 +40,16 @@ namespace DAL
             conexao.Desconectar();
 
         }
-        public ModeloPCCARREG CarreganewNUMCAR()
+        public ModeloPCCARREG CarreganewNUMCAR(long NUMPED)
         {
-            String comando1 = "select ferramentas.F_PROX_NUMCAR as NC from dual ";
+            String comando1 = "select NUMCAR as NC from PCPEDC WHERE NUMPED = :NUMPED ";
 
             ModeloPCCARREG modelo = new ModeloPCCARREG();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = comando1;
             cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":NUMPED", NUMPED);
             conexao.Conectar();
             OracleDataReader registro = cmd.ExecuteReader();
             if (registro.HasRows)

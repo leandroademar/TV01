@@ -52,10 +52,33 @@ namespace BLL
             DALObj.AlterarVT(modelo);
 
         }
+        public void AlterarVTI(ModeloPCPEDC modelo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            DALObj.AlterarVTI(modelo);
+
+        }
+        public void DuplicaI(ModeloPCPEDC modelo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            DALObj.DuplicaIT(modelo);
+
+        }
+        public void DuplicaC(ModeloPCPEDC modelo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            DALObj.DuplicaC(modelo);
+
+        }
         public ModeloPCPEDC CarregaPCPEDC(long codigo)
         {
             DALPCPEDC DALObj = new DALPCPEDC(conexao);
             return DALObj.CarregaModeloPCPEDC(codigo);
+        }
+        public ModeloPCPEDC CarregaPCPEDCRev(long codigo)
+        {
+            DALPCPEDC DALObj = new DALPCPEDC(conexao);
+            return DALObj.CarregaModeloPCPEDCRev(codigo);
         }
     }
 }

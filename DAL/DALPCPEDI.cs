@@ -544,7 +544,7 @@ namespace DAL
         {
             String comando3 = "";
             comando3 = comando3 + "SELECT  PI.*, 1 as QTUNITCX2," + "\n";
-            comando3 = comando3 + "(SELECT CODAUXILIAR FROM (SELECT * FROM PCEMBALAGEM ORDER BY PVENDA,QTUNIT) PE WHERE PE.PVENDA > 0 AND PE.QTUNIT = 1 AND PE.CODPROD = PI.CODPROD AND NVL(PE.EXCLUIDO,'N') = 'N' AND NVL(PE.ENVIAFRENTECAIXA,'N') = 'S' AND PE.CODFUNCINATIVO IS NULL AND ROWNUM = 1) AS CODAUX2," + "\n";
+            comando3 = comando3 + "PI.CODAUXILIAR AS CODAUX2," + "\n";
             comando3 = comando3 + " NVL((SELECT PP.ACEITAVENDAFRACAO FROM PCPRODUT PP WHERE PP.CODPROD = PI.CODPROD AND ROWNUM = 1),'N') AS FRACAO FROM PCPEDI PI WHERE NUMPED = :NUMPED AND QT > 0 AND ROWNUM = 1";
             ModeloPCPEDI modelo = new ModeloPCPEDI();
             OracleCommand cmd = new OracleCommand();
@@ -625,7 +625,7 @@ namespace DAL
                 if (registro["PRODDESCRICAOCONTRATO"] != DBNull.Value) { modelo.proddescricaocontrato = Convert.ToString(registro["PRODDESCRICAOCONTRATO"]); }
                 if (registro["POLITICAPRIORITARIA"] != DBNull.Value) { modelo.politicaprioritaria = Convert.ToString(registro["POLITICAPRIORITARIA"]); }
                 if (registro["TRUNCARITEM"] != DBNull.Value) { modelo.truncaritem = Convert.ToString(registro["TRUNCARITEM"]); }
-                if (registro["QTUNITEMB"] != DBNull.Value) { modelo.qtunitemb = Convert.ToDecimal(registro["QTUNITEMB"]); }
+                if (registro["QTUNITEMB"] != DBNull.Value) { modelo.qtunitemb = Convert.ToDecimal(registro["QTUNITEMB"]);}
                 if (registro["ROTINALANC"] != DBNull.Value) { modelo.rotinalanc = Convert.ToInt32(registro["ROTINALANC"]); }
                 if (registro["QTUNITCX"] != DBNull.Value) { modelo.qtunitcx = Convert.ToDouble(registro["QTUNITCX"]); }
                 if (registro["QTUNITCX2"] != DBNull.Value) { modelo.qtunitcxunit = Convert.ToDouble(registro["QTUNITCX2"]); }
@@ -708,7 +708,7 @@ namespace DAL
         public DataTable Localizar(long codigovenda)
         {
             DataTable tabela = new DataTable();
-            OracleDataAdapter da = new OracleDataAdapter("Select codprod,codauxiliar,qt,qtunitemb,pvenda from PCPEDI where NUMPED =" + codigovenda.ToString() + " AND QT > 0 ", conexao.StringConexao);
+            OracleDataAdapter da = new OracleDataAdapter("Select codprod,codauxiliar,qt,1 as qtunitemb,pvenda from PCPEDI where NUMPED =" + codigovenda.ToString() + " AND QT > 0 ", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }

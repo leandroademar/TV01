@@ -896,7 +896,52 @@ namespace DAL
 
         public void AlterarVT(ModeloPCPEDC modelo)
         {
-            String comando5 = " UPDATE PCPEDC SET VLTOTAL = 0 WHERE NUMPED = :NUMPED ";
+            String comando5 = " DELETE FROM PCPEDC WHERE NUMPED = :NUMPED ";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando5;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
+            conexao.Desconectar();
+
+        }
+        public void AlterarVTI(ModeloPCPEDC modelo)
+        {
+            String comando5 = " DELETE FROM PCPEDI WHERE NUMPED = :NUMPED ";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando5;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
+            conexao.Desconectar();
+
+        }
+        public void DuplicaC(ModeloPCPEDC modelo)
+        {
+            String comando5 = " INSERT INTO PCPEDCDUP SELECT * FROM PCPEDC WHERE NUMPED = :NUMPED ";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando5;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":NUMPED", modelo.numped);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            //conexao.TerminarTransacao();
+            conexao.Desconectar();
+
+        }
+        public void DuplicaIT(ModeloPCPEDC modelo)
+        {
+            String comando5 = " INSERT INTO PCPEDIDUP SELECT * FROM PCPEDI WHERE NUMPED = :NUMPED ";
 
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conexao.ObjetoConexao;
@@ -915,7 +960,7 @@ namespace DAL
             {
                 
                 
-                String comando1 = " UPDATE PCPEDC SET VLTOTAL = VLATEND WHERE NUMPED = :NUMPED ";
+                String comando1 = " INSERT INTO PCPEDC SELECT * FROM PCPEDCDUP WHERE NUMPED =  :NUMPED ";
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = comando1;
@@ -936,7 +981,7 @@ namespace DAL
         {
             try
             {
-                String comando2 = " UPDATE PCPEDI A SET QT = (SELECT QT FROM TABDUP B WHERE B.CODPROD = A.CODPROD AND B.NUMPED = A.NUMPED AND ROWNUM = 1) WHERE A.NUMPED = :NUMPED ";
+                String comando2 = " INSERT INTO PCPEDI SELECT * FROM PCPEDIDUP WHERE NUMPED   = :NUMPED ";
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conexao.ObjetoConexao;
                 cmd.CommandText = comando2;
@@ -998,7 +1043,7 @@ namespace DAL
 
         public ModeloPCPEDC CarregaModeloPCPEDC(long codigo)
         {
-            String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO <> 'F' AND VLTOTAL > 0 ";
+            String comando3 = "SELECT * FROM PCPEDC WHERE NUMPED = :codigo AND POSICAO = 'M' AND VLTOTAL > 0 ";
 
             ModeloPCPEDC modelo = new ModeloPCPEDC();
             OracleCommand cmd = new OracleCommand();
@@ -1180,6 +1225,192 @@ namespace DAL
             conexao.Desconectar();
             return modelo;
         }
+
+        public ModeloPCPEDC CarregaModeloPCPEDCRev(long codigo)
+        {
+            String comando3 = "SELECT * FROM PCPEDC WHERE NUMCAR = :codigo AND POSICAO = 'M' AND ORIGEMPED = 'T' AND VLTOTAL > 0 ";
+
+            ModeloPCPEDC modelo = new ModeloPCPEDC();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando3;
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.AddWithValue(":codigo", codigo);
+            conexao.Conectar();
+            OracleDataReader registro = cmd.ExecuteReader();
+            if (registro.HasRows)
+            {
+                registro.Read();
+                if (registro["NUMPED"] != DBNull.Value) { modelo.numped = Convert.ToInt64(registro["NUMPED"]); }
+                if (registro["DATA"] != DBNull.Value) { modelo.data = Convert.ToDateTime(registro["DATA"]); }
+                if (registro["CODUSUR"] != DBNull.Value) { modelo.codusur = Convert.ToInt16(registro["CODUSUR"]); }
+                if (registro["CODCLI"] != DBNull.Value) { modelo.codcli = Convert.ToInt32(registro["CODCLI"]); }
+                if (registro["NUMITENS"] != DBNull.Value) { modelo.numitens = Convert.ToInt16(registro["NUMITENS"]); }
+                if (registro["VLATEND"] != DBNull.Value) { modelo.vlatend = Convert.ToDecimal(registro["VLATEND"]); }
+                if (registro["CODPRACA"] != DBNull.Value) { modelo.codpraca = Convert.ToInt16(registro["CODPRACA"]); }
+                if (registro["POSICAO"] != DBNull.Value) { modelo.posicao = Convert.ToString(registro["POSICAO"]); }
+                if (registro["NUMCAR"] != DBNull.Value) { modelo.numcar = Convert.ToInt32(registro["NUMCAR"]); }
+                if (registro["CODSUPERVISOR"] != DBNull.Value) { modelo.codsupervisor = Convert.ToInt16(registro["CODSUPERVISOR"]); }
+                if (registro["CODFILIAL"] != DBNull.Value) { modelo.codfilial = Convert.ToString(registro["CODFILIAL"]); }
+                if (registro["VLTOTAL"] != DBNull.Value) { modelo.vltotal = Convert.ToDecimal(registro["VLTOTAL"]); }
+                if (registro["VLTABELA"] != DBNull.Value) { modelo.vltabela = Convert.ToDecimal(registro["VLTABELA"]); }
+                if (registro["VLCUSTOREAL"] != DBNull.Value) { modelo.vlcustoreal = Convert.ToDouble(registro["VLCUSTOREAL"]); }
+                if (registro["VLCUSTOFIN"] != DBNull.Value) { modelo.vlcustofin = Convert.ToDouble(registro["VLCUSTOFIN"]); }
+                if (registro["TOTPESO"] != DBNull.Value) { modelo.totpeso = Convert.ToDecimal(registro["TOTPESO"]); }
+                if (registro["TOTVOLUME"] != DBNull.Value) { modelo.totvolume = Convert.ToDecimal(registro["TOTVOLUME"]); }
+                if (registro["CODEMITENTE"] != DBNull.Value) { modelo.codemitente = Convert.ToInt32(registro["CODEMITENTE"]); }
+                if (registro["OPERACAO"] != DBNull.Value) { modelo.operacao = Convert.ToString(registro["OPERACAO"]); }
+                if (registro["TIPOVENDA"] != DBNull.Value) { modelo.tipovenda = Convert.ToString(registro["TIPOVENDA"]); }
+                if (registro["OBS"] != DBNull.Value) { modelo.obs = Convert.ToString(registro["OBS"]); }
+                if (registro["CODCOB"] != DBNull.Value) { modelo.codcob = Convert.ToString(registro["CODCOB"]); }
+                if (registro["HORA"] != DBNull.Value) { modelo.hora = Convert.ToInt16(registro["HORA"]); }
+                if (registro["MINUTO"] != DBNull.Value) { modelo.minuto = Convert.ToInt16(registro["MINUTO"]); }
+                if (registro["CODPLPAG"] != DBNull.Value) { modelo.codplpag = Convert.ToInt16(registro["CODPLPAG"]); }
+                if (registro["NUMPEDCLI"] != DBNull.Value) { modelo.numpedcli = Convert.ToString(registro["NUMPEDCLI"]); }
+                if (registro["PERCVENDA"] != DBNull.Value) { modelo.percvenda = Convert.ToSingle(registro["PERCVENDA"]); }
+                if (registro["PERDESC"] != DBNull.Value) { modelo.perdesc = Convert.ToDecimal(registro["PERDESC"]); }
+                if (registro["VLDESCONTO"] != DBNull.Value) { modelo.vldesconto = Convert.ToDecimal(registro["VLDESCONTO"]); }
+                if (registro["VLFRETE"] != DBNull.Value) { modelo.vlfrete = Convert.ToDecimal(registro["VLFRETE"]); }
+                if (registro["VLOUTRASDESP"] != DBNull.Value) { modelo.vloutrasdesp = Convert.ToDecimal(registro["VLOUTRASDESP"]); }
+                if (registro["OBS1"] != DBNull.Value) { modelo.obs1 = Convert.ToString(registro["OBS1"]); }
+                if (registro["OBS2"] != DBNull.Value) { modelo.obs2 = Convert.ToString(registro["OBS2"]); }
+                if (registro["CONDVENDA"] != DBNull.Value) { modelo.condvenda = Convert.ToInt32(registro["CONDVENDA"]); }
+                if (registro["DTENTREGA"] != DBNull.Value) { modelo.dtentrega = Convert.ToDateTime(registro["DTENTREGA"]); }
+                if (registro["NUMPEDRCA"] != DBNull.Value) { modelo.numpedrca = Convert.ToInt64(registro["NUMPEDRCA"]); }
+                if (registro["FRETEDESPACHO"] != DBNull.Value) { modelo.fretedespacho = Convert.ToString(registro["FRETEDESPACHO"]); }
+                if (registro["FRETEREDESPACHO"] != DBNull.Value) { modelo.freteredespacho = Convert.ToString(registro["FRETEREDESPACHO"]); }
+                if (registro["CODFORNECFRETE"] != DBNull.Value) { modelo.codfornecfrete = Convert.ToInt32(registro["CODFORNECFRETE"]); }
+                if (registro["CODFORNECREDESPACHO"] != DBNull.Value) { modelo.codfornecredespacho = Convert.ToInt32(registro["CODFORNECREDESPACHO"]); }
+                if (registro["TIPOCARGA"] != DBNull.Value) { modelo.tipocarga = Convert.ToString(registro["TIPOCARGA"]); }
+                if (registro["PRAZO1"] != DBNull.Value) { modelo.prazo1 = Convert.ToInt16(registro["PRAZO1"]); }
+                if (registro["PRAZO2"] != DBNull.Value) { modelo.prazo2 = Convert.ToInt16(registro["PRAZO2"]); }
+                if (registro["PRAZO3"] != DBNull.Value) { modelo.prazo3 = Convert.ToInt16(registro["PRAZO3"]); }
+                if (registro["PRAZO4"] != DBNull.Value) { modelo.prazo4 = Convert.ToInt16(registro["PRAZO4"]); }
+                if (registro["PRAZO5"] != DBNull.Value) { modelo.prazo5 = Convert.ToInt16(registro["PRAZO5"]); }
+                if (registro["PRAZO6"] != DBNull.Value) { modelo.prazo6 = Convert.ToInt16(registro["PRAZO6"]); }
+                if (registro["PRAZO7"] != DBNull.Value) { modelo.prazo7 = Convert.ToInt16(registro["PRAZO7"]); }
+                if (registro["PRAZO8"] != DBNull.Value) { modelo.prazo8 = Convert.ToInt16(registro["PRAZO8"]); }
+                if (registro["PRAZO9"] != DBNull.Value) { modelo.prazo9 = Convert.ToInt16(registro["PRAZO9"]); }
+                if (registro["PRAZO10"] != DBNull.Value) { modelo.prazo10 = Convert.ToInt16(registro["PRAZO10"]); }
+                if (registro["PRAZO11"] != DBNull.Value) { modelo.prazo11 = Convert.ToInt16(registro["PRAZO11"]); }
+                if (registro["PRAZO12"] != DBNull.Value) { modelo.prazo12 = Convert.ToInt16(registro["PRAZO12"]); }
+                if (registro["PRAZOMEDIO"] != DBNull.Value) { modelo.prazomedio = Convert.ToInt16(registro["PRAZOMEDIO"]); }
+                if (registro["OBSENTREGA1"] != DBNull.Value) { modelo.obsentrega1 = Convert.ToString(registro["OBSENTREGA1"]); }
+                if (registro["OBSENTREGA2"] != DBNull.Value) { modelo.obsentrega2 = Convert.ToString(registro["OBSENTREGA2"]); }
+                if (registro["OBSENTREGA3"] != DBNull.Value) { modelo.obsentrega3 = Convert.ToString(registro["OBSENTREGA3"]); }
+                if (registro["TIPOEMBALAGEM"] != DBNull.Value) { modelo.tipoembalagem = Convert.ToString(registro["TIPOEMBALAGEM"]); }
+                if (registro["CODEPTO"] != DBNull.Value) { modelo.codepto = Convert.ToInt32(registro["CODEPTO"]); }
+                if (registro["CAMPANHA"] != DBNull.Value) { modelo.campanha = Convert.ToString(registro["CAMPANHA"]); }
+                if (registro["CODDISTRIB"] != DBNull.Value) { modelo.coddistrib = Convert.ToString(registro["CODDISTRIB"]); }
+                if (registro["VLCUSTOCONT"] != DBNull.Value) { modelo.vlcustocont = Convert.ToDouble(registro["VLCUSTOCONT"]); }
+                if (registro["VLCUSTOREP"] != DBNull.Value) { modelo.vlcustorep = Convert.ToDouble(registro["VLCUSTOREP"]); }
+                if (registro["NUMNOTAMANIF"] != DBNull.Value) { modelo.numnotamanif = Convert.ToInt64(registro["NUMNOTAMANIF"]); }
+                if (registro["SERIEMANIF"] != DBNull.Value) { modelo.seriemanif = Convert.ToString(registro["SERIEMANIF"]); }
+                if (registro["ORIGEMPED"] != DBNull.Value) { modelo.origemped = Convert.ToString(registro["ORIGEMPED"]); }
+                if (registro["ESPECIEMANIF"] != DBNull.Value) { modelo.especiemanif = Convert.ToString(registro["ESPECIEMANIF"]); }
+                if (registro["NUMPEDENTFUT"] != DBNull.Value) { modelo.numpedentfut = Convert.ToInt64(registro["NUMPEDENTFUT"]); }
+                if (registro["CODFILIALNF"] != DBNull.Value) { modelo.codfilialnf = Convert.ToString(registro["CODFILIALNF"]); }
+                if (registro["NUMCARMANIF"] != DBNull.Value) { modelo.numcarmanif = Convert.ToInt32(registro["NUMCARMANIF"]); }
+                if (registro["NUMORCA"] != DBNull.Value) { modelo.numorca = Convert.ToInt64(registro["NUMORCA"]); }
+                if (registro["CODCONTRATO"] != DBNull.Value) { modelo.codcontrato = Convert.ToInt32(registro["CODCONTRATO"]); }
+                if (registro["DATAPEDCLI"] != DBNull.Value) { modelo.datapedcli = Convert.ToDateTime(registro["DATAPEDCLI"]); }
+                if (registro["NUMPEDBNF"] != DBNull.Value) { modelo.numpedbnf = Convert.ToInt64(registro["NUMPEDBNF"]); }
+                if (registro["BROKER"] != DBNull.Value) { modelo.broker = Convert.ToString(registro["BROKER"]); }
+                if (registro["CODESTABELECIMENTO"] != DBNull.Value) { modelo.codestabelecimento = Convert.ToString(registro["CODESTABELECIMENTO"]); }
+                if (registro["NUMTABELA"] != DBNull.Value) { modelo.numtabela = Convert.ToString(registro["NUMTABELA"]); }
+                if (registro["MOTIVOPOSICAO"] != DBNull.Value) { modelo.motivoposicao = Convert.ToString(registro["MOTIVOPOSICAO"]); }
+                if (registro["DTAGENDAENTREGA"] != DBNull.Value) { modelo.dtagendaentrega = Convert.ToDateTime(registro["DTAGENDAENTREGA"]); }
+                if (registro["TIPOOPER"] != DBNull.Value) { modelo.tipooper = Convert.ToString(registro["TIPOOPER"]); }
+                if (registro["CODMOTBLOQUEIO"] != DBNull.Value) { modelo.codmotbloqueio = Convert.ToInt32(registro["CODMOTBLOQUEIO"]); }
+                if (registro["SERIEECF"] != DBNull.Value) { modelo.serieecf = Convert.ToString(registro["SERIEECF"]); }
+                if (registro["NUMCUPOM"] != DBNull.Value) { modelo.numcupom = Convert.ToInt64(registro["NUMCUPOM"]); }
+                if (registro["CODCLIRECEBEDOR"] != DBNull.Value) { modelo.codclirecebedor = Convert.ToInt32(registro["CODCLIRECEBEDOR"]); }
+                if (registro["CONCILIAIMPORTACAO"] != DBNull.Value) { modelo.conciliaimportacao = Convert.ToString(registro["CONCILIAIMPORTACAO"]); }
+                if (registro["NUMREGIAO"] != DBNull.Value) { modelo.numregiao = Convert.ToInt16(registro["NUMREGIAO"]); }
+                if (registro["NUMNOTA"] != DBNull.Value) { modelo.numnota = Convert.ToInt64(registro["NUMNOTA"]); }
+                if (registro["PERDESCFIN"] != DBNull.Value) { modelo.perdescfin = Convert.ToDouble(registro["PERDESCFIN"]); }
+                if (registro["RESTRICAOTRANSP"] != DBNull.Value) { modelo.restricaotransp = Convert.ToString(registro["RESTRICAOTRANSP"]); }
+                if (registro["GERACP"] != DBNull.Value) { modelo.geracp = Convert.ToString(registro["GERACP"]); }
+                if (registro["USAINTEGRACAOWMS"] != DBNull.Value) { modelo.usaintegracaowms = Convert.ToString(registro["USAINTEGRACAOWMS"]); }
+                if (registro["VENDAASSISTIDA"] != DBNull.Value) { modelo.vendaassistida = Convert.ToString(registro["VENDAASSISTIDA"]); }
+                if (registro["CODMOTIVO"] != DBNull.Value) { modelo.codmotivo = Convert.ToInt32(registro["CODMOTIVO"]); }
+                if (registro["LOG"] != DBNull.Value) { modelo.log = Convert.ToString(registro["LOG"]); }
+                if (registro["DTCALCFRETE"] != DBNull.Value) { modelo.dtcalcfrete = Convert.ToDateTime(registro["DTCALCFRETE"]); }
+                if (registro["CODFUNCCALCFRETE"] != DBNull.Value) { modelo.codfunccalcfrete = Convert.ToInt32(registro["CODFUNCCALCFRETE"]); }
+                if (registro["EANCOBRANCA"] != DBNull.Value) { modelo.eancobranca = Convert.ToInt64(registro["EANCOBRANCA"]); }
+                if (registro["EANENTREGA"] != DBNull.Value) { modelo.eanentrega = Convert.ToInt64(registro["EANENTREGA"]); }
+                if (registro["USACFOPVENDANATV10"] != DBNull.Value) { modelo.usacfopvendanatv10 = Convert.ToString(registro["USACFOPVENDANATV10"]); }
+                if (registro["TIPOPRIORIDADEENTREGA"] != DBNull.Value) { modelo.tipoprioridadeentrega = Convert.ToString(registro["TIPOPRIORIDADEENTREGA"]); }
+                if (registro["CODUSUR2"] != DBNull.Value) { modelo.codusur2 = Convert.ToInt32(registro["CODUSUR2"]); }
+                if (registro["CODUSUR3"] != DBNull.Value) { modelo.codusur3 = Convert.ToInt32(registro["CODUSUR3"]); }
+                if (registro["CODUSUR4"] != DBNull.Value) { modelo.codusur4 = Convert.ToInt32(registro["CODUSUR4"]); }
+                if (registro["CODCLINF"] != DBNull.Value) { modelo.codclinf = Convert.ToInt32(registro["CODCLINF"]); }
+                if (registro["NUMPEDTV1"] != DBNull.Value) { modelo.numpedtv1 = Convert.ToInt64(registro["NUMPEDTV1"]); }
+                if (registro["USADEBCREDRCA"] != DBNull.Value) { modelo.usadebcredrca = Convert.ToString(registro["USADEBCREDRCA"]); }
+                if (registro["BRINDE"] != DBNull.Value) { modelo.brinde = Convert.ToString(registro["BRINDE"]); }
+                if (registro["BONIFICALTDEBCREDRCA"] != DBNull.Value) { modelo.bonificaltdebcredrca = Convert.ToString(registro["BONIFICALTDEBCREDRCA"]); }
+                if (registro["TROCAALTDEBCREDRCA"] != DBNull.Value) { modelo.trocaaltdebcredrca = Convert.ToString(registro["TROCAALTDEBCREDRCA"]); }
+                if (registro["BROKERALTDEBCREDRCA"] != DBNull.Value) { modelo.brokeraltdebcredrca = Convert.ToString(registro["BROKERALTDEBCREDRCA"]); }
+                if (registro["CRMALTDEBCREDRCA"] != DBNull.Value) { modelo.crmaltdebcredrca = Convert.ToString(registro["CRMALTDEBCREDRCA"]); }
+                if (registro["TIPOMOVCCRCA"] != DBNull.Value) { modelo.tipomovccrca = Convert.ToString(registro["TIPOMOVCCRCA"]); }
+                if (registro["USACREDRCA"] != DBNull.Value) { modelo.usacredrca = Convert.ToString(registro["USACREDRCA"]); }
+                if (registro["GERARDADOSNFPAULISTA"] != DBNull.Value) { modelo.gerardadosnfpaulista = Convert.ToString(registro["GERARDADOSNFPAULISTA"]); }
+                if (registro["USASALDOCONTACORRENTEDESCFIN"] != DBNull.Value) { modelo.usasaldocontacorrentedescfin = Convert.ToString(registro["USASALDOCONTACORRENTEDESCFIN"]); }
+                if (registro["VALORDESCFIN"] != DBNull.Value) { modelo.valordescfin = Convert.ToDecimal(registro["VALORDESCFIN"]); }
+                if (registro["CODVISITA"] != DBNull.Value) { modelo.codvisita = Convert.ToInt64(registro["CODVISITA"]); }
+                if (registro["CODATENDIMENTO"] != DBNull.Value) { modelo.codatendimento = Convert.ToInt32(registro["CODATENDIMENTO"]); }
+                if (registro["VENDATRIANGULAR"] != DBNull.Value) { modelo.vendatriangular = Convert.ToString(registro["VENDATRIANGULAR"]); }
+                if (registro["VLENTRADA"] != DBNull.Value) { modelo.vlentrada = Convert.ToDecimal(registro["VLENTRADA"]); }
+                if (registro["UFDESEMBARACO"] != DBNull.Value) { modelo.ufdesembaraco = Convert.ToString(registro["UFDESEMBARACO"]); }
+                if (registro["LOCALDESEMBARACO"] != DBNull.Value) { modelo.localdesembaraco = Convert.ToString(registro["LOCALDESEMBARACO"]); }
+                if (registro["CUSTOBONIFICACAO"] != DBNull.Value) { modelo.custobonificacao = Convert.ToString(registro["CUSTOBONIFICACAO"]); }
+                if (registro["CODFORNECBONIFIC"] != DBNull.Value) { modelo.codfornecbonific = Convert.ToInt32(registro["CODFORNECBONIFIC"]); }
+                if (registro["CODBNF"] != DBNull.Value) { modelo.codbnf = Convert.ToInt16(registro["CODBNF"]); }
+                if (registro["TIPODOCUMENTO"] != DBNull.Value) { modelo.tipodocumento = Convert.ToString(registro["TIPODOCUMENTO"]); }
+                if (registro["CFOPBNFDEGUSTA"] != DBNull.Value) { modelo.cfopbnfdegusta = Convert.ToInt32(registro["CFOPBNFDEGUSTA"]); }
+                if (registro["CONTAORDEM"] != DBNull.Value) { modelo.contaordem = Convert.ToString(registro["CONTAORDEM"]); }
+                if (registro["DATAEMPENHO"] != DBNull.Value) { modelo.dataempenho = Convert.ToDateTime(registro["DATAEMPENHO"]); }
+                if (registro["NUMEMPENHO"] != DBNull.Value) { modelo.numempenho = Convert.ToString(registro["NUMEMPENHO"]); }
+                if (registro["CODUNIDADEEXECUTORA"] != DBNull.Value) { modelo.codunidadeexecutora = Convert.ToString(registro["CODUNIDADEEXECUTORA"]); }
+                if (registro["PLACAVEICULO"] != DBNull.Value) { modelo.placaveiculo = Convert.ToString(registro["PLACAVEICULO"]); }
+                if (registro["DTLIMITEFAT"] != DBNull.Value) { modelo.dtlimitefat = Convert.ToDateTime(registro["DTLIMITEFAT"]); }
+                if (registro["RESERVAESTOQUETV7"] != DBNull.Value) { modelo.reservaestoquetv7 = Convert.ToString(registro["RESERVAESTOQUETV7"]); }
+                if (registro["FORNECENTREGA"] != DBNull.Value) { modelo.fornecentrega = Convert.ToString(registro["FORNECENTREGA"]); }
+                if (registro["CODCLITV8"] != DBNull.Value) { modelo.codclitv8 = Convert.ToInt32(registro["CODCLITV8"]); }
+                if (registro["UFVEICULO"] != DBNull.Value) { modelo.ufveiculo = Convert.ToString(registro["UFVEICULO"]); }
+                if (registro["MOTORISTAVEICULO"] != DBNull.Value) { modelo.motoristaveiculo = Convert.ToString(registro["MOTORISTAVEICULO"]); }
+                if (registro["DTINICIODIGITACAOPEDIDO"] != DBNull.Value) { modelo.dtiniciodigitacaopedido = Convert.ToDateTime(registro["DTINICIODIGITACAOPEDIDO"]); }
+                if (registro["DTFIMDIGITACAOPEDIDO"] != DBNull.Value) { modelo.dtfimdigitacaopedido = Convert.ToDateTime(registro["DTFIMDIGITACAOPEDIDO"]); }
+                if (registro["VLDESCABATIMENTO"] != DBNull.Value) { modelo.vldescabatimento = Convert.ToDecimal(registro["VLDESCABATIMENTO"]); }
+                if (registro["AGRUPAMENTO"] != DBNull.Value) { modelo.agrupamento = Convert.ToString(registro["AGRUPAMENTO"]); }
+                if (registro["VENDAEXPORTACAO"] != DBNull.Value) { modelo.vendaexportacao = Convert.ToString(registro["VENDAEXPORTACAO"]); }
+                if (registro["TURNOENTREGA"] != DBNull.Value) { modelo.turnoentrega = Convert.ToString(registro["TURNOENTREGA"]); }
+                if (registro["NUMTRANSVENDATV13"] != DBNull.Value) { modelo.numtransvendatv13 = Convert.ToInt64(registro["NUMTRANSVENDATV13"]); }
+                if (registro["CODENDENTCLI"] != DBNull.Value) { modelo.codendentcli = Convert.ToInt32(registro["CODENDENTCLI"]); }
+                if (registro["UTILIZAVENDAPOREMBALAGEM"] != DBNull.Value) { modelo.utilizavendaporembalagem = Convert.ToString(registro["UTILIZAVENDAPOREMBALAGEM"]); }
+                if (registro["CODCONTATO"] != DBNull.Value) { modelo.codcontato = Convert.ToInt32(registro["CODCONTATO"]); }
+                if (registro["NUMREGEXP"] != DBNull.Value) { modelo.numregexp = Convert.ToInt64(registro["NUMREGEXP"]); }
+                if (registro["NUMCHAVEEXP"] != DBNull.Value) { modelo.numchaveexp = Convert.ToString(registro["NUMCHAVEEXP"]); }
+                if (registro["NUMDRAWBACK"] != DBNull.Value) { modelo.numdrawback = Convert.ToInt64(registro["NUMDRAWBACK"]); }
+                if (registro["DTNFTRANSF"] != DBNull.Value) { modelo.dtnftransf = Convert.ToDateTime(registro["DTNFTRANSF"]); }
+                if (registro["ROTINALANC"] != DBNull.Value) { modelo.rotinalanc = Convert.ToString(registro["ROTINALANC"]); }
+                if (registro["NUMPEDORIGEM"] != DBNull.Value) { modelo.numpedorigem = Convert.ToInt64(registro["NUMPEDORIGEM"]); }
+                if (registro["PEDDUPLICADO"] != DBNull.Value) { modelo.pedduplicado = Convert.ToString(registro["PEDDUPLICADO"]); }
+                if (registro["VLBONIFIC"] != DBNull.Value) { modelo.vlbonific = Convert.ToDecimal(registro["VLBONIFIC"]); }
+                if (registro["VENDALOCESTRANG"] != DBNull.Value) { modelo.vendalocestrang = Convert.ToString(registro["VENDALOCESTRANG"]); }
+                if (registro["COPIAIDENTICAPEDDUP"] != DBNull.Value) { modelo.copiaidenticapeddup = Convert.ToString(registro["COPIAIDENTICAPEDDUP"]); }
+                if (registro["ASSINATURA"] != DBNull.Value) { modelo.assinatura = Convert.ToString(registro["ASSINATURA"]); }
+                if (registro["CONDFINANC"] != DBNull.Value) { modelo.condfinanc = Convert.ToString(registro["CONDFINANC"]); }
+                if (registro["PLANOSUPPLI"] != DBNull.Value) { modelo.planosuppli = Convert.ToInt16(registro["PLANOSUPPLI"]); }
+                if (registro["PAGCHEQUEMORADIA"] != DBNull.Value) { modelo.pagchequemoradia = Convert.ToString(registro["PAGCHEQUEMORADIA"]); }
+                if (registro["NUMVOLUME"] != DBNull.Value) { modelo.numvolume = Convert.ToInt32(registro["NUMVOLUME"]); }
+
+
+            }
+            conexao.Desconectar();
+            return modelo;
+        }
+
 
     }
 }

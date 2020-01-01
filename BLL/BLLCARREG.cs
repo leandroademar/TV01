@@ -17,10 +17,10 @@ namespace BLL
             DALObj.Incluir(modelo);
 
         }
-        public ModeloPCCARREG CarregaNewNumPed()
+        public ModeloPCCARREG CarregaNewNumPed(long numped)
         {
             DALPCCARREG DALObj = new DALPCCARREG(conexao);
-            return DALObj.CarreganewNUMCAR();
+            return DALObj.CarreganewNUMCAR(numped);
         }
     }
 }
